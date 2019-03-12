@@ -13,8 +13,27 @@ const Mutation = prismaObjectType({
   definition(t) { t.prismaFields(['*']) }
 })
 
+const User = prismaObjectType({
+    name: "User",
+    definition(t) {
+        t.prismaFields(["id", "name", "posts"])
+    }
+})
+
+const Post = prismaObjectType({
+    name: "Post",
+    definition(t) {
+        t.string("upperCaseTitle",
+        {
+            resolve: ({title}, args, ctx) => title.toUpperCase()
+        })
+    }
+})
+
+
+
 const schema = makePrismaSchema({
-  types: [Query, Mutation],
+  types: [Query, Mutation, User, Post],
 
   prisma: {
     datamodelInfo,

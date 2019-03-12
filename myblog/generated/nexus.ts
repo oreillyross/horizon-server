@@ -319,14 +319,7 @@ export interface NexusGenRootTypes {
     hasPreviousPage: boolean; // Boolean!
     startCursor?: string | null; // String
   }
-  Post: { // root type
-    content?: string | null; // String
-    createdAt: any; // DateTime!
-    id: string; // ID!
-    published: boolean; // Boolean!
-    title: string; // String!
-    updatedAt: any; // DateTime!
-  }
+  Post: {};
   PostConnection: { // root type
     edges: NexusGenRootTypes['PostEdge'][]; // [PostEdge!]!
     pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
@@ -337,7 +330,6 @@ export interface NexusGenRootTypes {
   }
   Query: {};
   User: { // root type
-    email: string; // String!
     id: string; // ID!
     name?: string | null; // String
   }
@@ -418,13 +410,7 @@ export interface NexusGenFieldTypes {
     startCursor: string | null; // String
   }
   Post: { // field return type
-    author: NexusGenRootTypes['User']; // User!
-    content: string | null; // String
-    createdAt: any; // DateTime!
-    id: string; // ID!
-    published: boolean; // Boolean!
-    title: string; // String!
-    updatedAt: any; // DateTime!
+    upperCaseTitle: string; // String!
   }
   PostConnection: { // field return type
     aggregate: NexusGenRootTypes['AggregatePost']; // AggregatePost!
@@ -444,7 +430,6 @@ export interface NexusGenFieldTypes {
     usersConnection: NexusGenRootTypes['UserConnection']; // UserConnection!
   }
   User: { // field return type
-    email: string; // String!
     id: string; // ID!
     name: string | null; // String
     posts: NexusGenRootTypes['Post'][] | null; // [Post!]
