@@ -1,6 +1,6 @@
-const cheerio = require('cheerio')
-const fetch = require('node-fetch')
-const moment = require('moment')
+import * as cheerio from 'cheerio'
+import fetch from 'node-fetch'
+
 
 
 const href = 'http://www.naharnet.com/lebanon'
@@ -14,11 +14,22 @@ const href = 'http://www.naharnet.com/lebanon'
     crawlDate: 'Thu Oct 11 2018 09:25:18 GMT+0000 (UTC)' }
 */
 
+interface Href {
+    href: string
+}
 
-const getMainSources = async url => {
-    let sources = []
-    let description = []
-    let href = []
+interface Description {
+    description: string
+}
+
+interface Source {
+    title: string
+}
+
+const getMainSources = async (url: string) => {
+    let sources: Array<Source> = []
+    let description: Array<Description> = []
+    let href: Array<Href> = []
     try {
         const response = await fetch(url)
         const html = await response.text()
@@ -43,15 +54,19 @@ const getMainSources = async url => {
                 description: description[i].description,
                 source: 'Naharnet',
                 href: href[i].href,
-                crawlDate: new Date()
+                date: new Date()
             }
         })
     }
 }
 
 
-module.exports = getMainSources(href)
 
-// getMainSources(href).then(data => {
-//     console.log(data)
-// })
+
+const naharnetSources = getMainSources(href)
+
+export {  naharnetSources as default }
+
+getMainSources(href).then(data => {
+    console.log(data)
+})

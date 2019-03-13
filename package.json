@@ -1,0 +1,36 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@okgrow/graphql-scalars": "^0.4.5",
+    "@types/cheerio": "^0.22.11",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^11.11.3",
+    "@types/node-fetch": "^2.1.6",
+    "cheerio": "^1.0.0-rc.2",
+    "graphql-yoga": "^1.17.4",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.3.0",
+    "request": "^2.88.0",
+    "ts-node-dev": "^1.0.0-pre.32"
+  },
+  "devDependencies": {
+    "typescript": "^3.3.3333"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oreillyross/Horizon-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oreillyross/Horizon-server/issues"
+  },
+  "homepage": "https://github.com/oreillyross/Horizon-server#readme"
+}
