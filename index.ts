@@ -1,29 +1,30 @@
 import { GraphQLServer } from 'graphql-yoga'
 import DateTime from '@okgrow/graphql-scalars'
-import naharnetSources  from './sources/naharnet'
-import nnaSources from './sources/nna'
-import dailyStarSources from './sources/dailystar'
-import sources from './sources/articles'
+import * as fs from 'fs'
+import * as uuidv4 from 'uuid/v4'
 
-console.log(sources)
+let articlesJson = JSON.parse(fs.readFileSync('./sources/articles.json'))
+
+console.log(articlesJson.length)
+
+articlesJson.forEach(o => o.id = uuidv4())
 
 const typeDefs = `
    
-   scalar DateTime
+  scalar DateTime
    
-   type Articles {
+  type Articles {
       date: DateTime
       title: String
       description: String
       href: String
+      id: String
       
-   }
+  }
    
-   type Query {
-     naharnetArticles: [Articles!]!
-     nnaArticles: [Articles!]!
-     dailyStarArticles: [Articles!]!
-   }
+  type Query {
+     articles: [Articles!]!
+  }
  `
 
 
@@ -31,9 +32,7 @@ const typeDefs = `
 const resolvers = {
   DateTime,
   Query: {
-    naharnetArticles: (parent, args, context, info) => naharnetSources,
-    nnaArticles: (parent, args, context, info) => nnaSources,
-    dailyStarArticles: (parent, args, context, info) => dailyStarSources
+    articles: (parent, args, context, info) => articlesJson
   },
 }
 

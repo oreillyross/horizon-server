@@ -1,18 +1,7 @@
 import * as cheerio from 'cheerio'
 import fetch from 'node-fetch'
 
-
-
 const href = 'http://www.naharnet.com/lebanon'
-
-/*
- { title: 'Israel accuses Hezbollah of erecting missile building sites',
-    description: 'The claims in the five photographs and 76-second long video could not be independently verified.',
-    source: 'Annahar',
-    date: '2018-09-08T00:00:00+00:00',
-    href: 'https://en.annahar.com/article/870099-israel-accuses-hezbollah-of-erecting-missile-building-sites',
-    crawlDate: 'Thu Oct 11 2018 09:25:18 GMT+0000 (UTC)' }
-*/
 
 interface Href {
     href: string
@@ -32,7 +21,8 @@ const getMainSources = async (url: string) => {
     let href: Array<Href> = []
     try {
         const response = await fetch(url)
-        const html = await response.text()
+        console.log(typeof(response), 'inside getMainSources of Naharnet')
+        const html = await response.text().catch((err) => console.error('got you',err))
         const $ = cheerio.load(html)
         $('.latest-story a.title').each(function(i, elem) {
             sources[i] = { 'title': ($(this).text()) }
@@ -46,8 +36,10 @@ const getMainSources = async (url: string) => {
     }
     catch (err) {
         console.error(err)
+        console.log('ooooooooooooooooooooooppppppss')
     }
     finally {
+        console.log('just got into final of naharnet', `sources is ${sources.length}`)
         return sources.map((source, i) => {
             return {
                 title: source.title,
@@ -63,10 +55,8 @@ const getMainSources = async (url: string) => {
 
 
 
-const naharnetSources = getMainSources(href)
+const naharnetSources = getMainSources(href).catch(err => console.log(`some bad error here ${err}`))
 
 export {  naharnetSources as default }
 
-getMainSources(href).then(data => {
-    console.log(data)
-})
+

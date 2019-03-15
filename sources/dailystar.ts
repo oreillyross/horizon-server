@@ -10,8 +10,12 @@ const getMainSources = async url => {
       const html = await response.text()
       const $ = cheerio.load(html)
       $('.ic_caption a').each(function (i, elem) {
-          sources.push(`https://www.dailystar.com.lb${$(this).attr('href')}`)
+          sources.push({
+            url: `https://www.dailystar.com.lb${$(this).attr('href')}`,
+            adescription: $(this).children('p').text()
+          })
       })
+      
     } catch (err) {
         console.error('an error in dailystar getmainsources func')
     } finally {
@@ -20,13 +24,13 @@ const getMainSources = async url => {
     
 }
 
-const getArticleData = async url => {
+const getArticleData = async ({url, adescription}) => {
     const response = await fetch(url)
     const html = await response.text()
     const $ = cheerio.load(html)
     const title = $('#bodyHolder_divTitle').text()
     //TODO find a way to get an article snippet from Daily Star. Maybe use selenium to login then scrape page and log out again
-    const description = '' 
+    const description = adescription 
     const source = 'Daily Star'
     const href = url
     const date = new Date()
@@ -43,6 +47,7 @@ const getArticleData = async url => {
 const getSources = url => {
   return getMainSources(url)
     .then(sources => {
+      console.log(sources)
       const promises = sources.map(getArticleData)  
       return Promise.all(promises).then(data => {
         return data
@@ -52,6 +57,6 @@ const getSources = url => {
 
 const dailyStarSources = getSources(href)
 
-export { dailyStarSources as default }
+ export { dailyStarSources as default }
 
-//getSources(href).then(data => console.log(data))
+// getSources(href).then(data => console.log(data.length))
