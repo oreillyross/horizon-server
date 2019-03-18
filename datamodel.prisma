@@ -2,3 +2,11 @@ type User {
   id: ID! @unique
   name: String!
 }
+
+type Article {
+  date: DateTime
+  title: String
+  description: String
+  href: String
+  id: ID! @unique
+}
