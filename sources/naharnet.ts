@@ -21,7 +21,6 @@ const getMainSources = async (url: string) => {
     let href: Array<Href> = []
     try {
         const response = await fetch(url)
-        console.log(typeof(response), 'inside getMainSources of Naharnet')
         const html = await response.text().catch((err) => console.error('got you',err))
         const $ = cheerio.load(html)
         $('.latest-story a.title').each(function(i, elem) {
@@ -36,10 +35,8 @@ const getMainSources = async (url: string) => {
     }
     catch (err) {
         console.error(err)
-        console.log('ooooooooooooooooooooooppppppss')
     }
     finally {
-        console.log('just got into final of naharnet', `sources is ${sources.length}`)
         return sources.map((source, i) => {
             return {
                 title: source.title,

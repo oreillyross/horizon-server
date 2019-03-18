@@ -29,7 +29,6 @@ const getArticleData = async ({url, adescription}) => {
     const html = await response.text()
     const $ = cheerio.load(html)
     const title = $('#bodyHolder_divTitle').text()
-    //TODO find a way to get an article snippet from Daily Star. Maybe use selenium to login then scrape page and log out again
     const description = adescription 
     const source = 'Daily Star'
     const href = url
@@ -47,7 +46,6 @@ const getArticleData = async ({url, adescription}) => {
 const getSources = url => {
   return getMainSources(url)
     .then(sources => {
-      console.log(sources)
       const promises = sources.map(getArticleData)  
       return Promise.all(promises).then(data => {
         return data

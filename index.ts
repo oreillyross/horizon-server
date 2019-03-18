@@ -1,11 +1,17 @@
 import { GraphQLServer } from 'graphql-yoga'
 import DateTime from '@okgrow/graphql-scalars'
 import * as fs from 'fs'
-import * as uuidv4 from 'uuid/v4'
+import uuidv4 from 'uuid/v4'
+import * as mymod from './sources/articles'
+import { checkForArticles } from './sources/articles'
 
-let articlesJson = JSON.parse(fs.readFileSync('./sources/articles.json'))
+const oneHour = 1000 * 60 * 60
 
-console.log(articlesJson.length)
+checkForArticles()
+
+setInterval(checkForArticles, oneHour)
+
+let articlesJson = JSON.parse(fs.readFileSync('./sources/articlesForHorizon.json'))
 
 articlesJson.forEach(o => o.id = uuidv4())
 
@@ -36,6 +42,11 @@ const resolvers = {
   },
 }
 
+
+
 const server = new GraphQLServer({ typeDefs, resolvers })
-server.start(() => console.log('Server running'))
+server.start(() => {
+   
+   console.log('Server started')
+})
 
