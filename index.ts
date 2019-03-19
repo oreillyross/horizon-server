@@ -15,8 +15,6 @@ let articlesJson = JSON.parse(fs.readFileSync('./sources/articlesForHorizon.json
 
 articlesJson.forEach(o => o.id = uuidv4())
 
-console.log(articlesJson)
-
 const typeDefs = `
    
   scalar DateTime

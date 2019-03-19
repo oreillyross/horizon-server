@@ -8,5 +8,7 @@ type Article {
   title: String
   description: String
   href: String
+  source: String
   id: ID! @unique
+  read: Boolean @default(value: "false")
 }

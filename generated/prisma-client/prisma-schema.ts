@@ -15,7 +15,9 @@ type Article {
   title: String
   description: String
   href: String
+  source: String
   id: ID!
+  read: Boolean
 }
 
 type ArticleConnection {
@@ -29,6 +31,8 @@ input ArticleCreateInput {
   title: String
   description: String
   href: String
+  source: String
+  read: Boolean
 }
 
 type ArticleEdge {
@@ -45,8 +49,12 @@ enum ArticleOrderByInput {
   description_DESC
   href_ASC
   href_DESC
+  source_ASC
+  source_DESC
   id_ASC
   id_DESC
+  read_ASC
+  read_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -58,7 +66,9 @@ type ArticlePreviousValues {
   title: String
   description: String
   href: String
+  source: String
   id: ID!
+  read: Boolean
 }
 
 type ArticleSubscriptionPayload {
@@ -84,6 +94,8 @@ input ArticleUpdateInput {
   title: String
   description: String
   href: String
+  source: String
+  read: Boolean
 }
 
 input ArticleUpdateManyMutationInput {
@@ -91,6 +103,8 @@ input ArticleUpdateManyMutationInput {
   title: String
   description: String
   href: String
+  source: String
+  read: Boolean
 }
 
 input ArticleWhereInput {
@@ -144,6 +158,20 @@ input ArticleWhereInput {
   href_not_starts_with: String
   href_ends_with: String
   href_not_ends_with: String
+  source: String
+  source_not: String
+  source_in: [String!]
+  source_not_in: [String!]
+  source_lt: String
+  source_lte: String
+  source_gt: String
+  source_gte: String
+  source_contains: String
+  source_not_contains: String
+  source_starts_with: String
+  source_not_starts_with: String
+  source_ends_with: String
+  source_not_ends_with: String
   id: ID
   id_not: ID
   id_in: [ID!]
@@ -158,6 +186,8 @@ input ArticleWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  read: Boolean
+  read_not: Boolean
   AND: [ArticleWhereInput!]
   OR: [ArticleWhereInput!]
   NOT: [ArticleWhereInput!]

@@ -155,8 +155,12 @@ export type ArticleOrderByInput =
   | "description_DESC"
   | "href_ASC"
   | "href_DESC"
+  | "source_ASC"
+  | "source_DESC"
   | "id_ASC"
   | "id_DESC"
+  | "read_ASC"
+  | "read_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -229,6 +233,20 @@ export interface ArticleWhereInput {
   href_not_starts_with?: String;
   href_ends_with?: String;
   href_not_ends_with?: String;
+  source?: String;
+  source_not?: String;
+  source_in?: String[] | String;
+  source_not_in?: String[] | String;
+  source_lt?: String;
+  source_lte?: String;
+  source_gt?: String;
+  source_gte?: String;
+  source_contains?: String;
+  source_not_contains?: String;
+  source_starts_with?: String;
+  source_not_starts_with?: String;
+  source_ends_with?: String;
+  source_not_ends_with?: String;
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -243,6 +261,8 @@ export interface ArticleWhereInput {
   id_not_starts_with?: ID_Input;
   id_ends_with?: ID_Input;
   id_not_ends_with?: ID_Input;
+  read?: Boolean;
+  read_not?: Boolean;
   AND?: ArticleWhereInput[] | ArticleWhereInput;
   OR?: ArticleWhereInput[] | ArticleWhereInput;
   NOT?: ArticleWhereInput[] | ArticleWhereInput;
@@ -291,6 +311,8 @@ export interface ArticleCreateInput {
   title?: String;
   description?: String;
   href?: String;
+  source?: String;
+  read?: Boolean;
 }
 
 export interface ArticleUpdateInput {
@@ -298,6 +320,8 @@ export interface ArticleUpdateInput {
   title?: String;
   description?: String;
   href?: String;
+  source?: String;
+  read?: Boolean;
 }
 
 export interface ArticleUpdateManyMutationInput {
@@ -305,6 +329,8 @@ export interface ArticleUpdateManyMutationInput {
   title?: String;
   description?: String;
   href?: String;
+  source?: String;
+  read?: Boolean;
 }
 
 export interface UserCreateInput {
@@ -350,7 +376,9 @@ export interface Article {
   title?: String;
   description?: String;
   href?: String;
+  source?: String;
   id: ID_Output;
+  read?: Boolean;
 }
 
 export interface ArticlePromise extends Promise<Article>, Fragmentable {
@@ -358,7 +386,9 @@ export interface ArticlePromise extends Promise<Article>, Fragmentable {
   title: () => Promise<String>;
   description: () => Promise<String>;
   href: () => Promise<String>;
+  source: () => Promise<String>;
   id: () => Promise<ID_Output>;
+  read: () => Promise<Boolean>;
 }
 
 export interface ArticleSubscription
@@ -368,7 +398,9 @@ export interface ArticleSubscription
   title: () => Promise<AsyncIterator<String>>;
   description: () => Promise<AsyncIterator<String>>;
   href: () => Promise<AsyncIterator<String>>;
+  source: () => Promise<AsyncIterator<String>>;
   id: () => Promise<AsyncIterator<ID_Output>>;
+  read: () => Promise<AsyncIterator<Boolean>>;
 }
 
 export interface ArticleConnection {
@@ -565,7 +597,9 @@ export interface ArticlePreviousValues {
   title?: String;
   description?: String;
   href?: String;
+  source?: String;
   id: ID_Output;
+  read?: Boolean;
 }
 
 export interface ArticlePreviousValuesPromise
@@ -575,7 +609,9 @@ export interface ArticlePreviousValuesPromise
   title: () => Promise<String>;
   description: () => Promise<String>;
   href: () => Promise<String>;
+  source: () => Promise<String>;
   id: () => Promise<ID_Output>;
+  read: () => Promise<Boolean>;
 }
 
 export interface ArticlePreviousValuesSubscription
@@ -585,7 +621,9 @@ export interface ArticlePreviousValuesSubscription
   title: () => Promise<AsyncIterator<String>>;
   description: () => Promise<AsyncIterator<String>>;
   href: () => Promise<AsyncIterator<String>>;
+  source: () => Promise<AsyncIterator<String>>;
   id: () => Promise<AsyncIterator<ID_Output>>;
+  read: () => Promise<AsyncIterator<Boolean>>;
 }
 
 export interface UserSubscriptionPayload {
@@ -654,14 +692,14 @@ The `String` scalar type represents textual data, represented as UTF-8 character
 export type String = string;
 
 /*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
-*/
-export type Int = number;
-
-/*
 The `Boolean` scalar type represents `true` or `false`.
 */
 export type Boolean = boolean;
+
+/*
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
+*/
+export type Int = number;
 
 export type Long = string;
 

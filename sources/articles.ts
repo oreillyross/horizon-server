@@ -2,8 +2,28 @@ import dailyStarSources  from './dailystar'
 import naharnetSources from './naharnet'
 import nnaSources from './nna'
 import * as fs from 'fs'
+import { prisma } from '../generated/prisma-client'
+import { startOfDay, addDays } from 'date-fns'
 
-async function checkForArticles() {
+// get articles for a specific day
+export async function getTodaysArticles() {
+    const today = startOfDay(new Date()).toISOString()
+    const tomorrow = startOfDay(addDays(new Date(), 1)).toISOString()
+    console.log(tomorrow, today)
+    
+    const articles = await prisma.articles(
+        {
+          where : {
+              date_gte: today,
+              date_lt: tomorrow
+            
+          } 
+        })
+    return articles
+}
+
+
+async function getArticles() {
     
     let dailyStarArticles = []
     let nnaArticles = []
@@ -29,11 +49,10 @@ async function checkForArticles() {
     } catch (err) {
         console.error(err)
     }
-    const sources = JSON.stringify([...dailyStarArticles, ...nnaArticles, ...naharnetArticles])
-    fs.writeFile('./sources/articlesForHorizon.json', sources, 'utf8', () => {
-        console.log(`Files written successfully!`)
-    })
+    const sources = [...dailyStarArticles, ...nnaArticles, ...naharnetArticles]
+    return sources
 }
 
 
-export { checkForArticles }
+
+export { getArticles }
