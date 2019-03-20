@@ -3,6 +3,8 @@ import { GraphQLServer } from 'graphql-yoga'
 import { makePrismaSchema, prismaObjectType } from 'nexus-prisma'
 import { prisma } from './generated/prisma-client'
 import datamodelInfo from './generated/nexus-prisma'
+import { main } from './sources/import'
+
 
 const Query = prismaObjectType({
   name: 'Query',
@@ -31,4 +33,13 @@ const server = new GraphQLServer({
   schema,
   context: { prisma }
 })
-server.start(() => console.log(`Server running`))
+
+const oneHour = 1000 * 60 * 60
+
+server.start(() => {
+  
+  console.log(`Server running`)
+  
+  main()
+  
+})

@@ -1,29 +1,8 @@
 import dailyStarSources  from './dailystar'
 import naharnetSources from './naharnet'
 import nnaSources from './nna'
-import * as fs from 'fs'
-import { prisma } from '../generated/prisma-client'
-import { startOfDay, addDays } from 'date-fns'
 
-// get articles for a specific day
-export async function getTodaysArticles() {
-    const today = startOfDay(new Date()).toISOString()
-    const tomorrow = startOfDay(addDays(new Date(), 1)).toISOString()
-    console.log(tomorrow, today)
-    
-    const articles = await prisma.articles(
-        {
-          where : {
-              date_gte: today,
-              date_lt: tomorrow
-            
-          } 
-        })
-    return articles
-}
-
-
-async function getArticles() {
+async function getArticlesFromWeb() {
     
     let dailyStarArticles = []
     let nnaArticles = []
@@ -53,6 +32,4 @@ async function getArticles() {
     return sources
 }
 
-
-
-export { getArticles }
+export { getArticlesFromWeb }

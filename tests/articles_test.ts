@@ -3,12 +3,15 @@
 
 import * as myImport from '../sources/import'
 import { fakeArticles } from '../sources/fakeArticles'
-//import { getArticles } from '../sources/articles'
+import { getArticlesForADay } from '../sources/database'
+
+
+
 
 //getArticles().then(console.log)
+//getArticlesForADay(new Date()).then(result => console.log(result))
+myImport.main()
 
-//console.log(myImport.main())
-
-myImport.getSavedArticles(fakeArticles).then((result) => {
-    console.log('Saved all articles, total: ', result.length)
-})
+// myImport.getSavedArticles(fakeArticles).then((result) => {
+//     console.log('Saved all articles, total: ', result.length)
+// })
