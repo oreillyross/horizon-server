@@ -3,7 +3,7 @@ type User {
   name: String!
 }
 
-type Article {
+type Event {
   date: DateTime
   title: String
   description: String
@@ -11,4 +11,37 @@ type Article {
   source: String
   id: ID! @unique
   read: Boolean @default(value: "false")
+  indications: [Indication!]!
+}
+
+type Keyword {
+  id: ID! @unique
+  name: String
+  description: String
+  events: [Event!]!
+}
+
+type Scenario {
+  id: ID! @unique
+  name: String
+  description: String
+  indicators: [Indicator!]!
+}
+
+type Indicator {
+ id: ID! @unique
+ name: String
+ description: String
+ keywords: [Keyword!]!
+ scenarios: [Scenario!]!
+}
+
+type Indication {
+  id: ID! @unique
+  indicator: Indicator!
+  event: Event!
+  strength: Int
+  meaning: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }

@@ -20,17 +20,41 @@ export interface NexusPrismaTypes {
       PageInfo: PageInfoObject
       UserEdge: UserEdgeObject
       AggregateUser: AggregateUserObject
-      Article: ArticleObject
-      ArticleConnection: ArticleConnectionObject
-      ArticleEdge: ArticleEdgeObject
-      AggregateArticle: AggregateArticleObject
+      Event: EventObject
+      Indication: IndicationObject
+      Indicator: IndicatorObject
+      Keyword: KeywordObject
+      Scenario: ScenarioObject
+      EventConnection: EventConnectionObject
+      EventEdge: EventEdgeObject
+      AggregateEvent: AggregateEventObject
+      KeywordConnection: KeywordConnectionObject
+      KeywordEdge: KeywordEdgeObject
+      AggregateKeyword: AggregateKeywordObject
+      ScenarioConnection: ScenarioConnectionObject
+      ScenarioEdge: ScenarioEdgeObject
+      AggregateScenario: AggregateScenarioObject
+      IndicatorConnection: IndicatorConnectionObject
+      IndicatorEdge: IndicatorEdgeObject
+      AggregateIndicator: AggregateIndicatorObject
+      IndicationConnection: IndicationConnectionObject
+      IndicationEdge: IndicationEdgeObject
+      AggregateIndication: AggregateIndicationObject
       Mutation: MutationObject
       BatchPayload: BatchPayloadObject
       Subscription: SubscriptionObject
       UserSubscriptionPayload: UserSubscriptionPayloadObject
       UserPreviousValues: UserPreviousValuesObject
-      ArticleSubscriptionPayload: ArticleSubscriptionPayloadObject
-      ArticlePreviousValues: ArticlePreviousValuesObject
+      EventSubscriptionPayload: EventSubscriptionPayloadObject
+      EventPreviousValues: EventPreviousValuesObject
+      KeywordSubscriptionPayload: KeywordSubscriptionPayloadObject
+      KeywordPreviousValues: KeywordPreviousValuesObject
+      ScenarioSubscriptionPayload: ScenarioSubscriptionPayloadObject
+      ScenarioPreviousValues: ScenarioPreviousValuesObject
+      IndicatorSubscriptionPayload: IndicatorSubscriptionPayloadObject
+      IndicatorPreviousValues: IndicatorPreviousValuesObject
+      IndicationSubscriptionPayload: IndicationSubscriptionPayloadObject
+      IndicationPreviousValues: IndicationPreviousValuesObject
     }
     fieldsDetails: {
       Query: QueryFieldDetails
@@ -39,38 +63,142 @@ export interface NexusPrismaTypes {
       PageInfo: PageInfoFieldDetails
       UserEdge: UserEdgeFieldDetails
       AggregateUser: AggregateUserFieldDetails
-      Article: ArticleFieldDetails
-      ArticleConnection: ArticleConnectionFieldDetails
-      ArticleEdge: ArticleEdgeFieldDetails
-      AggregateArticle: AggregateArticleFieldDetails
+      Event: EventFieldDetails
+      Indication: IndicationFieldDetails
+      Indicator: IndicatorFieldDetails
+      Keyword: KeywordFieldDetails
+      Scenario: ScenarioFieldDetails
+      EventConnection: EventConnectionFieldDetails
+      EventEdge: EventEdgeFieldDetails
+      AggregateEvent: AggregateEventFieldDetails
+      KeywordConnection: KeywordConnectionFieldDetails
+      KeywordEdge: KeywordEdgeFieldDetails
+      AggregateKeyword: AggregateKeywordFieldDetails
+      ScenarioConnection: ScenarioConnectionFieldDetails
+      ScenarioEdge: ScenarioEdgeFieldDetails
+      AggregateScenario: AggregateScenarioFieldDetails
+      IndicatorConnection: IndicatorConnectionFieldDetails
+      IndicatorEdge: IndicatorEdgeFieldDetails
+      AggregateIndicator: AggregateIndicatorFieldDetails
+      IndicationConnection: IndicationConnectionFieldDetails
+      IndicationEdge: IndicationEdgeFieldDetails
+      AggregateIndication: AggregateIndicationFieldDetails
       Mutation: MutationFieldDetails
       BatchPayload: BatchPayloadFieldDetails
       Subscription: SubscriptionFieldDetails
       UserSubscriptionPayload: UserSubscriptionPayloadFieldDetails
       UserPreviousValues: UserPreviousValuesFieldDetails
-      ArticleSubscriptionPayload: ArticleSubscriptionPayloadFieldDetails
-      ArticlePreviousValues: ArticlePreviousValuesFieldDetails
+      EventSubscriptionPayload: EventSubscriptionPayloadFieldDetails
+      EventPreviousValues: EventPreviousValuesFieldDetails
+      KeywordSubscriptionPayload: KeywordSubscriptionPayloadFieldDetails
+      KeywordPreviousValues: KeywordPreviousValuesFieldDetails
+      ScenarioSubscriptionPayload: ScenarioSubscriptionPayloadFieldDetails
+      ScenarioPreviousValues: ScenarioPreviousValuesFieldDetails
+      IndicatorSubscriptionPayload: IndicatorSubscriptionPayloadFieldDetails
+      IndicatorPreviousValues: IndicatorPreviousValuesFieldDetails
+      IndicationSubscriptionPayload: IndicationSubscriptionPayloadFieldDetails
+      IndicationPreviousValues: IndicationPreviousValuesFieldDetails
     }
   }
   inputTypes: {
     fields: {
       UserWhereUniqueInput: UserWhereUniqueInputInputObject
       UserWhereInput: UserWhereInputInputObject
-      ArticleWhereUniqueInput: ArticleWhereUniqueInputInputObject
-      ArticleWhereInput: ArticleWhereInputInputObject
+      EventWhereUniqueInput: EventWhereUniqueInputInputObject
+      IndicationWhereInput: IndicationWhereInputInputObject
+      IndicatorWhereInput: IndicatorWhereInputInputObject
+      KeywordWhereInput: KeywordWhereInputInputObject
+      EventWhereInput: EventWhereInputInputObject
+      ScenarioWhereInput: ScenarioWhereInputInputObject
+      KeywordWhereUniqueInput: KeywordWhereUniqueInputInputObject
+      ScenarioWhereUniqueInput: ScenarioWhereUniqueInputInputObject
+      IndicatorWhereUniqueInput: IndicatorWhereUniqueInputInputObject
+      IndicationWhereUniqueInput: IndicationWhereUniqueInputInputObject
       UserCreateInput: UserCreateInputInputObject
       UserUpdateInput: UserUpdateInputInputObject
       UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject
-      ArticleCreateInput: ArticleCreateInputInputObject
-      ArticleUpdateInput: ArticleUpdateInputInputObject
-      ArticleUpdateManyMutationInput: ArticleUpdateManyMutationInputInputObject
+      EventCreateInput: EventCreateInputInputObject
+      IndicationCreateManyWithoutEventInput: IndicationCreateManyWithoutEventInputInputObject
+      IndicationCreateWithoutEventInput: IndicationCreateWithoutEventInputInputObject
+      IndicatorCreateOneInput: IndicatorCreateOneInputInputObject
+      IndicatorCreateInput: IndicatorCreateInputInputObject
+      KeywordCreateManyInput: KeywordCreateManyInputInputObject
+      KeywordCreateInput: KeywordCreateInputInputObject
+      EventCreateManyInput: EventCreateManyInputInputObject
+      ScenarioCreateManyWithoutIndicatorsInput: ScenarioCreateManyWithoutIndicatorsInputInputObject
+      ScenarioCreateWithoutIndicatorsInput: ScenarioCreateWithoutIndicatorsInputInputObject
+      EventUpdateInput: EventUpdateInputInputObject
+      IndicationUpdateManyWithoutEventInput: IndicationUpdateManyWithoutEventInputInputObject
+      IndicationUpdateWithWhereUniqueWithoutEventInput: IndicationUpdateWithWhereUniqueWithoutEventInputInputObject
+      IndicationUpdateWithoutEventDataInput: IndicationUpdateWithoutEventDataInputInputObject
+      IndicatorUpdateOneRequiredInput: IndicatorUpdateOneRequiredInputInputObject
+      IndicatorUpdateDataInput: IndicatorUpdateDataInputInputObject
+      KeywordUpdateManyInput: KeywordUpdateManyInputInputObject
+      KeywordUpdateWithWhereUniqueNestedInput: KeywordUpdateWithWhereUniqueNestedInputInputObject
+      KeywordUpdateDataInput: KeywordUpdateDataInputInputObject
+      EventUpdateManyInput: EventUpdateManyInputInputObject
+      EventUpdateWithWhereUniqueNestedInput: EventUpdateWithWhereUniqueNestedInputInputObject
+      EventUpdateDataInput: EventUpdateDataInputInputObject
+      EventUpsertWithWhereUniqueNestedInput: EventUpsertWithWhereUniqueNestedInputInputObject
+      EventScalarWhereInput: EventScalarWhereInputInputObject
+      EventUpdateManyWithWhereNestedInput: EventUpdateManyWithWhereNestedInputInputObject
+      EventUpdateManyDataInput: EventUpdateManyDataInputInputObject
+      KeywordUpsertWithWhereUniqueNestedInput: KeywordUpsertWithWhereUniqueNestedInputInputObject
+      KeywordScalarWhereInput: KeywordScalarWhereInputInputObject
+      KeywordUpdateManyWithWhereNestedInput: KeywordUpdateManyWithWhereNestedInputInputObject
+      KeywordUpdateManyDataInput: KeywordUpdateManyDataInputInputObject
+      ScenarioUpdateManyWithoutIndicatorsInput: ScenarioUpdateManyWithoutIndicatorsInputInputObject
+      ScenarioUpdateWithWhereUniqueWithoutIndicatorsInput: ScenarioUpdateWithWhereUniqueWithoutIndicatorsInputInputObject
+      ScenarioUpdateWithoutIndicatorsDataInput: ScenarioUpdateWithoutIndicatorsDataInputInputObject
+      ScenarioUpsertWithWhereUniqueWithoutIndicatorsInput: ScenarioUpsertWithWhereUniqueWithoutIndicatorsInputInputObject
+      ScenarioScalarWhereInput: ScenarioScalarWhereInputInputObject
+      ScenarioUpdateManyWithWhereNestedInput: ScenarioUpdateManyWithWhereNestedInputInputObject
+      ScenarioUpdateManyDataInput: ScenarioUpdateManyDataInputInputObject
+      IndicatorUpsertNestedInput: IndicatorUpsertNestedInputInputObject
+      IndicationUpsertWithWhereUniqueWithoutEventInput: IndicationUpsertWithWhereUniqueWithoutEventInputInputObject
+      IndicationScalarWhereInput: IndicationScalarWhereInputInputObject
+      IndicationUpdateManyWithWhereNestedInput: IndicationUpdateManyWithWhereNestedInputInputObject
+      IndicationUpdateManyDataInput: IndicationUpdateManyDataInputInputObject
+      EventUpdateManyMutationInput: EventUpdateManyMutationInputInputObject
+      KeywordUpdateInput: KeywordUpdateInputInputObject
+      KeywordUpdateManyMutationInput: KeywordUpdateManyMutationInputInputObject
+      ScenarioCreateInput: ScenarioCreateInputInputObject
+      IndicatorCreateManyWithoutScenariosInput: IndicatorCreateManyWithoutScenariosInputInputObject
+      IndicatorCreateWithoutScenariosInput: IndicatorCreateWithoutScenariosInputInputObject
+      ScenarioUpdateInput: ScenarioUpdateInputInputObject
+      IndicatorUpdateManyWithoutScenariosInput: IndicatorUpdateManyWithoutScenariosInputInputObject
+      IndicatorUpdateWithWhereUniqueWithoutScenariosInput: IndicatorUpdateWithWhereUniqueWithoutScenariosInputInputObject
+      IndicatorUpdateWithoutScenariosDataInput: IndicatorUpdateWithoutScenariosDataInputInputObject
+      IndicatorUpsertWithWhereUniqueWithoutScenariosInput: IndicatorUpsertWithWhereUniqueWithoutScenariosInputInputObject
+      IndicatorScalarWhereInput: IndicatorScalarWhereInputInputObject
+      IndicatorUpdateManyWithWhereNestedInput: IndicatorUpdateManyWithWhereNestedInputInputObject
+      IndicatorUpdateManyDataInput: IndicatorUpdateManyDataInputInputObject
+      ScenarioUpdateManyMutationInput: ScenarioUpdateManyMutationInputInputObject
+      IndicatorUpdateInput: IndicatorUpdateInputInputObject
+      IndicatorUpdateManyMutationInput: IndicatorUpdateManyMutationInputInputObject
+      IndicationCreateInput: IndicationCreateInputInputObject
+      EventCreateOneWithoutIndicationsInput: EventCreateOneWithoutIndicationsInputInputObject
+      EventCreateWithoutIndicationsInput: EventCreateWithoutIndicationsInputInputObject
+      IndicationUpdateInput: IndicationUpdateInputInputObject
+      EventUpdateOneRequiredWithoutIndicationsInput: EventUpdateOneRequiredWithoutIndicationsInputInputObject
+      EventUpdateWithoutIndicationsDataInput: EventUpdateWithoutIndicationsDataInputInputObject
+      EventUpsertWithoutIndicationsInput: EventUpsertWithoutIndicationsInputInputObject
+      IndicationUpdateManyMutationInput: IndicationUpdateManyMutationInputInputObject
       UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
-      ArticleSubscriptionWhereInput: ArticleSubscriptionWhereInputInputObject
+      EventSubscriptionWhereInput: EventSubscriptionWhereInputInputObject
+      KeywordSubscriptionWhereInput: KeywordSubscriptionWhereInputInputObject
+      ScenarioSubscriptionWhereInput: ScenarioSubscriptionWhereInputInputObject
+      IndicatorSubscriptionWhereInput: IndicatorSubscriptionWhereInputInputObject
+      IndicationSubscriptionWhereInput: IndicationSubscriptionWhereInputInputObject
     }
   }
   enumTypes: {
     UserOrderByInput: UserOrderByInputValues,
-    ArticleOrderByInput: ArticleOrderByInputValues,
+    IndicationOrderByInput: IndicationOrderByInputValues,
+    KeywordOrderByInput: KeywordOrderByInputValues,
+    EventOrderByInput: EventOrderByInputValues,
+    ScenarioOrderByInput: ScenarioOrderByInputValues,
+    IndicatorOrderByInput: IndicatorOrderByInputValues,
     MutationType: MutationTypeValues,
   }
 }
@@ -82,17 +210,41 @@ type QueryObject =
   | { name: 'user', args?: QueryUserArgs[] | false, alias?: string  } 
   | { name: 'users', args?: QueryUsersArgs[] | false, alias?: string  } 
   | { name: 'usersConnection', args?: QueryUsersConnectionArgs[] | false, alias?: string  } 
-  | { name: 'article', args?: QueryArticleArgs[] | false, alias?: string  } 
-  | { name: 'articles', args?: QueryArticlesArgs[] | false, alias?: string  } 
-  | { name: 'articlesConnection', args?: QueryArticlesConnectionArgs[] | false, alias?: string  } 
+  | { name: 'event', args?: QueryEventArgs[] | false, alias?: string  } 
+  | { name: 'events', args?: QueryEventsArgs[] | false, alias?: string  } 
+  | { name: 'eventsConnection', args?: QueryEventsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'keyword', args?: QueryKeywordArgs[] | false, alias?: string  } 
+  | { name: 'keywords', args?: QueryKeywordsArgs[] | false, alias?: string  } 
+  | { name: 'keywordsConnection', args?: QueryKeywordsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'scenario', args?: QueryScenarioArgs[] | false, alias?: string  } 
+  | { name: 'scenarios', args?: QueryScenariosArgs[] | false, alias?: string  } 
+  | { name: 'scenariosConnection', args?: QueryScenariosConnectionArgs[] | false, alias?: string  } 
+  | { name: 'indicator', args?: QueryIndicatorArgs[] | false, alias?: string  } 
+  | { name: 'indicators', args?: QueryIndicatorsArgs[] | false, alias?: string  } 
+  | { name: 'indicatorsConnection', args?: QueryIndicatorsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'indication', args?: QueryIndicationArgs[] | false, alias?: string  } 
+  | { name: 'indications', args?: QueryIndicationsArgs[] | false, alias?: string  } 
+  | { name: 'indicationsConnection', args?: QueryIndicationsConnectionArgs[] | false, alias?: string  } 
 
 type QueryFields =
   | 'user'
   | 'users'
   | 'usersConnection'
-  | 'article'
-  | 'articles'
-  | 'articlesConnection'
+  | 'event'
+  | 'events'
+  | 'eventsConnection'
+  | 'keyword'
+  | 'keywords'
+  | 'keywordsConnection'
+  | 'scenario'
+  | 'scenarios'
+  | 'scenariosConnection'
+  | 'indicator'
+  | 'indicators'
+  | 'indicatorsConnection'
+  | 'indication'
+  | 'indications'
+  | 'indicationsConnection'
 
 
 type QueryUserArgs =
@@ -113,9 +265,9 @@ type QueryUsersConnectionArgs =
   | 'before'
   | 'first'
   | 'last'
-type QueryArticleArgs =
+type QueryEventArgs =
   | 'where'
-type QueryArticlesArgs =
+type QueryEventsArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -123,7 +275,79 @@ type QueryArticlesArgs =
   | 'before'
   | 'first'
   | 'last'
-type QueryArticlesConnectionArgs =
+type QueryEventsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryKeywordArgs =
+  | 'where'
+type QueryKeywordsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryKeywordsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryScenarioArgs =
+  | 'where'
+type QueryScenariosArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryScenariosConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryIndicatorArgs =
+  | 'where'
+type QueryIndicatorsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryIndicatorsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryIndicationArgs =
+  | 'where'
+type QueryIndicationsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryIndicationsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -173,44 +397,200 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.UserConnection> | prisma.UserConnection
   }
-  article: {
-    type: 'Article'
-    args: Record<QueryArticleArgs, core.NexusArgDef<string>>
+  event: {
+    type: 'Event'
+    args: Record<QueryEventArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where: ArticleWhereUniqueInput }  ,
+      args: { where: EventWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Article | null> | prisma.Article | null
+    ) => Promise<prisma.Event | null> | prisma.Event | null
   }
-  articles: {
-    type: 'Article'
-    args: Record<QueryArticlesArgs, core.NexusArgDef<string>>
+  events: {
+    type: 'Event'
+    args: Record<QueryEventsArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: ArticleWhereInput | null, orderBy?: prisma.ArticleOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: EventWhereInput | null, orderBy?: prisma.EventOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Article[]> | prisma.Article[]
+    ) => Promise<prisma.Event[]> | prisma.Event[]
   }
-  articlesConnection: {
-    type: 'ArticleConnection'
-    args: Record<QueryArticlesConnectionArgs, core.NexusArgDef<string>>
+  eventsConnection: {
+    type: 'EventConnection'
+    args: Record<QueryEventsConnectionArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: ArticleWhereInput | null, orderBy?: prisma.ArticleOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: EventWhereInput | null, orderBy?: prisma.EventOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.ArticleConnection> | prisma.ArticleConnection
+    ) => Promise<prisma.EventConnection> | prisma.EventConnection
+  }
+  keyword: {
+    type: 'Keyword'
+    args: Record<QueryKeywordArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: KeywordWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Keyword | null> | prisma.Keyword | null
+  }
+  keywords: {
+    type: 'Keyword'
+    args: Record<QueryKeywordsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: KeywordWhereInput | null, orderBy?: prisma.KeywordOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Keyword[]> | prisma.Keyword[]
+  }
+  keywordsConnection: {
+    type: 'KeywordConnection'
+    args: Record<QueryKeywordsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: KeywordWhereInput | null, orderBy?: prisma.KeywordOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.KeywordConnection> | prisma.KeywordConnection
+  }
+  scenario: {
+    type: 'Scenario'
+    args: Record<QueryScenarioArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: ScenarioWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Scenario | null> | prisma.Scenario | null
+  }
+  scenarios: {
+    type: 'Scenario'
+    args: Record<QueryScenariosArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: ScenarioWhereInput | null, orderBy?: prisma.ScenarioOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Scenario[]> | prisma.Scenario[]
+  }
+  scenariosConnection: {
+    type: 'ScenarioConnection'
+    args: Record<QueryScenariosConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: ScenarioWhereInput | null, orderBy?: prisma.ScenarioOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ScenarioConnection> | prisma.ScenarioConnection
+  }
+  indicator: {
+    type: 'Indicator'
+    args: Record<QueryIndicatorArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: IndicatorWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indicator | null> | prisma.Indicator | null
+  }
+  indicators: {
+    type: 'Indicator'
+    args: Record<QueryIndicatorsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: IndicatorWhereInput | null, orderBy?: prisma.IndicatorOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indicator[]> | prisma.Indicator[]
+  }
+  indicatorsConnection: {
+    type: 'IndicatorConnection'
+    args: Record<QueryIndicatorsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: IndicatorWhereInput | null, orderBy?: prisma.IndicatorOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.IndicatorConnection> | prisma.IndicatorConnection
+  }
+  indication: {
+    type: 'Indication'
+    args: Record<QueryIndicationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: IndicationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indication | null> | prisma.Indication | null
+  }
+  indications: {
+    type: 'Indication'
+    args: Record<QueryIndicationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: IndicationWhereInput | null, orderBy?: prisma.IndicationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indication[]> | prisma.Indication[]
+  }
+  indicationsConnection: {
+    type: 'IndicationConnection'
+    args: Record<QueryIndicationsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: IndicationWhereInput | null, orderBy?: prisma.IndicationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.IndicationConnection> | prisma.IndicationConnection
   }
 }
   
@@ -430,10 +810,10 @@ export interface AggregateUserFieldDetails {
 }
   
 
-// Types for Article
+// Types for Event
 
-type ArticleObject =
-  | ArticleFields
+type EventObject =
+  | EventFields
   | { name: 'date', args?: [] | false, alias?: string  } 
   | { name: 'title', args?: [] | false, alias?: string  } 
   | { name: 'description', args?: [] | false, alias?: string  } 
@@ -441,8 +821,9 @@ type ArticleObject =
   | { name: 'source', args?: [] | false, alias?: string  } 
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'read', args?: [] | false, alias?: string  } 
+  | { name: 'indications', args?: EventIndicationsArgs[] | false, alias?: string  } 
 
-type ArticleFields =
+type EventFields =
   | 'date'
   | 'title'
   | 'description'
@@ -450,12 +831,20 @@ type ArticleFields =
   | 'source'
   | 'id'
   | 'read'
+  | 'indications'
 
 
-
+type EventIndicationsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
   
 
-export interface ArticleFieldDetails {
+export interface EventFieldDetails {
   date: {
     type: 'DateTime'
     args: {}
@@ -512,18 +901,350 @@ export interface ArticleFieldDetails {
     nullable: true
     resolve: undefined
   }
+  indications: {
+    type: 'Indication'
+    args: Record<EventIndicationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Event">,
+      args: { where?: IndicationWhereInput | null, orderBy?: prisma.IndicationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indication[]> | prisma.Indication[]
+  }
 }
   
 
-// Types for ArticleConnection
+// Types for Indication
 
-type ArticleConnectionObject =
-  | ArticleConnectionFields
+type IndicationObject =
+  | IndicationFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'indicator', args?: [] | false, alias?: string  } 
+  | { name: 'event', args?: [] | false, alias?: string  } 
+  | { name: 'strength', args?: [] | false, alias?: string  } 
+  | { name: 'meaning', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type IndicationFields =
+  | 'id'
+  | 'indicator'
+  | 'event'
+  | 'strength'
+  | 'meaning'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+
+  
+
+export interface IndicationFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  indicator: {
+    type: 'Indicator'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Indication">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indicator> | prisma.Indicator
+  }
+  event: {
+    type: 'Event'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Indication">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Event> | prisma.Event
+  }
+  strength: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  meaning: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for Indicator
+
+type IndicatorObject =
+  | IndicatorFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'keywords', args?: IndicatorKeywordsArgs[] | false, alias?: string  } 
+  | { name: 'scenarios', args?: IndicatorScenariosArgs[] | false, alias?: string  } 
+
+type IndicatorFields =
+  | 'id'
+  | 'name'
+  | 'description'
+  | 'keywords'
+  | 'scenarios'
+
+
+type IndicatorKeywordsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type IndicatorScenariosArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
+export interface IndicatorFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  keywords: {
+    type: 'Keyword'
+    args: Record<IndicatorKeywordsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Indicator">,
+      args: { where?: KeywordWhereInput | null, orderBy?: prisma.KeywordOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Keyword[]> | prisma.Keyword[]
+  }
+  scenarios: {
+    type: 'Scenario'
+    args: Record<IndicatorScenariosArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Indicator">,
+      args: { where?: ScenarioWhereInput | null, orderBy?: prisma.ScenarioOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Scenario[]> | prisma.Scenario[]
+  }
+}
+  
+
+// Types for Keyword
+
+type KeywordObject =
+  | KeywordFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'events', args?: KeywordEventsArgs[] | false, alias?: string  } 
+
+type KeywordFields =
+  | 'id'
+  | 'name'
+  | 'description'
+  | 'events'
+
+
+type KeywordEventsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
+export interface KeywordFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  events: {
+    type: 'Event'
+    args: Record<KeywordEventsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Keyword">,
+      args: { where?: EventWhereInput | null, orderBy?: prisma.EventOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Event[]> | prisma.Event[]
+  }
+}
+  
+
+// Types for Scenario
+
+type ScenarioObject =
+  | ScenarioFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+  | { name: 'indicators', args?: ScenarioIndicatorsArgs[] | false, alias?: string  } 
+
+type ScenarioFields =
+  | 'id'
+  | 'name'
+  | 'description'
+  | 'indicators'
+
+
+type ScenarioIndicatorsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
+export interface ScenarioFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  indicators: {
+    type: 'Indicator'
+    args: Record<ScenarioIndicatorsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Scenario">,
+      args: { where?: IndicatorWhereInput | null, orderBy?: prisma.IndicatorOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indicator[]> | prisma.Indicator[]
+  }
+}
+  
+
+// Types for EventConnection
+
+type EventConnectionObject =
+  | EventConnectionFields
   | { name: 'pageInfo', args?: [] | false, alias?: string  } 
   | { name: 'edges', args?: [] | false, alias?: string  } 
   | { name: 'aggregate', args?: [] | false, alias?: string  } 
 
-type ArticleConnectionFields =
+type EventConnectionFields =
   | 'pageInfo'
   | 'edges'
   | 'aggregate'
@@ -532,7 +1253,7 @@ type ArticleConnectionFields =
 
   
 
-export interface ArticleConnectionFieldDetails {
+export interface EventConnectionFieldDetails {
   pageInfo: {
     type: 'PageInfo'
     args: {}
@@ -540,49 +1261,49 @@ export interface ArticleConnectionFieldDetails {
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"ArticleConnection">,
+      root: core.RootValue<"EventConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.PageInfo> | prisma.PageInfo
   }
   edges: {
-    type: 'ArticleEdge'
+    type: 'EventEdge'
     args: {}
     description: string
     list: true
     nullable: false
     resolve: (
-      root: core.RootValue<"ArticleConnection">,
+      root: core.RootValue<"EventConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.ArticleEdge[]> | prisma.ArticleEdge[]
+    ) => Promise<prisma.EventEdge[]> | prisma.EventEdge[]
   }
   aggregate: {
-    type: 'AggregateArticle'
+    type: 'AggregateEvent'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"ArticleConnection">,
+      root: core.RootValue<"EventConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateArticle> | prisma.AggregateArticle
+    ) => Promise<prisma.AggregateEvent> | prisma.AggregateEvent
   }
 }
   
 
-// Types for ArticleEdge
+// Types for EventEdge
 
-type ArticleEdgeObject =
-  | ArticleEdgeFields
+type EventEdgeObject =
+  | EventEdgeFields
   | { name: 'node', args?: [] | false, alias?: string  } 
   | { name: 'cursor', args?: [] | false, alias?: string  } 
 
-type ArticleEdgeFields =
+type EventEdgeFields =
   | 'node'
   | 'cursor'
 
@@ -590,19 +1311,19 @@ type ArticleEdgeFields =
 
   
 
-export interface ArticleEdgeFieldDetails {
+export interface EventEdgeFieldDetails {
   node: {
-    type: 'Article'
+    type: 'Event'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"ArticleEdge">,
+      root: core.RootValue<"EventEdge">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Article> | prisma.Article
+    ) => Promise<prisma.Event> | prisma.Event
   }
   cursor: {
     type: 'String'
@@ -615,20 +1336,520 @@ export interface ArticleEdgeFieldDetails {
 }
   
 
-// Types for AggregateArticle
+// Types for AggregateEvent
 
-type AggregateArticleObject =
-  | AggregateArticleFields
+type AggregateEventObject =
+  | AggregateEventFields
   | { name: 'count', args?: [] | false, alias?: string  } 
 
-type AggregateArticleFields =
+type AggregateEventFields =
   | 'count'
 
 
 
   
 
-export interface AggregateArticleFieldDetails {
+export interface AggregateEventFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for KeywordConnection
+
+type KeywordConnectionObject =
+  | KeywordConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type KeywordConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface KeywordConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"KeywordConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'KeywordEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"KeywordConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.KeywordEdge[]> | prisma.KeywordEdge[]
+  }
+  aggregate: {
+    type: 'AggregateKeyword'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"KeywordConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateKeyword> | prisma.AggregateKeyword
+  }
+}
+  
+
+// Types for KeywordEdge
+
+type KeywordEdgeObject =
+  | KeywordEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type KeywordEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface KeywordEdgeFieldDetails {
+  node: {
+    type: 'Keyword'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"KeywordEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Keyword> | prisma.Keyword
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateKeyword
+
+type AggregateKeywordObject =
+  | AggregateKeywordFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateKeywordFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateKeywordFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for ScenarioConnection
+
+type ScenarioConnectionObject =
+  | ScenarioConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type ScenarioConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface ScenarioConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ScenarioConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'ScenarioEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ScenarioConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ScenarioEdge[]> | prisma.ScenarioEdge[]
+  }
+  aggregate: {
+    type: 'AggregateScenario'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ScenarioConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateScenario> | prisma.AggregateScenario
+  }
+}
+  
+
+// Types for ScenarioEdge
+
+type ScenarioEdgeObject =
+  | ScenarioEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type ScenarioEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface ScenarioEdgeFieldDetails {
+  node: {
+    type: 'Scenario'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ScenarioEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Scenario> | prisma.Scenario
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateScenario
+
+type AggregateScenarioObject =
+  | AggregateScenarioFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateScenarioFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateScenarioFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for IndicatorConnection
+
+type IndicatorConnectionObject =
+  | IndicatorConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type IndicatorConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface IndicatorConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"IndicatorConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'IndicatorEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"IndicatorConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.IndicatorEdge[]> | prisma.IndicatorEdge[]
+  }
+  aggregate: {
+    type: 'AggregateIndicator'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"IndicatorConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateIndicator> | prisma.AggregateIndicator
+  }
+}
+  
+
+// Types for IndicatorEdge
+
+type IndicatorEdgeObject =
+  | IndicatorEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type IndicatorEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface IndicatorEdgeFieldDetails {
+  node: {
+    type: 'Indicator'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"IndicatorEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indicator> | prisma.Indicator
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateIndicator
+
+type AggregateIndicatorObject =
+  | AggregateIndicatorFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateIndicatorFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateIndicatorFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for IndicationConnection
+
+type IndicationConnectionObject =
+  | IndicationConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type IndicationConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface IndicationConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"IndicationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'IndicationEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"IndicationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.IndicationEdge[]> | prisma.IndicationEdge[]
+  }
+  aggregate: {
+    type: 'AggregateIndication'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"IndicationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateIndication> | prisma.AggregateIndication
+  }
+}
+  
+
+// Types for IndicationEdge
+
+type IndicationEdgeObject =
+  | IndicationEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type IndicationEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface IndicationEdgeFieldDetails {
+  node: {
+    type: 'Indication'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"IndicationEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indication> | prisma.Indication
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateIndication
+
+type AggregateIndicationObject =
+  | AggregateIndicationFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateIndicationFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateIndicationFieldDetails {
   count: {
     type: 'Int'
     args: {}
@@ -650,12 +1871,36 @@ type MutationObject =
   | { name: 'upsertUser', args?: MutationUpsertUserArgs[] | false, alias?: string  } 
   | { name: 'deleteUser', args?: MutationDeleteUserArgs[] | false, alias?: string  } 
   | { name: 'deleteManyUsers', args?: MutationDeleteManyUsersArgs[] | false, alias?: string  } 
-  | { name: 'createArticle', args?: MutationCreateArticleArgs[] | false, alias?: string  } 
-  | { name: 'updateArticle', args?: MutationUpdateArticleArgs[] | false, alias?: string  } 
-  | { name: 'updateManyArticles', args?: MutationUpdateManyArticlesArgs[] | false, alias?: string  } 
-  | { name: 'upsertArticle', args?: MutationUpsertArticleArgs[] | false, alias?: string  } 
-  | { name: 'deleteArticle', args?: MutationDeleteArticleArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyArticles', args?: MutationDeleteManyArticlesArgs[] | false, alias?: string  } 
+  | { name: 'createEvent', args?: MutationCreateEventArgs[] | false, alias?: string  } 
+  | { name: 'updateEvent', args?: MutationUpdateEventArgs[] | false, alias?: string  } 
+  | { name: 'updateManyEvents', args?: MutationUpdateManyEventsArgs[] | false, alias?: string  } 
+  | { name: 'upsertEvent', args?: MutationUpsertEventArgs[] | false, alias?: string  } 
+  | { name: 'deleteEvent', args?: MutationDeleteEventArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyEvents', args?: MutationDeleteManyEventsArgs[] | false, alias?: string  } 
+  | { name: 'createKeyword', args?: MutationCreateKeywordArgs[] | false, alias?: string  } 
+  | { name: 'updateKeyword', args?: MutationUpdateKeywordArgs[] | false, alias?: string  } 
+  | { name: 'updateManyKeywords', args?: MutationUpdateManyKeywordsArgs[] | false, alias?: string  } 
+  | { name: 'upsertKeyword', args?: MutationUpsertKeywordArgs[] | false, alias?: string  } 
+  | { name: 'deleteKeyword', args?: MutationDeleteKeywordArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyKeywords', args?: MutationDeleteManyKeywordsArgs[] | false, alias?: string  } 
+  | { name: 'createScenario', args?: MutationCreateScenarioArgs[] | false, alias?: string  } 
+  | { name: 'updateScenario', args?: MutationUpdateScenarioArgs[] | false, alias?: string  } 
+  | { name: 'updateManyScenarios', args?: MutationUpdateManyScenariosArgs[] | false, alias?: string  } 
+  | { name: 'upsertScenario', args?: MutationUpsertScenarioArgs[] | false, alias?: string  } 
+  | { name: 'deleteScenario', args?: MutationDeleteScenarioArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyScenarios', args?: MutationDeleteManyScenariosArgs[] | false, alias?: string  } 
+  | { name: 'createIndicator', args?: MutationCreateIndicatorArgs[] | false, alias?: string  } 
+  | { name: 'updateIndicator', args?: MutationUpdateIndicatorArgs[] | false, alias?: string  } 
+  | { name: 'updateManyIndicators', args?: MutationUpdateManyIndicatorsArgs[] | false, alias?: string  } 
+  | { name: 'upsertIndicator', args?: MutationUpsertIndicatorArgs[] | false, alias?: string  } 
+  | { name: 'deleteIndicator', args?: MutationDeleteIndicatorArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyIndicators', args?: MutationDeleteManyIndicatorsArgs[] | false, alias?: string  } 
+  | { name: 'createIndication', args?: MutationCreateIndicationArgs[] | false, alias?: string  } 
+  | { name: 'updateIndication', args?: MutationUpdateIndicationArgs[] | false, alias?: string  } 
+  | { name: 'updateManyIndications', args?: MutationUpdateManyIndicationsArgs[] | false, alias?: string  } 
+  | { name: 'upsertIndication', args?: MutationUpsertIndicationArgs[] | false, alias?: string  } 
+  | { name: 'deleteIndication', args?: MutationDeleteIndicationArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyIndications', args?: MutationDeleteManyIndicationsArgs[] | false, alias?: string  } 
 
 type MutationFields =
   | 'createUser'
@@ -664,12 +1909,36 @@ type MutationFields =
   | 'upsertUser'
   | 'deleteUser'
   | 'deleteManyUsers'
-  | 'createArticle'
-  | 'updateArticle'
-  | 'updateManyArticles'
-  | 'upsertArticle'
-  | 'deleteArticle'
-  | 'deleteManyArticles'
+  | 'createEvent'
+  | 'updateEvent'
+  | 'updateManyEvents'
+  | 'upsertEvent'
+  | 'deleteEvent'
+  | 'deleteManyEvents'
+  | 'createKeyword'
+  | 'updateKeyword'
+  | 'updateManyKeywords'
+  | 'upsertKeyword'
+  | 'deleteKeyword'
+  | 'deleteManyKeywords'
+  | 'createScenario'
+  | 'updateScenario'
+  | 'updateManyScenarios'
+  | 'upsertScenario'
+  | 'deleteScenario'
+  | 'deleteManyScenarios'
+  | 'createIndicator'
+  | 'updateIndicator'
+  | 'updateManyIndicators'
+  | 'upsertIndicator'
+  | 'deleteIndicator'
+  | 'deleteManyIndicators'
+  | 'createIndication'
+  | 'updateIndication'
+  | 'updateManyIndications'
+  | 'upsertIndication'
+  | 'deleteIndication'
+  | 'deleteManyIndications'
 
 
 type MutationCreateUserArgs =
@@ -688,21 +1957,85 @@ type MutationDeleteUserArgs =
   | 'where'
 type MutationDeleteManyUsersArgs =
   | 'where'
-type MutationCreateArticleArgs =
+type MutationCreateEventArgs =
   | 'data'
-type MutationUpdateArticleArgs =
-  | 'data'
-  | 'where'
-type MutationUpdateManyArticlesArgs =
+type MutationUpdateEventArgs =
   | 'data'
   | 'where'
-type MutationUpsertArticleArgs =
+type MutationUpdateManyEventsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertEventArgs =
   | 'where'
   | 'create'
   | 'update'
-type MutationDeleteArticleArgs =
+type MutationDeleteEventArgs =
   | 'where'
-type MutationDeleteManyArticlesArgs =
+type MutationDeleteManyEventsArgs =
+  | 'where'
+type MutationCreateKeywordArgs =
+  | 'data'
+type MutationUpdateKeywordArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyKeywordsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertKeywordArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteKeywordArgs =
+  | 'where'
+type MutationDeleteManyKeywordsArgs =
+  | 'where'
+type MutationCreateScenarioArgs =
+  | 'data'
+type MutationUpdateScenarioArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyScenariosArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertScenarioArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteScenarioArgs =
+  | 'where'
+type MutationDeleteManyScenariosArgs =
+  | 'where'
+type MutationCreateIndicatorArgs =
+  | 'data'
+type MutationUpdateIndicatorArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyIndicatorsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertIndicatorArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteIndicatorArgs =
+  | 'where'
+type MutationDeleteManyIndicatorsArgs =
+  | 'where'
+type MutationCreateIndicationArgs =
+  | 'data'
+type MutationUpdateIndicationArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyIndicationsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertIndicationArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteIndicationArgs =
+  | 'where'
+type MutationDeleteManyIndicationsArgs =
   | 'where'
   
 
@@ -785,80 +2118,392 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  createArticle: {
-    type: 'Article'
-    args: Record<MutationCreateArticleArgs, core.NexusArgDef<string>>
+  createEvent: {
+    type: 'Event'
+    args: Record<MutationCreateEventArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: ArticleCreateInput }  ,
+      args: { data: EventCreateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Article> | prisma.Article
+    ) => Promise<prisma.Event> | prisma.Event
   }
-  updateArticle: {
-    type: 'Article'
-    args: Record<MutationUpdateArticleArgs, core.NexusArgDef<string>>
+  updateEvent: {
+    type: 'Event'
+    args: Record<MutationUpdateEventArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: ArticleUpdateInput, where: ArticleWhereUniqueInput }  ,
+      args: { data: EventUpdateInput, where: EventWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Article | null> | prisma.Article | null
+    ) => Promise<prisma.Event | null> | prisma.Event | null
   }
-  updateManyArticles: {
+  updateManyEvents: {
     type: 'BatchPayload'
-    args: Record<MutationUpdateManyArticlesArgs, core.NexusArgDef<string>>
+    args: Record<MutationUpdateManyEventsArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: ArticleUpdateManyMutationInput, where?: ArticleWhereInput | null }  ,
+      args: { data: EventUpdateManyMutationInput, where?: EventWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  upsertArticle: {
-    type: 'Article'
-    args: Record<MutationUpsertArticleArgs, core.NexusArgDef<string>>
+  upsertEvent: {
+    type: 'Event'
+    args: Record<MutationUpsertEventArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: ArticleWhereUniqueInput, create: ArticleCreateInput, update: ArticleUpdateInput }  ,
+      args: { where: EventWhereUniqueInput, create: EventCreateInput, update: EventUpdateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Article> | prisma.Article
+    ) => Promise<prisma.Event> | prisma.Event
   }
-  deleteArticle: {
-    type: 'Article'
-    args: Record<MutationDeleteArticleArgs, core.NexusArgDef<string>>
+  deleteEvent: {
+    type: 'Event'
+    args: Record<MutationDeleteEventArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: ArticleWhereUniqueInput }  ,
+      args: { where: EventWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Article | null> | prisma.Article | null
+    ) => Promise<prisma.Event | null> | prisma.Event | null
   }
-  deleteManyArticles: {
+  deleteManyEvents: {
     type: 'BatchPayload'
-    args: Record<MutationDeleteManyArticlesArgs, core.NexusArgDef<string>>
+    args: Record<MutationDeleteManyEventsArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where?: ArticleWhereInput | null }  ,
+      args: { where?: EventWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createKeyword: {
+    type: 'Keyword'
+    args: Record<MutationCreateKeywordArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: KeywordCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Keyword> | prisma.Keyword
+  }
+  updateKeyword: {
+    type: 'Keyword'
+    args: Record<MutationUpdateKeywordArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: KeywordUpdateInput, where: KeywordWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Keyword | null> | prisma.Keyword | null
+  }
+  updateManyKeywords: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyKeywordsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: KeywordUpdateManyMutationInput, where?: KeywordWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertKeyword: {
+    type: 'Keyword'
+    args: Record<MutationUpsertKeywordArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: KeywordWhereUniqueInput, create: KeywordCreateInput, update: KeywordUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Keyword> | prisma.Keyword
+  }
+  deleteKeyword: {
+    type: 'Keyword'
+    args: Record<MutationDeleteKeywordArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: KeywordWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Keyword | null> | prisma.Keyword | null
+  }
+  deleteManyKeywords: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyKeywordsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: KeywordWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createScenario: {
+    type: 'Scenario'
+    args: Record<MutationCreateScenarioArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: ScenarioCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Scenario> | prisma.Scenario
+  }
+  updateScenario: {
+    type: 'Scenario'
+    args: Record<MutationUpdateScenarioArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: ScenarioUpdateInput, where: ScenarioWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Scenario | null> | prisma.Scenario | null
+  }
+  updateManyScenarios: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyScenariosArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: ScenarioUpdateManyMutationInput, where?: ScenarioWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertScenario: {
+    type: 'Scenario'
+    args: Record<MutationUpsertScenarioArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: ScenarioWhereUniqueInput, create: ScenarioCreateInput, update: ScenarioUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Scenario> | prisma.Scenario
+  }
+  deleteScenario: {
+    type: 'Scenario'
+    args: Record<MutationDeleteScenarioArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: ScenarioWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Scenario | null> | prisma.Scenario | null
+  }
+  deleteManyScenarios: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyScenariosArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: ScenarioWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createIndicator: {
+    type: 'Indicator'
+    args: Record<MutationCreateIndicatorArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: IndicatorCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indicator> | prisma.Indicator
+  }
+  updateIndicator: {
+    type: 'Indicator'
+    args: Record<MutationUpdateIndicatorArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: IndicatorUpdateInput, where: IndicatorWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indicator | null> | prisma.Indicator | null
+  }
+  updateManyIndicators: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyIndicatorsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: IndicatorUpdateManyMutationInput, where?: IndicatorWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertIndicator: {
+    type: 'Indicator'
+    args: Record<MutationUpsertIndicatorArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: IndicatorWhereUniqueInput, create: IndicatorCreateInput, update: IndicatorUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indicator> | prisma.Indicator
+  }
+  deleteIndicator: {
+    type: 'Indicator'
+    args: Record<MutationDeleteIndicatorArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: IndicatorWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indicator | null> | prisma.Indicator | null
+  }
+  deleteManyIndicators: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyIndicatorsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: IndicatorWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createIndication: {
+    type: 'Indication'
+    args: Record<MutationCreateIndicationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: IndicationCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indication> | prisma.Indication
+  }
+  updateIndication: {
+    type: 'Indication'
+    args: Record<MutationUpdateIndicationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: IndicationUpdateInput, where: IndicationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indication | null> | prisma.Indication | null
+  }
+  updateManyIndications: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyIndicationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: IndicationUpdateManyMutationInput, where?: IndicationWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertIndication: {
+    type: 'Indication'
+    args: Record<MutationUpsertIndicationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: IndicationWhereUniqueInput, create: IndicationCreateInput, update: IndicationUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indication> | prisma.Indication
+  }
+  deleteIndication: {
+    type: 'Indication'
+    args: Record<MutationDeleteIndicationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: IndicationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indication | null> | prisma.Indication | null
+  }
+  deleteManyIndications: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyIndicationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: IndicationWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
@@ -896,16 +2541,32 @@ export interface BatchPayloadFieldDetails {
 type SubscriptionObject =
   | SubscriptionFields
   | { name: 'user', args?: SubscriptionUserArgs[] | false, alias?: string  } 
-  | { name: 'article', args?: SubscriptionArticleArgs[] | false, alias?: string  } 
+  | { name: 'event', args?: SubscriptionEventArgs[] | false, alias?: string  } 
+  | { name: 'keyword', args?: SubscriptionKeywordArgs[] | false, alias?: string  } 
+  | { name: 'scenario', args?: SubscriptionScenarioArgs[] | false, alias?: string  } 
+  | { name: 'indicator', args?: SubscriptionIndicatorArgs[] | false, alias?: string  } 
+  | { name: 'indication', args?: SubscriptionIndicationArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
   | 'user'
-  | 'article'
+  | 'event'
+  | 'keyword'
+  | 'scenario'
+  | 'indicator'
+  | 'indication'
 
 
 type SubscriptionUserArgs =
   | 'where'
-type SubscriptionArticleArgs =
+type SubscriptionEventArgs =
+  | 'where'
+type SubscriptionKeywordArgs =
+  | 'where'
+type SubscriptionScenarioArgs =
+  | 'where'
+type SubscriptionIndicatorArgs =
+  | 'where'
+type SubscriptionIndicationArgs =
   | 'where'
   
 
@@ -923,18 +2584,70 @@ export interface SubscriptionFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.UserSubscriptionPayload | null> | prisma.UserSubscriptionPayload | null
   }
-  article: {
-    type: 'ArticleSubscriptionPayload'
-    args: Record<SubscriptionArticleArgs, core.NexusArgDef<string>>
+  event: {
+    type: 'EventSubscriptionPayload'
+    args: Record<SubscriptionEventArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Subscription">,
-      args: { where?: ArticleSubscriptionWhereInput | null }  ,
+      args: { where?: EventSubscriptionWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.ArticleSubscriptionPayload | null> | prisma.ArticleSubscriptionPayload | null
+    ) => Promise<prisma.EventSubscriptionPayload | null> | prisma.EventSubscriptionPayload | null
+  }
+  keyword: {
+    type: 'KeywordSubscriptionPayload'
+    args: Record<SubscriptionKeywordArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: KeywordSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.KeywordSubscriptionPayload | null> | prisma.KeywordSubscriptionPayload | null
+  }
+  scenario: {
+    type: 'ScenarioSubscriptionPayload'
+    args: Record<SubscriptionScenarioArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: ScenarioSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ScenarioSubscriptionPayload | null> | prisma.ScenarioSubscriptionPayload | null
+  }
+  indicator: {
+    type: 'IndicatorSubscriptionPayload'
+    args: Record<SubscriptionIndicatorArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: IndicatorSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.IndicatorSubscriptionPayload | null> | prisma.IndicatorSubscriptionPayload | null
+  }
+  indication: {
+    type: 'IndicationSubscriptionPayload'
+    args: Record<SubscriptionIndicationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: IndicationSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.IndicationSubscriptionPayload | null> | prisma.IndicationSubscriptionPayload | null
   }
 }
   
@@ -1044,16 +2757,16 @@ export interface UserPreviousValuesFieldDetails {
 }
   
 
-// Types for ArticleSubscriptionPayload
+// Types for EventSubscriptionPayload
 
-type ArticleSubscriptionPayloadObject =
-  | ArticleSubscriptionPayloadFields
+type EventSubscriptionPayloadObject =
+  | EventSubscriptionPayloadFields
   | { name: 'mutation', args?: [] | false, alias?: string  } 
   | { name: 'node', args?: [] | false, alias?: string  } 
   | { name: 'updatedFields', args?: [] | false, alias?: string  } 
   | { name: 'previousValues', args?: [] | false, alias?: string  } 
 
-type ArticleSubscriptionPayloadFields =
+type EventSubscriptionPayloadFields =
   | 'mutation'
   | 'node'
   | 'updatedFields'
@@ -1063,7 +2776,7 @@ type ArticleSubscriptionPayloadFields =
 
   
 
-export interface ArticleSubscriptionPayloadFieldDetails {
+export interface EventSubscriptionPayloadFieldDetails {
   mutation: {
     type: 'MutationType'
     args: {}
@@ -1071,24 +2784,24 @@ export interface ArticleSubscriptionPayloadFieldDetails {
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"ArticleSubscriptionPayload">,
+      root: core.RootValue<"EventSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.MutationType> | prisma.MutationType
   }
   node: {
-    type: 'Article'
+    type: 'Event'
     args: {}
     description: string
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"ArticleSubscriptionPayload">,
+      root: core.RootValue<"EventSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Article | null> | prisma.Article | null
+    ) => Promise<prisma.Event | null> | prisma.Event | null
   }
   updatedFields: {
     type: 'String'
@@ -1099,25 +2812,25 @@ export interface ArticleSubscriptionPayloadFieldDetails {
     resolve: undefined
   }
   previousValues: {
-    type: 'ArticlePreviousValues'
+    type: 'EventPreviousValues'
     args: {}
     description: string
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"ArticleSubscriptionPayload">,
+      root: core.RootValue<"EventSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.ArticlePreviousValues | null> | prisma.ArticlePreviousValues | null
+    ) => Promise<prisma.EventPreviousValues | null> | prisma.EventPreviousValues | null
   }
 }
   
 
-// Types for ArticlePreviousValues
+// Types for EventPreviousValues
 
-type ArticlePreviousValuesObject =
-  | ArticlePreviousValuesFields
+type EventPreviousValuesObject =
+  | EventPreviousValuesFields
   | { name: 'date', args?: [] | false, alias?: string  } 
   | { name: 'title', args?: [] | false, alias?: string  } 
   | { name: 'description', args?: [] | false, alias?: string  } 
@@ -1126,7 +2839,7 @@ type ArticlePreviousValuesObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'read', args?: [] | false, alias?: string  } 
 
-type ArticlePreviousValuesFields =
+type EventPreviousValuesFields =
   | 'date'
   | 'title'
   | 'description'
@@ -1139,7 +2852,7 @@ type ArticlePreviousValuesFields =
 
   
 
-export interface ArticlePreviousValuesFieldDetails {
+export interface EventPreviousValuesFieldDetails {
   date: {
     type: 'DateTime'
     args: {}
@@ -1194,6 +2907,486 @@ export interface ArticlePreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for KeywordSubscriptionPayload
+
+type KeywordSubscriptionPayloadObject =
+  | KeywordSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type KeywordSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface KeywordSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"KeywordSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Keyword'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"KeywordSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Keyword | null> | prisma.Keyword | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'KeywordPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"KeywordSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.KeywordPreviousValues | null> | prisma.KeywordPreviousValues | null
+  }
+}
+  
+
+// Types for KeywordPreviousValues
+
+type KeywordPreviousValuesObject =
+  | KeywordPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+
+type KeywordPreviousValuesFields =
+  | 'id'
+  | 'name'
+  | 'description'
+
+
+
+  
+
+export interface KeywordPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for ScenarioSubscriptionPayload
+
+type ScenarioSubscriptionPayloadObject =
+  | ScenarioSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type ScenarioSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface ScenarioSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"ScenarioSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Scenario'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"ScenarioSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Scenario | null> | prisma.Scenario | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'ScenarioPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"ScenarioSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.ScenarioPreviousValues | null> | prisma.ScenarioPreviousValues | null
+  }
+}
+  
+
+// Types for ScenarioPreviousValues
+
+type ScenarioPreviousValuesObject =
+  | ScenarioPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+
+type ScenarioPreviousValuesFields =
+  | 'id'
+  | 'name'
+  | 'description'
+
+
+
+  
+
+export interface ScenarioPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for IndicatorSubscriptionPayload
+
+type IndicatorSubscriptionPayloadObject =
+  | IndicatorSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type IndicatorSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface IndicatorSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"IndicatorSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Indicator'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"IndicatorSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indicator | null> | prisma.Indicator | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'IndicatorPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"IndicatorSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.IndicatorPreviousValues | null> | prisma.IndicatorPreviousValues | null
+  }
+}
+  
+
+// Types for IndicatorPreviousValues
+
+type IndicatorPreviousValuesObject =
+  | IndicatorPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'description', args?: [] | false, alias?: string  } 
+
+type IndicatorPreviousValuesFields =
+  | 'id'
+  | 'name'
+  | 'description'
+
+
+
+  
+
+export interface IndicatorPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  description: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for IndicationSubscriptionPayload
+
+type IndicationSubscriptionPayloadObject =
+  | IndicationSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type IndicationSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface IndicationSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"IndicationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Indication'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"IndicationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Indication | null> | prisma.Indication | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'IndicationPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"IndicationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.IndicationPreviousValues | null> | prisma.IndicationPreviousValues | null
+  }
+}
+  
+
+// Types for IndicationPreviousValues
+
+type IndicationPreviousValuesObject =
+  | IndicationPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'strength', args?: [] | false, alias?: string  } 
+  | { name: 'meaning', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type IndicationPreviousValuesFields =
+  | 'id'
+  | 'strength'
+  | 'meaning'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+
+  
+
+export interface IndicationPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  strength: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  meaning: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
     resolve: undefined
   }
 }
@@ -1274,14 +3467,341 @@ export type UserWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface ArticleWhereUniqueInput {
+export interface EventWhereUniqueInput {
   id?: string | null
 }
-export type ArticleWhereUniqueInputInputObject =
-  | Extract<keyof ArticleWhereUniqueInput, string>
+export type EventWhereUniqueInputInputObject =
+  | Extract<keyof EventWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   
-export interface ArticleWhereInput {
+export interface IndicationWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  indicator?: IndicatorWhereInput | null
+  event?: EventWhereInput | null
+  strength?: number | null
+  strength_not?: number | null
+  strength_in?: number[]
+  strength_not_in?: number[]
+  strength_lt?: number | null
+  strength_lte?: number | null
+  strength_gt?: number | null
+  strength_gte?: number | null
+  meaning?: string | null
+  meaning_not?: string | null
+  meaning_in?: string[]
+  meaning_not_in?: string[]
+  meaning_lt?: string | null
+  meaning_lte?: string | null
+  meaning_gt?: string | null
+  meaning_gte?: string | null
+  meaning_contains?: string | null
+  meaning_not_contains?: string | null
+  meaning_starts_with?: string | null
+  meaning_not_starts_with?: string | null
+  meaning_ends_with?: string | null
+  meaning_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: IndicationWhereInput[]
+  OR?: IndicationWhereInput[]
+  NOT?: IndicationWhereInput[]
+}
+export type IndicationWhereInputInputObject =
+  | Extract<keyof IndicationWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'indicator', alias?: string  } 
+  | { name: 'event', alias?: string  } 
+  | { name: 'strength', alias?: string  } 
+  | { name: 'strength_not', alias?: string  } 
+  | { name: 'strength_in', alias?: string  } 
+  | { name: 'strength_not_in', alias?: string  } 
+  | { name: 'strength_lt', alias?: string  } 
+  | { name: 'strength_lte', alias?: string  } 
+  | { name: 'strength_gt', alias?: string  } 
+  | { name: 'strength_gte', alias?: string  } 
+  | { name: 'meaning', alias?: string  } 
+  | { name: 'meaning_not', alias?: string  } 
+  | { name: 'meaning_in', alias?: string  } 
+  | { name: 'meaning_not_in', alias?: string  } 
+  | { name: 'meaning_lt', alias?: string  } 
+  | { name: 'meaning_lte', alias?: string  } 
+  | { name: 'meaning_gt', alias?: string  } 
+  | { name: 'meaning_gte', alias?: string  } 
+  | { name: 'meaning_contains', alias?: string  } 
+  | { name: 'meaning_not_contains', alias?: string  } 
+  | { name: 'meaning_starts_with', alias?: string  } 
+  | { name: 'meaning_not_starts_with', alias?: string  } 
+  | { name: 'meaning_ends_with', alias?: string  } 
+  | { name: 'meaning_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface IndicatorWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  keywords_every?: KeywordWhereInput | null
+  keywords_some?: KeywordWhereInput | null
+  keywords_none?: KeywordWhereInput | null
+  scenarios_every?: ScenarioWhereInput | null
+  scenarios_some?: ScenarioWhereInput | null
+  scenarios_none?: ScenarioWhereInput | null
+  AND?: IndicatorWhereInput[]
+  OR?: IndicatorWhereInput[]
+  NOT?: IndicatorWhereInput[]
+}
+export type IndicatorWhereInputInputObject =
+  | Extract<keyof IndicatorWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'keywords_every', alias?: string  } 
+  | { name: 'keywords_some', alias?: string  } 
+  | { name: 'keywords_none', alias?: string  } 
+  | { name: 'scenarios_every', alias?: string  } 
+  | { name: 'scenarios_some', alias?: string  } 
+  | { name: 'scenarios_none', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface KeywordWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  events_every?: EventWhereInput | null
+  events_some?: EventWhereInput | null
+  events_none?: EventWhereInput | null
+  AND?: KeywordWhereInput[]
+  OR?: KeywordWhereInput[]
+  NOT?: KeywordWhereInput[]
+}
+export type KeywordWhereInputInputObject =
+  | Extract<keyof KeywordWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'events_every', alias?: string  } 
+  | { name: 'events_some', alias?: string  } 
+  | { name: 'events_none', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface EventWhereInput {
   date?: string | null
   date_not?: string | null
   date_in?: string[]
@@ -1362,12 +3882,640 @@ export interface ArticleWhereInput {
   id_not_ends_with?: string | null
   read?: boolean | null
   read_not?: boolean | null
-  AND?: ArticleWhereInput[]
-  OR?: ArticleWhereInput[]
-  NOT?: ArticleWhereInput[]
+  indications_every?: IndicationWhereInput | null
+  indications_some?: IndicationWhereInput | null
+  indications_none?: IndicationWhereInput | null
+  AND?: EventWhereInput[]
+  OR?: EventWhereInput[]
+  NOT?: EventWhereInput[]
 }
-export type ArticleWhereInputInputObject =
-  | Extract<keyof ArticleWhereInput, string>
+export type EventWhereInputInputObject =
+  | Extract<keyof EventWhereInput, string>
+  | { name: 'date', alias?: string  } 
+  | { name: 'date_not', alias?: string  } 
+  | { name: 'date_in', alias?: string  } 
+  | { name: 'date_not_in', alias?: string  } 
+  | { name: 'date_lt', alias?: string  } 
+  | { name: 'date_lte', alias?: string  } 
+  | { name: 'date_gt', alias?: string  } 
+  | { name: 'date_gte', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'title_not', alias?: string  } 
+  | { name: 'title_in', alias?: string  } 
+  | { name: 'title_not_in', alias?: string  } 
+  | { name: 'title_lt', alias?: string  } 
+  | { name: 'title_lte', alias?: string  } 
+  | { name: 'title_gt', alias?: string  } 
+  | { name: 'title_gte', alias?: string  } 
+  | { name: 'title_contains', alias?: string  } 
+  | { name: 'title_not_contains', alias?: string  } 
+  | { name: 'title_starts_with', alias?: string  } 
+  | { name: 'title_not_starts_with', alias?: string  } 
+  | { name: 'title_ends_with', alias?: string  } 
+  | { name: 'title_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'href', alias?: string  } 
+  | { name: 'href_not', alias?: string  } 
+  | { name: 'href_in', alias?: string  } 
+  | { name: 'href_not_in', alias?: string  } 
+  | { name: 'href_lt', alias?: string  } 
+  | { name: 'href_lte', alias?: string  } 
+  | { name: 'href_gt', alias?: string  } 
+  | { name: 'href_gte', alias?: string  } 
+  | { name: 'href_contains', alias?: string  } 
+  | { name: 'href_not_contains', alias?: string  } 
+  | { name: 'href_starts_with', alias?: string  } 
+  | { name: 'href_not_starts_with', alias?: string  } 
+  | { name: 'href_ends_with', alias?: string  } 
+  | { name: 'href_not_ends_with', alias?: string  } 
+  | { name: 'source', alias?: string  } 
+  | { name: 'source_not', alias?: string  } 
+  | { name: 'source_in', alias?: string  } 
+  | { name: 'source_not_in', alias?: string  } 
+  | { name: 'source_lt', alias?: string  } 
+  | { name: 'source_lte', alias?: string  } 
+  | { name: 'source_gt', alias?: string  } 
+  | { name: 'source_gte', alias?: string  } 
+  | { name: 'source_contains', alias?: string  } 
+  | { name: 'source_not_contains', alias?: string  } 
+  | { name: 'source_starts_with', alias?: string  } 
+  | { name: 'source_not_starts_with', alias?: string  } 
+  | { name: 'source_ends_with', alias?: string  } 
+  | { name: 'source_not_ends_with', alias?: string  } 
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'read', alias?: string  } 
+  | { name: 'read_not', alias?: string  } 
+  | { name: 'indications_every', alias?: string  } 
+  | { name: 'indications_some', alias?: string  } 
+  | { name: 'indications_none', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface ScenarioWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  indicators_every?: IndicatorWhereInput | null
+  indicators_some?: IndicatorWhereInput | null
+  indicators_none?: IndicatorWhereInput | null
+  AND?: ScenarioWhereInput[]
+  OR?: ScenarioWhereInput[]
+  NOT?: ScenarioWhereInput[]
+}
+export type ScenarioWhereInputInputObject =
+  | Extract<keyof ScenarioWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'indicators_every', alias?: string  } 
+  | { name: 'indicators_some', alias?: string  } 
+  | { name: 'indicators_none', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface KeywordWhereUniqueInput {
+  id?: string | null
+}
+export type KeywordWhereUniqueInputInputObject =
+  | Extract<keyof KeywordWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface ScenarioWhereUniqueInput {
+  id?: string | null
+}
+export type ScenarioWhereUniqueInputInputObject =
+  | Extract<keyof ScenarioWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface IndicatorWhereUniqueInput {
+  id?: string | null
+}
+export type IndicatorWhereUniqueInputInputObject =
+  | Extract<keyof IndicatorWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface IndicationWhereUniqueInput {
+  id?: string | null
+}
+export type IndicationWhereUniqueInputInputObject =
+  | Extract<keyof IndicationWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface UserCreateInput {
+  name?: string
+}
+export type UserCreateInputInputObject =
+  | Extract<keyof UserCreateInput, string>
+  | { name: 'name', alias?: string  } 
+  
+export interface UserUpdateInput {
+  name?: string | null
+}
+export type UserUpdateInputInputObject =
+  | Extract<keyof UserUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  
+export interface UserUpdateManyMutationInput {
+  name?: string | null
+}
+export type UserUpdateManyMutationInputInputObject =
+  | Extract<keyof UserUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  
+export interface EventCreateInput {
+  date?: string | null
+  title?: string | null
+  description?: string | null
+  href?: string | null
+  source?: string | null
+  read?: boolean | null
+  indications?: IndicationCreateManyWithoutEventInput | null
+}
+export type EventCreateInputInputObject =
+  | Extract<keyof EventCreateInput, string>
+  | { name: 'date', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'href', alias?: string  } 
+  | { name: 'source', alias?: string  } 
+  | { name: 'read', alias?: string  } 
+  | { name: 'indications', alias?: string  } 
+  
+export interface IndicationCreateManyWithoutEventInput {
+  create?: IndicationCreateWithoutEventInput[]
+  connect?: IndicationWhereUniqueInput[]
+}
+export type IndicationCreateManyWithoutEventInputInputObject =
+  | Extract<keyof IndicationCreateManyWithoutEventInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface IndicationCreateWithoutEventInput {
+  indicator?: IndicatorCreateOneInput
+  strength?: number | null
+  meaning?: string | null
+}
+export type IndicationCreateWithoutEventInputInputObject =
+  | Extract<keyof IndicationCreateWithoutEventInput, string>
+  | { name: 'indicator', alias?: string  } 
+  | { name: 'strength', alias?: string  } 
+  | { name: 'meaning', alias?: string  } 
+  
+export interface IndicatorCreateOneInput {
+  create?: IndicatorCreateInput | null
+  connect?: IndicatorWhereUniqueInput | null
+}
+export type IndicatorCreateOneInputInputObject =
+  | Extract<keyof IndicatorCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface IndicatorCreateInput {
+  name?: string | null
+  description?: string | null
+  keywords?: KeywordCreateManyInput | null
+  scenarios?: ScenarioCreateManyWithoutIndicatorsInput | null
+}
+export type IndicatorCreateInputInputObject =
+  | Extract<keyof IndicatorCreateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'keywords', alias?: string  } 
+  | { name: 'scenarios', alias?: string  } 
+  
+export interface KeywordCreateManyInput {
+  create?: KeywordCreateInput[]
+  connect?: KeywordWhereUniqueInput[]
+}
+export type KeywordCreateManyInputInputObject =
+  | Extract<keyof KeywordCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface KeywordCreateInput {
+  name?: string | null
+  description?: string | null
+  events?: EventCreateManyInput | null
+}
+export type KeywordCreateInputInputObject =
+  | Extract<keyof KeywordCreateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'events', alias?: string  } 
+  
+export interface EventCreateManyInput {
+  create?: EventCreateInput[]
+  connect?: EventWhereUniqueInput[]
+}
+export type EventCreateManyInputInputObject =
+  | Extract<keyof EventCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ScenarioCreateManyWithoutIndicatorsInput {
+  create?: ScenarioCreateWithoutIndicatorsInput[]
+  connect?: ScenarioWhereUniqueInput[]
+}
+export type ScenarioCreateManyWithoutIndicatorsInputInputObject =
+  | Extract<keyof ScenarioCreateManyWithoutIndicatorsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ScenarioCreateWithoutIndicatorsInput {
+  name?: string | null
+  description?: string | null
+}
+export type ScenarioCreateWithoutIndicatorsInputInputObject =
+  | Extract<keyof ScenarioCreateWithoutIndicatorsInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface EventUpdateInput {
+  date?: string | null
+  title?: string | null
+  description?: string | null
+  href?: string | null
+  source?: string | null
+  read?: boolean | null
+  indications?: IndicationUpdateManyWithoutEventInput | null
+}
+export type EventUpdateInputInputObject =
+  | Extract<keyof EventUpdateInput, string>
+  | { name: 'date', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'href', alias?: string  } 
+  | { name: 'source', alias?: string  } 
+  | { name: 'read', alias?: string  } 
+  | { name: 'indications', alias?: string  } 
+  
+export interface IndicationUpdateManyWithoutEventInput {
+  create?: IndicationCreateWithoutEventInput[]
+  delete?: IndicationWhereUniqueInput[]
+  connect?: IndicationWhereUniqueInput[]
+  set?: IndicationWhereUniqueInput[]
+  disconnect?: IndicationWhereUniqueInput[]
+  update?: IndicationUpdateWithWhereUniqueWithoutEventInput[]
+  upsert?: IndicationUpsertWithWhereUniqueWithoutEventInput[]
+  deleteMany?: IndicationScalarWhereInput[]
+  updateMany?: IndicationUpdateManyWithWhereNestedInput[]
+}
+export type IndicationUpdateManyWithoutEventInputInputObject =
+  | Extract<keyof IndicationUpdateManyWithoutEventInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface IndicationUpdateWithWhereUniqueWithoutEventInput {
+  where?: IndicationWhereUniqueInput
+  data?: IndicationUpdateWithoutEventDataInput
+}
+export type IndicationUpdateWithWhereUniqueWithoutEventInputInputObject =
+  | Extract<keyof IndicationUpdateWithWhereUniqueWithoutEventInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface IndicationUpdateWithoutEventDataInput {
+  indicator?: IndicatorUpdateOneRequiredInput | null
+  strength?: number | null
+  meaning?: string | null
+}
+export type IndicationUpdateWithoutEventDataInputInputObject =
+  | Extract<keyof IndicationUpdateWithoutEventDataInput, string>
+  | { name: 'indicator', alias?: string  } 
+  | { name: 'strength', alias?: string  } 
+  | { name: 'meaning', alias?: string  } 
+  
+export interface IndicatorUpdateOneRequiredInput {
+  create?: IndicatorCreateInput | null
+  update?: IndicatorUpdateDataInput | null
+  upsert?: IndicatorUpsertNestedInput | null
+  connect?: IndicatorWhereUniqueInput | null
+}
+export type IndicatorUpdateOneRequiredInputInputObject =
+  | Extract<keyof IndicatorUpdateOneRequiredInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface IndicatorUpdateDataInput {
+  name?: string | null
+  description?: string | null
+  keywords?: KeywordUpdateManyInput | null
+  scenarios?: ScenarioUpdateManyWithoutIndicatorsInput | null
+}
+export type IndicatorUpdateDataInputInputObject =
+  | Extract<keyof IndicatorUpdateDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'keywords', alias?: string  } 
+  | { name: 'scenarios', alias?: string  } 
+  
+export interface KeywordUpdateManyInput {
+  create?: KeywordCreateInput[]
+  update?: KeywordUpdateWithWhereUniqueNestedInput[]
+  upsert?: KeywordUpsertWithWhereUniqueNestedInput[]
+  delete?: KeywordWhereUniqueInput[]
+  connect?: KeywordWhereUniqueInput[]
+  set?: KeywordWhereUniqueInput[]
+  disconnect?: KeywordWhereUniqueInput[]
+  deleteMany?: KeywordScalarWhereInput[]
+  updateMany?: KeywordUpdateManyWithWhereNestedInput[]
+}
+export type KeywordUpdateManyInputInputObject =
+  | Extract<keyof KeywordUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface KeywordUpdateWithWhereUniqueNestedInput {
+  where?: KeywordWhereUniqueInput
+  data?: KeywordUpdateDataInput
+}
+export type KeywordUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof KeywordUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface KeywordUpdateDataInput {
+  name?: string | null
+  description?: string | null
+  events?: EventUpdateManyInput | null
+}
+export type KeywordUpdateDataInputInputObject =
+  | Extract<keyof KeywordUpdateDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'events', alias?: string  } 
+  
+export interface EventUpdateManyInput {
+  create?: EventCreateInput[]
+  update?: EventUpdateWithWhereUniqueNestedInput[]
+  upsert?: EventUpsertWithWhereUniqueNestedInput[]
+  delete?: EventWhereUniqueInput[]
+  connect?: EventWhereUniqueInput[]
+  set?: EventWhereUniqueInput[]
+  disconnect?: EventWhereUniqueInput[]
+  deleteMany?: EventScalarWhereInput[]
+  updateMany?: EventUpdateManyWithWhereNestedInput[]
+}
+export type EventUpdateManyInputInputObject =
+  | Extract<keyof EventUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface EventUpdateWithWhereUniqueNestedInput {
+  where?: EventWhereUniqueInput
+  data?: EventUpdateDataInput
+}
+export type EventUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof EventUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface EventUpdateDataInput {
+  date?: string | null
+  title?: string | null
+  description?: string | null
+  href?: string | null
+  source?: string | null
+  read?: boolean | null
+  indications?: IndicationUpdateManyWithoutEventInput | null
+}
+export type EventUpdateDataInputInputObject =
+  | Extract<keyof EventUpdateDataInput, string>
+  | { name: 'date', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'href', alias?: string  } 
+  | { name: 'source', alias?: string  } 
+  | { name: 'read', alias?: string  } 
+  | { name: 'indications', alias?: string  } 
+  
+export interface EventUpsertWithWhereUniqueNestedInput {
+  where?: EventWhereUniqueInput
+  update?: EventUpdateDataInput
+  create?: EventCreateInput
+}
+export type EventUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof EventUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface EventScalarWhereInput {
+  date?: string | null
+  date_not?: string | null
+  date_in?: string[]
+  date_not_in?: string[]
+  date_lt?: string | null
+  date_lte?: string | null
+  date_gt?: string | null
+  date_gte?: string | null
+  title?: string | null
+  title_not?: string | null
+  title_in?: string[]
+  title_not_in?: string[]
+  title_lt?: string | null
+  title_lte?: string | null
+  title_gt?: string | null
+  title_gte?: string | null
+  title_contains?: string | null
+  title_not_contains?: string | null
+  title_starts_with?: string | null
+  title_not_starts_with?: string | null
+  title_ends_with?: string | null
+  title_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  href?: string | null
+  href_not?: string | null
+  href_in?: string[]
+  href_not_in?: string[]
+  href_lt?: string | null
+  href_lte?: string | null
+  href_gt?: string | null
+  href_gte?: string | null
+  href_contains?: string | null
+  href_not_contains?: string | null
+  href_starts_with?: string | null
+  href_not_starts_with?: string | null
+  href_ends_with?: string | null
+  href_not_ends_with?: string | null
+  source?: string | null
+  source_not?: string | null
+  source_in?: string[]
+  source_not_in?: string[]
+  source_lt?: string | null
+  source_lte?: string | null
+  source_gt?: string | null
+  source_gte?: string | null
+  source_contains?: string | null
+  source_not_contains?: string | null
+  source_starts_with?: string | null
+  source_not_starts_with?: string | null
+  source_ends_with?: string | null
+  source_not_ends_with?: string | null
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  read?: boolean | null
+  read_not?: boolean | null
+  AND?: EventScalarWhereInput[]
+  OR?: EventScalarWhereInput[]
+  NOT?: EventScalarWhereInput[]
+}
+export type EventScalarWhereInputInputObject =
+  | Extract<keyof EventScalarWhereInput, string>
   | { name: 'date', alias?: string  } 
   | { name: 'date_not', alias?: string  } 
   | { name: 'date_in', alias?: string  } 
@@ -1452,28 +4600,475 @@ export type ArticleWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface UserCreateInput {
-  name?: string
+export interface EventUpdateManyWithWhereNestedInput {
+  where?: EventScalarWhereInput
+  data?: EventUpdateManyDataInput
 }
-export type UserCreateInputInputObject =
-  | Extract<keyof UserCreateInput, string>
-  | { name: 'name', alias?: string  } 
+export type EventUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof EventUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
   
-export interface UserUpdateInput {
+export interface EventUpdateManyDataInput {
+  date?: string | null
+  title?: string | null
+  description?: string | null
+  href?: string | null
+  source?: string | null
+  read?: boolean | null
+}
+export type EventUpdateManyDataInputInputObject =
+  | Extract<keyof EventUpdateManyDataInput, string>
+  | { name: 'date', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'href', alias?: string  } 
+  | { name: 'source', alias?: string  } 
+  | { name: 'read', alias?: string  } 
+  
+export interface KeywordUpsertWithWhereUniqueNestedInput {
+  where?: KeywordWhereUniqueInput
+  update?: KeywordUpdateDataInput
+  create?: KeywordCreateInput
+}
+export type KeywordUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof KeywordUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface KeywordScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
   name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  AND?: KeywordScalarWhereInput[]
+  OR?: KeywordScalarWhereInput[]
+  NOT?: KeywordScalarWhereInput[]
 }
-export type UserUpdateInputInputObject =
-  | Extract<keyof UserUpdateInput, string>
+export type KeywordScalarWhereInputInputObject =
+  | Extract<keyof KeywordScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
   | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
   
-export interface UserUpdateManyMutationInput {
+export interface KeywordUpdateManyWithWhereNestedInput {
+  where?: KeywordScalarWhereInput
+  data?: KeywordUpdateManyDataInput
+}
+export type KeywordUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof KeywordUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface KeywordUpdateManyDataInput {
   name?: string | null
+  description?: string | null
 }
-export type UserUpdateManyMutationInputInputObject =
-  | Extract<keyof UserUpdateManyMutationInput, string>
+export type KeywordUpdateManyDataInputInputObject =
+  | Extract<keyof KeywordUpdateManyDataInput, string>
   | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
   
-export interface ArticleCreateInput {
+export interface ScenarioUpdateManyWithoutIndicatorsInput {
+  create?: ScenarioCreateWithoutIndicatorsInput[]
+  delete?: ScenarioWhereUniqueInput[]
+  connect?: ScenarioWhereUniqueInput[]
+  set?: ScenarioWhereUniqueInput[]
+  disconnect?: ScenarioWhereUniqueInput[]
+  update?: ScenarioUpdateWithWhereUniqueWithoutIndicatorsInput[]
+  upsert?: ScenarioUpsertWithWhereUniqueWithoutIndicatorsInput[]
+  deleteMany?: ScenarioScalarWhereInput[]
+  updateMany?: ScenarioUpdateManyWithWhereNestedInput[]
+}
+export type ScenarioUpdateManyWithoutIndicatorsInputInputObject =
+  | Extract<keyof ScenarioUpdateManyWithoutIndicatorsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface ScenarioUpdateWithWhereUniqueWithoutIndicatorsInput {
+  where?: ScenarioWhereUniqueInput
+  data?: ScenarioUpdateWithoutIndicatorsDataInput
+}
+export type ScenarioUpdateWithWhereUniqueWithoutIndicatorsInputInputObject =
+  | Extract<keyof ScenarioUpdateWithWhereUniqueWithoutIndicatorsInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ScenarioUpdateWithoutIndicatorsDataInput {
+  name?: string | null
+  description?: string | null
+}
+export type ScenarioUpdateWithoutIndicatorsDataInputInputObject =
+  | Extract<keyof ScenarioUpdateWithoutIndicatorsDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface ScenarioUpsertWithWhereUniqueWithoutIndicatorsInput {
+  where?: ScenarioWhereUniqueInput
+  update?: ScenarioUpdateWithoutIndicatorsDataInput
+  create?: ScenarioCreateWithoutIndicatorsInput
+}
+export type ScenarioUpsertWithWhereUniqueWithoutIndicatorsInputInputObject =
+  | Extract<keyof ScenarioUpsertWithWhereUniqueWithoutIndicatorsInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface ScenarioScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  AND?: ScenarioScalarWhereInput[]
+  OR?: ScenarioScalarWhereInput[]
+  NOT?: ScenarioScalarWhereInput[]
+}
+export type ScenarioScalarWhereInputInputObject =
+  | Extract<keyof ScenarioScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface ScenarioUpdateManyWithWhereNestedInput {
+  where?: ScenarioScalarWhereInput
+  data?: ScenarioUpdateManyDataInput
+}
+export type ScenarioUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof ScenarioUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface ScenarioUpdateManyDataInput {
+  name?: string | null
+  description?: string | null
+}
+export type ScenarioUpdateManyDataInputInputObject =
+  | Extract<keyof ScenarioUpdateManyDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface IndicatorUpsertNestedInput {
+  update?: IndicatorUpdateDataInput
+  create?: IndicatorCreateInput
+}
+export type IndicatorUpsertNestedInputInputObject =
+  | Extract<keyof IndicatorUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface IndicationUpsertWithWhereUniqueWithoutEventInput {
+  where?: IndicationWhereUniqueInput
+  update?: IndicationUpdateWithoutEventDataInput
+  create?: IndicationCreateWithoutEventInput
+}
+export type IndicationUpsertWithWhereUniqueWithoutEventInputInputObject =
+  | Extract<keyof IndicationUpsertWithWhereUniqueWithoutEventInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface IndicationScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  strength?: number | null
+  strength_not?: number | null
+  strength_in?: number[]
+  strength_not_in?: number[]
+  strength_lt?: number | null
+  strength_lte?: number | null
+  strength_gt?: number | null
+  strength_gte?: number | null
+  meaning?: string | null
+  meaning_not?: string | null
+  meaning_in?: string[]
+  meaning_not_in?: string[]
+  meaning_lt?: string | null
+  meaning_lte?: string | null
+  meaning_gt?: string | null
+  meaning_gte?: string | null
+  meaning_contains?: string | null
+  meaning_not_contains?: string | null
+  meaning_starts_with?: string | null
+  meaning_not_starts_with?: string | null
+  meaning_ends_with?: string | null
+  meaning_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: IndicationScalarWhereInput[]
+  OR?: IndicationScalarWhereInput[]
+  NOT?: IndicationScalarWhereInput[]
+}
+export type IndicationScalarWhereInputInputObject =
+  | Extract<keyof IndicationScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'strength', alias?: string  } 
+  | { name: 'strength_not', alias?: string  } 
+  | { name: 'strength_in', alias?: string  } 
+  | { name: 'strength_not_in', alias?: string  } 
+  | { name: 'strength_lt', alias?: string  } 
+  | { name: 'strength_lte', alias?: string  } 
+  | { name: 'strength_gt', alias?: string  } 
+  | { name: 'strength_gte', alias?: string  } 
+  | { name: 'meaning', alias?: string  } 
+  | { name: 'meaning_not', alias?: string  } 
+  | { name: 'meaning_in', alias?: string  } 
+  | { name: 'meaning_not_in', alias?: string  } 
+  | { name: 'meaning_lt', alias?: string  } 
+  | { name: 'meaning_lte', alias?: string  } 
+  | { name: 'meaning_gt', alias?: string  } 
+  | { name: 'meaning_gte', alias?: string  } 
+  | { name: 'meaning_contains', alias?: string  } 
+  | { name: 'meaning_not_contains', alias?: string  } 
+  | { name: 'meaning_starts_with', alias?: string  } 
+  | { name: 'meaning_not_starts_with', alias?: string  } 
+  | { name: 'meaning_ends_with', alias?: string  } 
+  | { name: 'meaning_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface IndicationUpdateManyWithWhereNestedInput {
+  where?: IndicationScalarWhereInput
+  data?: IndicationUpdateManyDataInput
+}
+export type IndicationUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof IndicationUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface IndicationUpdateManyDataInput {
+  strength?: number | null
+  meaning?: string | null
+}
+export type IndicationUpdateManyDataInputInputObject =
+  | Extract<keyof IndicationUpdateManyDataInput, string>
+  | { name: 'strength', alias?: string  } 
+  | { name: 'meaning', alias?: string  } 
+  
+export interface EventUpdateManyMutationInput {
   date?: string | null
   title?: string | null
   description?: string | null
@@ -1481,8 +5076,8 @@ export interface ArticleCreateInput {
   source?: string | null
   read?: boolean | null
 }
-export type ArticleCreateInputInputObject =
-  | Extract<keyof ArticleCreateInput, string>
+export type EventUpdateManyMutationInputInputObject =
+  | Extract<keyof EventUpdateManyMutationInput, string>
   | { name: 'date', alias?: string  } 
   | { name: 'title', alias?: string  } 
   | { name: 'description', alias?: string  } 
@@ -1490,7 +5085,289 @@ export type ArticleCreateInputInputObject =
   | { name: 'source', alias?: string  } 
   | { name: 'read', alias?: string  } 
   
-export interface ArticleUpdateInput {
+export interface KeywordUpdateInput {
+  name?: string | null
+  description?: string | null
+  events?: EventUpdateManyInput | null
+}
+export type KeywordUpdateInputInputObject =
+  | Extract<keyof KeywordUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'events', alias?: string  } 
+  
+export interface KeywordUpdateManyMutationInput {
+  name?: string | null
+  description?: string | null
+}
+export type KeywordUpdateManyMutationInputInputObject =
+  | Extract<keyof KeywordUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface ScenarioCreateInput {
+  name?: string | null
+  description?: string | null
+  indicators?: IndicatorCreateManyWithoutScenariosInput | null
+}
+export type ScenarioCreateInputInputObject =
+  | Extract<keyof ScenarioCreateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'indicators', alias?: string  } 
+  
+export interface IndicatorCreateManyWithoutScenariosInput {
+  create?: IndicatorCreateWithoutScenariosInput[]
+  connect?: IndicatorWhereUniqueInput[]
+}
+export type IndicatorCreateManyWithoutScenariosInputInputObject =
+  | Extract<keyof IndicatorCreateManyWithoutScenariosInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface IndicatorCreateWithoutScenariosInput {
+  name?: string | null
+  description?: string | null
+  keywords?: KeywordCreateManyInput | null
+}
+export type IndicatorCreateWithoutScenariosInputInputObject =
+  | Extract<keyof IndicatorCreateWithoutScenariosInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'keywords', alias?: string  } 
+  
+export interface ScenarioUpdateInput {
+  name?: string | null
+  description?: string | null
+  indicators?: IndicatorUpdateManyWithoutScenariosInput | null
+}
+export type ScenarioUpdateInputInputObject =
+  | Extract<keyof ScenarioUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'indicators', alias?: string  } 
+  
+export interface IndicatorUpdateManyWithoutScenariosInput {
+  create?: IndicatorCreateWithoutScenariosInput[]
+  delete?: IndicatorWhereUniqueInput[]
+  connect?: IndicatorWhereUniqueInput[]
+  set?: IndicatorWhereUniqueInput[]
+  disconnect?: IndicatorWhereUniqueInput[]
+  update?: IndicatorUpdateWithWhereUniqueWithoutScenariosInput[]
+  upsert?: IndicatorUpsertWithWhereUniqueWithoutScenariosInput[]
+  deleteMany?: IndicatorScalarWhereInput[]
+  updateMany?: IndicatorUpdateManyWithWhereNestedInput[]
+}
+export type IndicatorUpdateManyWithoutScenariosInputInputObject =
+  | Extract<keyof IndicatorUpdateManyWithoutScenariosInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface IndicatorUpdateWithWhereUniqueWithoutScenariosInput {
+  where?: IndicatorWhereUniqueInput
+  data?: IndicatorUpdateWithoutScenariosDataInput
+}
+export type IndicatorUpdateWithWhereUniqueWithoutScenariosInputInputObject =
+  | Extract<keyof IndicatorUpdateWithWhereUniqueWithoutScenariosInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface IndicatorUpdateWithoutScenariosDataInput {
+  name?: string | null
+  description?: string | null
+  keywords?: KeywordUpdateManyInput | null
+}
+export type IndicatorUpdateWithoutScenariosDataInputInputObject =
+  | Extract<keyof IndicatorUpdateWithoutScenariosDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'keywords', alias?: string  } 
+  
+export interface IndicatorUpsertWithWhereUniqueWithoutScenariosInput {
+  where?: IndicatorWhereUniqueInput
+  update?: IndicatorUpdateWithoutScenariosDataInput
+  create?: IndicatorCreateWithoutScenariosInput
+}
+export type IndicatorUpsertWithWhereUniqueWithoutScenariosInputInputObject =
+  | Extract<keyof IndicatorUpsertWithWhereUniqueWithoutScenariosInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface IndicatorScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  AND?: IndicatorScalarWhereInput[]
+  OR?: IndicatorScalarWhereInput[]
+  NOT?: IndicatorScalarWhereInput[]
+}
+export type IndicatorScalarWhereInputInputObject =
+  | Extract<keyof IndicatorScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface IndicatorUpdateManyWithWhereNestedInput {
+  where?: IndicatorScalarWhereInput
+  data?: IndicatorUpdateManyDataInput
+}
+export type IndicatorUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof IndicatorUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface IndicatorUpdateManyDataInput {
+  name?: string | null
+  description?: string | null
+}
+export type IndicatorUpdateManyDataInputInputObject =
+  | Extract<keyof IndicatorUpdateManyDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface ScenarioUpdateManyMutationInput {
+  name?: string | null
+  description?: string | null
+}
+export type ScenarioUpdateManyMutationInputInputObject =
+  | Extract<keyof ScenarioUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface IndicatorUpdateInput {
+  name?: string | null
+  description?: string | null
+  keywords?: KeywordUpdateManyInput | null
+  scenarios?: ScenarioUpdateManyWithoutIndicatorsInput | null
+}
+export type IndicatorUpdateInputInputObject =
+  | Extract<keyof IndicatorUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'keywords', alias?: string  } 
+  | { name: 'scenarios', alias?: string  } 
+  
+export interface IndicatorUpdateManyMutationInput {
+  name?: string | null
+  description?: string | null
+}
+export type IndicatorUpdateManyMutationInputInputObject =
+  | Extract<keyof IndicatorUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface IndicationCreateInput {
+  indicator?: IndicatorCreateOneInput
+  event?: EventCreateOneWithoutIndicationsInput
+  strength?: number | null
+  meaning?: string | null
+}
+export type IndicationCreateInputInputObject =
+  | Extract<keyof IndicationCreateInput, string>
+  | { name: 'indicator', alias?: string  } 
+  | { name: 'event', alias?: string  } 
+  | { name: 'strength', alias?: string  } 
+  | { name: 'meaning', alias?: string  } 
+  
+export interface EventCreateOneWithoutIndicationsInput {
+  create?: EventCreateWithoutIndicationsInput | null
+  connect?: EventWhereUniqueInput | null
+}
+export type EventCreateOneWithoutIndicationsInputInputObject =
+  | Extract<keyof EventCreateOneWithoutIndicationsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface EventCreateWithoutIndicationsInput {
   date?: string | null
   title?: string | null
   description?: string | null
@@ -1498,8 +5375,8 @@ export interface ArticleUpdateInput {
   source?: string | null
   read?: boolean | null
 }
-export type ArticleUpdateInputInputObject =
-  | Extract<keyof ArticleUpdateInput, string>
+export type EventCreateWithoutIndicationsInputInputObject =
+  | Extract<keyof EventCreateWithoutIndicationsInput, string>
   | { name: 'date', alias?: string  } 
   | { name: 'title', alias?: string  } 
   | { name: 'description', alias?: string  } 
@@ -1507,7 +5384,33 @@ export type ArticleUpdateInputInputObject =
   | { name: 'source', alias?: string  } 
   | { name: 'read', alias?: string  } 
   
-export interface ArticleUpdateManyMutationInput {
+export interface IndicationUpdateInput {
+  indicator?: IndicatorUpdateOneRequiredInput | null
+  event?: EventUpdateOneRequiredWithoutIndicationsInput | null
+  strength?: number | null
+  meaning?: string | null
+}
+export type IndicationUpdateInputInputObject =
+  | Extract<keyof IndicationUpdateInput, string>
+  | { name: 'indicator', alias?: string  } 
+  | { name: 'event', alias?: string  } 
+  | { name: 'strength', alias?: string  } 
+  | { name: 'meaning', alias?: string  } 
+  
+export interface EventUpdateOneRequiredWithoutIndicationsInput {
+  create?: EventCreateWithoutIndicationsInput | null
+  update?: EventUpdateWithoutIndicationsDataInput | null
+  upsert?: EventUpsertWithoutIndicationsInput | null
+  connect?: EventWhereUniqueInput | null
+}
+export type EventUpdateOneRequiredWithoutIndicationsInputInputObject =
+  | Extract<keyof EventUpdateOneRequiredWithoutIndicationsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface EventUpdateWithoutIndicationsDataInput {
   date?: string | null
   title?: string | null
   description?: string | null
@@ -1515,14 +5418,32 @@ export interface ArticleUpdateManyMutationInput {
   source?: string | null
   read?: boolean | null
 }
-export type ArticleUpdateManyMutationInputInputObject =
-  | Extract<keyof ArticleUpdateManyMutationInput, string>
+export type EventUpdateWithoutIndicationsDataInputInputObject =
+  | Extract<keyof EventUpdateWithoutIndicationsDataInput, string>
   | { name: 'date', alias?: string  } 
   | { name: 'title', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'href', alias?: string  } 
   | { name: 'source', alias?: string  } 
   | { name: 'read', alias?: string  } 
+  
+export interface EventUpsertWithoutIndicationsInput {
+  update?: EventUpdateWithoutIndicationsDataInput
+  create?: EventCreateWithoutIndicationsInput
+}
+export type EventUpsertWithoutIndicationsInputInputObject =
+  | Extract<keyof EventUpsertWithoutIndicationsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface IndicationUpdateManyMutationInput {
+  strength?: number | null
+  meaning?: string | null
+}
+export type IndicationUpdateManyMutationInputInputObject =
+  | Extract<keyof IndicationUpdateManyMutationInput, string>
+  | { name: 'strength', alias?: string  } 
+  | { name: 'meaning', alias?: string  } 
   
 export interface UserSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
@@ -1545,18 +5466,102 @@ export type UserSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface ArticleSubscriptionWhereInput {
+export interface EventSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
   updatedFields_contains_every?: string[]
   updatedFields_contains_some?: string[]
-  node?: ArticleWhereInput | null
-  AND?: ArticleSubscriptionWhereInput[]
-  OR?: ArticleSubscriptionWhereInput[]
-  NOT?: ArticleSubscriptionWhereInput[]
+  node?: EventWhereInput | null
+  AND?: EventSubscriptionWhereInput[]
+  OR?: EventSubscriptionWhereInput[]
+  NOT?: EventSubscriptionWhereInput[]
 }
-export type ArticleSubscriptionWhereInputInputObject =
-  | Extract<keyof ArticleSubscriptionWhereInput, string>
+export type EventSubscriptionWhereInputInputObject =
+  | Extract<keyof EventSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface KeywordSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: KeywordWhereInput | null
+  AND?: KeywordSubscriptionWhereInput[]
+  OR?: KeywordSubscriptionWhereInput[]
+  NOT?: KeywordSubscriptionWhereInput[]
+}
+export type KeywordSubscriptionWhereInputInputObject =
+  | Extract<keyof KeywordSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface ScenarioSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: ScenarioWhereInput | null
+  AND?: ScenarioSubscriptionWhereInput[]
+  OR?: ScenarioSubscriptionWhereInput[]
+  NOT?: ScenarioSubscriptionWhereInput[]
+}
+export type ScenarioSubscriptionWhereInputInputObject =
+  | Extract<keyof ScenarioSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface IndicatorSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: IndicatorWhereInput | null
+  AND?: IndicatorSubscriptionWhereInput[]
+  OR?: IndicatorSubscriptionWhereInput[]
+  NOT?: IndicatorSubscriptionWhereInput[]
+}
+export type IndicatorSubscriptionWhereInputInputObject =
+  | Extract<keyof IndicatorSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface IndicationSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: IndicationWhereInput | null
+  AND?: IndicationSubscriptionWhereInput[]
+  OR?: IndicationSubscriptionWhereInput[]
+  NOT?: IndicationSubscriptionWhereInput[]
+}
+export type IndicationSubscriptionWhereInputInputObject =
+  | Extract<keyof IndicationSubscriptionWhereInput, string>
   | { name: 'mutation_in', alias?: string  } 
   | { name: 'updatedFields_contains', alias?: string  } 
   | { name: 'updatedFields_contains_every', alias?: string  } 
@@ -1577,7 +5582,31 @@ export type UserOrderByInputValues =
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
   
-export type ArticleOrderByInputValues =
+export type IndicationOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'strength_ASC'
+  | 'strength_DESC'
+  | 'meaning_ASC'
+  | 'meaning_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type KeywordOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type EventOrderByInputValues =
   | 'date_ASC'
   | 'date_DESC'
   | 'title_ASC'
@@ -1592,6 +5621,30 @@ export type ArticleOrderByInputValues =
   | 'id_DESC'
   | 'read_ASC'
   | 'read_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type ScenarioOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type IndicatorOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'

@@ -2,7 +2,23 @@
 ### Do not make changes to this file directly
 
 
-type AggregateArticle {
+type AggregateEvent {
+  count: Int!
+}
+
+type AggregateIndication {
+  count: Int!
+}
+
+type AggregateIndicator {
+  count: Int!
+}
+
+type AggregateKeyword {
+  count: Int!
+}
+
+type AggregateScenario {
   count: Int!
 }
 
@@ -10,23 +26,50 @@ type AggregateUser {
   count: Int!
 }
 
-type Article {
+type BatchPayload {
+  count: Long!
+}
+
+scalar DateTime
+
+type Event {
   date: DateTime
   description: String
   href: String
   id: ID!
+  indications(after: String, before: String, first: Int, last: Int, orderBy: IndicationOrderByInput, skip: Int, where: IndicationWhereInput): [Indication!]
   read: Boolean
   source: String
   title: String
 }
 
-type ArticleConnection {
-  aggregate: AggregateArticle!
-  edges: [ArticleEdge!]!
+type EventConnection {
+  aggregate: AggregateEvent!
+  edges: [EventEdge!]!
   pageInfo: PageInfo!
 }
 
-input ArticleCreateInput {
+input EventCreateInput {
+  date: DateTime
+  description: String
+  href: String
+  indications: IndicationCreateManyWithoutEventInput
+  read: Boolean
+  source: String
+  title: String
+}
+
+input EventCreateManyInput {
+  connect: [EventWhereUniqueInput!]
+  create: [EventCreateInput!]
+}
+
+input EventCreateOneWithoutIndicationsInput {
+  connect: EventWhereUniqueInput
+  create: EventCreateWithoutIndicationsInput
+}
+
+input EventCreateWithoutIndicationsInput {
   date: DateTime
   description: String
   href: String
@@ -35,12 +78,12 @@ input ArticleCreateInput {
   title: String
 }
 
-type ArticleEdge {
+type EventEdge {
   cursor: String!
-  node: Article!
+  node: Event!
 }
 
-enum ArticleOrderByInput {
+enum EventOrderByInput {
   createdAt_ASC
   createdAt_DESC
   date_ASC
@@ -61,26 +104,8 @@ enum ArticleOrderByInput {
   updatedAt_DESC
 }
 
-input ArticleUpdateInput {
-  date: DateTime
-  description: String
-  href: String
-  read: Boolean
-  source: String
-  title: String
-}
-
-input ArticleUpdateManyMutationInput {
-  date: DateTime
-  description: String
-  href: String
-  read: Boolean
-  source: String
-  title: String
-}
-
-input ArticleWhereInput {
-  AND: [ArticleWhereInput!]
+input EventScalarWhereInput {
+  AND: [EventScalarWhereInput!]
   date: DateTime
   date_gt: DateTime
   date_gte: DateTime
@@ -131,8 +156,8 @@ input ArticleWhereInput {
   id_not_in: [ID!]
   id_not_starts_with: ID
   id_starts_with: ID
-  NOT: [ArticleWhereInput!]
-  OR: [ArticleWhereInput!]
+  NOT: [EventScalarWhereInput!]
+  OR: [EventScalarWhereInput!]
   read: Boolean
   read_not: Boolean
   source: String
@@ -165,30 +190,875 @@ input ArticleWhereInput {
   title_starts_with: String
 }
 
-input ArticleWhereUniqueInput {
+input EventUpdateDataInput {
+  date: DateTime
+  description: String
+  href: String
+  indications: IndicationUpdateManyWithoutEventInput
+  read: Boolean
+  source: String
+  title: String
+}
+
+input EventUpdateInput {
+  date: DateTime
+  description: String
+  href: String
+  indications: IndicationUpdateManyWithoutEventInput
+  read: Boolean
+  source: String
+  title: String
+}
+
+input EventUpdateManyDataInput {
+  date: DateTime
+  description: String
+  href: String
+  read: Boolean
+  source: String
+  title: String
+}
+
+input EventUpdateManyInput {
+  connect: [EventWhereUniqueInput!]
+  create: [EventCreateInput!]
+  delete: [EventWhereUniqueInput!]
+  deleteMany: [EventScalarWhereInput!]
+  disconnect: [EventWhereUniqueInput!]
+  set: [EventWhereUniqueInput!]
+  update: [EventUpdateWithWhereUniqueNestedInput!]
+  updateMany: [EventUpdateManyWithWhereNestedInput!]
+  upsert: [EventUpsertWithWhereUniqueNestedInput!]
+}
+
+input EventUpdateManyMutationInput {
+  date: DateTime
+  description: String
+  href: String
+  read: Boolean
+  source: String
+  title: String
+}
+
+input EventUpdateManyWithWhereNestedInput {
+  data: EventUpdateManyDataInput!
+  where: EventScalarWhereInput!
+}
+
+input EventUpdateOneRequiredWithoutIndicationsInput {
+  connect: EventWhereUniqueInput
+  create: EventCreateWithoutIndicationsInput
+  update: EventUpdateWithoutIndicationsDataInput
+  upsert: EventUpsertWithoutIndicationsInput
+}
+
+input EventUpdateWithoutIndicationsDataInput {
+  date: DateTime
+  description: String
+  href: String
+  read: Boolean
+  source: String
+  title: String
+}
+
+input EventUpdateWithWhereUniqueNestedInput {
+  data: EventUpdateDataInput!
+  where: EventWhereUniqueInput!
+}
+
+input EventUpsertWithoutIndicationsInput {
+  create: EventCreateWithoutIndicationsInput!
+  update: EventUpdateWithoutIndicationsDataInput!
+}
+
+input EventUpsertWithWhereUniqueNestedInput {
+  create: EventCreateInput!
+  update: EventUpdateDataInput!
+  where: EventWhereUniqueInput!
+}
+
+input EventWhereInput {
+  AND: [EventWhereInput!]
+  date: DateTime
+  date_gt: DateTime
+  date_gte: DateTime
+  date_in: [DateTime!]
+  date_lt: DateTime
+  date_lte: DateTime
+  date_not: DateTime
+  date_not_in: [DateTime!]
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  href: String
+  href_contains: String
+  href_ends_with: String
+  href_gt: String
+  href_gte: String
+  href_in: [String!]
+  href_lt: String
+  href_lte: String
+  href_not: String
+  href_not_contains: String
+  href_not_ends_with: String
+  href_not_in: [String!]
+  href_not_starts_with: String
+  href_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  indications_every: IndicationWhereInput
+  indications_none: IndicationWhereInput
+  indications_some: IndicationWhereInput
+  NOT: [EventWhereInput!]
+  OR: [EventWhereInput!]
+  read: Boolean
+  read_not: Boolean
+  source: String
+  source_contains: String
+  source_ends_with: String
+  source_gt: String
+  source_gte: String
+  source_in: [String!]
+  source_lt: String
+  source_lte: String
+  source_not: String
+  source_not_contains: String
+  source_not_ends_with: String
+  source_not_in: [String!]
+  source_not_starts_with: String
+  source_starts_with: String
+  title: String
+  title_contains: String
+  title_ends_with: String
+  title_gt: String
+  title_gte: String
+  title_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_not: String
+  title_not_contains: String
+  title_not_ends_with: String
+  title_not_in: [String!]
+  title_not_starts_with: String
+  title_starts_with: String
+}
+
+input EventWhereUniqueInput {
   id: ID
 }
 
-type BatchPayload {
-  count: Long!
+type Indication {
+  createdAt: DateTime!
+  event: Event!
+  id: ID!
+  indicator: Indicator!
+  meaning: String
+  strength: Int
+  updatedAt: DateTime!
 }
 
-scalar DateTime
+type IndicationConnection {
+  aggregate: AggregateIndication!
+  edges: [IndicationEdge!]!
+  pageInfo: PageInfo!
+}
+
+input IndicationCreateInput {
+  event: EventCreateOneWithoutIndicationsInput!
+  indicator: IndicatorCreateOneInput!
+  meaning: String
+  strength: Int
+}
+
+input IndicationCreateManyWithoutEventInput {
+  connect: [IndicationWhereUniqueInput!]
+  create: [IndicationCreateWithoutEventInput!]
+}
+
+input IndicationCreateWithoutEventInput {
+  indicator: IndicatorCreateOneInput!
+  meaning: String
+  strength: Int
+}
+
+type IndicationEdge {
+  cursor: String!
+  node: Indication!
+}
+
+enum IndicationOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  meaning_ASC
+  meaning_DESC
+  strength_ASC
+  strength_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input IndicationScalarWhereInput {
+  AND: [IndicationScalarWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  meaning: String
+  meaning_contains: String
+  meaning_ends_with: String
+  meaning_gt: String
+  meaning_gte: String
+  meaning_in: [String!]
+  meaning_lt: String
+  meaning_lte: String
+  meaning_not: String
+  meaning_not_contains: String
+  meaning_not_ends_with: String
+  meaning_not_in: [String!]
+  meaning_not_starts_with: String
+  meaning_starts_with: String
+  NOT: [IndicationScalarWhereInput!]
+  OR: [IndicationScalarWhereInput!]
+  strength: Int
+  strength_gt: Int
+  strength_gte: Int
+  strength_in: [Int!]
+  strength_lt: Int
+  strength_lte: Int
+  strength_not: Int
+  strength_not_in: [Int!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+}
+
+input IndicationUpdateInput {
+  event: EventUpdateOneRequiredWithoutIndicationsInput
+  indicator: IndicatorUpdateOneRequiredInput
+  meaning: String
+  strength: Int
+}
+
+input IndicationUpdateManyDataInput {
+  meaning: String
+  strength: Int
+}
+
+input IndicationUpdateManyMutationInput {
+  meaning: String
+  strength: Int
+}
+
+input IndicationUpdateManyWithoutEventInput {
+  connect: [IndicationWhereUniqueInput!]
+  create: [IndicationCreateWithoutEventInput!]
+  delete: [IndicationWhereUniqueInput!]
+  deleteMany: [IndicationScalarWhereInput!]
+  disconnect: [IndicationWhereUniqueInput!]
+  set: [IndicationWhereUniqueInput!]
+  update: [IndicationUpdateWithWhereUniqueWithoutEventInput!]
+  updateMany: [IndicationUpdateManyWithWhereNestedInput!]
+  upsert: [IndicationUpsertWithWhereUniqueWithoutEventInput!]
+}
+
+input IndicationUpdateManyWithWhereNestedInput {
+  data: IndicationUpdateManyDataInput!
+  where: IndicationScalarWhereInput!
+}
+
+input IndicationUpdateWithoutEventDataInput {
+  indicator: IndicatorUpdateOneRequiredInput
+  meaning: String
+  strength: Int
+}
+
+input IndicationUpdateWithWhereUniqueWithoutEventInput {
+  data: IndicationUpdateWithoutEventDataInput!
+  where: IndicationWhereUniqueInput!
+}
+
+input IndicationUpsertWithWhereUniqueWithoutEventInput {
+  create: IndicationCreateWithoutEventInput!
+  update: IndicationUpdateWithoutEventDataInput!
+  where: IndicationWhereUniqueInput!
+}
+
+input IndicationWhereInput {
+  AND: [IndicationWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
+  event: EventWhereInput
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  indicator: IndicatorWhereInput
+  meaning: String
+  meaning_contains: String
+  meaning_ends_with: String
+  meaning_gt: String
+  meaning_gte: String
+  meaning_in: [String!]
+  meaning_lt: String
+  meaning_lte: String
+  meaning_not: String
+  meaning_not_contains: String
+  meaning_not_ends_with: String
+  meaning_not_in: [String!]
+  meaning_not_starts_with: String
+  meaning_starts_with: String
+  NOT: [IndicationWhereInput!]
+  OR: [IndicationWhereInput!]
+  strength: Int
+  strength_gt: Int
+  strength_gte: Int
+  strength_in: [Int!]
+  strength_lt: Int
+  strength_lte: Int
+  strength_not: Int
+  strength_not_in: [Int!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+}
+
+input IndicationWhereUniqueInput {
+  id: ID
+}
+
+type Indicator {
+  description: String
+  id: ID!
+  keywords(after: String, before: String, first: Int, last: Int, orderBy: KeywordOrderByInput, skip: Int, where: KeywordWhereInput): [Keyword!]
+  name: String
+  scenarios(after: String, before: String, first: Int, last: Int, orderBy: ScenarioOrderByInput, skip: Int, where: ScenarioWhereInput): [Scenario!]
+}
+
+type IndicatorConnection {
+  aggregate: AggregateIndicator!
+  edges: [IndicatorEdge!]!
+  pageInfo: PageInfo!
+}
+
+input IndicatorCreateInput {
+  description: String
+  keywords: KeywordCreateManyInput
+  name: String
+  scenarios: ScenarioCreateManyWithoutIndicatorsInput
+}
+
+input IndicatorCreateManyWithoutScenariosInput {
+  connect: [IndicatorWhereUniqueInput!]
+  create: [IndicatorCreateWithoutScenariosInput!]
+}
+
+input IndicatorCreateOneInput {
+  connect: IndicatorWhereUniqueInput
+  create: IndicatorCreateInput
+}
+
+input IndicatorCreateWithoutScenariosInput {
+  description: String
+  keywords: KeywordCreateManyInput
+  name: String
+}
+
+type IndicatorEdge {
+  cursor: String!
+  node: Indicator!
+}
+
+enum IndicatorOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  description_ASC
+  description_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input IndicatorScalarWhereInput {
+  AND: [IndicatorScalarWhereInput!]
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [IndicatorScalarWhereInput!]
+  OR: [IndicatorScalarWhereInput!]
+}
+
+input IndicatorUpdateDataInput {
+  description: String
+  keywords: KeywordUpdateManyInput
+  name: String
+  scenarios: ScenarioUpdateManyWithoutIndicatorsInput
+}
+
+input IndicatorUpdateInput {
+  description: String
+  keywords: KeywordUpdateManyInput
+  name: String
+  scenarios: ScenarioUpdateManyWithoutIndicatorsInput
+}
+
+input IndicatorUpdateManyDataInput {
+  description: String
+  name: String
+}
+
+input IndicatorUpdateManyMutationInput {
+  description: String
+  name: String
+}
+
+input IndicatorUpdateManyWithoutScenariosInput {
+  connect: [IndicatorWhereUniqueInput!]
+  create: [IndicatorCreateWithoutScenariosInput!]
+  delete: [IndicatorWhereUniqueInput!]
+  deleteMany: [IndicatorScalarWhereInput!]
+  disconnect: [IndicatorWhereUniqueInput!]
+  set: [IndicatorWhereUniqueInput!]
+  update: [IndicatorUpdateWithWhereUniqueWithoutScenariosInput!]
+  updateMany: [IndicatorUpdateManyWithWhereNestedInput!]
+  upsert: [IndicatorUpsertWithWhereUniqueWithoutScenariosInput!]
+}
+
+input IndicatorUpdateManyWithWhereNestedInput {
+  data: IndicatorUpdateManyDataInput!
+  where: IndicatorScalarWhereInput!
+}
+
+input IndicatorUpdateOneRequiredInput {
+  connect: IndicatorWhereUniqueInput
+  create: IndicatorCreateInput
+  update: IndicatorUpdateDataInput
+  upsert: IndicatorUpsertNestedInput
+}
+
+input IndicatorUpdateWithoutScenariosDataInput {
+  description: String
+  keywords: KeywordUpdateManyInput
+  name: String
+}
+
+input IndicatorUpdateWithWhereUniqueWithoutScenariosInput {
+  data: IndicatorUpdateWithoutScenariosDataInput!
+  where: IndicatorWhereUniqueInput!
+}
+
+input IndicatorUpsertNestedInput {
+  create: IndicatorCreateInput!
+  update: IndicatorUpdateDataInput!
+}
+
+input IndicatorUpsertWithWhereUniqueWithoutScenariosInput {
+  create: IndicatorCreateWithoutScenariosInput!
+  update: IndicatorUpdateWithoutScenariosDataInput!
+  where: IndicatorWhereUniqueInput!
+}
+
+input IndicatorWhereInput {
+  AND: [IndicatorWhereInput!]
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  keywords_every: KeywordWhereInput
+  keywords_none: KeywordWhereInput
+  keywords_some: KeywordWhereInput
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [IndicatorWhereInput!]
+  OR: [IndicatorWhereInput!]
+  scenarios_every: ScenarioWhereInput
+  scenarios_none: ScenarioWhereInput
+  scenarios_some: ScenarioWhereInput
+}
+
+input IndicatorWhereUniqueInput {
+  id: ID
+}
+
+type Keyword {
+  description: String
+  events(after: String, before: String, first: Int, last: Int, orderBy: EventOrderByInput, skip: Int, where: EventWhereInput): [Event!]
+  id: ID!
+  name: String
+}
+
+type KeywordConnection {
+  aggregate: AggregateKeyword!
+  edges: [KeywordEdge!]!
+  pageInfo: PageInfo!
+}
+
+input KeywordCreateInput {
+  description: String
+  events: EventCreateManyInput
+  name: String
+}
+
+input KeywordCreateManyInput {
+  connect: [KeywordWhereUniqueInput!]
+  create: [KeywordCreateInput!]
+}
+
+type KeywordEdge {
+  cursor: String!
+  node: Keyword!
+}
+
+enum KeywordOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  description_ASC
+  description_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input KeywordScalarWhereInput {
+  AND: [KeywordScalarWhereInput!]
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [KeywordScalarWhereInput!]
+  OR: [KeywordScalarWhereInput!]
+}
+
+input KeywordUpdateDataInput {
+  description: String
+  events: EventUpdateManyInput
+  name: String
+}
+
+input KeywordUpdateInput {
+  description: String
+  events: EventUpdateManyInput
+  name: String
+}
+
+input KeywordUpdateManyDataInput {
+  description: String
+  name: String
+}
+
+input KeywordUpdateManyInput {
+  connect: [KeywordWhereUniqueInput!]
+  create: [KeywordCreateInput!]
+  delete: [KeywordWhereUniqueInput!]
+  deleteMany: [KeywordScalarWhereInput!]
+  disconnect: [KeywordWhereUniqueInput!]
+  set: [KeywordWhereUniqueInput!]
+  update: [KeywordUpdateWithWhereUniqueNestedInput!]
+  updateMany: [KeywordUpdateManyWithWhereNestedInput!]
+  upsert: [KeywordUpsertWithWhereUniqueNestedInput!]
+}
+
+input KeywordUpdateManyMutationInput {
+  description: String
+  name: String
+}
+
+input KeywordUpdateManyWithWhereNestedInput {
+  data: KeywordUpdateManyDataInput!
+  where: KeywordScalarWhereInput!
+}
+
+input KeywordUpdateWithWhereUniqueNestedInput {
+  data: KeywordUpdateDataInput!
+  where: KeywordWhereUniqueInput!
+}
+
+input KeywordUpsertWithWhereUniqueNestedInput {
+  create: KeywordCreateInput!
+  update: KeywordUpdateDataInput!
+  where: KeywordWhereUniqueInput!
+}
+
+input KeywordWhereInput {
+  AND: [KeywordWhereInput!]
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  events_every: EventWhereInput
+  events_none: EventWhereInput
+  events_some: EventWhereInput
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [KeywordWhereInput!]
+  OR: [KeywordWhereInput!]
+}
+
+input KeywordWhereUniqueInput {
+  id: ID
+}
 
 scalar Long
 
 type Mutation {
-  createArticle(data: ArticleCreateInput!): Article!
+  createEvent(data: EventCreateInput!): Event!
+  createIndication(data: IndicationCreateInput!): Indication!
+  createIndicator(data: IndicatorCreateInput!): Indicator!
+  createKeyword(data: KeywordCreateInput!): Keyword!
+  createScenario(data: ScenarioCreateInput!): Scenario!
   createUser(data: UserCreateInput!): User!
-  deleteArticle(where: ArticleWhereUniqueInput!): Article
-  deleteManyArticles(where: ArticleWhereInput): BatchPayload!
+  deleteEvent(where: EventWhereUniqueInput!): Event
+  deleteIndication(where: IndicationWhereUniqueInput!): Indication
+  deleteIndicator(where: IndicatorWhereUniqueInput!): Indicator
+  deleteKeyword(where: KeywordWhereUniqueInput!): Keyword
+  deleteManyEvents(where: EventWhereInput): BatchPayload!
+  deleteManyIndications(where: IndicationWhereInput): BatchPayload!
+  deleteManyIndicators(where: IndicatorWhereInput): BatchPayload!
+  deleteManyKeywords(where: KeywordWhereInput): BatchPayload!
+  deleteManyScenarios(where: ScenarioWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
+  deleteScenario(where: ScenarioWhereUniqueInput!): Scenario
   deleteUser(where: UserWhereUniqueInput!): User
-  updateArticle(data: ArticleUpdateInput!, where: ArticleWhereUniqueInput!): Article
-  updateManyArticles(data: ArticleUpdateManyMutationInput!, where: ArticleWhereInput): BatchPayload!
+  updateEvent(data: EventUpdateInput!, where: EventWhereUniqueInput!): Event
+  updateIndication(data: IndicationUpdateInput!, where: IndicationWhereUniqueInput!): Indication
+  updateIndicator(data: IndicatorUpdateInput!, where: IndicatorWhereUniqueInput!): Indicator
+  updateKeyword(data: KeywordUpdateInput!, where: KeywordWhereUniqueInput!): Keyword
+  updateManyEvents(data: EventUpdateManyMutationInput!, where: EventWhereInput): BatchPayload!
+  updateManyIndications(data: IndicationUpdateManyMutationInput!, where: IndicationWhereInput): BatchPayload!
+  updateManyIndicators(data: IndicatorUpdateManyMutationInput!, where: IndicatorWhereInput): BatchPayload!
+  updateManyKeywords(data: KeywordUpdateManyMutationInput!, where: KeywordWhereInput): BatchPayload!
+  updateManyScenarios(data: ScenarioUpdateManyMutationInput!, where: ScenarioWhereInput): BatchPayload!
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  updateScenario(data: ScenarioUpdateInput!, where: ScenarioWhereUniqueInput!): Scenario
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
-  upsertArticle(create: ArticleCreateInput!, update: ArticleUpdateInput!, where: ArticleWhereUniqueInput!): Article!
+  upsertEvent(create: EventCreateInput!, update: EventUpdateInput!, where: EventWhereUniqueInput!): Event!
+  upsertIndication(create: IndicationCreateInput!, update: IndicationUpdateInput!, where: IndicationWhereUniqueInput!): Indication!
+  upsertIndicator(create: IndicatorCreateInput!, update: IndicatorUpdateInput!, where: IndicatorWhereUniqueInput!): Indicator!
+  upsertKeyword(create: KeywordCreateInput!, update: KeywordUpdateInput!, where: KeywordWhereUniqueInput!): Keyword!
+  upsertScenario(create: ScenarioCreateInput!, update: ScenarioUpdateInput!, where: ScenarioWhereUniqueInput!): Scenario!
   upsertUser(create: UserCreateInput!, update: UserUpdateInput!, where: UserWhereUniqueInput!): User!
 }
 
@@ -200,12 +1070,223 @@ type PageInfo {
 }
 
 type Query {
-  article(where: ArticleWhereUniqueInput!): Article
-  articles(after: String, before: String, first: Int, last: Int, orderBy: ArticleOrderByInput, skip: Int, where: ArticleWhereInput): [Article!]!
-  articlesConnection(after: String, before: String, first: Int, last: Int, orderBy: ArticleOrderByInput, skip: Int, where: ArticleWhereInput): ArticleConnection!
+  event(where: EventWhereUniqueInput!): Event
+  events(after: String, before: String, first: Int, last: Int, orderBy: EventOrderByInput, skip: Int, where: EventWhereInput): [Event!]!
+  eventsConnection(after: String, before: String, first: Int, last: Int, orderBy: EventOrderByInput, skip: Int, where: EventWhereInput): EventConnection!
+  indication(where: IndicationWhereUniqueInput!): Indication
+  indications(after: String, before: String, first: Int, last: Int, orderBy: IndicationOrderByInput, skip: Int, where: IndicationWhereInput): [Indication!]!
+  indicationsConnection(after: String, before: String, first: Int, last: Int, orderBy: IndicationOrderByInput, skip: Int, where: IndicationWhereInput): IndicationConnection!
+  indicator(where: IndicatorWhereUniqueInput!): Indicator
+  indicators(after: String, before: String, first: Int, last: Int, orderBy: IndicatorOrderByInput, skip: Int, where: IndicatorWhereInput): [Indicator!]!
+  indicatorsConnection(after: String, before: String, first: Int, last: Int, orderBy: IndicatorOrderByInput, skip: Int, where: IndicatorWhereInput): IndicatorConnection!
+  keyword(where: KeywordWhereUniqueInput!): Keyword
+  keywords(after: String, before: String, first: Int, last: Int, orderBy: KeywordOrderByInput, skip: Int, where: KeywordWhereInput): [Keyword!]!
+  keywordsConnection(after: String, before: String, first: Int, last: Int, orderBy: KeywordOrderByInput, skip: Int, where: KeywordWhereInput): KeywordConnection!
+  scenario(where: ScenarioWhereUniqueInput!): Scenario
+  scenarios(after: String, before: String, first: Int, last: Int, orderBy: ScenarioOrderByInput, skip: Int, where: ScenarioWhereInput): [Scenario!]!
+  scenariosConnection(after: String, before: String, first: Int, last: Int, orderBy: ScenarioOrderByInput, skip: Int, where: ScenarioWhereInput): ScenarioConnection!
   user(where: UserWhereUniqueInput!): User
   users(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): [User!]!
   usersConnection(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): UserConnection!
+}
+
+type Scenario {
+  description: String
+  id: ID!
+  indicators(after: String, before: String, first: Int, last: Int, orderBy: IndicatorOrderByInput, skip: Int, where: IndicatorWhereInput): [Indicator!]
+  name: String
+}
+
+type ScenarioConnection {
+  aggregate: AggregateScenario!
+  edges: [ScenarioEdge!]!
+  pageInfo: PageInfo!
+}
+
+input ScenarioCreateInput {
+  description: String
+  indicators: IndicatorCreateManyWithoutScenariosInput
+  name: String
+}
+
+input ScenarioCreateManyWithoutIndicatorsInput {
+  connect: [ScenarioWhereUniqueInput!]
+  create: [ScenarioCreateWithoutIndicatorsInput!]
+}
+
+input ScenarioCreateWithoutIndicatorsInput {
+  description: String
+  name: String
+}
+
+type ScenarioEdge {
+  cursor: String!
+  node: Scenario!
+}
+
+enum ScenarioOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  description_ASC
+  description_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input ScenarioScalarWhereInput {
+  AND: [ScenarioScalarWhereInput!]
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [ScenarioScalarWhereInput!]
+  OR: [ScenarioScalarWhereInput!]
+}
+
+input ScenarioUpdateInput {
+  description: String
+  indicators: IndicatorUpdateManyWithoutScenariosInput
+  name: String
+}
+
+input ScenarioUpdateManyDataInput {
+  description: String
+  name: String
+}
+
+input ScenarioUpdateManyMutationInput {
+  description: String
+  name: String
+}
+
+input ScenarioUpdateManyWithoutIndicatorsInput {
+  connect: [ScenarioWhereUniqueInput!]
+  create: [ScenarioCreateWithoutIndicatorsInput!]
+  delete: [ScenarioWhereUniqueInput!]
+  deleteMany: [ScenarioScalarWhereInput!]
+  disconnect: [ScenarioWhereUniqueInput!]
+  set: [ScenarioWhereUniqueInput!]
+  update: [ScenarioUpdateWithWhereUniqueWithoutIndicatorsInput!]
+  updateMany: [ScenarioUpdateManyWithWhereNestedInput!]
+  upsert: [ScenarioUpsertWithWhereUniqueWithoutIndicatorsInput!]
+}
+
+input ScenarioUpdateManyWithWhereNestedInput {
+  data: ScenarioUpdateManyDataInput!
+  where: ScenarioScalarWhereInput!
+}
+
+input ScenarioUpdateWithoutIndicatorsDataInput {
+  description: String
+  name: String
+}
+
+input ScenarioUpdateWithWhereUniqueWithoutIndicatorsInput {
+  data: ScenarioUpdateWithoutIndicatorsDataInput!
+  where: ScenarioWhereUniqueInput!
+}
+
+input ScenarioUpsertWithWhereUniqueWithoutIndicatorsInput {
+  create: ScenarioCreateWithoutIndicatorsInput!
+  update: ScenarioUpdateWithoutIndicatorsDataInput!
+  where: ScenarioWhereUniqueInput!
+}
+
+input ScenarioWhereInput {
+  AND: [ScenarioWhereInput!]
+  description: String
+  description_contains: String
+  description_ends_with: String
+  description_gt: String
+  description_gte: String
+  description_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_not: String
+  description_not_contains: String
+  description_not_ends_with: String
+  description_not_in: [String!]
+  description_not_starts_with: String
+  description_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  indicators_every: IndicatorWhereInput
+  indicators_none: IndicatorWhereInput
+  indicators_some: IndicatorWhereInput
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [ScenarioWhereInput!]
+  OR: [ScenarioWhereInput!]
+}
+
+input ScenarioWhereUniqueInput {
+  id: ID
 }
 
 type User {

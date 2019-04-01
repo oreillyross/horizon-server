@@ -11,7 +11,24 @@ declare global {
 }
 
 export interface NexusGenInputs {
-  ArticleCreateInput: { // input type
+  EventCreateInput: { // input type
+    date?: any | null; // DateTime
+    description?: string | null; // String
+    href?: string | null; // String
+    indications?: NexusGenInputs['IndicationCreateManyWithoutEventInput'] | null; // IndicationCreateManyWithoutEventInput
+    read?: boolean | null; // Boolean
+    source?: string | null; // String
+    title?: string | null; // String
+  }
+  EventCreateManyInput: { // input type
+    connect?: NexusGenInputs['EventWhereUniqueInput'][] | null; // [EventWhereUniqueInput!]
+    create?: NexusGenInputs['EventCreateInput'][] | null; // [EventCreateInput!]
+  }
+  EventCreateOneWithoutIndicationsInput: { // input type
+    connect?: NexusGenInputs['EventWhereUniqueInput'] | null; // EventWhereUniqueInput
+    create?: NexusGenInputs['EventCreateWithoutIndicationsInput'] | null; // EventCreateWithoutIndicationsInput
+  }
+  EventCreateWithoutIndicationsInput: { // input type
     date?: any | null; // DateTime
     description?: string | null; // String
     href?: string | null; // String
@@ -19,24 +36,8 @@ export interface NexusGenInputs {
     source?: string | null; // String
     title?: string | null; // String
   }
-  ArticleUpdateInput: { // input type
-    date?: any | null; // DateTime
-    description?: string | null; // String
-    href?: string | null; // String
-    read?: boolean | null; // Boolean
-    source?: string | null; // String
-    title?: string | null; // String
-  }
-  ArticleUpdateManyMutationInput: { // input type
-    date?: any | null; // DateTime
-    description?: string | null; // String
-    href?: string | null; // String
-    read?: boolean | null; // Boolean
-    source?: string | null; // String
-    title?: string | null; // String
-  }
-  ArticleWhereInput: { // input type
-    AND?: NexusGenInputs['ArticleWhereInput'][] | null; // [ArticleWhereInput!]
+  EventScalarWhereInput: { // input type
+    AND?: NexusGenInputs['EventScalarWhereInput'][] | null; // [EventScalarWhereInput!]
     date?: any | null; // DateTime
     date_gt?: any | null; // DateTime
     date_gte?: any | null; // DateTime
@@ -87,8 +88,8 @@ export interface NexusGenInputs {
     id_not_in?: string[] | null; // [ID!]
     id_not_starts_with?: string | null; // ID
     id_starts_with?: string | null; // ID
-    NOT?: NexusGenInputs['ArticleWhereInput'][] | null; // [ArticleWhereInput!]
-    OR?: NexusGenInputs['ArticleWhereInput'][] | null; // [ArticleWhereInput!]
+    NOT?: NexusGenInputs['EventScalarWhereInput'][] | null; // [EventScalarWhereInput!]
+    OR?: NexusGenInputs['EventScalarWhereInput'][] | null; // [EventScalarWhereInput!]
     read?: boolean | null; // Boolean
     read_not?: boolean | null; // Boolean
     source?: string | null; // String
@@ -120,7 +121,834 @@ export interface NexusGenInputs {
     title_not_starts_with?: string | null; // String
     title_starts_with?: string | null; // String
   }
-  ArticleWhereUniqueInput: { // input type
+  EventUpdateDataInput: { // input type
+    date?: any | null; // DateTime
+    description?: string | null; // String
+    href?: string | null; // String
+    indications?: NexusGenInputs['IndicationUpdateManyWithoutEventInput'] | null; // IndicationUpdateManyWithoutEventInput
+    read?: boolean | null; // Boolean
+    source?: string | null; // String
+    title?: string | null; // String
+  }
+  EventUpdateInput: { // input type
+    date?: any | null; // DateTime
+    description?: string | null; // String
+    href?: string | null; // String
+    indications?: NexusGenInputs['IndicationUpdateManyWithoutEventInput'] | null; // IndicationUpdateManyWithoutEventInput
+    read?: boolean | null; // Boolean
+    source?: string | null; // String
+    title?: string | null; // String
+  }
+  EventUpdateManyDataInput: { // input type
+    date?: any | null; // DateTime
+    description?: string | null; // String
+    href?: string | null; // String
+    read?: boolean | null; // Boolean
+    source?: string | null; // String
+    title?: string | null; // String
+  }
+  EventUpdateManyInput: { // input type
+    connect?: NexusGenInputs['EventWhereUniqueInput'][] | null; // [EventWhereUniqueInput!]
+    create?: NexusGenInputs['EventCreateInput'][] | null; // [EventCreateInput!]
+    delete?: NexusGenInputs['EventWhereUniqueInput'][] | null; // [EventWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['EventScalarWhereInput'][] | null; // [EventScalarWhereInput!]
+    disconnect?: NexusGenInputs['EventWhereUniqueInput'][] | null; // [EventWhereUniqueInput!]
+    set?: NexusGenInputs['EventWhereUniqueInput'][] | null; // [EventWhereUniqueInput!]
+    update?: NexusGenInputs['EventUpdateWithWhereUniqueNestedInput'][] | null; // [EventUpdateWithWhereUniqueNestedInput!]
+    updateMany?: NexusGenInputs['EventUpdateManyWithWhereNestedInput'][] | null; // [EventUpdateManyWithWhereNestedInput!]
+    upsert?: NexusGenInputs['EventUpsertWithWhereUniqueNestedInput'][] | null; // [EventUpsertWithWhereUniqueNestedInput!]
+  }
+  EventUpdateManyMutationInput: { // input type
+    date?: any | null; // DateTime
+    description?: string | null; // String
+    href?: string | null; // String
+    read?: boolean | null; // Boolean
+    source?: string | null; // String
+    title?: string | null; // String
+  }
+  EventUpdateManyWithWhereNestedInput: { // input type
+    data: NexusGenInputs['EventUpdateManyDataInput']; // EventUpdateManyDataInput!
+    where: NexusGenInputs['EventScalarWhereInput']; // EventScalarWhereInput!
+  }
+  EventUpdateOneRequiredWithoutIndicationsInput: { // input type
+    connect?: NexusGenInputs['EventWhereUniqueInput'] | null; // EventWhereUniqueInput
+    create?: NexusGenInputs['EventCreateWithoutIndicationsInput'] | null; // EventCreateWithoutIndicationsInput
+    update?: NexusGenInputs['EventUpdateWithoutIndicationsDataInput'] | null; // EventUpdateWithoutIndicationsDataInput
+    upsert?: NexusGenInputs['EventUpsertWithoutIndicationsInput'] | null; // EventUpsertWithoutIndicationsInput
+  }
+  EventUpdateWithWhereUniqueNestedInput: { // input type
+    data: NexusGenInputs['EventUpdateDataInput']; // EventUpdateDataInput!
+    where: NexusGenInputs['EventWhereUniqueInput']; // EventWhereUniqueInput!
+  }
+  EventUpdateWithoutIndicationsDataInput: { // input type
+    date?: any | null; // DateTime
+    description?: string | null; // String
+    href?: string | null; // String
+    read?: boolean | null; // Boolean
+    source?: string | null; // String
+    title?: string | null; // String
+  }
+  EventUpsertWithWhereUniqueNestedInput: { // input type
+    create: NexusGenInputs['EventCreateInput']; // EventCreateInput!
+    update: NexusGenInputs['EventUpdateDataInput']; // EventUpdateDataInput!
+    where: NexusGenInputs['EventWhereUniqueInput']; // EventWhereUniqueInput!
+  }
+  EventUpsertWithoutIndicationsInput: { // input type
+    create: NexusGenInputs['EventCreateWithoutIndicationsInput']; // EventCreateWithoutIndicationsInput!
+    update: NexusGenInputs['EventUpdateWithoutIndicationsDataInput']; // EventUpdateWithoutIndicationsDataInput!
+  }
+  EventWhereInput: { // input type
+    AND?: NexusGenInputs['EventWhereInput'][] | null; // [EventWhereInput!]
+    date?: any | null; // DateTime
+    date_gt?: any | null; // DateTime
+    date_gte?: any | null; // DateTime
+    date_in?: any[] | null; // [DateTime!]
+    date_lt?: any | null; // DateTime
+    date_lte?: any | null; // DateTime
+    date_not?: any | null; // DateTime
+    date_not_in?: any[] | null; // [DateTime!]
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    href?: string | null; // String
+    href_contains?: string | null; // String
+    href_ends_with?: string | null; // String
+    href_gt?: string | null; // String
+    href_gte?: string | null; // String
+    href_in?: string[] | null; // [String!]
+    href_lt?: string | null; // String
+    href_lte?: string | null; // String
+    href_not?: string | null; // String
+    href_not_contains?: string | null; // String
+    href_not_ends_with?: string | null; // String
+    href_not_in?: string[] | null; // [String!]
+    href_not_starts_with?: string | null; // String
+    href_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    indications_every?: NexusGenInputs['IndicationWhereInput'] | null; // IndicationWhereInput
+    indications_none?: NexusGenInputs['IndicationWhereInput'] | null; // IndicationWhereInput
+    indications_some?: NexusGenInputs['IndicationWhereInput'] | null; // IndicationWhereInput
+    NOT?: NexusGenInputs['EventWhereInput'][] | null; // [EventWhereInput!]
+    OR?: NexusGenInputs['EventWhereInput'][] | null; // [EventWhereInput!]
+    read?: boolean | null; // Boolean
+    read_not?: boolean | null; // Boolean
+    source?: string | null; // String
+    source_contains?: string | null; // String
+    source_ends_with?: string | null; // String
+    source_gt?: string | null; // String
+    source_gte?: string | null; // String
+    source_in?: string[] | null; // [String!]
+    source_lt?: string | null; // String
+    source_lte?: string | null; // String
+    source_not?: string | null; // String
+    source_not_contains?: string | null; // String
+    source_not_ends_with?: string | null; // String
+    source_not_in?: string[] | null; // [String!]
+    source_not_starts_with?: string | null; // String
+    source_starts_with?: string | null; // String
+    title?: string | null; // String
+    title_contains?: string | null; // String
+    title_ends_with?: string | null; // String
+    title_gt?: string | null; // String
+    title_gte?: string | null; // String
+    title_in?: string[] | null; // [String!]
+    title_lt?: string | null; // String
+    title_lte?: string | null; // String
+    title_not?: string | null; // String
+    title_not_contains?: string | null; // String
+    title_not_ends_with?: string | null; // String
+    title_not_in?: string[] | null; // [String!]
+    title_not_starts_with?: string | null; // String
+    title_starts_with?: string | null; // String
+  }
+  EventWhereUniqueInput: { // input type
+    id?: string | null; // ID
+  }
+  IndicationCreateInput: { // input type
+    event: NexusGenInputs['EventCreateOneWithoutIndicationsInput']; // EventCreateOneWithoutIndicationsInput!
+    indicator: NexusGenInputs['IndicatorCreateOneInput']; // IndicatorCreateOneInput!
+    meaning?: string | null; // String
+    strength?: number | null; // Int
+  }
+  IndicationCreateManyWithoutEventInput: { // input type
+    connect?: NexusGenInputs['IndicationWhereUniqueInput'][] | null; // [IndicationWhereUniqueInput!]
+    create?: NexusGenInputs['IndicationCreateWithoutEventInput'][] | null; // [IndicationCreateWithoutEventInput!]
+  }
+  IndicationCreateWithoutEventInput: { // input type
+    indicator: NexusGenInputs['IndicatorCreateOneInput']; // IndicatorCreateOneInput!
+    meaning?: string | null; // String
+    strength?: number | null; // Int
+  }
+  IndicationScalarWhereInput: { // input type
+    AND?: NexusGenInputs['IndicationScalarWhereInput'][] | null; // [IndicationScalarWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    meaning?: string | null; // String
+    meaning_contains?: string | null; // String
+    meaning_ends_with?: string | null; // String
+    meaning_gt?: string | null; // String
+    meaning_gte?: string | null; // String
+    meaning_in?: string[] | null; // [String!]
+    meaning_lt?: string | null; // String
+    meaning_lte?: string | null; // String
+    meaning_not?: string | null; // String
+    meaning_not_contains?: string | null; // String
+    meaning_not_ends_with?: string | null; // String
+    meaning_not_in?: string[] | null; // [String!]
+    meaning_not_starts_with?: string | null; // String
+    meaning_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['IndicationScalarWhereInput'][] | null; // [IndicationScalarWhereInput!]
+    OR?: NexusGenInputs['IndicationScalarWhereInput'][] | null; // [IndicationScalarWhereInput!]
+    strength?: number | null; // Int
+    strength_gt?: number | null; // Int
+    strength_gte?: number | null; // Int
+    strength_in?: number[] | null; // [Int!]
+    strength_lt?: number | null; // Int
+    strength_lte?: number | null; // Int
+    strength_not?: number | null; // Int
+    strength_not_in?: number[] | null; // [Int!]
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
+  }
+  IndicationUpdateInput: { // input type
+    event?: NexusGenInputs['EventUpdateOneRequiredWithoutIndicationsInput'] | null; // EventUpdateOneRequiredWithoutIndicationsInput
+    indicator?: NexusGenInputs['IndicatorUpdateOneRequiredInput'] | null; // IndicatorUpdateOneRequiredInput
+    meaning?: string | null; // String
+    strength?: number | null; // Int
+  }
+  IndicationUpdateManyDataInput: { // input type
+    meaning?: string | null; // String
+    strength?: number | null; // Int
+  }
+  IndicationUpdateManyMutationInput: { // input type
+    meaning?: string | null; // String
+    strength?: number | null; // Int
+  }
+  IndicationUpdateManyWithWhereNestedInput: { // input type
+    data: NexusGenInputs['IndicationUpdateManyDataInput']; // IndicationUpdateManyDataInput!
+    where: NexusGenInputs['IndicationScalarWhereInput']; // IndicationScalarWhereInput!
+  }
+  IndicationUpdateManyWithoutEventInput: { // input type
+    connect?: NexusGenInputs['IndicationWhereUniqueInput'][] | null; // [IndicationWhereUniqueInput!]
+    create?: NexusGenInputs['IndicationCreateWithoutEventInput'][] | null; // [IndicationCreateWithoutEventInput!]
+    delete?: NexusGenInputs['IndicationWhereUniqueInput'][] | null; // [IndicationWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['IndicationScalarWhereInput'][] | null; // [IndicationScalarWhereInput!]
+    disconnect?: NexusGenInputs['IndicationWhereUniqueInput'][] | null; // [IndicationWhereUniqueInput!]
+    set?: NexusGenInputs['IndicationWhereUniqueInput'][] | null; // [IndicationWhereUniqueInput!]
+    update?: NexusGenInputs['IndicationUpdateWithWhereUniqueWithoutEventInput'][] | null; // [IndicationUpdateWithWhereUniqueWithoutEventInput!]
+    updateMany?: NexusGenInputs['IndicationUpdateManyWithWhereNestedInput'][] | null; // [IndicationUpdateManyWithWhereNestedInput!]
+    upsert?: NexusGenInputs['IndicationUpsertWithWhereUniqueWithoutEventInput'][] | null; // [IndicationUpsertWithWhereUniqueWithoutEventInput!]
+  }
+  IndicationUpdateWithWhereUniqueWithoutEventInput: { // input type
+    data: NexusGenInputs['IndicationUpdateWithoutEventDataInput']; // IndicationUpdateWithoutEventDataInput!
+    where: NexusGenInputs['IndicationWhereUniqueInput']; // IndicationWhereUniqueInput!
+  }
+  IndicationUpdateWithoutEventDataInput: { // input type
+    indicator?: NexusGenInputs['IndicatorUpdateOneRequiredInput'] | null; // IndicatorUpdateOneRequiredInput
+    meaning?: string | null; // String
+    strength?: number | null; // Int
+  }
+  IndicationUpsertWithWhereUniqueWithoutEventInput: { // input type
+    create: NexusGenInputs['IndicationCreateWithoutEventInput']; // IndicationCreateWithoutEventInput!
+    update: NexusGenInputs['IndicationUpdateWithoutEventDataInput']; // IndicationUpdateWithoutEventDataInput!
+    where: NexusGenInputs['IndicationWhereUniqueInput']; // IndicationWhereUniqueInput!
+  }
+  IndicationWhereInput: { // input type
+    AND?: NexusGenInputs['IndicationWhereInput'][] | null; // [IndicationWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
+    event?: NexusGenInputs['EventWhereInput'] | null; // EventWhereInput
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    indicator?: NexusGenInputs['IndicatorWhereInput'] | null; // IndicatorWhereInput
+    meaning?: string | null; // String
+    meaning_contains?: string | null; // String
+    meaning_ends_with?: string | null; // String
+    meaning_gt?: string | null; // String
+    meaning_gte?: string | null; // String
+    meaning_in?: string[] | null; // [String!]
+    meaning_lt?: string | null; // String
+    meaning_lte?: string | null; // String
+    meaning_not?: string | null; // String
+    meaning_not_contains?: string | null; // String
+    meaning_not_ends_with?: string | null; // String
+    meaning_not_in?: string[] | null; // [String!]
+    meaning_not_starts_with?: string | null; // String
+    meaning_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['IndicationWhereInput'][] | null; // [IndicationWhereInput!]
+    OR?: NexusGenInputs['IndicationWhereInput'][] | null; // [IndicationWhereInput!]
+    strength?: number | null; // Int
+    strength_gt?: number | null; // Int
+    strength_gte?: number | null; // Int
+    strength_in?: number[] | null; // [Int!]
+    strength_lt?: number | null; // Int
+    strength_lte?: number | null; // Int
+    strength_not?: number | null; // Int
+    strength_not_in?: number[] | null; // [Int!]
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
+  }
+  IndicationWhereUniqueInput: { // input type
+    id?: string | null; // ID
+  }
+  IndicatorCreateInput: { // input type
+    description?: string | null; // String
+    keywords?: NexusGenInputs['KeywordCreateManyInput'] | null; // KeywordCreateManyInput
+    name?: string | null; // String
+    scenarios?: NexusGenInputs['ScenarioCreateManyWithoutIndicatorsInput'] | null; // ScenarioCreateManyWithoutIndicatorsInput
+  }
+  IndicatorCreateManyWithoutScenariosInput: { // input type
+    connect?: NexusGenInputs['IndicatorWhereUniqueInput'][] | null; // [IndicatorWhereUniqueInput!]
+    create?: NexusGenInputs['IndicatorCreateWithoutScenariosInput'][] | null; // [IndicatorCreateWithoutScenariosInput!]
+  }
+  IndicatorCreateOneInput: { // input type
+    connect?: NexusGenInputs['IndicatorWhereUniqueInput'] | null; // IndicatorWhereUniqueInput
+    create?: NexusGenInputs['IndicatorCreateInput'] | null; // IndicatorCreateInput
+  }
+  IndicatorCreateWithoutScenariosInput: { // input type
+    description?: string | null; // String
+    keywords?: NexusGenInputs['KeywordCreateManyInput'] | null; // KeywordCreateManyInput
+    name?: string | null; // String
+  }
+  IndicatorScalarWhereInput: { // input type
+    AND?: NexusGenInputs['IndicatorScalarWhereInput'][] | null; // [IndicatorScalarWhereInput!]
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['IndicatorScalarWhereInput'][] | null; // [IndicatorScalarWhereInput!]
+    OR?: NexusGenInputs['IndicatorScalarWhereInput'][] | null; // [IndicatorScalarWhereInput!]
+  }
+  IndicatorUpdateDataInput: { // input type
+    description?: string | null; // String
+    keywords?: NexusGenInputs['KeywordUpdateManyInput'] | null; // KeywordUpdateManyInput
+    name?: string | null; // String
+    scenarios?: NexusGenInputs['ScenarioUpdateManyWithoutIndicatorsInput'] | null; // ScenarioUpdateManyWithoutIndicatorsInput
+  }
+  IndicatorUpdateInput: { // input type
+    description?: string | null; // String
+    keywords?: NexusGenInputs['KeywordUpdateManyInput'] | null; // KeywordUpdateManyInput
+    name?: string | null; // String
+    scenarios?: NexusGenInputs['ScenarioUpdateManyWithoutIndicatorsInput'] | null; // ScenarioUpdateManyWithoutIndicatorsInput
+  }
+  IndicatorUpdateManyDataInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  IndicatorUpdateManyMutationInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  IndicatorUpdateManyWithWhereNestedInput: { // input type
+    data: NexusGenInputs['IndicatorUpdateManyDataInput']; // IndicatorUpdateManyDataInput!
+    where: NexusGenInputs['IndicatorScalarWhereInput']; // IndicatorScalarWhereInput!
+  }
+  IndicatorUpdateManyWithoutScenariosInput: { // input type
+    connect?: NexusGenInputs['IndicatorWhereUniqueInput'][] | null; // [IndicatorWhereUniqueInput!]
+    create?: NexusGenInputs['IndicatorCreateWithoutScenariosInput'][] | null; // [IndicatorCreateWithoutScenariosInput!]
+    delete?: NexusGenInputs['IndicatorWhereUniqueInput'][] | null; // [IndicatorWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['IndicatorScalarWhereInput'][] | null; // [IndicatorScalarWhereInput!]
+    disconnect?: NexusGenInputs['IndicatorWhereUniqueInput'][] | null; // [IndicatorWhereUniqueInput!]
+    set?: NexusGenInputs['IndicatorWhereUniqueInput'][] | null; // [IndicatorWhereUniqueInput!]
+    update?: NexusGenInputs['IndicatorUpdateWithWhereUniqueWithoutScenariosInput'][] | null; // [IndicatorUpdateWithWhereUniqueWithoutScenariosInput!]
+    updateMany?: NexusGenInputs['IndicatorUpdateManyWithWhereNestedInput'][] | null; // [IndicatorUpdateManyWithWhereNestedInput!]
+    upsert?: NexusGenInputs['IndicatorUpsertWithWhereUniqueWithoutScenariosInput'][] | null; // [IndicatorUpsertWithWhereUniqueWithoutScenariosInput!]
+  }
+  IndicatorUpdateOneRequiredInput: { // input type
+    connect?: NexusGenInputs['IndicatorWhereUniqueInput'] | null; // IndicatorWhereUniqueInput
+    create?: NexusGenInputs['IndicatorCreateInput'] | null; // IndicatorCreateInput
+    update?: NexusGenInputs['IndicatorUpdateDataInput'] | null; // IndicatorUpdateDataInput
+    upsert?: NexusGenInputs['IndicatorUpsertNestedInput'] | null; // IndicatorUpsertNestedInput
+  }
+  IndicatorUpdateWithWhereUniqueWithoutScenariosInput: { // input type
+    data: NexusGenInputs['IndicatorUpdateWithoutScenariosDataInput']; // IndicatorUpdateWithoutScenariosDataInput!
+    where: NexusGenInputs['IndicatorWhereUniqueInput']; // IndicatorWhereUniqueInput!
+  }
+  IndicatorUpdateWithoutScenariosDataInput: { // input type
+    description?: string | null; // String
+    keywords?: NexusGenInputs['KeywordUpdateManyInput'] | null; // KeywordUpdateManyInput
+    name?: string | null; // String
+  }
+  IndicatorUpsertNestedInput: { // input type
+    create: NexusGenInputs['IndicatorCreateInput']; // IndicatorCreateInput!
+    update: NexusGenInputs['IndicatorUpdateDataInput']; // IndicatorUpdateDataInput!
+  }
+  IndicatorUpsertWithWhereUniqueWithoutScenariosInput: { // input type
+    create: NexusGenInputs['IndicatorCreateWithoutScenariosInput']; // IndicatorCreateWithoutScenariosInput!
+    update: NexusGenInputs['IndicatorUpdateWithoutScenariosDataInput']; // IndicatorUpdateWithoutScenariosDataInput!
+    where: NexusGenInputs['IndicatorWhereUniqueInput']; // IndicatorWhereUniqueInput!
+  }
+  IndicatorWhereInput: { // input type
+    AND?: NexusGenInputs['IndicatorWhereInput'][] | null; // [IndicatorWhereInput!]
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    keywords_every?: NexusGenInputs['KeywordWhereInput'] | null; // KeywordWhereInput
+    keywords_none?: NexusGenInputs['KeywordWhereInput'] | null; // KeywordWhereInput
+    keywords_some?: NexusGenInputs['KeywordWhereInput'] | null; // KeywordWhereInput
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['IndicatorWhereInput'][] | null; // [IndicatorWhereInput!]
+    OR?: NexusGenInputs['IndicatorWhereInput'][] | null; // [IndicatorWhereInput!]
+    scenarios_every?: NexusGenInputs['ScenarioWhereInput'] | null; // ScenarioWhereInput
+    scenarios_none?: NexusGenInputs['ScenarioWhereInput'] | null; // ScenarioWhereInput
+    scenarios_some?: NexusGenInputs['ScenarioWhereInput'] | null; // ScenarioWhereInput
+  }
+  IndicatorWhereUniqueInput: { // input type
+    id?: string | null; // ID
+  }
+  KeywordCreateInput: { // input type
+    description?: string | null; // String
+    events?: NexusGenInputs['EventCreateManyInput'] | null; // EventCreateManyInput
+    name?: string | null; // String
+  }
+  KeywordCreateManyInput: { // input type
+    connect?: NexusGenInputs['KeywordWhereUniqueInput'][] | null; // [KeywordWhereUniqueInput!]
+    create?: NexusGenInputs['KeywordCreateInput'][] | null; // [KeywordCreateInput!]
+  }
+  KeywordScalarWhereInput: { // input type
+    AND?: NexusGenInputs['KeywordScalarWhereInput'][] | null; // [KeywordScalarWhereInput!]
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['KeywordScalarWhereInput'][] | null; // [KeywordScalarWhereInput!]
+    OR?: NexusGenInputs['KeywordScalarWhereInput'][] | null; // [KeywordScalarWhereInput!]
+  }
+  KeywordUpdateDataInput: { // input type
+    description?: string | null; // String
+    events?: NexusGenInputs['EventUpdateManyInput'] | null; // EventUpdateManyInput
+    name?: string | null; // String
+  }
+  KeywordUpdateInput: { // input type
+    description?: string | null; // String
+    events?: NexusGenInputs['EventUpdateManyInput'] | null; // EventUpdateManyInput
+    name?: string | null; // String
+  }
+  KeywordUpdateManyDataInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  KeywordUpdateManyInput: { // input type
+    connect?: NexusGenInputs['KeywordWhereUniqueInput'][] | null; // [KeywordWhereUniqueInput!]
+    create?: NexusGenInputs['KeywordCreateInput'][] | null; // [KeywordCreateInput!]
+    delete?: NexusGenInputs['KeywordWhereUniqueInput'][] | null; // [KeywordWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['KeywordScalarWhereInput'][] | null; // [KeywordScalarWhereInput!]
+    disconnect?: NexusGenInputs['KeywordWhereUniqueInput'][] | null; // [KeywordWhereUniqueInput!]
+    set?: NexusGenInputs['KeywordWhereUniqueInput'][] | null; // [KeywordWhereUniqueInput!]
+    update?: NexusGenInputs['KeywordUpdateWithWhereUniqueNestedInput'][] | null; // [KeywordUpdateWithWhereUniqueNestedInput!]
+    updateMany?: NexusGenInputs['KeywordUpdateManyWithWhereNestedInput'][] | null; // [KeywordUpdateManyWithWhereNestedInput!]
+    upsert?: NexusGenInputs['KeywordUpsertWithWhereUniqueNestedInput'][] | null; // [KeywordUpsertWithWhereUniqueNestedInput!]
+  }
+  KeywordUpdateManyMutationInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  KeywordUpdateManyWithWhereNestedInput: { // input type
+    data: NexusGenInputs['KeywordUpdateManyDataInput']; // KeywordUpdateManyDataInput!
+    where: NexusGenInputs['KeywordScalarWhereInput']; // KeywordScalarWhereInput!
+  }
+  KeywordUpdateWithWhereUniqueNestedInput: { // input type
+    data: NexusGenInputs['KeywordUpdateDataInput']; // KeywordUpdateDataInput!
+    where: NexusGenInputs['KeywordWhereUniqueInput']; // KeywordWhereUniqueInput!
+  }
+  KeywordUpsertWithWhereUniqueNestedInput: { // input type
+    create: NexusGenInputs['KeywordCreateInput']; // KeywordCreateInput!
+    update: NexusGenInputs['KeywordUpdateDataInput']; // KeywordUpdateDataInput!
+    where: NexusGenInputs['KeywordWhereUniqueInput']; // KeywordWhereUniqueInput!
+  }
+  KeywordWhereInput: { // input type
+    AND?: NexusGenInputs['KeywordWhereInput'][] | null; // [KeywordWhereInput!]
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    events_every?: NexusGenInputs['EventWhereInput'] | null; // EventWhereInput
+    events_none?: NexusGenInputs['EventWhereInput'] | null; // EventWhereInput
+    events_some?: NexusGenInputs['EventWhereInput'] | null; // EventWhereInput
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['KeywordWhereInput'][] | null; // [KeywordWhereInput!]
+    OR?: NexusGenInputs['KeywordWhereInput'][] | null; // [KeywordWhereInput!]
+  }
+  KeywordWhereUniqueInput: { // input type
+    id?: string | null; // ID
+  }
+  ScenarioCreateInput: { // input type
+    description?: string | null; // String
+    indicators?: NexusGenInputs['IndicatorCreateManyWithoutScenariosInput'] | null; // IndicatorCreateManyWithoutScenariosInput
+    name?: string | null; // String
+  }
+  ScenarioCreateManyWithoutIndicatorsInput: { // input type
+    connect?: NexusGenInputs['ScenarioWhereUniqueInput'][] | null; // [ScenarioWhereUniqueInput!]
+    create?: NexusGenInputs['ScenarioCreateWithoutIndicatorsInput'][] | null; // [ScenarioCreateWithoutIndicatorsInput!]
+  }
+  ScenarioCreateWithoutIndicatorsInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  ScenarioScalarWhereInput: { // input type
+    AND?: NexusGenInputs['ScenarioScalarWhereInput'][] | null; // [ScenarioScalarWhereInput!]
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['ScenarioScalarWhereInput'][] | null; // [ScenarioScalarWhereInput!]
+    OR?: NexusGenInputs['ScenarioScalarWhereInput'][] | null; // [ScenarioScalarWhereInput!]
+  }
+  ScenarioUpdateInput: { // input type
+    description?: string | null; // String
+    indicators?: NexusGenInputs['IndicatorUpdateManyWithoutScenariosInput'] | null; // IndicatorUpdateManyWithoutScenariosInput
+    name?: string | null; // String
+  }
+  ScenarioUpdateManyDataInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  ScenarioUpdateManyMutationInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  ScenarioUpdateManyWithWhereNestedInput: { // input type
+    data: NexusGenInputs['ScenarioUpdateManyDataInput']; // ScenarioUpdateManyDataInput!
+    where: NexusGenInputs['ScenarioScalarWhereInput']; // ScenarioScalarWhereInput!
+  }
+  ScenarioUpdateManyWithoutIndicatorsInput: { // input type
+    connect?: NexusGenInputs['ScenarioWhereUniqueInput'][] | null; // [ScenarioWhereUniqueInput!]
+    create?: NexusGenInputs['ScenarioCreateWithoutIndicatorsInput'][] | null; // [ScenarioCreateWithoutIndicatorsInput!]
+    delete?: NexusGenInputs['ScenarioWhereUniqueInput'][] | null; // [ScenarioWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['ScenarioScalarWhereInput'][] | null; // [ScenarioScalarWhereInput!]
+    disconnect?: NexusGenInputs['ScenarioWhereUniqueInput'][] | null; // [ScenarioWhereUniqueInput!]
+    set?: NexusGenInputs['ScenarioWhereUniqueInput'][] | null; // [ScenarioWhereUniqueInput!]
+    update?: NexusGenInputs['ScenarioUpdateWithWhereUniqueWithoutIndicatorsInput'][] | null; // [ScenarioUpdateWithWhereUniqueWithoutIndicatorsInput!]
+    updateMany?: NexusGenInputs['ScenarioUpdateManyWithWhereNestedInput'][] | null; // [ScenarioUpdateManyWithWhereNestedInput!]
+    upsert?: NexusGenInputs['ScenarioUpsertWithWhereUniqueWithoutIndicatorsInput'][] | null; // [ScenarioUpsertWithWhereUniqueWithoutIndicatorsInput!]
+  }
+  ScenarioUpdateWithWhereUniqueWithoutIndicatorsInput: { // input type
+    data: NexusGenInputs['ScenarioUpdateWithoutIndicatorsDataInput']; // ScenarioUpdateWithoutIndicatorsDataInput!
+    where: NexusGenInputs['ScenarioWhereUniqueInput']; // ScenarioWhereUniqueInput!
+  }
+  ScenarioUpdateWithoutIndicatorsDataInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
+  }
+  ScenarioUpsertWithWhereUniqueWithoutIndicatorsInput: { // input type
+    create: NexusGenInputs['ScenarioCreateWithoutIndicatorsInput']; // ScenarioCreateWithoutIndicatorsInput!
+    update: NexusGenInputs['ScenarioUpdateWithoutIndicatorsDataInput']; // ScenarioUpdateWithoutIndicatorsDataInput!
+    where: NexusGenInputs['ScenarioWhereUniqueInput']; // ScenarioWhereUniqueInput!
+  }
+  ScenarioWhereInput: { // input type
+    AND?: NexusGenInputs['ScenarioWhereInput'][] | null; // [ScenarioWhereInput!]
+    description?: string | null; // String
+    description_contains?: string | null; // String
+    description_ends_with?: string | null; // String
+    description_gt?: string | null; // String
+    description_gte?: string | null; // String
+    description_in?: string[] | null; // [String!]
+    description_lt?: string | null; // String
+    description_lte?: string | null; // String
+    description_not?: string | null; // String
+    description_not_contains?: string | null; // String
+    description_not_ends_with?: string | null; // String
+    description_not_in?: string[] | null; // [String!]
+    description_not_starts_with?: string | null; // String
+    description_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    indicators_every?: NexusGenInputs['IndicatorWhereInput'] | null; // IndicatorWhereInput
+    indicators_none?: NexusGenInputs['IndicatorWhereInput'] | null; // IndicatorWhereInput
+    indicators_some?: NexusGenInputs['IndicatorWhereInput'] | null; // IndicatorWhereInput
+    name?: string | null; // String
+    name_contains?: string | null; // String
+    name_ends_with?: string | null; // String
+    name_gt?: string | null; // String
+    name_gte?: string | null; // String
+    name_in?: string[] | null; // [String!]
+    name_lt?: string | null; // String
+    name_lte?: string | null; // String
+    name_not?: string | null; // String
+    name_not_contains?: string | null; // String
+    name_not_ends_with?: string | null; // String
+    name_not_in?: string[] | null; // [String!]
+    name_not_starts_with?: string | null; // String
+    name_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['ScenarioWhereInput'][] | null; // [ScenarioWhereInput!]
+    OR?: NexusGenInputs['ScenarioWhereInput'][] | null; // [ScenarioWhereInput!]
+  }
+  ScenarioWhereUniqueInput: { // input type
     id?: string | null; // ID
   }
   UserCreateInput: { // input type
@@ -171,18 +999,37 @@ export interface NexusGenInputs {
 }
 
 export interface NexusGenEnums {
-  ArticleOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "date_ASC" | "date_DESC" | "description_ASC" | "description_DESC" | "href_ASC" | "href_DESC" | "id_ASC" | "id_DESC" | "read_ASC" | "read_DESC" | "source_ASC" | "source_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  EventOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "date_ASC" | "date_DESC" | "description_ASC" | "description_DESC" | "href_ASC" | "href_DESC" | "id_ASC" | "id_DESC" | "read_ASC" | "read_DESC" | "source_ASC" | "source_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  IndicationOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "meaning_ASC" | "meaning_DESC" | "strength_ASC" | "strength_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  IndicatorOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  KeywordOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  ScenarioOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   UserOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
 }
 
 export interface NexusGenRootTypes {
-  AggregateArticle: { // root type
+  AggregateEvent: { // root type
+    count: number; // Int!
+  }
+  AggregateIndication: { // root type
+    count: number; // Int!
+  }
+  AggregateIndicator: { // root type
+    count: number; // Int!
+  }
+  AggregateKeyword: { // root type
+    count: number; // Int!
+  }
+  AggregateScenario: { // root type
     count: number; // Int!
   }
   AggregateUser: { // root type
     count: number; // Int!
   }
-  Article: { // root type
+  BatchPayload: { // root type
+    count: any; // Long!
+  }
+  Event: { // root type
     date?: any | null; // DateTime
     description?: string | null; // String
     href?: string | null; // String
@@ -191,16 +1038,54 @@ export interface NexusGenRootTypes {
     source?: string | null; // String
     title?: string | null; // String
   }
-  ArticleConnection: { // root type
-    edges: NexusGenRootTypes['ArticleEdge'][]; // [ArticleEdge!]!
+  EventConnection: { // root type
+    edges: NexusGenRootTypes['EventEdge'][]; // [EventEdge!]!
     pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
   }
-  ArticleEdge: { // root type
+  EventEdge: { // root type
     cursor: string; // String!
-    node: NexusGenRootTypes['Article']; // Article!
+    node: NexusGenRootTypes['Event']; // Event!
   }
-  BatchPayload: { // root type
-    count: any; // Long!
+  Indication: { // root type
+    createdAt: any; // DateTime!
+    id: string; // ID!
+    meaning?: string | null; // String
+    strength?: number | null; // Int
+    updatedAt: any; // DateTime!
+  }
+  IndicationConnection: { // root type
+    edges: NexusGenRootTypes['IndicationEdge'][]; // [IndicationEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  IndicationEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Indication']; // Indication!
+  }
+  Indicator: { // root type
+    description?: string | null; // String
+    id: string; // ID!
+    name?: string | null; // String
+  }
+  IndicatorConnection: { // root type
+    edges: NexusGenRootTypes['IndicatorEdge'][]; // [IndicatorEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  IndicatorEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Indicator']; // Indicator!
+  }
+  Keyword: { // root type
+    description?: string | null; // String
+    id: string; // ID!
+    name?: string | null; // String
+  }
+  KeywordConnection: { // root type
+    edges: NexusGenRootTypes['KeywordEdge'][]; // [KeywordEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  KeywordEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Keyword']; // Keyword!
   }
   Mutation: {};
   PageInfo: { // root type
@@ -210,6 +1095,19 @@ export interface NexusGenRootTypes {
     startCursor?: string | null; // String
   }
   Query: {};
+  Scenario: { // root type
+    description?: string | null; // String
+    id: string; // ID!
+    name?: string | null; // String
+  }
+  ScenarioConnection: { // root type
+    edges: NexusGenRootTypes['ScenarioEdge'][]; // [ScenarioEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  ScenarioEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Scenario']; // Scenario!
+  }
   User: { // root type
     id: string; // ID!
     name: string; // String!
@@ -232,60 +1130,222 @@ export interface NexusGenRootTypes {
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
-  ArticleCreateInput: NexusGenInputs['ArticleCreateInput'];
-  ArticleUpdateInput: NexusGenInputs['ArticleUpdateInput'];
-  ArticleUpdateManyMutationInput: NexusGenInputs['ArticleUpdateManyMutationInput'];
-  ArticleWhereInput: NexusGenInputs['ArticleWhereInput'];
-  ArticleWhereUniqueInput: NexusGenInputs['ArticleWhereUniqueInput'];
+  EventCreateInput: NexusGenInputs['EventCreateInput'];
+  EventCreateManyInput: NexusGenInputs['EventCreateManyInput'];
+  EventCreateOneWithoutIndicationsInput: NexusGenInputs['EventCreateOneWithoutIndicationsInput'];
+  EventCreateWithoutIndicationsInput: NexusGenInputs['EventCreateWithoutIndicationsInput'];
+  EventScalarWhereInput: NexusGenInputs['EventScalarWhereInput'];
+  EventUpdateDataInput: NexusGenInputs['EventUpdateDataInput'];
+  EventUpdateInput: NexusGenInputs['EventUpdateInput'];
+  EventUpdateManyDataInput: NexusGenInputs['EventUpdateManyDataInput'];
+  EventUpdateManyInput: NexusGenInputs['EventUpdateManyInput'];
+  EventUpdateManyMutationInput: NexusGenInputs['EventUpdateManyMutationInput'];
+  EventUpdateManyWithWhereNestedInput: NexusGenInputs['EventUpdateManyWithWhereNestedInput'];
+  EventUpdateOneRequiredWithoutIndicationsInput: NexusGenInputs['EventUpdateOneRequiredWithoutIndicationsInput'];
+  EventUpdateWithWhereUniqueNestedInput: NexusGenInputs['EventUpdateWithWhereUniqueNestedInput'];
+  EventUpdateWithoutIndicationsDataInput: NexusGenInputs['EventUpdateWithoutIndicationsDataInput'];
+  EventUpsertWithWhereUniqueNestedInput: NexusGenInputs['EventUpsertWithWhereUniqueNestedInput'];
+  EventUpsertWithoutIndicationsInput: NexusGenInputs['EventUpsertWithoutIndicationsInput'];
+  EventWhereInput: NexusGenInputs['EventWhereInput'];
+  EventWhereUniqueInput: NexusGenInputs['EventWhereUniqueInput'];
+  IndicationCreateInput: NexusGenInputs['IndicationCreateInput'];
+  IndicationCreateManyWithoutEventInput: NexusGenInputs['IndicationCreateManyWithoutEventInput'];
+  IndicationCreateWithoutEventInput: NexusGenInputs['IndicationCreateWithoutEventInput'];
+  IndicationScalarWhereInput: NexusGenInputs['IndicationScalarWhereInput'];
+  IndicationUpdateInput: NexusGenInputs['IndicationUpdateInput'];
+  IndicationUpdateManyDataInput: NexusGenInputs['IndicationUpdateManyDataInput'];
+  IndicationUpdateManyMutationInput: NexusGenInputs['IndicationUpdateManyMutationInput'];
+  IndicationUpdateManyWithWhereNestedInput: NexusGenInputs['IndicationUpdateManyWithWhereNestedInput'];
+  IndicationUpdateManyWithoutEventInput: NexusGenInputs['IndicationUpdateManyWithoutEventInput'];
+  IndicationUpdateWithWhereUniqueWithoutEventInput: NexusGenInputs['IndicationUpdateWithWhereUniqueWithoutEventInput'];
+  IndicationUpdateWithoutEventDataInput: NexusGenInputs['IndicationUpdateWithoutEventDataInput'];
+  IndicationUpsertWithWhereUniqueWithoutEventInput: NexusGenInputs['IndicationUpsertWithWhereUniqueWithoutEventInput'];
+  IndicationWhereInput: NexusGenInputs['IndicationWhereInput'];
+  IndicationWhereUniqueInput: NexusGenInputs['IndicationWhereUniqueInput'];
+  IndicatorCreateInput: NexusGenInputs['IndicatorCreateInput'];
+  IndicatorCreateManyWithoutScenariosInput: NexusGenInputs['IndicatorCreateManyWithoutScenariosInput'];
+  IndicatorCreateOneInput: NexusGenInputs['IndicatorCreateOneInput'];
+  IndicatorCreateWithoutScenariosInput: NexusGenInputs['IndicatorCreateWithoutScenariosInput'];
+  IndicatorScalarWhereInput: NexusGenInputs['IndicatorScalarWhereInput'];
+  IndicatorUpdateDataInput: NexusGenInputs['IndicatorUpdateDataInput'];
+  IndicatorUpdateInput: NexusGenInputs['IndicatorUpdateInput'];
+  IndicatorUpdateManyDataInput: NexusGenInputs['IndicatorUpdateManyDataInput'];
+  IndicatorUpdateManyMutationInput: NexusGenInputs['IndicatorUpdateManyMutationInput'];
+  IndicatorUpdateManyWithWhereNestedInput: NexusGenInputs['IndicatorUpdateManyWithWhereNestedInput'];
+  IndicatorUpdateManyWithoutScenariosInput: NexusGenInputs['IndicatorUpdateManyWithoutScenariosInput'];
+  IndicatorUpdateOneRequiredInput: NexusGenInputs['IndicatorUpdateOneRequiredInput'];
+  IndicatorUpdateWithWhereUniqueWithoutScenariosInput: NexusGenInputs['IndicatorUpdateWithWhereUniqueWithoutScenariosInput'];
+  IndicatorUpdateWithoutScenariosDataInput: NexusGenInputs['IndicatorUpdateWithoutScenariosDataInput'];
+  IndicatorUpsertNestedInput: NexusGenInputs['IndicatorUpsertNestedInput'];
+  IndicatorUpsertWithWhereUniqueWithoutScenariosInput: NexusGenInputs['IndicatorUpsertWithWhereUniqueWithoutScenariosInput'];
+  IndicatorWhereInput: NexusGenInputs['IndicatorWhereInput'];
+  IndicatorWhereUniqueInput: NexusGenInputs['IndicatorWhereUniqueInput'];
+  KeywordCreateInput: NexusGenInputs['KeywordCreateInput'];
+  KeywordCreateManyInput: NexusGenInputs['KeywordCreateManyInput'];
+  KeywordScalarWhereInput: NexusGenInputs['KeywordScalarWhereInput'];
+  KeywordUpdateDataInput: NexusGenInputs['KeywordUpdateDataInput'];
+  KeywordUpdateInput: NexusGenInputs['KeywordUpdateInput'];
+  KeywordUpdateManyDataInput: NexusGenInputs['KeywordUpdateManyDataInput'];
+  KeywordUpdateManyInput: NexusGenInputs['KeywordUpdateManyInput'];
+  KeywordUpdateManyMutationInput: NexusGenInputs['KeywordUpdateManyMutationInput'];
+  KeywordUpdateManyWithWhereNestedInput: NexusGenInputs['KeywordUpdateManyWithWhereNestedInput'];
+  KeywordUpdateWithWhereUniqueNestedInput: NexusGenInputs['KeywordUpdateWithWhereUniqueNestedInput'];
+  KeywordUpsertWithWhereUniqueNestedInput: NexusGenInputs['KeywordUpsertWithWhereUniqueNestedInput'];
+  KeywordWhereInput: NexusGenInputs['KeywordWhereInput'];
+  KeywordWhereUniqueInput: NexusGenInputs['KeywordWhereUniqueInput'];
+  ScenarioCreateInput: NexusGenInputs['ScenarioCreateInput'];
+  ScenarioCreateManyWithoutIndicatorsInput: NexusGenInputs['ScenarioCreateManyWithoutIndicatorsInput'];
+  ScenarioCreateWithoutIndicatorsInput: NexusGenInputs['ScenarioCreateWithoutIndicatorsInput'];
+  ScenarioScalarWhereInput: NexusGenInputs['ScenarioScalarWhereInput'];
+  ScenarioUpdateInput: NexusGenInputs['ScenarioUpdateInput'];
+  ScenarioUpdateManyDataInput: NexusGenInputs['ScenarioUpdateManyDataInput'];
+  ScenarioUpdateManyMutationInput: NexusGenInputs['ScenarioUpdateManyMutationInput'];
+  ScenarioUpdateManyWithWhereNestedInput: NexusGenInputs['ScenarioUpdateManyWithWhereNestedInput'];
+  ScenarioUpdateManyWithoutIndicatorsInput: NexusGenInputs['ScenarioUpdateManyWithoutIndicatorsInput'];
+  ScenarioUpdateWithWhereUniqueWithoutIndicatorsInput: NexusGenInputs['ScenarioUpdateWithWhereUniqueWithoutIndicatorsInput'];
+  ScenarioUpdateWithoutIndicatorsDataInput: NexusGenInputs['ScenarioUpdateWithoutIndicatorsDataInput'];
+  ScenarioUpsertWithWhereUniqueWithoutIndicatorsInput: NexusGenInputs['ScenarioUpsertWithWhereUniqueWithoutIndicatorsInput'];
+  ScenarioWhereInput: NexusGenInputs['ScenarioWhereInput'];
+  ScenarioWhereUniqueInput: NexusGenInputs['ScenarioWhereUniqueInput'];
   UserCreateInput: NexusGenInputs['UserCreateInput'];
   UserUpdateInput: NexusGenInputs['UserUpdateInput'];
   UserUpdateManyMutationInput: NexusGenInputs['UserUpdateManyMutationInput'];
   UserWhereInput: NexusGenInputs['UserWhereInput'];
   UserWhereUniqueInput: NexusGenInputs['UserWhereUniqueInput'];
-  ArticleOrderByInput: NexusGenEnums['ArticleOrderByInput'];
+  EventOrderByInput: NexusGenEnums['EventOrderByInput'];
+  IndicationOrderByInput: NexusGenEnums['IndicationOrderByInput'];
+  IndicatorOrderByInput: NexusGenEnums['IndicatorOrderByInput'];
+  KeywordOrderByInput: NexusGenEnums['KeywordOrderByInput'];
+  ScenarioOrderByInput: NexusGenEnums['ScenarioOrderByInput'];
   UserOrderByInput: NexusGenEnums['UserOrderByInput'];
 }
 
 export interface NexusGenFieldTypes {
-  AggregateArticle: { // field return type
+  AggregateEvent: { // field return type
+    count: number; // Int!
+  }
+  AggregateIndication: { // field return type
+    count: number; // Int!
+  }
+  AggregateIndicator: { // field return type
+    count: number; // Int!
+  }
+  AggregateKeyword: { // field return type
+    count: number; // Int!
+  }
+  AggregateScenario: { // field return type
     count: number; // Int!
   }
   AggregateUser: { // field return type
     count: number; // Int!
   }
-  Article: { // field return type
+  BatchPayload: { // field return type
+    count: any; // Long!
+  }
+  Event: { // field return type
     date: any | null; // DateTime
     description: string | null; // String
     href: string | null; // String
     id: string; // ID!
+    indications: NexusGenRootTypes['Indication'][] | null; // [Indication!]
     read: boolean | null; // Boolean
     source: string | null; // String
     title: string | null; // String
   }
-  ArticleConnection: { // field return type
-    aggregate: NexusGenRootTypes['AggregateArticle']; // AggregateArticle!
-    edges: NexusGenRootTypes['ArticleEdge'][]; // [ArticleEdge!]!
+  EventConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateEvent']; // AggregateEvent!
+    edges: NexusGenRootTypes['EventEdge'][]; // [EventEdge!]!
     pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
   }
-  ArticleEdge: { // field return type
+  EventEdge: { // field return type
     cursor: string; // String!
-    node: NexusGenRootTypes['Article']; // Article!
+    node: NexusGenRootTypes['Event']; // Event!
   }
-  BatchPayload: { // field return type
-    count: any; // Long!
+  Indication: { // field return type
+    createdAt: any; // DateTime!
+    event: NexusGenRootTypes['Event']; // Event!
+    id: string; // ID!
+    indicator: NexusGenRootTypes['Indicator']; // Indicator!
+    meaning: string | null; // String
+    strength: number | null; // Int
+    updatedAt: any; // DateTime!
+  }
+  IndicationConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateIndication']; // AggregateIndication!
+    edges: NexusGenRootTypes['IndicationEdge'][]; // [IndicationEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  IndicationEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Indication']; // Indication!
+  }
+  Indicator: { // field return type
+    description: string | null; // String
+    id: string; // ID!
+    keywords: NexusGenRootTypes['Keyword'][] | null; // [Keyword!]
+    name: string | null; // String
+    scenarios: NexusGenRootTypes['Scenario'][] | null; // [Scenario!]
+  }
+  IndicatorConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateIndicator']; // AggregateIndicator!
+    edges: NexusGenRootTypes['IndicatorEdge'][]; // [IndicatorEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  IndicatorEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Indicator']; // Indicator!
+  }
+  Keyword: { // field return type
+    description: string | null; // String
+    events: NexusGenRootTypes['Event'][] | null; // [Event!]
+    id: string; // ID!
+    name: string | null; // String
+  }
+  KeywordConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateKeyword']; // AggregateKeyword!
+    edges: NexusGenRootTypes['KeywordEdge'][]; // [KeywordEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  KeywordEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Keyword']; // Keyword!
   }
   Mutation: { // field return type
-    createArticle: NexusGenRootTypes['Article']; // Article!
+    createEvent: NexusGenRootTypes['Event']; // Event!
+    createIndication: NexusGenRootTypes['Indication']; // Indication!
+    createIndicator: NexusGenRootTypes['Indicator']; // Indicator!
+    createKeyword: NexusGenRootTypes['Keyword']; // Keyword!
+    createScenario: NexusGenRootTypes['Scenario']; // Scenario!
     createUser: NexusGenRootTypes['User']; // User!
-    deleteArticle: NexusGenRootTypes['Article'] | null; // Article
-    deleteManyArticles: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteEvent: NexusGenRootTypes['Event'] | null; // Event
+    deleteIndication: NexusGenRootTypes['Indication'] | null; // Indication
+    deleteIndicator: NexusGenRootTypes['Indicator'] | null; // Indicator
+    deleteKeyword: NexusGenRootTypes['Keyword'] | null; // Keyword
+    deleteManyEvents: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteManyIndications: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteManyIndicators: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteManyKeywords: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteManyScenarios: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyUsers: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deleteScenario: NexusGenRootTypes['Scenario'] | null; // Scenario
     deleteUser: NexusGenRootTypes['User'] | null; // User
-    updateArticle: NexusGenRootTypes['Article'] | null; // Article
-    updateManyArticles: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateEvent: NexusGenRootTypes['Event'] | null; // Event
+    updateIndication: NexusGenRootTypes['Indication'] | null; // Indication
+    updateIndicator: NexusGenRootTypes['Indicator'] | null; // Indicator
+    updateKeyword: NexusGenRootTypes['Keyword'] | null; // Keyword
+    updateManyEvents: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateManyIndications: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateManyIndicators: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateManyKeywords: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateManyScenarios: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyUsers: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateScenario: NexusGenRootTypes['Scenario'] | null; // Scenario
     updateUser: NexusGenRootTypes['User'] | null; // User
-    upsertArticle: NexusGenRootTypes['Article']; // Article!
+    upsertEvent: NexusGenRootTypes['Event']; // Event!
+    upsertIndication: NexusGenRootTypes['Indication']; // Indication!
+    upsertIndicator: NexusGenRootTypes['Indicator']; // Indicator!
+    upsertKeyword: NexusGenRootTypes['Keyword']; // Keyword!
+    upsertScenario: NexusGenRootTypes['Scenario']; // Scenario!
     upsertUser: NexusGenRootTypes['User']; // User!
   }
   PageInfo: { // field return type
@@ -295,12 +1355,39 @@ export interface NexusGenFieldTypes {
     startCursor: string | null; // String
   }
   Query: { // field return type
-    article: NexusGenRootTypes['Article'] | null; // Article
-    articles: NexusGenRootTypes['Article'][]; // [Article!]!
-    articlesConnection: NexusGenRootTypes['ArticleConnection']; // ArticleConnection!
+    event: NexusGenRootTypes['Event'] | null; // Event
+    events: NexusGenRootTypes['Event'][]; // [Event!]!
+    eventsConnection: NexusGenRootTypes['EventConnection']; // EventConnection!
+    indication: NexusGenRootTypes['Indication'] | null; // Indication
+    indications: NexusGenRootTypes['Indication'][]; // [Indication!]!
+    indicationsConnection: NexusGenRootTypes['IndicationConnection']; // IndicationConnection!
+    indicator: NexusGenRootTypes['Indicator'] | null; // Indicator
+    indicators: NexusGenRootTypes['Indicator'][]; // [Indicator!]!
+    indicatorsConnection: NexusGenRootTypes['IndicatorConnection']; // IndicatorConnection!
+    keyword: NexusGenRootTypes['Keyword'] | null; // Keyword
+    keywords: NexusGenRootTypes['Keyword'][]; // [Keyword!]!
+    keywordsConnection: NexusGenRootTypes['KeywordConnection']; // KeywordConnection!
+    scenario: NexusGenRootTypes['Scenario'] | null; // Scenario
+    scenarios: NexusGenRootTypes['Scenario'][]; // [Scenario!]!
+    scenariosConnection: NexusGenRootTypes['ScenarioConnection']; // ScenarioConnection!
     user: NexusGenRootTypes['User'] | null; // User
     users: NexusGenRootTypes['User'][]; // [User!]!
     usersConnection: NexusGenRootTypes['UserConnection']; // UserConnection!
+  }
+  Scenario: { // field return type
+    description: string | null; // String
+    id: string; // ID!
+    indicators: NexusGenRootTypes['Indicator'][] | null; // [Indicator!]
+    name: string | null; // String
+  }
+  ScenarioConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateScenario']; // AggregateScenario!
+    edges: NexusGenRootTypes['ScenarioEdge'][]; // [ScenarioEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  ScenarioEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Scenario']; // Scenario!
   }
   User: { // field return type
     id: string; // ID!
@@ -318,45 +1405,175 @@ export interface NexusGenFieldTypes {
 }
 
 export interface NexusGenArgTypes {
+  Event: {
+    indications: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['IndicationOrderByInput'] | null; // IndicationOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['IndicationWhereInput'] | null; // IndicationWhereInput
+    }
+  }
+  Indicator: {
+    keywords: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['KeywordOrderByInput'] | null; // KeywordOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['KeywordWhereInput'] | null; // KeywordWhereInput
+    }
+    scenarios: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ScenarioOrderByInput'] | null; // ScenarioOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ScenarioWhereInput'] | null; // ScenarioWhereInput
+    }
+  }
+  Keyword: {
+    events: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['EventOrderByInput'] | null; // EventOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['EventWhereInput'] | null; // EventWhereInput
+    }
+  }
   Mutation: {
-    createArticle: { // args
-      data: NexusGenInputs['ArticleCreateInput']; // ArticleCreateInput!
+    createEvent: { // args
+      data: NexusGenInputs['EventCreateInput']; // EventCreateInput!
+    }
+    createIndication: { // args
+      data: NexusGenInputs['IndicationCreateInput']; // IndicationCreateInput!
+    }
+    createIndicator: { // args
+      data: NexusGenInputs['IndicatorCreateInput']; // IndicatorCreateInput!
+    }
+    createKeyword: { // args
+      data: NexusGenInputs['KeywordCreateInput']; // KeywordCreateInput!
+    }
+    createScenario: { // args
+      data: NexusGenInputs['ScenarioCreateInput']; // ScenarioCreateInput!
     }
     createUser: { // args
       data: NexusGenInputs['UserCreateInput']; // UserCreateInput!
     }
-    deleteArticle: { // args
-      where: NexusGenInputs['ArticleWhereUniqueInput']; // ArticleWhereUniqueInput!
+    deleteEvent: { // args
+      where: NexusGenInputs['EventWhereUniqueInput']; // EventWhereUniqueInput!
     }
-    deleteManyArticles: { // args
-      where?: NexusGenInputs['ArticleWhereInput'] | null; // ArticleWhereInput
+    deleteIndication: { // args
+      where: NexusGenInputs['IndicationWhereUniqueInput']; // IndicationWhereUniqueInput!
+    }
+    deleteIndicator: { // args
+      where: NexusGenInputs['IndicatorWhereUniqueInput']; // IndicatorWhereUniqueInput!
+    }
+    deleteKeyword: { // args
+      where: NexusGenInputs['KeywordWhereUniqueInput']; // KeywordWhereUniqueInput!
+    }
+    deleteManyEvents: { // args
+      where?: NexusGenInputs['EventWhereInput'] | null; // EventWhereInput
+    }
+    deleteManyIndications: { // args
+      where?: NexusGenInputs['IndicationWhereInput'] | null; // IndicationWhereInput
+    }
+    deleteManyIndicators: { // args
+      where?: NexusGenInputs['IndicatorWhereInput'] | null; // IndicatorWhereInput
+    }
+    deleteManyKeywords: { // args
+      where?: NexusGenInputs['KeywordWhereInput'] | null; // KeywordWhereInput
+    }
+    deleteManyScenarios: { // args
+      where?: NexusGenInputs['ScenarioWhereInput'] | null; // ScenarioWhereInput
     }
     deleteManyUsers: { // args
       where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
     }
+    deleteScenario: { // args
+      where: NexusGenInputs['ScenarioWhereUniqueInput']; // ScenarioWhereUniqueInput!
+    }
     deleteUser: { // args
       where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
     }
-    updateArticle: { // args
-      data: NexusGenInputs['ArticleUpdateInput']; // ArticleUpdateInput!
-      where: NexusGenInputs['ArticleWhereUniqueInput']; // ArticleWhereUniqueInput!
+    updateEvent: { // args
+      data: NexusGenInputs['EventUpdateInput']; // EventUpdateInput!
+      where: NexusGenInputs['EventWhereUniqueInput']; // EventWhereUniqueInput!
     }
-    updateManyArticles: { // args
-      data: NexusGenInputs['ArticleUpdateManyMutationInput']; // ArticleUpdateManyMutationInput!
-      where?: NexusGenInputs['ArticleWhereInput'] | null; // ArticleWhereInput
+    updateIndication: { // args
+      data: NexusGenInputs['IndicationUpdateInput']; // IndicationUpdateInput!
+      where: NexusGenInputs['IndicationWhereUniqueInput']; // IndicationWhereUniqueInput!
+    }
+    updateIndicator: { // args
+      data: NexusGenInputs['IndicatorUpdateInput']; // IndicatorUpdateInput!
+      where: NexusGenInputs['IndicatorWhereUniqueInput']; // IndicatorWhereUniqueInput!
+    }
+    updateKeyword: { // args
+      data: NexusGenInputs['KeywordUpdateInput']; // KeywordUpdateInput!
+      where: NexusGenInputs['KeywordWhereUniqueInput']; // KeywordWhereUniqueInput!
+    }
+    updateManyEvents: { // args
+      data: NexusGenInputs['EventUpdateManyMutationInput']; // EventUpdateManyMutationInput!
+      where?: NexusGenInputs['EventWhereInput'] | null; // EventWhereInput
+    }
+    updateManyIndications: { // args
+      data: NexusGenInputs['IndicationUpdateManyMutationInput']; // IndicationUpdateManyMutationInput!
+      where?: NexusGenInputs['IndicationWhereInput'] | null; // IndicationWhereInput
+    }
+    updateManyIndicators: { // args
+      data: NexusGenInputs['IndicatorUpdateManyMutationInput']; // IndicatorUpdateManyMutationInput!
+      where?: NexusGenInputs['IndicatorWhereInput'] | null; // IndicatorWhereInput
+    }
+    updateManyKeywords: { // args
+      data: NexusGenInputs['KeywordUpdateManyMutationInput']; // KeywordUpdateManyMutationInput!
+      where?: NexusGenInputs['KeywordWhereInput'] | null; // KeywordWhereInput
+    }
+    updateManyScenarios: { // args
+      data: NexusGenInputs['ScenarioUpdateManyMutationInput']; // ScenarioUpdateManyMutationInput!
+      where?: NexusGenInputs['ScenarioWhereInput'] | null; // ScenarioWhereInput
     }
     updateManyUsers: { // args
       data: NexusGenInputs['UserUpdateManyMutationInput']; // UserUpdateManyMutationInput!
       where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
     }
+    updateScenario: { // args
+      data: NexusGenInputs['ScenarioUpdateInput']; // ScenarioUpdateInput!
+      where: NexusGenInputs['ScenarioWhereUniqueInput']; // ScenarioWhereUniqueInput!
+    }
     updateUser: { // args
       data: NexusGenInputs['UserUpdateInput']; // UserUpdateInput!
       where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
     }
-    upsertArticle: { // args
-      create: NexusGenInputs['ArticleCreateInput']; // ArticleCreateInput!
-      update: NexusGenInputs['ArticleUpdateInput']; // ArticleUpdateInput!
-      where: NexusGenInputs['ArticleWhereUniqueInput']; // ArticleWhereUniqueInput!
+    upsertEvent: { // args
+      create: NexusGenInputs['EventCreateInput']; // EventCreateInput!
+      update: NexusGenInputs['EventUpdateInput']; // EventUpdateInput!
+      where: NexusGenInputs['EventWhereUniqueInput']; // EventWhereUniqueInput!
+    }
+    upsertIndication: { // args
+      create: NexusGenInputs['IndicationCreateInput']; // IndicationCreateInput!
+      update: NexusGenInputs['IndicationUpdateInput']; // IndicationUpdateInput!
+      where: NexusGenInputs['IndicationWhereUniqueInput']; // IndicationWhereUniqueInput!
+    }
+    upsertIndicator: { // args
+      create: NexusGenInputs['IndicatorCreateInput']; // IndicatorCreateInput!
+      update: NexusGenInputs['IndicatorUpdateInput']; // IndicatorUpdateInput!
+      where: NexusGenInputs['IndicatorWhereUniqueInput']; // IndicatorWhereUniqueInput!
+    }
+    upsertKeyword: { // args
+      create: NexusGenInputs['KeywordCreateInput']; // KeywordCreateInput!
+      update: NexusGenInputs['KeywordUpdateInput']; // KeywordUpdateInput!
+      where: NexusGenInputs['KeywordWhereUniqueInput']; // KeywordWhereUniqueInput!
+    }
+    upsertScenario: { // args
+      create: NexusGenInputs['ScenarioCreateInput']; // ScenarioCreateInput!
+      update: NexusGenInputs['ScenarioUpdateInput']; // ScenarioUpdateInput!
+      where: NexusGenInputs['ScenarioWhereUniqueInput']; // ScenarioWhereUniqueInput!
     }
     upsertUser: { // args
       create: NexusGenInputs['UserCreateInput']; // UserCreateInput!
@@ -365,26 +1582,110 @@ export interface NexusGenArgTypes {
     }
   }
   Query: {
-    article: { // args
-      where: NexusGenInputs['ArticleWhereUniqueInput']; // ArticleWhereUniqueInput!
+    event: { // args
+      where: NexusGenInputs['EventWhereUniqueInput']; // EventWhereUniqueInput!
     }
-    articles: { // args
+    events: { // args
       after?: string | null; // String
       before?: string | null; // String
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenEnums['ArticleOrderByInput'] | null; // ArticleOrderByInput
+      orderBy?: NexusGenEnums['EventOrderByInput'] | null; // EventOrderByInput
       skip?: number | null; // Int
-      where?: NexusGenInputs['ArticleWhereInput'] | null; // ArticleWhereInput
+      where?: NexusGenInputs['EventWhereInput'] | null; // EventWhereInput
     }
-    articlesConnection: { // args
+    eventsConnection: { // args
       after?: string | null; // String
       before?: string | null; // String
       first?: number | null; // Int
       last?: number | null; // Int
-      orderBy?: NexusGenEnums['ArticleOrderByInput'] | null; // ArticleOrderByInput
+      orderBy?: NexusGenEnums['EventOrderByInput'] | null; // EventOrderByInput
       skip?: number | null; // Int
-      where?: NexusGenInputs['ArticleWhereInput'] | null; // ArticleWhereInput
+      where?: NexusGenInputs['EventWhereInput'] | null; // EventWhereInput
+    }
+    indication: { // args
+      where: NexusGenInputs['IndicationWhereUniqueInput']; // IndicationWhereUniqueInput!
+    }
+    indications: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['IndicationOrderByInput'] | null; // IndicationOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['IndicationWhereInput'] | null; // IndicationWhereInput
+    }
+    indicationsConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['IndicationOrderByInput'] | null; // IndicationOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['IndicationWhereInput'] | null; // IndicationWhereInput
+    }
+    indicator: { // args
+      where: NexusGenInputs['IndicatorWhereUniqueInput']; // IndicatorWhereUniqueInput!
+    }
+    indicators: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['IndicatorOrderByInput'] | null; // IndicatorOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['IndicatorWhereInput'] | null; // IndicatorWhereInput
+    }
+    indicatorsConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['IndicatorOrderByInput'] | null; // IndicatorOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['IndicatorWhereInput'] | null; // IndicatorWhereInput
+    }
+    keyword: { // args
+      where: NexusGenInputs['KeywordWhereUniqueInput']; // KeywordWhereUniqueInput!
+    }
+    keywords: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['KeywordOrderByInput'] | null; // KeywordOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['KeywordWhereInput'] | null; // KeywordWhereInput
+    }
+    keywordsConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['KeywordOrderByInput'] | null; // KeywordOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['KeywordWhereInput'] | null; // KeywordWhereInput
+    }
+    scenario: { // args
+      where: NexusGenInputs['ScenarioWhereUniqueInput']; // ScenarioWhereUniqueInput!
+    }
+    scenarios: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ScenarioOrderByInput'] | null; // ScenarioOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ScenarioWhereInput'] | null; // ScenarioWhereInput
+    }
+    scenariosConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['ScenarioOrderByInput'] | null; // ScenarioOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['ScenarioWhereInput'] | null; // ScenarioWhereInput
     }
     user: { // args
       where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
@@ -408,6 +1709,17 @@ export interface NexusGenArgTypes {
       where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
     }
   }
+  Scenario: {
+    indicators: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['IndicatorOrderByInput'] | null; // IndicatorOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['IndicatorWhereInput'] | null; // IndicatorWhereInput
+    }
+  }
 }
 
 export interface NexusGenAbstractResolveReturnTypes {
@@ -415,11 +1727,11 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AggregateArticle" | "AggregateUser" | "Article" | "ArticleConnection" | "ArticleEdge" | "BatchPayload" | "Mutation" | "PageInfo" | "Query" | "User" | "UserConnection" | "UserEdge";
+export type NexusGenObjectNames = "AggregateEvent" | "AggregateIndication" | "AggregateIndicator" | "AggregateKeyword" | "AggregateScenario" | "AggregateUser" | "BatchPayload" | "Event" | "EventConnection" | "EventEdge" | "Indication" | "IndicationConnection" | "IndicationEdge" | "Indicator" | "IndicatorConnection" | "IndicatorEdge" | "Keyword" | "KeywordConnection" | "KeywordEdge" | "Mutation" | "PageInfo" | "Query" | "Scenario" | "ScenarioConnection" | "ScenarioEdge" | "User" | "UserConnection" | "UserEdge";
 
-export type NexusGenInputNames = "ArticleCreateInput" | "ArticleUpdateInput" | "ArticleUpdateManyMutationInput" | "ArticleWhereInput" | "ArticleWhereUniqueInput" | "UserCreateInput" | "UserUpdateInput" | "UserUpdateManyMutationInput" | "UserWhereInput" | "UserWhereUniqueInput";
+export type NexusGenInputNames = "EventCreateInput" | "EventCreateManyInput" | "EventCreateOneWithoutIndicationsInput" | "EventCreateWithoutIndicationsInput" | "EventScalarWhereInput" | "EventUpdateDataInput" | "EventUpdateInput" | "EventUpdateManyDataInput" | "EventUpdateManyInput" | "EventUpdateManyMutationInput" | "EventUpdateManyWithWhereNestedInput" | "EventUpdateOneRequiredWithoutIndicationsInput" | "EventUpdateWithWhereUniqueNestedInput" | "EventUpdateWithoutIndicationsDataInput" | "EventUpsertWithWhereUniqueNestedInput" | "EventUpsertWithoutIndicationsInput" | "EventWhereInput" | "EventWhereUniqueInput" | "IndicationCreateInput" | "IndicationCreateManyWithoutEventInput" | "IndicationCreateWithoutEventInput" | "IndicationScalarWhereInput" | "IndicationUpdateInput" | "IndicationUpdateManyDataInput" | "IndicationUpdateManyMutationInput" | "IndicationUpdateManyWithWhereNestedInput" | "IndicationUpdateManyWithoutEventInput" | "IndicationUpdateWithWhereUniqueWithoutEventInput" | "IndicationUpdateWithoutEventDataInput" | "IndicationUpsertWithWhereUniqueWithoutEventInput" | "IndicationWhereInput" | "IndicationWhereUniqueInput" | "IndicatorCreateInput" | "IndicatorCreateManyWithoutScenariosInput" | "IndicatorCreateOneInput" | "IndicatorCreateWithoutScenariosInput" | "IndicatorScalarWhereInput" | "IndicatorUpdateDataInput" | "IndicatorUpdateInput" | "IndicatorUpdateManyDataInput" | "IndicatorUpdateManyMutationInput" | "IndicatorUpdateManyWithWhereNestedInput" | "IndicatorUpdateManyWithoutScenariosInput" | "IndicatorUpdateOneRequiredInput" | "IndicatorUpdateWithWhereUniqueWithoutScenariosInput" | "IndicatorUpdateWithoutScenariosDataInput" | "IndicatorUpsertNestedInput" | "IndicatorUpsertWithWhereUniqueWithoutScenariosInput" | "IndicatorWhereInput" | "IndicatorWhereUniqueInput" | "KeywordCreateInput" | "KeywordCreateManyInput" | "KeywordScalarWhereInput" | "KeywordUpdateDataInput" | "KeywordUpdateInput" | "KeywordUpdateManyDataInput" | "KeywordUpdateManyInput" | "KeywordUpdateManyMutationInput" | "KeywordUpdateManyWithWhereNestedInput" | "KeywordUpdateWithWhereUniqueNestedInput" | "KeywordUpsertWithWhereUniqueNestedInput" | "KeywordWhereInput" | "KeywordWhereUniqueInput" | "ScenarioCreateInput" | "ScenarioCreateManyWithoutIndicatorsInput" | "ScenarioCreateWithoutIndicatorsInput" | "ScenarioScalarWhereInput" | "ScenarioUpdateInput" | "ScenarioUpdateManyDataInput" | "ScenarioUpdateManyMutationInput" | "ScenarioUpdateManyWithWhereNestedInput" | "ScenarioUpdateManyWithoutIndicatorsInput" | "ScenarioUpdateWithWhereUniqueWithoutIndicatorsInput" | "ScenarioUpdateWithoutIndicatorsDataInput" | "ScenarioUpsertWithWhereUniqueWithoutIndicatorsInput" | "ScenarioWhereInput" | "ScenarioWhereUniqueInput" | "UserCreateInput" | "UserUpdateInput" | "UserUpdateManyMutationInput" | "UserWhereInput" | "UserWhereUniqueInput";
 
-export type NexusGenEnumNames = "ArticleOrderByInput" | "UserOrderByInput";
+export type NexusGenEnumNames = "EventOrderByInput" | "IndicationOrderByInput" | "IndicatorOrderByInput" | "KeywordOrderByInput" | "ScenarioOrderByInput" | "UserOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 
