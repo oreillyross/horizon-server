@@ -14,11 +14,13 @@ export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
   U[keyof U];
 
 export interface Exists {
+  category: (where?: CategoryWhereInput) => Promise<boolean>;
   event: (where?: EventWhereInput) => Promise<boolean>;
   indication: (where?: IndicationWhereInput) => Promise<boolean>;
   indicator: (where?: IndicatorWhereInput) => Promise<boolean>;
   keyword: (where?: KeywordWhereInput) => Promise<boolean>;
   scenario: (where?: ScenarioWhereInput) => Promise<boolean>;
+  strength: (where?: StrengthWhereInput) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
 }
 
@@ -41,6 +43,29 @@ export interface Prisma {
    * Queries
    */
 
+  category: (where: CategoryWhereUniqueInput) => CategoryPromise;
+  categories: (
+    args?: {
+      where?: CategoryWhereInput;
+      orderBy?: CategoryOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Category>;
+  categoriesConnection: (
+    args?: {
+      where?: CategoryWhereInput;
+      orderBy?: CategoryOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => CategoryConnectionPromise;
   event: (where: EventWhereUniqueInput) => EventPromise;
   events: (
     args?: {
@@ -156,6 +181,29 @@ export interface Prisma {
       last?: Int;
     }
   ) => ScenarioConnectionPromise;
+  strength: (where: StrengthWhereUniqueInput) => StrengthPromise;
+  strengths: (
+    args?: {
+      where?: StrengthWhereInput;
+      orderBy?: StrengthOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Strength>;
+  strengthsConnection: (
+    args?: {
+      where?: StrengthWhereInput;
+      orderBy?: StrengthOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => StrengthConnectionPromise;
   user: (where: UserWhereUniqueInput) => UserPromise;
   users: (
     args?: {
@@ -185,6 +233,22 @@ export interface Prisma {
    * Mutations
    */
 
+  createCategory: (data: CategoryCreateInput) => CategoryPromise;
+  updateCategory: (
+    args: { data: CategoryUpdateInput; where: CategoryWhereUniqueInput }
+  ) => CategoryPromise;
+  updateManyCategories: (
+    args: { data: CategoryUpdateManyMutationInput; where?: CategoryWhereInput }
+  ) => BatchPayloadPromise;
+  upsertCategory: (
+    args: {
+      where: CategoryWhereUniqueInput;
+      create: CategoryCreateInput;
+      update: CategoryUpdateInput;
+    }
+  ) => CategoryPromise;
+  deleteCategory: (where: CategoryWhereUniqueInput) => CategoryPromise;
+  deleteManyCategories: (where?: CategoryWhereInput) => BatchPayloadPromise;
   createEvent: (data: EventCreateInput) => EventPromise;
   updateEvent: (
     args: { data: EventUpdateInput; where: EventWhereUniqueInput }
@@ -205,12 +269,6 @@ export interface Prisma {
   updateIndication: (
     args: { data: IndicationUpdateInput; where: IndicationWhereUniqueInput }
   ) => IndicationPromise;
-  updateManyIndications: (
-    args: {
-      data: IndicationUpdateManyMutationInput;
-      where?: IndicationWhereInput;
-    }
-  ) => BatchPayloadPromise;
   upsertIndication: (
     args: {
       where: IndicationWhereUniqueInput;
@@ -271,6 +329,22 @@ export interface Prisma {
   ) => ScenarioPromise;
   deleteScenario: (where: ScenarioWhereUniqueInput) => ScenarioPromise;
   deleteManyScenarios: (where?: ScenarioWhereInput) => BatchPayloadPromise;
+  createStrength: (data: StrengthCreateInput) => StrengthPromise;
+  updateStrength: (
+    args: { data: StrengthUpdateInput; where: StrengthWhereUniqueInput }
+  ) => StrengthPromise;
+  updateManyStrengths: (
+    args: { data: StrengthUpdateManyMutationInput; where?: StrengthWhereInput }
+  ) => BatchPayloadPromise;
+  upsertStrength: (
+    args: {
+      where: StrengthWhereUniqueInput;
+      create: StrengthCreateInput;
+      update: StrengthUpdateInput;
+    }
+  ) => StrengthPromise;
+  deleteStrength: (where: StrengthWhereUniqueInput) => StrengthPromise;
+  deleteManyStrengths: (where?: StrengthWhereInput) => BatchPayloadPromise;
   createUser: (data: UserCreateInput) => UserPromise;
   updateUser: (
     args: { data: UserUpdateInput; where: UserWhereUniqueInput }
@@ -296,6 +370,9 @@ export interface Prisma {
 }
 
 export interface Subscription {
+  category: (
+    where?: CategorySubscriptionWhereInput
+  ) => CategorySubscriptionPayloadSubscription;
   event: (
     where?: EventSubscriptionWhereInput
   ) => EventSubscriptionPayloadSubscription;
@@ -311,6 +388,9 @@ export interface Subscription {
   scenario: (
     where?: ScenarioSubscriptionWhereInput
   ) => ScenarioSubscriptionPayloadSubscription;
+  strength: (
+    where?: StrengthSubscriptionWhereInput
+  ) => StrengthSubscriptionPayloadSubscription;
   user: (
     where?: UserSubscriptionWhereInput
   ) => UserSubscriptionPayloadSubscription;
@@ -323,30 +403,6 @@ export interface ClientConstructor<T> {
 /**
  * Types
  */
-
-export type IndicationOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "strength_ASC"
-  | "strength_DESC"
-  | "meaning_ASC"
-  | "meaning_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type KeywordOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
 
 export type EventOrderByInput =
   | "date_ASC"
@@ -368,7 +424,15 @@ export type EventOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type ScenarioOrderByInput =
+export type IndicationOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type KeywordOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "name_ASC"
@@ -392,6 +456,40 @@ export type IndicatorOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
+export type ScenarioOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "description_ASC"
+  | "description_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type CategoryOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type StrengthOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "strength_ASC"
+  | "strength_DESC"
+  | "meaning_ASC"
+  | "meaning_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
 export type UserOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -404,9 +502,101 @@ export type UserOrderByInput =
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
-export type EventWhereUniqueInput = AtLeastOne<{
+export type CategoryWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
 }>;
+
+export interface EventWhereInput {
+  date?: DateTimeInput;
+  date_not?: DateTimeInput;
+  date_in?: DateTimeInput[] | DateTimeInput;
+  date_not_in?: DateTimeInput[] | DateTimeInput;
+  date_lt?: DateTimeInput;
+  date_lte?: DateTimeInput;
+  date_gt?: DateTimeInput;
+  date_gte?: DateTimeInput;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  description?: String;
+  description_not?: String;
+  description_in?: String[] | String;
+  description_not_in?: String[] | String;
+  description_lt?: String;
+  description_lte?: String;
+  description_gt?: String;
+  description_gte?: String;
+  description_contains?: String;
+  description_not_contains?: String;
+  description_starts_with?: String;
+  description_not_starts_with?: String;
+  description_ends_with?: String;
+  description_not_ends_with?: String;
+  href?: String;
+  href_not?: String;
+  href_in?: String[] | String;
+  href_not_in?: String[] | String;
+  href_lt?: String;
+  href_lte?: String;
+  href_gt?: String;
+  href_gte?: String;
+  href_contains?: String;
+  href_not_contains?: String;
+  href_starts_with?: String;
+  href_not_starts_with?: String;
+  href_ends_with?: String;
+  href_not_ends_with?: String;
+  source?: String;
+  source_not?: String;
+  source_in?: String[] | String;
+  source_not_in?: String[] | String;
+  source_lt?: String;
+  source_lte?: String;
+  source_gt?: String;
+  source_gte?: String;
+  source_contains?: String;
+  source_not_contains?: String;
+  source_starts_with?: String;
+  source_not_starts_with?: String;
+  source_ends_with?: String;
+  source_not_ends_with?: String;
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  read?: Boolean;
+  read_not?: Boolean;
+  indications_every?: IndicationWhereInput;
+  indications_some?: IndicationWhereInput;
+  indications_none?: IndicationWhereInput;
+  categories_every?: CategoryWhereInput;
+  categories_some?: CategoryWhereInput;
+  categories_none?: CategoryWhereInput;
+  AND?: EventWhereInput[] | EventWhereInput;
+  OR?: EventWhereInput[] | EventWhereInput;
+  NOT?: EventWhereInput[] | EventWhereInput;
+}
 
 export interface IndicationWhereInput {
   id?: ID_Input;
@@ -425,28 +615,7 @@ export interface IndicationWhereInput {
   id_not_ends_with?: ID_Input;
   indicator?: IndicatorWhereInput;
   event?: EventWhereInput;
-  strength?: Int;
-  strength_not?: Int;
-  strength_in?: Int[] | Int;
-  strength_not_in?: Int[] | Int;
-  strength_lt?: Int;
-  strength_lte?: Int;
-  strength_gt?: Int;
-  strength_gte?: Int;
-  meaning?: String;
-  meaning_not?: String;
-  meaning_in?: String[] | String;
-  meaning_not_in?: String[] | String;
-  meaning_lt?: String;
-  meaning_lte?: String;
-  meaning_gt?: String;
-  meaning_gte?: String;
-  meaning_contains?: String;
-  meaning_not_contains?: String;
-  meaning_starts_with?: String;
-  meaning_not_starts_with?: String;
-  meaning_ends_with?: String;
-  meaning_not_ends_with?: String;
+  strength?: StrengthWhereInput;
   createdAt?: DateTimeInput;
   createdAt_not?: DateTimeInput;
   createdAt_in?: DateTimeInput[] | DateTimeInput;
@@ -565,101 +734,12 @@ export interface KeywordWhereInput {
   description_not_starts_with?: String;
   description_ends_with?: String;
   description_not_ends_with?: String;
-  events_every?: EventWhereInput;
-  events_some?: EventWhereInput;
-  events_none?: EventWhereInput;
+  indicators_every?: IndicatorWhereInput;
+  indicators_some?: IndicatorWhereInput;
+  indicators_none?: IndicatorWhereInput;
   AND?: KeywordWhereInput[] | KeywordWhereInput;
   OR?: KeywordWhereInput[] | KeywordWhereInput;
   NOT?: KeywordWhereInput[] | KeywordWhereInput;
-}
-
-export interface EventWhereInput {
-  date?: DateTimeInput;
-  date_not?: DateTimeInput;
-  date_in?: DateTimeInput[] | DateTimeInput;
-  date_not_in?: DateTimeInput[] | DateTimeInput;
-  date_lt?: DateTimeInput;
-  date_lte?: DateTimeInput;
-  date_gt?: DateTimeInput;
-  date_gte?: DateTimeInput;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  href?: String;
-  href_not?: String;
-  href_in?: String[] | String;
-  href_not_in?: String[] | String;
-  href_lt?: String;
-  href_lte?: String;
-  href_gt?: String;
-  href_gte?: String;
-  href_contains?: String;
-  href_not_contains?: String;
-  href_starts_with?: String;
-  href_not_starts_with?: String;
-  href_ends_with?: String;
-  href_not_ends_with?: String;
-  source?: String;
-  source_not?: String;
-  source_in?: String[] | String;
-  source_not_in?: String[] | String;
-  source_lt?: String;
-  source_lte?: String;
-  source_gt?: String;
-  source_gte?: String;
-  source_contains?: String;
-  source_not_contains?: String;
-  source_starts_with?: String;
-  source_not_starts_with?: String;
-  source_ends_with?: String;
-  source_not_ends_with?: String;
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  read?: Boolean;
-  read_not?: Boolean;
-  indications_every?: IndicationWhereInput;
-  indications_some?: IndicationWhereInput;
-  indications_none?: IndicationWhereInput;
-  AND?: EventWhereInput[] | EventWhereInput;
-  OR?: EventWhereInput[] | EventWhereInput;
-  NOT?: EventWhereInput[] | EventWhereInput;
 }
 
 export interface ScenarioWhereInput {
@@ -713,6 +793,89 @@ export interface ScenarioWhereInput {
   NOT?: ScenarioWhereInput[] | ScenarioWhereInput;
 }
 
+export interface StrengthWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  strength?: Int;
+  strength_not?: Int;
+  strength_in?: Int[] | Int;
+  strength_not_in?: Int[] | Int;
+  strength_lt?: Int;
+  strength_lte?: Int;
+  strength_gt?: Int;
+  strength_gte?: Int;
+  meaning?: String;
+  meaning_not?: String;
+  meaning_in?: String[] | String;
+  meaning_not_in?: String[] | String;
+  meaning_lt?: String;
+  meaning_lte?: String;
+  meaning_gt?: String;
+  meaning_gte?: String;
+  meaning_contains?: String;
+  meaning_not_contains?: String;
+  meaning_starts_with?: String;
+  meaning_not_starts_with?: String;
+  meaning_ends_with?: String;
+  meaning_not_ends_with?: String;
+  AND?: StrengthWhereInput[] | StrengthWhereInput;
+  OR?: StrengthWhereInput[] | StrengthWhereInput;
+  NOT?: StrengthWhereInput[] | StrengthWhereInput;
+}
+
+export interface CategoryWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  events_every?: EventWhereInput;
+  events_some?: EventWhereInput;
+  events_none?: EventWhereInput;
+  AND?: CategoryWhereInput[] | CategoryWhereInput;
+  OR?: CategoryWhereInput[] | CategoryWhereInput;
+  NOT?: CategoryWhereInput[] | CategoryWhereInput;
+}
+
+export type EventWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
 export type IndicationWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
 }>;
@@ -726,6 +889,10 @@ export type KeywordWhereUniqueInput = AtLeastOne<{
 }>;
 
 export type ScenarioWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export type StrengthWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
 }>;
 
@@ -767,7 +934,19 @@ export interface UserWhereInput {
   NOT?: UserWhereInput[] | UserWhereInput;
 }
 
-export interface EventCreateInput {
+export interface CategoryCreateInput {
+  name: String;
+  events?: EventCreateManyWithoutCategoriesInput;
+}
+
+export interface EventCreateManyWithoutCategoriesInput {
+  create?:
+    | EventCreateWithoutCategoriesInput[]
+    | EventCreateWithoutCategoriesInput;
+  connect?: EventWhereUniqueInput[] | EventWhereUniqueInput;
+}
+
+export interface EventCreateWithoutCategoriesInput {
   date?: DateTimeInput;
   title?: String;
   description?: String;
@@ -786,8 +965,7 @@ export interface IndicationCreateManyWithoutEventInput {
 
 export interface IndicationCreateWithoutEventInput {
   indicator: IndicatorCreateOneInput;
-  strength?: Int;
-  meaning?: String;
+  strength: StrengthCreateOneInput;
 }
 
 export interface IndicatorCreateOneInput {
@@ -798,24 +976,20 @@ export interface IndicatorCreateOneInput {
 export interface IndicatorCreateInput {
   name?: String;
   description?: String;
-  keywords?: KeywordCreateManyInput;
+  keywords?: KeywordCreateManyWithoutIndicatorsInput;
   scenarios?: ScenarioCreateManyWithoutIndicatorsInput;
 }
 
-export interface KeywordCreateManyInput {
-  create?: KeywordCreateInput[] | KeywordCreateInput;
+export interface KeywordCreateManyWithoutIndicatorsInput {
+  create?:
+    | KeywordCreateWithoutIndicatorsInput[]
+    | KeywordCreateWithoutIndicatorsInput;
   connect?: KeywordWhereUniqueInput[] | KeywordWhereUniqueInput;
 }
 
-export interface KeywordCreateInput {
+export interface KeywordCreateWithoutIndicatorsInput {
   name?: String;
   description?: String;
-  events?: EventCreateManyInput;
-}
-
-export interface EventCreateManyInput {
-  create?: EventCreateInput[] | EventCreateInput;
-  connect?: EventWhereUniqueInput[] | EventWhereUniqueInput;
 }
 
 export interface ScenarioCreateManyWithoutIndicatorsInput {
@@ -830,7 +1004,47 @@ export interface ScenarioCreateWithoutIndicatorsInput {
   description?: String;
 }
 
-export interface EventUpdateInput {
+export interface StrengthCreateOneInput {
+  create?: StrengthCreateInput;
+  connect?: StrengthWhereUniqueInput;
+}
+
+export interface StrengthCreateInput {
+  strength?: Int;
+  meaning?: String;
+}
+
+export interface CategoryUpdateInput {
+  name?: String;
+  events?: EventUpdateManyWithoutCategoriesInput;
+}
+
+export interface EventUpdateManyWithoutCategoriesInput {
+  create?:
+    | EventCreateWithoutCategoriesInput[]
+    | EventCreateWithoutCategoriesInput;
+  delete?: EventWhereUniqueInput[] | EventWhereUniqueInput;
+  connect?: EventWhereUniqueInput[] | EventWhereUniqueInput;
+  set?: EventWhereUniqueInput[] | EventWhereUniqueInput;
+  disconnect?: EventWhereUniqueInput[] | EventWhereUniqueInput;
+  update?:
+    | EventUpdateWithWhereUniqueWithoutCategoriesInput[]
+    | EventUpdateWithWhereUniqueWithoutCategoriesInput;
+  upsert?:
+    | EventUpsertWithWhereUniqueWithoutCategoriesInput[]
+    | EventUpsertWithWhereUniqueWithoutCategoriesInput;
+  deleteMany?: EventScalarWhereInput[] | EventScalarWhereInput;
+  updateMany?:
+    | EventUpdateManyWithWhereNestedInput[]
+    | EventUpdateManyWithWhereNestedInput;
+}
+
+export interface EventUpdateWithWhereUniqueWithoutCategoriesInput {
+  where: EventWhereUniqueInput;
+  data: EventUpdateWithoutCategoriesDataInput;
+}
+
+export interface EventUpdateWithoutCategoriesDataInput {
   date?: DateTimeInput;
   title?: String;
   description?: String;
@@ -855,9 +1069,6 @@ export interface IndicationUpdateManyWithoutEventInput {
     | IndicationUpsertWithWhereUniqueWithoutEventInput[]
     | IndicationUpsertWithWhereUniqueWithoutEventInput;
   deleteMany?: IndicationScalarWhereInput[] | IndicationScalarWhereInput;
-  updateMany?:
-    | IndicationUpdateManyWithWhereNestedInput[]
-    | IndicationUpdateManyWithWhereNestedInput;
 }
 
 export interface IndicationUpdateWithWhereUniqueWithoutEventInput {
@@ -867,8 +1078,7 @@ export interface IndicationUpdateWithWhereUniqueWithoutEventInput {
 
 export interface IndicationUpdateWithoutEventDataInput {
   indicator?: IndicatorUpdateOneRequiredInput;
-  strength?: Int;
-  meaning?: String;
+  strength?: StrengthUpdateOneRequiredInput;
 }
 
 export interface IndicatorUpdateOneRequiredInput {
@@ -881,182 +1091,44 @@ export interface IndicatorUpdateOneRequiredInput {
 export interface IndicatorUpdateDataInput {
   name?: String;
   description?: String;
-  keywords?: KeywordUpdateManyInput;
+  keywords?: KeywordUpdateManyWithoutIndicatorsInput;
   scenarios?: ScenarioUpdateManyWithoutIndicatorsInput;
 }
 
-export interface KeywordUpdateManyInput {
-  create?: KeywordCreateInput[] | KeywordCreateInput;
-  update?:
-    | KeywordUpdateWithWhereUniqueNestedInput[]
-    | KeywordUpdateWithWhereUniqueNestedInput;
-  upsert?:
-    | KeywordUpsertWithWhereUniqueNestedInput[]
-    | KeywordUpsertWithWhereUniqueNestedInput;
+export interface KeywordUpdateManyWithoutIndicatorsInput {
+  create?:
+    | KeywordCreateWithoutIndicatorsInput[]
+    | KeywordCreateWithoutIndicatorsInput;
   delete?: KeywordWhereUniqueInput[] | KeywordWhereUniqueInput;
   connect?: KeywordWhereUniqueInput[] | KeywordWhereUniqueInput;
   set?: KeywordWhereUniqueInput[] | KeywordWhereUniqueInput;
   disconnect?: KeywordWhereUniqueInput[] | KeywordWhereUniqueInput;
+  update?:
+    | KeywordUpdateWithWhereUniqueWithoutIndicatorsInput[]
+    | KeywordUpdateWithWhereUniqueWithoutIndicatorsInput;
+  upsert?:
+    | KeywordUpsertWithWhereUniqueWithoutIndicatorsInput[]
+    | KeywordUpsertWithWhereUniqueWithoutIndicatorsInput;
   deleteMany?: KeywordScalarWhereInput[] | KeywordScalarWhereInput;
   updateMany?:
     | KeywordUpdateManyWithWhereNestedInput[]
     | KeywordUpdateManyWithWhereNestedInput;
 }
 
-export interface KeywordUpdateWithWhereUniqueNestedInput {
+export interface KeywordUpdateWithWhereUniqueWithoutIndicatorsInput {
   where: KeywordWhereUniqueInput;
-  data: KeywordUpdateDataInput;
+  data: KeywordUpdateWithoutIndicatorsDataInput;
 }
 
-export interface KeywordUpdateDataInput {
+export interface KeywordUpdateWithoutIndicatorsDataInput {
   name?: String;
   description?: String;
-  events?: EventUpdateManyInput;
 }
 
-export interface EventUpdateManyInput {
-  create?: EventCreateInput[] | EventCreateInput;
-  update?:
-    | EventUpdateWithWhereUniqueNestedInput[]
-    | EventUpdateWithWhereUniqueNestedInput;
-  upsert?:
-    | EventUpsertWithWhereUniqueNestedInput[]
-    | EventUpsertWithWhereUniqueNestedInput;
-  delete?: EventWhereUniqueInput[] | EventWhereUniqueInput;
-  connect?: EventWhereUniqueInput[] | EventWhereUniqueInput;
-  set?: EventWhereUniqueInput[] | EventWhereUniqueInput;
-  disconnect?: EventWhereUniqueInput[] | EventWhereUniqueInput;
-  deleteMany?: EventScalarWhereInput[] | EventScalarWhereInput;
-  updateMany?:
-    | EventUpdateManyWithWhereNestedInput[]
-    | EventUpdateManyWithWhereNestedInput;
-}
-
-export interface EventUpdateWithWhereUniqueNestedInput {
-  where: EventWhereUniqueInput;
-  data: EventUpdateDataInput;
-}
-
-export interface EventUpdateDataInput {
-  date?: DateTimeInput;
-  title?: String;
-  description?: String;
-  href?: String;
-  source?: String;
-  read?: Boolean;
-  indications?: IndicationUpdateManyWithoutEventInput;
-}
-
-export interface EventUpsertWithWhereUniqueNestedInput {
-  where: EventWhereUniqueInput;
-  update: EventUpdateDataInput;
-  create: EventCreateInput;
-}
-
-export interface EventScalarWhereInput {
-  date?: DateTimeInput;
-  date_not?: DateTimeInput;
-  date_in?: DateTimeInput[] | DateTimeInput;
-  date_not_in?: DateTimeInput[] | DateTimeInput;
-  date_lt?: DateTimeInput;
-  date_lte?: DateTimeInput;
-  date_gt?: DateTimeInput;
-  date_gte?: DateTimeInput;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  href?: String;
-  href_not?: String;
-  href_in?: String[] | String;
-  href_not_in?: String[] | String;
-  href_lt?: String;
-  href_lte?: String;
-  href_gt?: String;
-  href_gte?: String;
-  href_contains?: String;
-  href_not_contains?: String;
-  href_starts_with?: String;
-  href_not_starts_with?: String;
-  href_ends_with?: String;
-  href_not_ends_with?: String;
-  source?: String;
-  source_not?: String;
-  source_in?: String[] | String;
-  source_not_in?: String[] | String;
-  source_lt?: String;
-  source_lte?: String;
-  source_gt?: String;
-  source_gte?: String;
-  source_contains?: String;
-  source_not_contains?: String;
-  source_starts_with?: String;
-  source_not_starts_with?: String;
-  source_ends_with?: String;
-  source_not_ends_with?: String;
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  read?: Boolean;
-  read_not?: Boolean;
-  AND?: EventScalarWhereInput[] | EventScalarWhereInput;
-  OR?: EventScalarWhereInput[] | EventScalarWhereInput;
-  NOT?: EventScalarWhereInput[] | EventScalarWhereInput;
-}
-
-export interface EventUpdateManyWithWhereNestedInput {
-  where: EventScalarWhereInput;
-  data: EventUpdateManyDataInput;
-}
-
-export interface EventUpdateManyDataInput {
-  date?: DateTimeInput;
-  title?: String;
-  description?: String;
-  href?: String;
-  source?: String;
-  read?: Boolean;
-}
-
-export interface KeywordUpsertWithWhereUniqueNestedInput {
+export interface KeywordUpsertWithWhereUniqueWithoutIndicatorsInput {
   where: KeywordWhereUniqueInput;
-  update: KeywordUpdateDataInput;
-  create: KeywordCreateInput;
+  update: KeywordUpdateWithoutIndicatorsDataInput;
+  create: KeywordCreateWithoutIndicatorsInput;
 }
 
 export interface KeywordScalarWhereInput {
@@ -1216,6 +1288,23 @@ export interface IndicatorUpsertNestedInput {
   create: IndicatorCreateInput;
 }
 
+export interface StrengthUpdateOneRequiredInput {
+  create?: StrengthCreateInput;
+  update?: StrengthUpdateDataInput;
+  upsert?: StrengthUpsertNestedInput;
+  connect?: StrengthWhereUniqueInput;
+}
+
+export interface StrengthUpdateDataInput {
+  strength?: Int;
+  meaning?: String;
+}
+
+export interface StrengthUpsertNestedInput {
+  update: StrengthUpdateDataInput;
+  create: StrengthCreateInput;
+}
+
 export interface IndicationUpsertWithWhereUniqueWithoutEventInput {
   where: IndicationWhereUniqueInput;
   update: IndicationUpdateWithoutEventDataInput;
@@ -1237,28 +1326,6 @@ export interface IndicationScalarWhereInput {
   id_not_starts_with?: ID_Input;
   id_ends_with?: ID_Input;
   id_not_ends_with?: ID_Input;
-  strength?: Int;
-  strength_not?: Int;
-  strength_in?: Int[] | Int;
-  strength_not_in?: Int[] | Int;
-  strength_lt?: Int;
-  strength_lte?: Int;
-  strength_gt?: Int;
-  strength_gte?: Int;
-  meaning?: String;
-  meaning_not?: String;
-  meaning_in?: String[] | String;
-  meaning_not_in?: String[] | String;
-  meaning_lt?: String;
-  meaning_lte?: String;
-  meaning_gt?: String;
-  meaning_gte?: String;
-  meaning_contains?: String;
-  meaning_not_contains?: String;
-  meaning_starts_with?: String;
-  meaning_not_starts_with?: String;
-  meaning_ends_with?: String;
-  meaning_not_ends_with?: String;
   createdAt?: DateTimeInput;
   createdAt_not?: DateTimeInput;
   createdAt_in?: DateTimeInput[] | DateTimeInput;
@@ -1280,14 +1347,225 @@ export interface IndicationScalarWhereInput {
   NOT?: IndicationScalarWhereInput[] | IndicationScalarWhereInput;
 }
 
-export interface IndicationUpdateManyWithWhereNestedInput {
-  where: IndicationScalarWhereInput;
-  data: IndicationUpdateManyDataInput;
+export interface EventUpsertWithWhereUniqueWithoutCategoriesInput {
+  where: EventWhereUniqueInput;
+  update: EventUpdateWithoutCategoriesDataInput;
+  create: EventCreateWithoutCategoriesInput;
 }
 
-export interface IndicationUpdateManyDataInput {
-  strength?: Int;
-  meaning?: String;
+export interface EventScalarWhereInput {
+  date?: DateTimeInput;
+  date_not?: DateTimeInput;
+  date_in?: DateTimeInput[] | DateTimeInput;
+  date_not_in?: DateTimeInput[] | DateTimeInput;
+  date_lt?: DateTimeInput;
+  date_lte?: DateTimeInput;
+  date_gt?: DateTimeInput;
+  date_gte?: DateTimeInput;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  description?: String;
+  description_not?: String;
+  description_in?: String[] | String;
+  description_not_in?: String[] | String;
+  description_lt?: String;
+  description_lte?: String;
+  description_gt?: String;
+  description_gte?: String;
+  description_contains?: String;
+  description_not_contains?: String;
+  description_starts_with?: String;
+  description_not_starts_with?: String;
+  description_ends_with?: String;
+  description_not_ends_with?: String;
+  href?: String;
+  href_not?: String;
+  href_in?: String[] | String;
+  href_not_in?: String[] | String;
+  href_lt?: String;
+  href_lte?: String;
+  href_gt?: String;
+  href_gte?: String;
+  href_contains?: String;
+  href_not_contains?: String;
+  href_starts_with?: String;
+  href_not_starts_with?: String;
+  href_ends_with?: String;
+  href_not_ends_with?: String;
+  source?: String;
+  source_not?: String;
+  source_in?: String[] | String;
+  source_not_in?: String[] | String;
+  source_lt?: String;
+  source_lte?: String;
+  source_gt?: String;
+  source_gte?: String;
+  source_contains?: String;
+  source_not_contains?: String;
+  source_starts_with?: String;
+  source_not_starts_with?: String;
+  source_ends_with?: String;
+  source_not_ends_with?: String;
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  read?: Boolean;
+  read_not?: Boolean;
+  AND?: EventScalarWhereInput[] | EventScalarWhereInput;
+  OR?: EventScalarWhereInput[] | EventScalarWhereInput;
+  NOT?: EventScalarWhereInput[] | EventScalarWhereInput;
+}
+
+export interface EventUpdateManyWithWhereNestedInput {
+  where: EventScalarWhereInput;
+  data: EventUpdateManyDataInput;
+}
+
+export interface EventUpdateManyDataInput {
+  date?: DateTimeInput;
+  title?: String;
+  description?: String;
+  href?: String;
+  source?: String;
+  read?: Boolean;
+}
+
+export interface CategoryUpdateManyMutationInput {
+  name?: String;
+}
+
+export interface EventCreateInput {
+  date?: DateTimeInput;
+  title?: String;
+  description?: String;
+  href?: String;
+  source?: String;
+  read?: Boolean;
+  indications?: IndicationCreateManyWithoutEventInput;
+  categories?: CategoryCreateManyWithoutEventsInput;
+}
+
+export interface CategoryCreateManyWithoutEventsInput {
+  create?:
+    | CategoryCreateWithoutEventsInput[]
+    | CategoryCreateWithoutEventsInput;
+  connect?: CategoryWhereUniqueInput[] | CategoryWhereUniqueInput;
+}
+
+export interface CategoryCreateWithoutEventsInput {
+  name: String;
+}
+
+export interface EventUpdateInput {
+  date?: DateTimeInput;
+  title?: String;
+  description?: String;
+  href?: String;
+  source?: String;
+  read?: Boolean;
+  indications?: IndicationUpdateManyWithoutEventInput;
+  categories?: CategoryUpdateManyWithoutEventsInput;
+}
+
+export interface CategoryUpdateManyWithoutEventsInput {
+  create?:
+    | CategoryCreateWithoutEventsInput[]
+    | CategoryCreateWithoutEventsInput;
+  delete?: CategoryWhereUniqueInput[] | CategoryWhereUniqueInput;
+  connect?: CategoryWhereUniqueInput[] | CategoryWhereUniqueInput;
+  set?: CategoryWhereUniqueInput[] | CategoryWhereUniqueInput;
+  disconnect?: CategoryWhereUniqueInput[] | CategoryWhereUniqueInput;
+  update?:
+    | CategoryUpdateWithWhereUniqueWithoutEventsInput[]
+    | CategoryUpdateWithWhereUniqueWithoutEventsInput;
+  upsert?:
+    | CategoryUpsertWithWhereUniqueWithoutEventsInput[]
+    | CategoryUpsertWithWhereUniqueWithoutEventsInput;
+  deleteMany?: CategoryScalarWhereInput[] | CategoryScalarWhereInput;
+  updateMany?:
+    | CategoryUpdateManyWithWhereNestedInput[]
+    | CategoryUpdateManyWithWhereNestedInput;
+}
+
+export interface CategoryUpdateWithWhereUniqueWithoutEventsInput {
+  where: CategoryWhereUniqueInput;
+  data: CategoryUpdateWithoutEventsDataInput;
+}
+
+export interface CategoryUpdateWithoutEventsDataInput {
+  name?: String;
+}
+
+export interface CategoryUpsertWithWhereUniqueWithoutEventsInput {
+  where: CategoryWhereUniqueInput;
+  update: CategoryUpdateWithoutEventsDataInput;
+  create: CategoryCreateWithoutEventsInput;
+}
+
+export interface CategoryScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  AND?: CategoryScalarWhereInput[] | CategoryScalarWhereInput;
+  OR?: CategoryScalarWhereInput[] | CategoryScalarWhereInput;
+  NOT?: CategoryScalarWhereInput[] | CategoryScalarWhereInput;
+}
+
+export interface CategoryUpdateManyWithWhereNestedInput {
+  where: CategoryScalarWhereInput;
+  data: CategoryUpdateManyDataInput;
+}
+
+export interface CategoryUpdateManyDataInput {
+  name?: String;
 }
 
 export interface EventUpdateManyMutationInput {
@@ -1302,8 +1580,7 @@ export interface EventUpdateManyMutationInput {
 export interface IndicationCreateInput {
   indicator: IndicatorCreateOneInput;
   event: EventCreateOneWithoutIndicationsInput;
-  strength?: Int;
-  meaning?: String;
+  strength: StrengthCreateOneInput;
 }
 
 export interface EventCreateOneWithoutIndicationsInput {
@@ -1318,13 +1595,13 @@ export interface EventCreateWithoutIndicationsInput {
   href?: String;
   source?: String;
   read?: Boolean;
+  categories?: CategoryCreateManyWithoutEventsInput;
 }
 
 export interface IndicationUpdateInput {
   indicator?: IndicatorUpdateOneRequiredInput;
   event?: EventUpdateOneRequiredWithoutIndicationsInput;
-  strength?: Int;
-  meaning?: String;
+  strength?: StrengthUpdateOneRequiredInput;
 }
 
 export interface EventUpdateOneRequiredWithoutIndicationsInput {
@@ -1341,6 +1618,7 @@ export interface EventUpdateWithoutIndicationsDataInput {
   href?: String;
   source?: String;
   read?: Boolean;
+  categories?: CategoryUpdateManyWithoutEventsInput;
 }
 
 export interface EventUpsertWithoutIndicationsInput {
@@ -1348,15 +1626,10 @@ export interface EventUpsertWithoutIndicationsInput {
   create: EventCreateWithoutIndicationsInput;
 }
 
-export interface IndicationUpdateManyMutationInput {
-  strength?: Int;
-  meaning?: String;
-}
-
 export interface IndicatorUpdateInput {
   name?: String;
   description?: String;
-  keywords?: KeywordUpdateManyInput;
+  keywords?: KeywordUpdateManyWithoutIndicatorsInput;
   scenarios?: ScenarioUpdateManyWithoutIndicatorsInput;
 }
 
@@ -1365,77 +1638,66 @@ export interface IndicatorUpdateManyMutationInput {
   description?: String;
 }
 
-export interface KeywordUpdateInput {
+export interface KeywordCreateInput {
   name?: String;
   description?: String;
-  events?: EventUpdateManyInput;
+  indicators?: IndicatorCreateManyWithoutKeywordsInput;
 }
 
-export interface KeywordUpdateManyMutationInput {
-  name?: String;
-  description?: String;
-}
-
-export interface ScenarioCreateInput {
-  name?: String;
-  description?: String;
-  indicators?: IndicatorCreateManyWithoutScenariosInput;
-}
-
-export interface IndicatorCreateManyWithoutScenariosInput {
+export interface IndicatorCreateManyWithoutKeywordsInput {
   create?:
-    | IndicatorCreateWithoutScenariosInput[]
-    | IndicatorCreateWithoutScenariosInput;
+    | IndicatorCreateWithoutKeywordsInput[]
+    | IndicatorCreateWithoutKeywordsInput;
   connect?: IndicatorWhereUniqueInput[] | IndicatorWhereUniqueInput;
 }
 
-export interface IndicatorCreateWithoutScenariosInput {
+export interface IndicatorCreateWithoutKeywordsInput {
   name?: String;
   description?: String;
-  keywords?: KeywordCreateManyInput;
+  scenarios?: ScenarioCreateManyWithoutIndicatorsInput;
 }
 
-export interface ScenarioUpdateInput {
+export interface KeywordUpdateInput {
   name?: String;
   description?: String;
-  indicators?: IndicatorUpdateManyWithoutScenariosInput;
+  indicators?: IndicatorUpdateManyWithoutKeywordsInput;
 }
 
-export interface IndicatorUpdateManyWithoutScenariosInput {
+export interface IndicatorUpdateManyWithoutKeywordsInput {
   create?:
-    | IndicatorCreateWithoutScenariosInput[]
-    | IndicatorCreateWithoutScenariosInput;
+    | IndicatorCreateWithoutKeywordsInput[]
+    | IndicatorCreateWithoutKeywordsInput;
   delete?: IndicatorWhereUniqueInput[] | IndicatorWhereUniqueInput;
   connect?: IndicatorWhereUniqueInput[] | IndicatorWhereUniqueInput;
   set?: IndicatorWhereUniqueInput[] | IndicatorWhereUniqueInput;
   disconnect?: IndicatorWhereUniqueInput[] | IndicatorWhereUniqueInput;
   update?:
-    | IndicatorUpdateWithWhereUniqueWithoutScenariosInput[]
-    | IndicatorUpdateWithWhereUniqueWithoutScenariosInput;
+    | IndicatorUpdateWithWhereUniqueWithoutKeywordsInput[]
+    | IndicatorUpdateWithWhereUniqueWithoutKeywordsInput;
   upsert?:
-    | IndicatorUpsertWithWhereUniqueWithoutScenariosInput[]
-    | IndicatorUpsertWithWhereUniqueWithoutScenariosInput;
+    | IndicatorUpsertWithWhereUniqueWithoutKeywordsInput[]
+    | IndicatorUpsertWithWhereUniqueWithoutKeywordsInput;
   deleteMany?: IndicatorScalarWhereInput[] | IndicatorScalarWhereInput;
   updateMany?:
     | IndicatorUpdateManyWithWhereNestedInput[]
     | IndicatorUpdateManyWithWhereNestedInput;
 }
 
-export interface IndicatorUpdateWithWhereUniqueWithoutScenariosInput {
+export interface IndicatorUpdateWithWhereUniqueWithoutKeywordsInput {
   where: IndicatorWhereUniqueInput;
-  data: IndicatorUpdateWithoutScenariosDataInput;
+  data: IndicatorUpdateWithoutKeywordsDataInput;
 }
 
-export interface IndicatorUpdateWithoutScenariosDataInput {
+export interface IndicatorUpdateWithoutKeywordsDataInput {
   name?: String;
   description?: String;
-  keywords?: KeywordUpdateManyInput;
+  scenarios?: ScenarioUpdateManyWithoutIndicatorsInput;
 }
 
-export interface IndicatorUpsertWithWhereUniqueWithoutScenariosInput {
+export interface IndicatorUpsertWithWhereUniqueWithoutKeywordsInput {
   where: IndicatorWhereUniqueInput;
-  update: IndicatorUpdateWithoutScenariosDataInput;
-  create: IndicatorCreateWithoutScenariosInput;
+  update: IndicatorUpdateWithoutKeywordsDataInput;
+  create: IndicatorCreateWithoutKeywordsInput;
 }
 
 export interface IndicatorScalarWhereInput {
@@ -1496,9 +1758,86 @@ export interface IndicatorUpdateManyDataInput {
   description?: String;
 }
 
+export interface KeywordUpdateManyMutationInput {
+  name?: String;
+  description?: String;
+}
+
+export interface ScenarioCreateInput {
+  name?: String;
+  description?: String;
+  indicators?: IndicatorCreateManyWithoutScenariosInput;
+}
+
+export interface IndicatorCreateManyWithoutScenariosInput {
+  create?:
+    | IndicatorCreateWithoutScenariosInput[]
+    | IndicatorCreateWithoutScenariosInput;
+  connect?: IndicatorWhereUniqueInput[] | IndicatorWhereUniqueInput;
+}
+
+export interface IndicatorCreateWithoutScenariosInput {
+  name?: String;
+  description?: String;
+  keywords?: KeywordCreateManyWithoutIndicatorsInput;
+}
+
+export interface ScenarioUpdateInput {
+  name?: String;
+  description?: String;
+  indicators?: IndicatorUpdateManyWithoutScenariosInput;
+}
+
+export interface IndicatorUpdateManyWithoutScenariosInput {
+  create?:
+    | IndicatorCreateWithoutScenariosInput[]
+    | IndicatorCreateWithoutScenariosInput;
+  delete?: IndicatorWhereUniqueInput[] | IndicatorWhereUniqueInput;
+  connect?: IndicatorWhereUniqueInput[] | IndicatorWhereUniqueInput;
+  set?: IndicatorWhereUniqueInput[] | IndicatorWhereUniqueInput;
+  disconnect?: IndicatorWhereUniqueInput[] | IndicatorWhereUniqueInput;
+  update?:
+    | IndicatorUpdateWithWhereUniqueWithoutScenariosInput[]
+    | IndicatorUpdateWithWhereUniqueWithoutScenariosInput;
+  upsert?:
+    | IndicatorUpsertWithWhereUniqueWithoutScenariosInput[]
+    | IndicatorUpsertWithWhereUniqueWithoutScenariosInput;
+  deleteMany?: IndicatorScalarWhereInput[] | IndicatorScalarWhereInput;
+  updateMany?:
+    | IndicatorUpdateManyWithWhereNestedInput[]
+    | IndicatorUpdateManyWithWhereNestedInput;
+}
+
+export interface IndicatorUpdateWithWhereUniqueWithoutScenariosInput {
+  where: IndicatorWhereUniqueInput;
+  data: IndicatorUpdateWithoutScenariosDataInput;
+}
+
+export interface IndicatorUpdateWithoutScenariosDataInput {
+  name?: String;
+  description?: String;
+  keywords?: KeywordUpdateManyWithoutIndicatorsInput;
+}
+
+export interface IndicatorUpsertWithWhereUniqueWithoutScenariosInput {
+  where: IndicatorWhereUniqueInput;
+  update: IndicatorUpdateWithoutScenariosDataInput;
+  create: IndicatorCreateWithoutScenariosInput;
+}
+
 export interface ScenarioUpdateManyMutationInput {
   name?: String;
   description?: String;
+}
+
+export interface StrengthUpdateInput {
+  strength?: Int;
+  meaning?: String;
+}
+
+export interface StrengthUpdateManyMutationInput {
+  strength?: Int;
+  meaning?: String;
 }
 
 export interface UserCreateInput {
@@ -1511,6 +1850,17 @@ export interface UserUpdateInput {
 
 export interface UserUpdateManyMutationInput {
   name?: String;
+}
+
+export interface CategorySubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: CategoryWhereInput;
+  AND?: CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput;
+  OR?: CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput;
+  NOT?: CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput;
 }
 
 export interface EventSubscriptionWhereInput {
@@ -1568,6 +1918,17 @@ export interface ScenarioSubscriptionWhereInput {
   NOT?: ScenarioSubscriptionWhereInput[] | ScenarioSubscriptionWhereInput;
 }
 
+export interface StrengthSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: StrengthWhereInput;
+  AND?: StrengthSubscriptionWhereInput[] | StrengthSubscriptionWhereInput;
+  OR?: StrengthSubscriptionWhereInput[] | StrengthSubscriptionWhereInput;
+  NOT?: StrengthSubscriptionWhereInput[] | StrengthSubscriptionWhereInput;
+}
+
 export interface UserSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
@@ -1581,6 +1942,45 @@ export interface UserSubscriptionWhereInput {
 
 export interface NodeNode {
   id: ID_Output;
+}
+
+export interface Category {
+  id: ID_Output;
+  name: String;
+}
+
+export interface CategoryPromise extends Promise<Category>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  events: <T = FragmentableArray<Event>>(
+    args?: {
+      where?: EventWhereInput;
+      orderBy?: EventOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface CategorySubscription
+  extends Promise<AsyncIterator<Category>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  events: <T = Promise<AsyncIterator<EventSubscription>>>(
+    args?: {
+      where?: EventWhereInput;
+      orderBy?: EventOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
 }
 
 export interface Event {
@@ -1612,6 +2012,17 @@ export interface EventPromise extends Promise<Event>, Fragmentable {
       last?: Int;
     }
   ) => T;
+  categories: <T = FragmentableArray<Category>>(
+    args?: {
+      where?: CategoryWhereInput;
+      orderBy?: CategoryOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
 }
 
 export interface EventSubscription
@@ -1635,12 +2046,21 @@ export interface EventSubscription
       last?: Int;
     }
   ) => T;
+  categories: <T = Promise<AsyncIterator<CategorySubscription>>>(
+    args?: {
+      where?: CategoryWhereInput;
+      orderBy?: CategoryOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
 }
 
 export interface Indication {
   id: ID_Output;
-  strength?: Int;
-  meaning?: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -1649,8 +2069,7 @@ export interface IndicationPromise extends Promise<Indication>, Fragmentable {
   id: () => Promise<ID_Output>;
   indicator: <T = IndicatorPromise>() => T;
   event: <T = EventPromise>() => T;
-  strength: () => Promise<Int>;
-  meaning: () => Promise<String>;
+  strength: <T = StrengthPromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -1661,8 +2080,7 @@ export interface IndicationSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   indicator: <T = IndicatorSubscription>() => T;
   event: <T = EventSubscription>() => T;
-  strength: () => Promise<AsyncIterator<Int>>;
-  meaning: () => Promise<AsyncIterator<String>>;
+  strength: <T = StrengthSubscription>() => T;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
@@ -1741,10 +2159,10 @@ export interface KeywordPromise extends Promise<Keyword>, Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
   description: () => Promise<String>;
-  events: <T = FragmentableArray<Event>>(
+  indicators: <T = FragmentableArray<Indicator>>(
     args?: {
-      where?: EventWhereInput;
-      orderBy?: EventOrderByInput;
+      where?: IndicatorWhereInput;
+      orderBy?: IndicatorOrderByInput;
       skip?: Int;
       after?: String;
       before?: String;
@@ -1760,10 +2178,10 @@ export interface KeywordSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
   description: () => Promise<AsyncIterator<String>>;
-  events: <T = Promise<AsyncIterator<EventSubscription>>>(
+  indicators: <T = Promise<AsyncIterator<IndicatorSubscription>>>(
     args?: {
-      where?: EventWhereInput;
-      orderBy?: EventOrderByInput;
+      where?: IndicatorWhereInput;
+      orderBy?: IndicatorOrderByInput;
       skip?: Int;
       after?: String;
       before?: String;
@@ -1815,25 +2233,45 @@ export interface ScenarioSubscription
   ) => T;
 }
 
-export interface EventConnection {
-  pageInfo: PageInfo;
-  edges: EventEdge[];
+export interface Strength {
+  id: ID_Output;
+  strength?: Int;
+  meaning?: String;
 }
 
-export interface EventConnectionPromise
-  extends Promise<EventConnection>,
+export interface StrengthPromise extends Promise<Strength>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  strength: () => Promise<Int>;
+  meaning: () => Promise<String>;
+}
+
+export interface StrengthSubscription
+  extends Promise<AsyncIterator<Strength>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  strength: () => Promise<AsyncIterator<Int>>;
+  meaning: () => Promise<AsyncIterator<String>>;
+}
+
+export interface CategoryConnection {
+  pageInfo: PageInfo;
+  edges: CategoryEdge[];
+}
+
+export interface CategoryConnectionPromise
+  extends Promise<CategoryConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<EventEdge>>() => T;
-  aggregate: <T = AggregateEventPromise>() => T;
+  edges: <T = FragmentableArray<CategoryEdge>>() => T;
+  aggregate: <T = AggregateCategoryPromise>() => T;
 }
 
-export interface EventConnectionSubscription
-  extends Promise<AsyncIterator<EventConnection>>,
+export interface CategoryConnectionSubscription
+  extends Promise<AsyncIterator<CategoryConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<EventEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateEventSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<CategoryEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateCategorySubscription>() => T;
 }
 
 export interface PageInfo {
@@ -1857,6 +2295,62 @@ export interface PageInfoSubscription
   hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
   startCursor: () => Promise<AsyncIterator<String>>;
   endCursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface CategoryEdge {
+  node: Category;
+  cursor: String;
+}
+
+export interface CategoryEdgePromise
+  extends Promise<CategoryEdge>,
+    Fragmentable {
+  node: <T = CategoryPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface CategoryEdgeSubscription
+  extends Promise<AsyncIterator<CategoryEdge>>,
+    Fragmentable {
+  node: <T = CategorySubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateCategory {
+  count: Int;
+}
+
+export interface AggregateCategoryPromise
+  extends Promise<AggregateCategory>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateCategorySubscription
+  extends Promise<AsyncIterator<AggregateCategory>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface EventConnection {
+  pageInfo: PageInfo;
+  edges: EventEdge[];
+}
+
+export interface EventConnectionPromise
+  extends Promise<EventConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<EventEdge>>() => T;
+  aggregate: <T = AggregateEventPromise>() => T;
+}
+
+export interface EventConnectionSubscription
+  extends Promise<AsyncIterator<EventConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<EventEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateEventSubscription>() => T;
 }
 
 export interface EventEdge {
@@ -2114,6 +2608,62 @@ export interface AggregateScenarioSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface StrengthConnection {
+  pageInfo: PageInfo;
+  edges: StrengthEdge[];
+}
+
+export interface StrengthConnectionPromise
+  extends Promise<StrengthConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<StrengthEdge>>() => T;
+  aggregate: <T = AggregateStrengthPromise>() => T;
+}
+
+export interface StrengthConnectionSubscription
+  extends Promise<AsyncIterator<StrengthConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<StrengthEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateStrengthSubscription>() => T;
+}
+
+export interface StrengthEdge {
+  node: Strength;
+  cursor: String;
+}
+
+export interface StrengthEdgePromise
+  extends Promise<StrengthEdge>,
+    Fragmentable {
+  node: <T = StrengthPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface StrengthEdgeSubscription
+  extends Promise<AsyncIterator<StrengthEdge>>,
+    Fragmentable {
+  node: <T = StrengthSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateStrength {
+  count: Int;
+}
+
+export interface AggregateStrengthPromise
+  extends Promise<AggregateStrength>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateStrengthSubscription
+  extends Promise<AsyncIterator<AggregateStrength>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
 export interface User {
   id: ID_Output;
   name: String;
@@ -2199,6 +2749,50 @@ export interface BatchPayloadSubscription
   extends Promise<AsyncIterator<BatchPayload>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Long>>;
+}
+
+export interface CategorySubscriptionPayload {
+  mutation: MutationType;
+  node: Category;
+  updatedFields: String[];
+  previousValues: CategoryPreviousValues;
+}
+
+export interface CategorySubscriptionPayloadPromise
+  extends Promise<CategorySubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = CategoryPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = CategoryPreviousValuesPromise>() => T;
+}
+
+export interface CategorySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<CategorySubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = CategorySubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = CategoryPreviousValuesSubscription>() => T;
+}
+
+export interface CategoryPreviousValues {
+  id: ID_Output;
+  name: String;
+}
+
+export interface CategoryPreviousValuesPromise
+  extends Promise<CategoryPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+}
+
+export interface CategoryPreviousValuesSubscription
+  extends Promise<AsyncIterator<CategoryPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
 }
 
 export interface EventSubscriptionPayload {
@@ -2287,8 +2881,6 @@ export interface IndicationSubscriptionPayloadSubscription
 
 export interface IndicationPreviousValues {
   id: ID_Output;
-  strength?: Int;
-  meaning?: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -2297,8 +2889,6 @@ export interface IndicationPreviousValuesPromise
   extends Promise<IndicationPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  strength: () => Promise<Int>;
-  meaning: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -2307,8 +2897,6 @@ export interface IndicationPreviousValuesSubscription
   extends Promise<AsyncIterator<IndicationPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  strength: () => Promise<AsyncIterator<Int>>;
-  meaning: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
@@ -2454,6 +3042,53 @@ export interface ScenarioPreviousValuesSubscription
   description: () => Promise<AsyncIterator<String>>;
 }
 
+export interface StrengthSubscriptionPayload {
+  mutation: MutationType;
+  node: Strength;
+  updatedFields: String[];
+  previousValues: StrengthPreviousValues;
+}
+
+export interface StrengthSubscriptionPayloadPromise
+  extends Promise<StrengthSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = StrengthPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = StrengthPreviousValuesPromise>() => T;
+}
+
+export interface StrengthSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<StrengthSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = StrengthSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = StrengthPreviousValuesSubscription>() => T;
+}
+
+export interface StrengthPreviousValues {
+  id: ID_Output;
+  strength?: Int;
+  meaning?: String;
+}
+
+export interface StrengthPreviousValuesPromise
+  extends Promise<StrengthPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  strength: () => Promise<Int>;
+  meaning: () => Promise<String>;
+}
+
+export interface StrengthPreviousValuesSubscription
+  extends Promise<AsyncIterator<StrengthPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  strength: () => Promise<AsyncIterator<Int>>;
+  meaning: () => Promise<AsyncIterator<String>>;
+}
+
 export interface UserSubscriptionPayload {
   mutation: MutationType;
   node: User;
@@ -2505,6 +3140,11 @@ export type ID_Input = string | number;
 export type ID_Output = string;
 
 /*
+The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
+*/
+export type String = string;
+
+/*
 DateTime scalar input type, allowing Date
 */
 export type DateTimeInput = Date | string;
@@ -2513,11 +3153,6 @@ export type DateTimeInput = Date | string;
 DateTime scalar output type, which is always a string
 */
 export type DateTimeOutput = string;
-
-/*
-The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
-*/
-export type String = string;
 
 /*
 The `Boolean` scalar type represents `true` or `false`.
@@ -2545,6 +3180,10 @@ export const models: Model[] = [
     embedded: false
   },
   {
+    name: "Category",
+    embedded: false
+  },
+  {
     name: "Keyword",
     embedded: false
   },
@@ -2558,6 +3197,10 @@ export const models: Model[] = [
   },
   {
     name: "Indication",
+    embedded: false
+  },
+  {
+    name: "Strength",
     embedded: false
   }
 ];

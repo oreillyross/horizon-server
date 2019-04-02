@@ -25,9 +25,14 @@ export interface NexusPrismaTypes {
       Indicator: IndicatorObject
       Keyword: KeywordObject
       Scenario: ScenarioObject
+      Strength: StrengthObject
+      Category: CategoryObject
       EventConnection: EventConnectionObject
       EventEdge: EventEdgeObject
       AggregateEvent: AggregateEventObject
+      CategoryConnection: CategoryConnectionObject
+      CategoryEdge: CategoryEdgeObject
+      AggregateCategory: AggregateCategoryObject
       KeywordConnection: KeywordConnectionObject
       KeywordEdge: KeywordEdgeObject
       AggregateKeyword: AggregateKeywordObject
@@ -40,6 +45,9 @@ export interface NexusPrismaTypes {
       IndicationConnection: IndicationConnectionObject
       IndicationEdge: IndicationEdgeObject
       AggregateIndication: AggregateIndicationObject
+      StrengthConnection: StrengthConnectionObject
+      StrengthEdge: StrengthEdgeObject
+      AggregateStrength: AggregateStrengthObject
       Mutation: MutationObject
       BatchPayload: BatchPayloadObject
       Subscription: SubscriptionObject
@@ -47,6 +55,8 @@ export interface NexusPrismaTypes {
       UserPreviousValues: UserPreviousValuesObject
       EventSubscriptionPayload: EventSubscriptionPayloadObject
       EventPreviousValues: EventPreviousValuesObject
+      CategorySubscriptionPayload: CategorySubscriptionPayloadObject
+      CategoryPreviousValues: CategoryPreviousValuesObject
       KeywordSubscriptionPayload: KeywordSubscriptionPayloadObject
       KeywordPreviousValues: KeywordPreviousValuesObject
       ScenarioSubscriptionPayload: ScenarioSubscriptionPayloadObject
@@ -55,6 +65,8 @@ export interface NexusPrismaTypes {
       IndicatorPreviousValues: IndicatorPreviousValuesObject
       IndicationSubscriptionPayload: IndicationSubscriptionPayloadObject
       IndicationPreviousValues: IndicationPreviousValuesObject
+      StrengthSubscriptionPayload: StrengthSubscriptionPayloadObject
+      StrengthPreviousValues: StrengthPreviousValuesObject
     }
     fieldsDetails: {
       Query: QueryFieldDetails
@@ -68,9 +80,14 @@ export interface NexusPrismaTypes {
       Indicator: IndicatorFieldDetails
       Keyword: KeywordFieldDetails
       Scenario: ScenarioFieldDetails
+      Strength: StrengthFieldDetails
+      Category: CategoryFieldDetails
       EventConnection: EventConnectionFieldDetails
       EventEdge: EventEdgeFieldDetails
       AggregateEvent: AggregateEventFieldDetails
+      CategoryConnection: CategoryConnectionFieldDetails
+      CategoryEdge: CategoryEdgeFieldDetails
+      AggregateCategory: AggregateCategoryFieldDetails
       KeywordConnection: KeywordConnectionFieldDetails
       KeywordEdge: KeywordEdgeFieldDetails
       AggregateKeyword: AggregateKeywordFieldDetails
@@ -83,6 +100,9 @@ export interface NexusPrismaTypes {
       IndicationConnection: IndicationConnectionFieldDetails
       IndicationEdge: IndicationEdgeFieldDetails
       AggregateIndication: AggregateIndicationFieldDetails
+      StrengthConnection: StrengthConnectionFieldDetails
+      StrengthEdge: StrengthEdgeFieldDetails
+      AggregateStrength: AggregateStrengthFieldDetails
       Mutation: MutationFieldDetails
       BatchPayload: BatchPayloadFieldDetails
       Subscription: SubscriptionFieldDetails
@@ -90,6 +110,8 @@ export interface NexusPrismaTypes {
       UserPreviousValues: UserPreviousValuesFieldDetails
       EventSubscriptionPayload: EventSubscriptionPayloadFieldDetails
       EventPreviousValues: EventPreviousValuesFieldDetails
+      CategorySubscriptionPayload: CategorySubscriptionPayloadFieldDetails
+      CategoryPreviousValues: CategoryPreviousValuesFieldDetails
       KeywordSubscriptionPayload: KeywordSubscriptionPayloadFieldDetails
       KeywordPreviousValues: KeywordPreviousValuesFieldDetails
       ScenarioSubscriptionPayload: ScenarioSubscriptionPayloadFieldDetails
@@ -98,6 +120,8 @@ export interface NexusPrismaTypes {
       IndicatorPreviousValues: IndicatorPreviousValuesFieldDetails
       IndicationSubscriptionPayload: IndicationSubscriptionPayloadFieldDetails
       IndicationPreviousValues: IndicationPreviousValuesFieldDetails
+      StrengthSubscriptionPayload: StrengthSubscriptionPayloadFieldDetails
+      StrengthPreviousValues: StrengthPreviousValuesFieldDetails
     }
   }
   inputTypes: {
@@ -108,12 +132,16 @@ export interface NexusPrismaTypes {
       IndicationWhereInput: IndicationWhereInputInputObject
       IndicatorWhereInput: IndicatorWhereInputInputObject
       KeywordWhereInput: KeywordWhereInputInputObject
-      EventWhereInput: EventWhereInputInputObject
       ScenarioWhereInput: ScenarioWhereInputInputObject
+      EventWhereInput: EventWhereInputInputObject
+      CategoryWhereInput: CategoryWhereInputInputObject
+      StrengthWhereInput: StrengthWhereInputInputObject
+      CategoryWhereUniqueInput: CategoryWhereUniqueInputInputObject
       KeywordWhereUniqueInput: KeywordWhereUniqueInputInputObject
       ScenarioWhereUniqueInput: ScenarioWhereUniqueInputInputObject
       IndicatorWhereUniqueInput: IndicatorWhereUniqueInputInputObject
       IndicationWhereUniqueInput: IndicationWhereUniqueInputInputObject
+      StrengthWhereUniqueInput: StrengthWhereUniqueInputInputObject
       UserCreateInput: UserCreateInputInputObject
       UserUpdateInput: UserUpdateInputInputObject
       UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject
@@ -122,28 +150,24 @@ export interface NexusPrismaTypes {
       IndicationCreateWithoutEventInput: IndicationCreateWithoutEventInputInputObject
       IndicatorCreateOneInput: IndicatorCreateOneInputInputObject
       IndicatorCreateInput: IndicatorCreateInputInputObject
-      KeywordCreateManyInput: KeywordCreateManyInputInputObject
-      KeywordCreateInput: KeywordCreateInputInputObject
-      EventCreateManyInput: EventCreateManyInputInputObject
+      KeywordCreateManyWithoutIndicatorsInput: KeywordCreateManyWithoutIndicatorsInputInputObject
+      KeywordCreateWithoutIndicatorsInput: KeywordCreateWithoutIndicatorsInputInputObject
       ScenarioCreateManyWithoutIndicatorsInput: ScenarioCreateManyWithoutIndicatorsInputInputObject
       ScenarioCreateWithoutIndicatorsInput: ScenarioCreateWithoutIndicatorsInputInputObject
+      StrengthCreateOneInput: StrengthCreateOneInputInputObject
+      StrengthCreateInput: StrengthCreateInputInputObject
+      CategoryCreateManyWithoutEventsInput: CategoryCreateManyWithoutEventsInputInputObject
+      CategoryCreateWithoutEventsInput: CategoryCreateWithoutEventsInputInputObject
       EventUpdateInput: EventUpdateInputInputObject
       IndicationUpdateManyWithoutEventInput: IndicationUpdateManyWithoutEventInputInputObject
       IndicationUpdateWithWhereUniqueWithoutEventInput: IndicationUpdateWithWhereUniqueWithoutEventInputInputObject
       IndicationUpdateWithoutEventDataInput: IndicationUpdateWithoutEventDataInputInputObject
       IndicatorUpdateOneRequiredInput: IndicatorUpdateOneRequiredInputInputObject
       IndicatorUpdateDataInput: IndicatorUpdateDataInputInputObject
-      KeywordUpdateManyInput: KeywordUpdateManyInputInputObject
-      KeywordUpdateWithWhereUniqueNestedInput: KeywordUpdateWithWhereUniqueNestedInputInputObject
-      KeywordUpdateDataInput: KeywordUpdateDataInputInputObject
-      EventUpdateManyInput: EventUpdateManyInputInputObject
-      EventUpdateWithWhereUniqueNestedInput: EventUpdateWithWhereUniqueNestedInputInputObject
-      EventUpdateDataInput: EventUpdateDataInputInputObject
-      EventUpsertWithWhereUniqueNestedInput: EventUpsertWithWhereUniqueNestedInputInputObject
-      EventScalarWhereInput: EventScalarWhereInputInputObject
-      EventUpdateManyWithWhereNestedInput: EventUpdateManyWithWhereNestedInputInputObject
-      EventUpdateManyDataInput: EventUpdateManyDataInputInputObject
-      KeywordUpsertWithWhereUniqueNestedInput: KeywordUpsertWithWhereUniqueNestedInputInputObject
+      KeywordUpdateManyWithoutIndicatorsInput: KeywordUpdateManyWithoutIndicatorsInputInputObject
+      KeywordUpdateWithWhereUniqueWithoutIndicatorsInput: KeywordUpdateWithWhereUniqueWithoutIndicatorsInputInputObject
+      KeywordUpdateWithoutIndicatorsDataInput: KeywordUpdateWithoutIndicatorsDataInputInputObject
+      KeywordUpsertWithWhereUniqueWithoutIndicatorsInput: KeywordUpsertWithWhereUniqueWithoutIndicatorsInputInputObject
       KeywordScalarWhereInput: KeywordScalarWhereInputInputObject
       KeywordUpdateManyWithWhereNestedInput: KeywordUpdateManyWithWhereNestedInputInputObject
       KeywordUpdateManyDataInput: KeywordUpdateManyDataInputInputObject
@@ -155,12 +179,42 @@ export interface NexusPrismaTypes {
       ScenarioUpdateManyWithWhereNestedInput: ScenarioUpdateManyWithWhereNestedInputInputObject
       ScenarioUpdateManyDataInput: ScenarioUpdateManyDataInputInputObject
       IndicatorUpsertNestedInput: IndicatorUpsertNestedInputInputObject
+      StrengthUpdateOneRequiredInput: StrengthUpdateOneRequiredInputInputObject
+      StrengthUpdateDataInput: StrengthUpdateDataInputInputObject
+      StrengthUpsertNestedInput: StrengthUpsertNestedInputInputObject
       IndicationUpsertWithWhereUniqueWithoutEventInput: IndicationUpsertWithWhereUniqueWithoutEventInputInputObject
       IndicationScalarWhereInput: IndicationScalarWhereInputInputObject
-      IndicationUpdateManyWithWhereNestedInput: IndicationUpdateManyWithWhereNestedInputInputObject
-      IndicationUpdateManyDataInput: IndicationUpdateManyDataInputInputObject
+      CategoryUpdateManyWithoutEventsInput: CategoryUpdateManyWithoutEventsInputInputObject
+      CategoryUpdateWithWhereUniqueWithoutEventsInput: CategoryUpdateWithWhereUniqueWithoutEventsInputInputObject
+      CategoryUpdateWithoutEventsDataInput: CategoryUpdateWithoutEventsDataInputInputObject
+      CategoryUpsertWithWhereUniqueWithoutEventsInput: CategoryUpsertWithWhereUniqueWithoutEventsInputInputObject
+      CategoryScalarWhereInput: CategoryScalarWhereInputInputObject
+      CategoryUpdateManyWithWhereNestedInput: CategoryUpdateManyWithWhereNestedInputInputObject
+      CategoryUpdateManyDataInput: CategoryUpdateManyDataInputInputObject
       EventUpdateManyMutationInput: EventUpdateManyMutationInputInputObject
+      CategoryCreateInput: CategoryCreateInputInputObject
+      EventCreateManyWithoutCategoriesInput: EventCreateManyWithoutCategoriesInputInputObject
+      EventCreateWithoutCategoriesInput: EventCreateWithoutCategoriesInputInputObject
+      CategoryUpdateInput: CategoryUpdateInputInputObject
+      EventUpdateManyWithoutCategoriesInput: EventUpdateManyWithoutCategoriesInputInputObject
+      EventUpdateWithWhereUniqueWithoutCategoriesInput: EventUpdateWithWhereUniqueWithoutCategoriesInputInputObject
+      EventUpdateWithoutCategoriesDataInput: EventUpdateWithoutCategoriesDataInputInputObject
+      EventUpsertWithWhereUniqueWithoutCategoriesInput: EventUpsertWithWhereUniqueWithoutCategoriesInputInputObject
+      EventScalarWhereInput: EventScalarWhereInputInputObject
+      EventUpdateManyWithWhereNestedInput: EventUpdateManyWithWhereNestedInputInputObject
+      EventUpdateManyDataInput: EventUpdateManyDataInputInputObject
+      CategoryUpdateManyMutationInput: CategoryUpdateManyMutationInputInputObject
+      KeywordCreateInput: KeywordCreateInputInputObject
+      IndicatorCreateManyWithoutKeywordsInput: IndicatorCreateManyWithoutKeywordsInputInputObject
+      IndicatorCreateWithoutKeywordsInput: IndicatorCreateWithoutKeywordsInputInputObject
       KeywordUpdateInput: KeywordUpdateInputInputObject
+      IndicatorUpdateManyWithoutKeywordsInput: IndicatorUpdateManyWithoutKeywordsInputInputObject
+      IndicatorUpdateWithWhereUniqueWithoutKeywordsInput: IndicatorUpdateWithWhereUniqueWithoutKeywordsInputInputObject
+      IndicatorUpdateWithoutKeywordsDataInput: IndicatorUpdateWithoutKeywordsDataInputInputObject
+      IndicatorUpsertWithWhereUniqueWithoutKeywordsInput: IndicatorUpsertWithWhereUniqueWithoutKeywordsInputInputObject
+      IndicatorScalarWhereInput: IndicatorScalarWhereInputInputObject
+      IndicatorUpdateManyWithWhereNestedInput: IndicatorUpdateManyWithWhereNestedInputInputObject
+      IndicatorUpdateManyDataInput: IndicatorUpdateManyDataInputInputObject
       KeywordUpdateManyMutationInput: KeywordUpdateManyMutationInputInputObject
       ScenarioCreateInput: ScenarioCreateInputInputObject
       IndicatorCreateManyWithoutScenariosInput: IndicatorCreateManyWithoutScenariosInputInputObject
@@ -170,9 +224,6 @@ export interface NexusPrismaTypes {
       IndicatorUpdateWithWhereUniqueWithoutScenariosInput: IndicatorUpdateWithWhereUniqueWithoutScenariosInputInputObject
       IndicatorUpdateWithoutScenariosDataInput: IndicatorUpdateWithoutScenariosDataInputInputObject
       IndicatorUpsertWithWhereUniqueWithoutScenariosInput: IndicatorUpsertWithWhereUniqueWithoutScenariosInputInputObject
-      IndicatorScalarWhereInput: IndicatorScalarWhereInputInputObject
-      IndicatorUpdateManyWithWhereNestedInput: IndicatorUpdateManyWithWhereNestedInputInputObject
-      IndicatorUpdateManyDataInput: IndicatorUpdateManyDataInputInputObject
       ScenarioUpdateManyMutationInput: ScenarioUpdateManyMutationInputInputObject
       IndicatorUpdateInput: IndicatorUpdateInputInputObject
       IndicatorUpdateManyMutationInput: IndicatorUpdateManyMutationInputInputObject
@@ -183,22 +234,27 @@ export interface NexusPrismaTypes {
       EventUpdateOneRequiredWithoutIndicationsInput: EventUpdateOneRequiredWithoutIndicationsInputInputObject
       EventUpdateWithoutIndicationsDataInput: EventUpdateWithoutIndicationsDataInputInputObject
       EventUpsertWithoutIndicationsInput: EventUpsertWithoutIndicationsInputInputObject
-      IndicationUpdateManyMutationInput: IndicationUpdateManyMutationInputInputObject
+      StrengthUpdateInput: StrengthUpdateInputInputObject
+      StrengthUpdateManyMutationInput: StrengthUpdateManyMutationInputInputObject
       UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
       EventSubscriptionWhereInput: EventSubscriptionWhereInputInputObject
+      CategorySubscriptionWhereInput: CategorySubscriptionWhereInputInputObject
       KeywordSubscriptionWhereInput: KeywordSubscriptionWhereInputInputObject
       ScenarioSubscriptionWhereInput: ScenarioSubscriptionWhereInputInputObject
       IndicatorSubscriptionWhereInput: IndicatorSubscriptionWhereInputInputObject
       IndicationSubscriptionWhereInput: IndicationSubscriptionWhereInputInputObject
+      StrengthSubscriptionWhereInput: StrengthSubscriptionWhereInputInputObject
     }
   }
   enumTypes: {
     UserOrderByInput: UserOrderByInputValues,
     IndicationOrderByInput: IndicationOrderByInputValues,
     KeywordOrderByInput: KeywordOrderByInputValues,
-    EventOrderByInput: EventOrderByInputValues,
-    ScenarioOrderByInput: ScenarioOrderByInputValues,
     IndicatorOrderByInput: IndicatorOrderByInputValues,
+    ScenarioOrderByInput: ScenarioOrderByInputValues,
+    CategoryOrderByInput: CategoryOrderByInputValues,
+    EventOrderByInput: EventOrderByInputValues,
+    StrengthOrderByInput: StrengthOrderByInputValues,
     MutationType: MutationTypeValues,
   }
 }
@@ -213,6 +269,9 @@ type QueryObject =
   | { name: 'event', args?: QueryEventArgs[] | false, alias?: string  } 
   | { name: 'events', args?: QueryEventsArgs[] | false, alias?: string  } 
   | { name: 'eventsConnection', args?: QueryEventsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'category', args?: QueryCategoryArgs[] | false, alias?: string  } 
+  | { name: 'categories', args?: QueryCategoriesArgs[] | false, alias?: string  } 
+  | { name: 'categoriesConnection', args?: QueryCategoriesConnectionArgs[] | false, alias?: string  } 
   | { name: 'keyword', args?: QueryKeywordArgs[] | false, alias?: string  } 
   | { name: 'keywords', args?: QueryKeywordsArgs[] | false, alias?: string  } 
   | { name: 'keywordsConnection', args?: QueryKeywordsConnectionArgs[] | false, alias?: string  } 
@@ -225,6 +284,9 @@ type QueryObject =
   | { name: 'indication', args?: QueryIndicationArgs[] | false, alias?: string  } 
   | { name: 'indications', args?: QueryIndicationsArgs[] | false, alias?: string  } 
   | { name: 'indicationsConnection', args?: QueryIndicationsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'strength', args?: QueryStrengthArgs[] | false, alias?: string  } 
+  | { name: 'strengths', args?: QueryStrengthsArgs[] | false, alias?: string  } 
+  | { name: 'strengthsConnection', args?: QueryStrengthsConnectionArgs[] | false, alias?: string  } 
 
 type QueryFields =
   | 'user'
@@ -233,6 +295,9 @@ type QueryFields =
   | 'event'
   | 'events'
   | 'eventsConnection'
+  | 'category'
+  | 'categories'
+  | 'categoriesConnection'
   | 'keyword'
   | 'keywords'
   | 'keywordsConnection'
@@ -245,6 +310,9 @@ type QueryFields =
   | 'indication'
   | 'indications'
   | 'indicationsConnection'
+  | 'strength'
+  | 'strengths'
+  | 'strengthsConnection'
 
 
 type QueryUserArgs =
@@ -276,6 +344,24 @@ type QueryEventsArgs =
   | 'first'
   | 'last'
 type QueryEventsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryCategoryArgs =
+  | 'where'
+type QueryCategoriesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryCategoriesConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -348,6 +434,24 @@ type QueryIndicationsArgs =
   | 'first'
   | 'last'
 type QueryIndicationsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryStrengthArgs =
+  | 'where'
+type QueryStrengthsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryStrengthsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -435,6 +539,45 @@ export interface QueryFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.EventConnection> | prisma.EventConnection
+  }
+  category: {
+    type: 'Category'
+    args: Record<QueryCategoryArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: CategoryWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Category | null> | prisma.Category | null
+  }
+  categories: {
+    type: 'Category'
+    args: Record<QueryCategoriesArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: CategoryWhereInput | null, orderBy?: prisma.CategoryOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Category[]> | prisma.Category[]
+  }
+  categoriesConnection: {
+    type: 'CategoryConnection'
+    args: Record<QueryCategoriesConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: CategoryWhereInput | null, orderBy?: prisma.CategoryOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CategoryConnection> | prisma.CategoryConnection
   }
   keyword: {
     type: 'Keyword'
@@ -591,6 +734,45 @@ export interface QueryFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.IndicationConnection> | prisma.IndicationConnection
+  }
+  strength: {
+    type: 'Strength'
+    args: Record<QueryStrengthArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: StrengthWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Strength | null> | prisma.Strength | null
+  }
+  strengths: {
+    type: 'Strength'
+    args: Record<QueryStrengthsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: StrengthWhereInput | null, orderBy?: prisma.StrengthOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Strength[]> | prisma.Strength[]
+  }
+  strengthsConnection: {
+    type: 'StrengthConnection'
+    args: Record<QueryStrengthsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: StrengthWhereInput | null, orderBy?: prisma.StrengthOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.StrengthConnection> | prisma.StrengthConnection
   }
 }
   
@@ -822,6 +1004,7 @@ type EventObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'read', args?: [] | false, alias?: string  } 
   | { name: 'indications', args?: EventIndicationsArgs[] | false, alias?: string  } 
+  | { name: 'categories', args?: EventCategoriesArgs[] | false, alias?: string  } 
 
 type EventFields =
   | 'date'
@@ -832,9 +1015,18 @@ type EventFields =
   | 'id'
   | 'read'
   | 'indications'
+  | 'categories'
 
 
 type EventIndicationsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type EventCategoriesArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -914,6 +1106,19 @@ export interface EventFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Indication[]> | prisma.Indication[]
   }
+  categories: {
+    type: 'Category'
+    args: Record<EventCategoriesArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Event">,
+      args: { where?: CategoryWhereInput | null, orderBy?: prisma.CategoryOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Category[]> | prisma.Category[]
+  }
 }
   
 
@@ -925,7 +1130,6 @@ type IndicationObject =
   | { name: 'indicator', args?: [] | false, alias?: string  } 
   | { name: 'event', args?: [] | false, alias?: string  } 
   | { name: 'strength', args?: [] | false, alias?: string  } 
-  | { name: 'meaning', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
@@ -934,7 +1138,6 @@ type IndicationFields =
   | 'indicator'
   | 'event'
   | 'strength'
-  | 'meaning'
   | 'createdAt'
   | 'updatedAt'
 
@@ -978,20 +1181,17 @@ export interface IndicationFieldDetails {
     ) => Promise<prisma.Event> | prisma.Event
   }
   strength: {
-    type: 'Int'
+    type: 'Strength'
     args: {}
     description: string
     list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  meaning: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Indication">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Strength> | prisma.Strength
   }
   createdAt: {
     type: 'DateTime'
@@ -1109,16 +1309,16 @@ type KeywordObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
   | { name: 'description', args?: [] | false, alias?: string  } 
-  | { name: 'events', args?: KeywordEventsArgs[] | false, alias?: string  } 
+  | { name: 'indicators', args?: KeywordIndicatorsArgs[] | false, alias?: string  } 
 
 type KeywordFields =
   | 'id'
   | 'name'
   | 'description'
-  | 'events'
+  | 'indicators'
 
 
-type KeywordEventsArgs =
+type KeywordIndicatorsArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -1153,18 +1353,18 @@ export interface KeywordFieldDetails {
     nullable: true
     resolve: undefined
   }
-  events: {
-    type: 'Event'
-    args: Record<KeywordEventsArgs, core.NexusArgDef<string>>
+  indicators: {
+    type: 'Indicator'
+    args: Record<KeywordIndicatorsArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
       root: core.RootValue<"Keyword">,
-      args: { where?: EventWhereInput | null, orderBy?: prisma.EventOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: IndicatorWhereInput | null, orderBy?: prisma.IndicatorOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Event[]> | prisma.Event[]
+    ) => Promise<prisma.Indicator[]> | prisma.Indicator[]
   }
 }
   
@@ -1232,6 +1432,108 @@ export interface ScenarioFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Indicator[]> | prisma.Indicator[]
+  }
+}
+  
+
+// Types for Strength
+
+type StrengthObject =
+  | StrengthFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'strength', args?: [] | false, alias?: string  } 
+  | { name: 'meaning', args?: [] | false, alias?: string  } 
+
+type StrengthFields =
+  | 'id'
+  | 'strength'
+  | 'meaning'
+
+
+
+  
+
+export interface StrengthFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  strength: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  meaning: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for Category
+
+type CategoryObject =
+  | CategoryFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'events', args?: CategoryEventsArgs[] | false, alias?: string  } 
+
+type CategoryFields =
+  | 'id'
+  | 'name'
+  | 'events'
+
+
+type CategoryEventsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
+export interface CategoryFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  events: {
+    type: 'Event'
+    args: Record<CategoryEventsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Category">,
+      args: { where?: EventWhereInput | null, orderBy?: prisma.EventOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Event[]> | prisma.Event[]
   }
 }
   
@@ -1350,6 +1652,131 @@ type AggregateEventFields =
   
 
 export interface AggregateEventFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for CategoryConnection
+
+type CategoryConnectionObject =
+  | CategoryConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type CategoryConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface CategoryConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CategoryConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'CategoryEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CategoryConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CategoryEdge[]> | prisma.CategoryEdge[]
+  }
+  aggregate: {
+    type: 'AggregateCategory'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CategoryConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateCategory> | prisma.AggregateCategory
+  }
+}
+  
+
+// Types for CategoryEdge
+
+type CategoryEdgeObject =
+  | CategoryEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type CategoryEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface CategoryEdgeFieldDetails {
+  node: {
+    type: 'Category'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CategoryEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Category> | prisma.Category
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateCategory
+
+type AggregateCategoryObject =
+  | AggregateCategoryFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateCategoryFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateCategoryFieldDetails {
   count: {
     type: 'Int'
     args: {}
@@ -1861,6 +2288,131 @@ export interface AggregateIndicationFieldDetails {
 }
   
 
+// Types for StrengthConnection
+
+type StrengthConnectionObject =
+  | StrengthConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type StrengthConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface StrengthConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"StrengthConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'StrengthEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"StrengthConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.StrengthEdge[]> | prisma.StrengthEdge[]
+  }
+  aggregate: {
+    type: 'AggregateStrength'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"StrengthConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateStrength> | prisma.AggregateStrength
+  }
+}
+  
+
+// Types for StrengthEdge
+
+type StrengthEdgeObject =
+  | StrengthEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type StrengthEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface StrengthEdgeFieldDetails {
+  node: {
+    type: 'Strength'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"StrengthEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Strength> | prisma.Strength
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateStrength
+
+type AggregateStrengthObject =
+  | AggregateStrengthFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateStrengthFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateStrengthFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for Mutation
 
 type MutationObject =
@@ -1877,6 +2429,12 @@ type MutationObject =
   | { name: 'upsertEvent', args?: MutationUpsertEventArgs[] | false, alias?: string  } 
   | { name: 'deleteEvent', args?: MutationDeleteEventArgs[] | false, alias?: string  } 
   | { name: 'deleteManyEvents', args?: MutationDeleteManyEventsArgs[] | false, alias?: string  } 
+  | { name: 'createCategory', args?: MutationCreateCategoryArgs[] | false, alias?: string  } 
+  | { name: 'updateCategory', args?: MutationUpdateCategoryArgs[] | false, alias?: string  } 
+  | { name: 'updateManyCategories', args?: MutationUpdateManyCategoriesArgs[] | false, alias?: string  } 
+  | { name: 'upsertCategory', args?: MutationUpsertCategoryArgs[] | false, alias?: string  } 
+  | { name: 'deleteCategory', args?: MutationDeleteCategoryArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyCategories', args?: MutationDeleteManyCategoriesArgs[] | false, alias?: string  } 
   | { name: 'createKeyword', args?: MutationCreateKeywordArgs[] | false, alias?: string  } 
   | { name: 'updateKeyword', args?: MutationUpdateKeywordArgs[] | false, alias?: string  } 
   | { name: 'updateManyKeywords', args?: MutationUpdateManyKeywordsArgs[] | false, alias?: string  } 
@@ -1897,10 +2455,15 @@ type MutationObject =
   | { name: 'deleteManyIndicators', args?: MutationDeleteManyIndicatorsArgs[] | false, alias?: string  } 
   | { name: 'createIndication', args?: MutationCreateIndicationArgs[] | false, alias?: string  } 
   | { name: 'updateIndication', args?: MutationUpdateIndicationArgs[] | false, alias?: string  } 
-  | { name: 'updateManyIndications', args?: MutationUpdateManyIndicationsArgs[] | false, alias?: string  } 
   | { name: 'upsertIndication', args?: MutationUpsertIndicationArgs[] | false, alias?: string  } 
   | { name: 'deleteIndication', args?: MutationDeleteIndicationArgs[] | false, alias?: string  } 
   | { name: 'deleteManyIndications', args?: MutationDeleteManyIndicationsArgs[] | false, alias?: string  } 
+  | { name: 'createStrength', args?: MutationCreateStrengthArgs[] | false, alias?: string  } 
+  | { name: 'updateStrength', args?: MutationUpdateStrengthArgs[] | false, alias?: string  } 
+  | { name: 'updateManyStrengths', args?: MutationUpdateManyStrengthsArgs[] | false, alias?: string  } 
+  | { name: 'upsertStrength', args?: MutationUpsertStrengthArgs[] | false, alias?: string  } 
+  | { name: 'deleteStrength', args?: MutationDeleteStrengthArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyStrengths', args?: MutationDeleteManyStrengthsArgs[] | false, alias?: string  } 
 
 type MutationFields =
   | 'createUser'
@@ -1915,6 +2478,12 @@ type MutationFields =
   | 'upsertEvent'
   | 'deleteEvent'
   | 'deleteManyEvents'
+  | 'createCategory'
+  | 'updateCategory'
+  | 'updateManyCategories'
+  | 'upsertCategory'
+  | 'deleteCategory'
+  | 'deleteManyCategories'
   | 'createKeyword'
   | 'updateKeyword'
   | 'updateManyKeywords'
@@ -1935,10 +2504,15 @@ type MutationFields =
   | 'deleteManyIndicators'
   | 'createIndication'
   | 'updateIndication'
-  | 'updateManyIndications'
   | 'upsertIndication'
   | 'deleteIndication'
   | 'deleteManyIndications'
+  | 'createStrength'
+  | 'updateStrength'
+  | 'updateManyStrengths'
+  | 'upsertStrength'
+  | 'deleteStrength'
+  | 'deleteManyStrengths'
 
 
 type MutationCreateUserArgs =
@@ -1972,6 +2546,22 @@ type MutationUpsertEventArgs =
 type MutationDeleteEventArgs =
   | 'where'
 type MutationDeleteManyEventsArgs =
+  | 'where'
+type MutationCreateCategoryArgs =
+  | 'data'
+type MutationUpdateCategoryArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyCategoriesArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertCategoryArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteCategoryArgs =
+  | 'where'
+type MutationDeleteManyCategoriesArgs =
   | 'where'
 type MutationCreateKeywordArgs =
   | 'data'
@@ -2026,9 +2616,6 @@ type MutationCreateIndicationArgs =
 type MutationUpdateIndicationArgs =
   | 'data'
   | 'where'
-type MutationUpdateManyIndicationsArgs =
-  | 'data'
-  | 'where'
 type MutationUpsertIndicationArgs =
   | 'where'
   | 'create'
@@ -2036,6 +2623,22 @@ type MutationUpsertIndicationArgs =
 type MutationDeleteIndicationArgs =
   | 'where'
 type MutationDeleteManyIndicationsArgs =
+  | 'where'
+type MutationCreateStrengthArgs =
+  | 'data'
+type MutationUpdateStrengthArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyStrengthsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertStrengthArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteStrengthArgs =
+  | 'where'
+type MutationDeleteManyStrengthsArgs =
   | 'where'
   
 
@@ -2192,6 +2795,84 @@ export interface MutationFieldDetails {
     resolve: (
       root: core.RootValue<"Mutation">,
       args: { where?: EventWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createCategory: {
+    type: 'Category'
+    args: Record<MutationCreateCategoryArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: CategoryCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Category> | prisma.Category
+  }
+  updateCategory: {
+    type: 'Category'
+    args: Record<MutationUpdateCategoryArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: CategoryUpdateInput, where: CategoryWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Category | null> | prisma.Category | null
+  }
+  updateManyCategories: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyCategoriesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: CategoryUpdateManyMutationInput, where?: CategoryWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertCategory: {
+    type: 'Category'
+    args: Record<MutationUpsertCategoryArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: CategoryWhereUniqueInput, create: CategoryCreateInput, update: CategoryUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Category> | prisma.Category
+  }
+  deleteCategory: {
+    type: 'Category'
+    args: Record<MutationDeleteCategoryArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: CategoryWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Category | null> | prisma.Category | null
+  }
+  deleteManyCategories: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyCategoriesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: CategoryWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
@@ -2456,19 +3137,6 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Indication | null> | prisma.Indication | null
   }
-  updateManyIndications: {
-    type: 'BatchPayload'
-    args: Record<MutationUpdateManyIndicationsArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: IndicationUpdateManyMutationInput, where?: IndicationWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
-  }
   upsertIndication: {
     type: 'Indication'
     args: Record<MutationUpsertIndicationArgs, core.NexusArgDef<string>>
@@ -2508,6 +3176,84 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
+  createStrength: {
+    type: 'Strength'
+    args: Record<MutationCreateStrengthArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: StrengthCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Strength> | prisma.Strength
+  }
+  updateStrength: {
+    type: 'Strength'
+    args: Record<MutationUpdateStrengthArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: StrengthUpdateInput, where: StrengthWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Strength | null> | prisma.Strength | null
+  }
+  updateManyStrengths: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyStrengthsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: StrengthUpdateManyMutationInput, where?: StrengthWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertStrength: {
+    type: 'Strength'
+    args: Record<MutationUpsertStrengthArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: StrengthWhereUniqueInput, create: StrengthCreateInput, update: StrengthUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Strength> | prisma.Strength
+  }
+  deleteStrength: {
+    type: 'Strength'
+    args: Record<MutationDeleteStrengthArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: StrengthWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Strength | null> | prisma.Strength | null
+  }
+  deleteManyStrengths: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyStrengthsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: StrengthWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
 }
   
 
@@ -2542,23 +3288,29 @@ type SubscriptionObject =
   | SubscriptionFields
   | { name: 'user', args?: SubscriptionUserArgs[] | false, alias?: string  } 
   | { name: 'event', args?: SubscriptionEventArgs[] | false, alias?: string  } 
+  | { name: 'category', args?: SubscriptionCategoryArgs[] | false, alias?: string  } 
   | { name: 'keyword', args?: SubscriptionKeywordArgs[] | false, alias?: string  } 
   | { name: 'scenario', args?: SubscriptionScenarioArgs[] | false, alias?: string  } 
   | { name: 'indicator', args?: SubscriptionIndicatorArgs[] | false, alias?: string  } 
   | { name: 'indication', args?: SubscriptionIndicationArgs[] | false, alias?: string  } 
+  | { name: 'strength', args?: SubscriptionStrengthArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
   | 'user'
   | 'event'
+  | 'category'
   | 'keyword'
   | 'scenario'
   | 'indicator'
   | 'indication'
+  | 'strength'
 
 
 type SubscriptionUserArgs =
   | 'where'
 type SubscriptionEventArgs =
+  | 'where'
+type SubscriptionCategoryArgs =
   | 'where'
 type SubscriptionKeywordArgs =
   | 'where'
@@ -2567,6 +3319,8 @@ type SubscriptionScenarioArgs =
 type SubscriptionIndicatorArgs =
   | 'where'
 type SubscriptionIndicationArgs =
+  | 'where'
+type SubscriptionStrengthArgs =
   | 'where'
   
 
@@ -2596,6 +3350,19 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.EventSubscriptionPayload | null> | prisma.EventSubscriptionPayload | null
+  }
+  category: {
+    type: 'CategorySubscriptionPayload'
+    args: Record<SubscriptionCategoryArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: CategorySubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CategorySubscriptionPayload | null> | prisma.CategorySubscriptionPayload | null
   }
   keyword: {
     type: 'KeywordSubscriptionPayload'
@@ -2648,6 +3415,19 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.IndicationSubscriptionPayload | null> | prisma.IndicationSubscriptionPayload | null
+  }
+  strength: {
+    type: 'StrengthSubscriptionPayload'
+    args: Record<SubscriptionStrengthArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: StrengthSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.StrengthSubscriptionPayload | null> | prisma.StrengthSubscriptionPayload | null
   }
 }
   
@@ -2907,6 +3687,111 @@ export interface EventPreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for CategorySubscriptionPayload
+
+type CategorySubscriptionPayloadObject =
+  | CategorySubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type CategorySubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface CategorySubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"CategorySubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Category'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"CategorySubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Category | null> | prisma.Category | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'CategoryPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"CategorySubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.CategoryPreviousValues | null> | prisma.CategoryPreviousValues | null
+  }
+}
+  
+
+// Types for CategoryPreviousValues
+
+type CategoryPreviousValuesObject =
+  | CategoryPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+
+type CategoryPreviousValuesFields =
+  | 'id'
+  | 'name'
+
+
+
+  
+
+export interface CategoryPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
     resolve: undefined
   }
 }
@@ -3332,15 +4217,11 @@ export interface IndicationSubscriptionPayloadFieldDetails {
 type IndicationPreviousValuesObject =
   | IndicationPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'strength', args?: [] | false, alias?: string  } 
-  | { name: 'meaning', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
 type IndicationPreviousValuesFields =
   | 'id'
-  | 'strength'
-  | 'meaning'
   | 'createdAt'
   | 'updatedAt'
 
@@ -3349,6 +4230,121 @@ type IndicationPreviousValuesFields =
   
 
 export interface IndicationPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for StrengthSubscriptionPayload
+
+type StrengthSubscriptionPayloadObject =
+  | StrengthSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type StrengthSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface StrengthSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"StrengthSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Strength'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"StrengthSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Strength | null> | prisma.Strength | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'StrengthPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"StrengthSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.StrengthPreviousValues | null> | prisma.StrengthPreviousValues | null
+  }
+}
+  
+
+// Types for StrengthPreviousValues
+
+type StrengthPreviousValuesObject =
+  | StrengthPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'strength', args?: [] | false, alias?: string  } 
+  | { name: 'meaning', args?: [] | false, alias?: string  } 
+
+type StrengthPreviousValuesFields =
+  | 'id'
+  | 'strength'
+  | 'meaning'
+
+
+
+  
+
+export interface StrengthPreviousValuesFieldDetails {
   id: {
     type: 'ID'
     args: {}
@@ -3371,22 +4367,6 @@ export interface IndicationPreviousValuesFieldDetails {
     description: string
     list: undefined
     nullable: true
-    resolve: undefined
-  }
-  createdAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  updatedAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
     resolve: undefined
   }
 }
@@ -3491,28 +4471,7 @@ export interface IndicationWhereInput {
   id_not_ends_with?: string | null
   indicator?: IndicatorWhereInput | null
   event?: EventWhereInput | null
-  strength?: number | null
-  strength_not?: number | null
-  strength_in?: number[]
-  strength_not_in?: number[]
-  strength_lt?: number | null
-  strength_lte?: number | null
-  strength_gt?: number | null
-  strength_gte?: number | null
-  meaning?: string | null
-  meaning_not?: string | null
-  meaning_in?: string[]
-  meaning_not_in?: string[]
-  meaning_lt?: string | null
-  meaning_lte?: string | null
-  meaning_gt?: string | null
-  meaning_gte?: string | null
-  meaning_contains?: string | null
-  meaning_not_contains?: string | null
-  meaning_starts_with?: string | null
-  meaning_not_starts_with?: string | null
-  meaning_ends_with?: string | null
-  meaning_not_ends_with?: string | null
+  strength?: StrengthWhereInput | null
   createdAt?: string | null
   createdAt_not?: string | null
   createdAt_in?: string[]
@@ -3552,27 +4511,6 @@ export type IndicationWhereInputInputObject =
   | { name: 'indicator', alias?: string  } 
   | { name: 'event', alias?: string  } 
   | { name: 'strength', alias?: string  } 
-  | { name: 'strength_not', alias?: string  } 
-  | { name: 'strength_in', alias?: string  } 
-  | { name: 'strength_not_in', alias?: string  } 
-  | { name: 'strength_lt', alias?: string  } 
-  | { name: 'strength_lte', alias?: string  } 
-  | { name: 'strength_gt', alias?: string  } 
-  | { name: 'strength_gte', alias?: string  } 
-  | { name: 'meaning', alias?: string  } 
-  | { name: 'meaning_not', alias?: string  } 
-  | { name: 'meaning_in', alias?: string  } 
-  | { name: 'meaning_not_in', alias?: string  } 
-  | { name: 'meaning_lt', alias?: string  } 
-  | { name: 'meaning_lte', alias?: string  } 
-  | { name: 'meaning_gt', alias?: string  } 
-  | { name: 'meaning_gte', alias?: string  } 
-  | { name: 'meaning_contains', alias?: string  } 
-  | { name: 'meaning_not_contains', alias?: string  } 
-  | { name: 'meaning_starts_with', alias?: string  } 
-  | { name: 'meaning_not_starts_with', alias?: string  } 
-  | { name: 'meaning_ends_with', alias?: string  } 
-  | { name: 'meaning_not_ends_with', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
   | { name: 'createdAt_in', alias?: string  } 
@@ -3743,9 +4681,9 @@ export interface KeywordWhereInput {
   description_not_starts_with?: string | null
   description_ends_with?: string | null
   description_not_ends_with?: string | null
-  events_every?: EventWhereInput | null
-  events_some?: EventWhereInput | null
-  events_none?: EventWhereInput | null
+  indicators_every?: IndicatorWhereInput | null
+  indicators_some?: IndicatorWhereInput | null
+  indicators_none?: IndicatorWhereInput | null
   AND?: KeywordWhereInput[]
   OR?: KeywordWhereInput[]
   NOT?: KeywordWhereInput[]
@@ -3794,186 +4732,9 @@ export type KeywordWhereInputInputObject =
   | { name: 'description_not_starts_with', alias?: string  } 
   | { name: 'description_ends_with', alias?: string  } 
   | { name: 'description_not_ends_with', alias?: string  } 
-  | { name: 'events_every', alias?: string  } 
-  | { name: 'events_some', alias?: string  } 
-  | { name: 'events_none', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface EventWhereInput {
-  date?: string | null
-  date_not?: string | null
-  date_in?: string[]
-  date_not_in?: string[]
-  date_lt?: string | null
-  date_lte?: string | null
-  date_gt?: string | null
-  date_gte?: string | null
-  title?: string | null
-  title_not?: string | null
-  title_in?: string[]
-  title_not_in?: string[]
-  title_lt?: string | null
-  title_lte?: string | null
-  title_gt?: string | null
-  title_gte?: string | null
-  title_contains?: string | null
-  title_not_contains?: string | null
-  title_starts_with?: string | null
-  title_not_starts_with?: string | null
-  title_ends_with?: string | null
-  title_not_ends_with?: string | null
-  description?: string | null
-  description_not?: string | null
-  description_in?: string[]
-  description_not_in?: string[]
-  description_lt?: string | null
-  description_lte?: string | null
-  description_gt?: string | null
-  description_gte?: string | null
-  description_contains?: string | null
-  description_not_contains?: string | null
-  description_starts_with?: string | null
-  description_not_starts_with?: string | null
-  description_ends_with?: string | null
-  description_not_ends_with?: string | null
-  href?: string | null
-  href_not?: string | null
-  href_in?: string[]
-  href_not_in?: string[]
-  href_lt?: string | null
-  href_lte?: string | null
-  href_gt?: string | null
-  href_gte?: string | null
-  href_contains?: string | null
-  href_not_contains?: string | null
-  href_starts_with?: string | null
-  href_not_starts_with?: string | null
-  href_ends_with?: string | null
-  href_not_ends_with?: string | null
-  source?: string | null
-  source_not?: string | null
-  source_in?: string[]
-  source_not_in?: string[]
-  source_lt?: string | null
-  source_lte?: string | null
-  source_gt?: string | null
-  source_gte?: string | null
-  source_contains?: string | null
-  source_not_contains?: string | null
-  source_starts_with?: string | null
-  source_not_starts_with?: string | null
-  source_ends_with?: string | null
-  source_not_ends_with?: string | null
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  read?: boolean | null
-  read_not?: boolean | null
-  indications_every?: IndicationWhereInput | null
-  indications_some?: IndicationWhereInput | null
-  indications_none?: IndicationWhereInput | null
-  AND?: EventWhereInput[]
-  OR?: EventWhereInput[]
-  NOT?: EventWhereInput[]
-}
-export type EventWhereInputInputObject =
-  | Extract<keyof EventWhereInput, string>
-  | { name: 'date', alias?: string  } 
-  | { name: 'date_not', alias?: string  } 
-  | { name: 'date_in', alias?: string  } 
-  | { name: 'date_not_in', alias?: string  } 
-  | { name: 'date_lt', alias?: string  } 
-  | { name: 'date_lte', alias?: string  } 
-  | { name: 'date_gt', alias?: string  } 
-  | { name: 'date_gte', alias?: string  } 
-  | { name: 'title', alias?: string  } 
-  | { name: 'title_not', alias?: string  } 
-  | { name: 'title_in', alias?: string  } 
-  | { name: 'title_not_in', alias?: string  } 
-  | { name: 'title_lt', alias?: string  } 
-  | { name: 'title_lte', alias?: string  } 
-  | { name: 'title_gt', alias?: string  } 
-  | { name: 'title_gte', alias?: string  } 
-  | { name: 'title_contains', alias?: string  } 
-  | { name: 'title_not_contains', alias?: string  } 
-  | { name: 'title_starts_with', alias?: string  } 
-  | { name: 'title_not_starts_with', alias?: string  } 
-  | { name: 'title_ends_with', alias?: string  } 
-  | { name: 'title_not_ends_with', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'description_not', alias?: string  } 
-  | { name: 'description_in', alias?: string  } 
-  | { name: 'description_not_in', alias?: string  } 
-  | { name: 'description_lt', alias?: string  } 
-  | { name: 'description_lte', alias?: string  } 
-  | { name: 'description_gt', alias?: string  } 
-  | { name: 'description_gte', alias?: string  } 
-  | { name: 'description_contains', alias?: string  } 
-  | { name: 'description_not_contains', alias?: string  } 
-  | { name: 'description_starts_with', alias?: string  } 
-  | { name: 'description_not_starts_with', alias?: string  } 
-  | { name: 'description_ends_with', alias?: string  } 
-  | { name: 'description_not_ends_with', alias?: string  } 
-  | { name: 'href', alias?: string  } 
-  | { name: 'href_not', alias?: string  } 
-  | { name: 'href_in', alias?: string  } 
-  | { name: 'href_not_in', alias?: string  } 
-  | { name: 'href_lt', alias?: string  } 
-  | { name: 'href_lte', alias?: string  } 
-  | { name: 'href_gt', alias?: string  } 
-  | { name: 'href_gte', alias?: string  } 
-  | { name: 'href_contains', alias?: string  } 
-  | { name: 'href_not_contains', alias?: string  } 
-  | { name: 'href_starts_with', alias?: string  } 
-  | { name: 'href_not_starts_with', alias?: string  } 
-  | { name: 'href_ends_with', alias?: string  } 
-  | { name: 'href_not_ends_with', alias?: string  } 
-  | { name: 'source', alias?: string  } 
-  | { name: 'source_not', alias?: string  } 
-  | { name: 'source_in', alias?: string  } 
-  | { name: 'source_not_in', alias?: string  } 
-  | { name: 'source_lt', alias?: string  } 
-  | { name: 'source_lte', alias?: string  } 
-  | { name: 'source_gt', alias?: string  } 
-  | { name: 'source_gte', alias?: string  } 
-  | { name: 'source_contains', alias?: string  } 
-  | { name: 'source_not_contains', alias?: string  } 
-  | { name: 'source_starts_with', alias?: string  } 
-  | { name: 'source_not_starts_with', alias?: string  } 
-  | { name: 'source_ends_with', alias?: string  } 
-  | { name: 'source_not_ends_with', alias?: string  } 
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'read', alias?: string  } 
-  | { name: 'read_not', alias?: string  } 
-  | { name: 'indications_every', alias?: string  } 
-  | { name: 'indications_some', alias?: string  } 
-  | { name: 'indications_none', alias?: string  } 
+  | { name: 'indicators_every', alias?: string  } 
+  | { name: 'indicators_some', alias?: string  } 
+  | { name: 'indicators_none', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -4079,357 +4840,7 @@ export type ScenarioWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface KeywordWhereUniqueInput {
-  id?: string | null
-}
-export type KeywordWhereUniqueInputInputObject =
-  | Extract<keyof KeywordWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  
-export interface ScenarioWhereUniqueInput {
-  id?: string | null
-}
-export type ScenarioWhereUniqueInputInputObject =
-  | Extract<keyof ScenarioWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  
-export interface IndicatorWhereUniqueInput {
-  id?: string | null
-}
-export type IndicatorWhereUniqueInputInputObject =
-  | Extract<keyof IndicatorWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  
-export interface IndicationWhereUniqueInput {
-  id?: string | null
-}
-export type IndicationWhereUniqueInputInputObject =
-  | Extract<keyof IndicationWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  
-export interface UserCreateInput {
-  name?: string
-}
-export type UserCreateInputInputObject =
-  | Extract<keyof UserCreateInput, string>
-  | { name: 'name', alias?: string  } 
-  
-export interface UserUpdateInput {
-  name?: string | null
-}
-export type UserUpdateInputInputObject =
-  | Extract<keyof UserUpdateInput, string>
-  | { name: 'name', alias?: string  } 
-  
-export interface UserUpdateManyMutationInput {
-  name?: string | null
-}
-export type UserUpdateManyMutationInputInputObject =
-  | Extract<keyof UserUpdateManyMutationInput, string>
-  | { name: 'name', alias?: string  } 
-  
-export interface EventCreateInput {
-  date?: string | null
-  title?: string | null
-  description?: string | null
-  href?: string | null
-  source?: string | null
-  read?: boolean | null
-  indications?: IndicationCreateManyWithoutEventInput | null
-}
-export type EventCreateInputInputObject =
-  | Extract<keyof EventCreateInput, string>
-  | { name: 'date', alias?: string  } 
-  | { name: 'title', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'href', alias?: string  } 
-  | { name: 'source', alias?: string  } 
-  | { name: 'read', alias?: string  } 
-  | { name: 'indications', alias?: string  } 
-  
-export interface IndicationCreateManyWithoutEventInput {
-  create?: IndicationCreateWithoutEventInput[]
-  connect?: IndicationWhereUniqueInput[]
-}
-export type IndicationCreateManyWithoutEventInputInputObject =
-  | Extract<keyof IndicationCreateManyWithoutEventInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface IndicationCreateWithoutEventInput {
-  indicator?: IndicatorCreateOneInput
-  strength?: number | null
-  meaning?: string | null
-}
-export type IndicationCreateWithoutEventInputInputObject =
-  | Extract<keyof IndicationCreateWithoutEventInput, string>
-  | { name: 'indicator', alias?: string  } 
-  | { name: 'strength', alias?: string  } 
-  | { name: 'meaning', alias?: string  } 
-  
-export interface IndicatorCreateOneInput {
-  create?: IndicatorCreateInput | null
-  connect?: IndicatorWhereUniqueInput | null
-}
-export type IndicatorCreateOneInputInputObject =
-  | Extract<keyof IndicatorCreateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface IndicatorCreateInput {
-  name?: string | null
-  description?: string | null
-  keywords?: KeywordCreateManyInput | null
-  scenarios?: ScenarioCreateManyWithoutIndicatorsInput | null
-}
-export type IndicatorCreateInputInputObject =
-  | Extract<keyof IndicatorCreateInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'keywords', alias?: string  } 
-  | { name: 'scenarios', alias?: string  } 
-  
-export interface KeywordCreateManyInput {
-  create?: KeywordCreateInput[]
-  connect?: KeywordWhereUniqueInput[]
-}
-export type KeywordCreateManyInputInputObject =
-  | Extract<keyof KeywordCreateManyInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface KeywordCreateInput {
-  name?: string | null
-  description?: string | null
-  events?: EventCreateManyInput | null
-}
-export type KeywordCreateInputInputObject =
-  | Extract<keyof KeywordCreateInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'events', alias?: string  } 
-  
-export interface EventCreateManyInput {
-  create?: EventCreateInput[]
-  connect?: EventWhereUniqueInput[]
-}
-export type EventCreateManyInputInputObject =
-  | Extract<keyof EventCreateManyInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface ScenarioCreateManyWithoutIndicatorsInput {
-  create?: ScenarioCreateWithoutIndicatorsInput[]
-  connect?: ScenarioWhereUniqueInput[]
-}
-export type ScenarioCreateManyWithoutIndicatorsInputInputObject =
-  | Extract<keyof ScenarioCreateManyWithoutIndicatorsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface ScenarioCreateWithoutIndicatorsInput {
-  name?: string | null
-  description?: string | null
-}
-export type ScenarioCreateWithoutIndicatorsInputInputObject =
-  | Extract<keyof ScenarioCreateWithoutIndicatorsInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  
-export interface EventUpdateInput {
-  date?: string | null
-  title?: string | null
-  description?: string | null
-  href?: string | null
-  source?: string | null
-  read?: boolean | null
-  indications?: IndicationUpdateManyWithoutEventInput | null
-}
-export type EventUpdateInputInputObject =
-  | Extract<keyof EventUpdateInput, string>
-  | { name: 'date', alias?: string  } 
-  | { name: 'title', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'href', alias?: string  } 
-  | { name: 'source', alias?: string  } 
-  | { name: 'read', alias?: string  } 
-  | { name: 'indications', alias?: string  } 
-  
-export interface IndicationUpdateManyWithoutEventInput {
-  create?: IndicationCreateWithoutEventInput[]
-  delete?: IndicationWhereUniqueInput[]
-  connect?: IndicationWhereUniqueInput[]
-  set?: IndicationWhereUniqueInput[]
-  disconnect?: IndicationWhereUniqueInput[]
-  update?: IndicationUpdateWithWhereUniqueWithoutEventInput[]
-  upsert?: IndicationUpsertWithWhereUniqueWithoutEventInput[]
-  deleteMany?: IndicationScalarWhereInput[]
-  updateMany?: IndicationUpdateManyWithWhereNestedInput[]
-}
-export type IndicationUpdateManyWithoutEventInputInputObject =
-  | Extract<keyof IndicationUpdateManyWithoutEventInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface IndicationUpdateWithWhereUniqueWithoutEventInput {
-  where?: IndicationWhereUniqueInput
-  data?: IndicationUpdateWithoutEventDataInput
-}
-export type IndicationUpdateWithWhereUniqueWithoutEventInputInputObject =
-  | Extract<keyof IndicationUpdateWithWhereUniqueWithoutEventInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface IndicationUpdateWithoutEventDataInput {
-  indicator?: IndicatorUpdateOneRequiredInput | null
-  strength?: number | null
-  meaning?: string | null
-}
-export type IndicationUpdateWithoutEventDataInputInputObject =
-  | Extract<keyof IndicationUpdateWithoutEventDataInput, string>
-  | { name: 'indicator', alias?: string  } 
-  | { name: 'strength', alias?: string  } 
-  | { name: 'meaning', alias?: string  } 
-  
-export interface IndicatorUpdateOneRequiredInput {
-  create?: IndicatorCreateInput | null
-  update?: IndicatorUpdateDataInput | null
-  upsert?: IndicatorUpsertNestedInput | null
-  connect?: IndicatorWhereUniqueInput | null
-}
-export type IndicatorUpdateOneRequiredInputInputObject =
-  | Extract<keyof IndicatorUpdateOneRequiredInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface IndicatorUpdateDataInput {
-  name?: string | null
-  description?: string | null
-  keywords?: KeywordUpdateManyInput | null
-  scenarios?: ScenarioUpdateManyWithoutIndicatorsInput | null
-}
-export type IndicatorUpdateDataInputInputObject =
-  | Extract<keyof IndicatorUpdateDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'keywords', alias?: string  } 
-  | { name: 'scenarios', alias?: string  } 
-  
-export interface KeywordUpdateManyInput {
-  create?: KeywordCreateInput[]
-  update?: KeywordUpdateWithWhereUniqueNestedInput[]
-  upsert?: KeywordUpsertWithWhereUniqueNestedInput[]
-  delete?: KeywordWhereUniqueInput[]
-  connect?: KeywordWhereUniqueInput[]
-  set?: KeywordWhereUniqueInput[]
-  disconnect?: KeywordWhereUniqueInput[]
-  deleteMany?: KeywordScalarWhereInput[]
-  updateMany?: KeywordUpdateManyWithWhereNestedInput[]
-}
-export type KeywordUpdateManyInputInputObject =
-  | Extract<keyof KeywordUpdateManyInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface KeywordUpdateWithWhereUniqueNestedInput {
-  where?: KeywordWhereUniqueInput
-  data?: KeywordUpdateDataInput
-}
-export type KeywordUpdateWithWhereUniqueNestedInputInputObject =
-  | Extract<keyof KeywordUpdateWithWhereUniqueNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface KeywordUpdateDataInput {
-  name?: string | null
-  description?: string | null
-  events?: EventUpdateManyInput | null
-}
-export type KeywordUpdateDataInputInputObject =
-  | Extract<keyof KeywordUpdateDataInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'events', alias?: string  } 
-  
-export interface EventUpdateManyInput {
-  create?: EventCreateInput[]
-  update?: EventUpdateWithWhereUniqueNestedInput[]
-  upsert?: EventUpsertWithWhereUniqueNestedInput[]
-  delete?: EventWhereUniqueInput[]
-  connect?: EventWhereUniqueInput[]
-  set?: EventWhereUniqueInput[]
-  disconnect?: EventWhereUniqueInput[]
-  deleteMany?: EventScalarWhereInput[]
-  updateMany?: EventUpdateManyWithWhereNestedInput[]
-}
-export type EventUpdateManyInputInputObject =
-  | Extract<keyof EventUpdateManyInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface EventUpdateWithWhereUniqueNestedInput {
-  where?: EventWhereUniqueInput
-  data?: EventUpdateDataInput
-}
-export type EventUpdateWithWhereUniqueNestedInputInputObject =
-  | Extract<keyof EventUpdateWithWhereUniqueNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface EventUpdateDataInput {
-  date?: string | null
-  title?: string | null
-  description?: string | null
-  href?: string | null
-  source?: string | null
-  read?: boolean | null
-  indications?: IndicationUpdateManyWithoutEventInput | null
-}
-export type EventUpdateDataInputInputObject =
-  | Extract<keyof EventUpdateDataInput, string>
-  | { name: 'date', alias?: string  } 
-  | { name: 'title', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'href', alias?: string  } 
-  | { name: 'source', alias?: string  } 
-  | { name: 'read', alias?: string  } 
-  | { name: 'indications', alias?: string  } 
-  
-export interface EventUpsertWithWhereUniqueNestedInput {
-  where?: EventWhereUniqueInput
-  update?: EventUpdateDataInput
-  create?: EventCreateInput
-}
-export type EventUpsertWithWhereUniqueNestedInputInputObject =
-  | Extract<keyof EventUpsertWithWhereUniqueNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface EventScalarWhereInput {
+export interface EventWhereInput {
   date?: string | null
   date_not?: string | null
   date_in?: string[]
@@ -4510,12 +4921,18 @@ export interface EventScalarWhereInput {
   id_not_ends_with?: string | null
   read?: boolean | null
   read_not?: boolean | null
-  AND?: EventScalarWhereInput[]
-  OR?: EventScalarWhereInput[]
-  NOT?: EventScalarWhereInput[]
+  indications_every?: IndicationWhereInput | null
+  indications_some?: IndicationWhereInput | null
+  indications_none?: IndicationWhereInput | null
+  categories_every?: CategoryWhereInput | null
+  categories_some?: CategoryWhereInput | null
+  categories_none?: CategoryWhereInput | null
+  AND?: EventWhereInput[]
+  OR?: EventWhereInput[]
+  NOT?: EventWhereInput[]
 }
-export type EventScalarWhereInputInputObject =
-  | Extract<keyof EventScalarWhereInput, string>
+export type EventWhereInputInputObject =
+  | Extract<keyof EventWhereInput, string>
   | { name: 'date', alias?: string  } 
   | { name: 'date_not', alias?: string  } 
   | { name: 'date_in', alias?: string  } 
@@ -4596,43 +5013,500 @@ export type EventScalarWhereInputInputObject =
   | { name: 'id_not_ends_with', alias?: string  } 
   | { name: 'read', alias?: string  } 
   | { name: 'read_not', alias?: string  } 
+  | { name: 'indications_every', alias?: string  } 
+  | { name: 'indications_some', alias?: string  } 
+  | { name: 'indications_none', alias?: string  } 
+  | { name: 'categories_every', alias?: string  } 
+  | { name: 'categories_some', alias?: string  } 
+  | { name: 'categories_none', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface EventUpdateManyWithWhereNestedInput {
-  where?: EventScalarWhereInput
-  data?: EventUpdateManyDataInput
+export interface CategoryWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  events_every?: EventWhereInput | null
+  events_some?: EventWhereInput | null
+  events_none?: EventWhereInput | null
+  AND?: CategoryWhereInput[]
+  OR?: CategoryWhereInput[]
+  NOT?: CategoryWhereInput[]
 }
-export type EventUpdateManyWithWhereNestedInputInputObject =
-  | Extract<keyof EventUpdateManyWithWhereNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
+export type CategoryWhereInputInputObject =
+  | Extract<keyof CategoryWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'events_every', alias?: string  } 
+  | { name: 'events_some', alias?: string  } 
+  | { name: 'events_none', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
   
-export interface EventUpdateManyDataInput {
+export interface StrengthWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  strength?: number | null
+  strength_not?: number | null
+  strength_in?: number[]
+  strength_not_in?: number[]
+  strength_lt?: number | null
+  strength_lte?: number | null
+  strength_gt?: number | null
+  strength_gte?: number | null
+  meaning?: string | null
+  meaning_not?: string | null
+  meaning_in?: string[]
+  meaning_not_in?: string[]
+  meaning_lt?: string | null
+  meaning_lte?: string | null
+  meaning_gt?: string | null
+  meaning_gte?: string | null
+  meaning_contains?: string | null
+  meaning_not_contains?: string | null
+  meaning_starts_with?: string | null
+  meaning_not_starts_with?: string | null
+  meaning_ends_with?: string | null
+  meaning_not_ends_with?: string | null
+  AND?: StrengthWhereInput[]
+  OR?: StrengthWhereInput[]
+  NOT?: StrengthWhereInput[]
+}
+export type StrengthWhereInputInputObject =
+  | Extract<keyof StrengthWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'strength', alias?: string  } 
+  | { name: 'strength_not', alias?: string  } 
+  | { name: 'strength_in', alias?: string  } 
+  | { name: 'strength_not_in', alias?: string  } 
+  | { name: 'strength_lt', alias?: string  } 
+  | { name: 'strength_lte', alias?: string  } 
+  | { name: 'strength_gt', alias?: string  } 
+  | { name: 'strength_gte', alias?: string  } 
+  | { name: 'meaning', alias?: string  } 
+  | { name: 'meaning_not', alias?: string  } 
+  | { name: 'meaning_in', alias?: string  } 
+  | { name: 'meaning_not_in', alias?: string  } 
+  | { name: 'meaning_lt', alias?: string  } 
+  | { name: 'meaning_lte', alias?: string  } 
+  | { name: 'meaning_gt', alias?: string  } 
+  | { name: 'meaning_gte', alias?: string  } 
+  | { name: 'meaning_contains', alias?: string  } 
+  | { name: 'meaning_not_contains', alias?: string  } 
+  | { name: 'meaning_starts_with', alias?: string  } 
+  | { name: 'meaning_not_starts_with', alias?: string  } 
+  | { name: 'meaning_ends_with', alias?: string  } 
+  | { name: 'meaning_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface CategoryWhereUniqueInput {
+  id?: string | null
+}
+export type CategoryWhereUniqueInputInputObject =
+  | Extract<keyof CategoryWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface KeywordWhereUniqueInput {
+  id?: string | null
+}
+export type KeywordWhereUniqueInputInputObject =
+  | Extract<keyof KeywordWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface ScenarioWhereUniqueInput {
+  id?: string | null
+}
+export type ScenarioWhereUniqueInputInputObject =
+  | Extract<keyof ScenarioWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface IndicatorWhereUniqueInput {
+  id?: string | null
+}
+export type IndicatorWhereUniqueInputInputObject =
+  | Extract<keyof IndicatorWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface IndicationWhereUniqueInput {
+  id?: string | null
+}
+export type IndicationWhereUniqueInputInputObject =
+  | Extract<keyof IndicationWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface StrengthWhereUniqueInput {
+  id?: string | null
+}
+export type StrengthWhereUniqueInputInputObject =
+  | Extract<keyof StrengthWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface UserCreateInput {
+  name?: string
+}
+export type UserCreateInputInputObject =
+  | Extract<keyof UserCreateInput, string>
+  | { name: 'name', alias?: string  } 
+  
+export interface UserUpdateInput {
+  name?: string | null
+}
+export type UserUpdateInputInputObject =
+  | Extract<keyof UserUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  
+export interface UserUpdateManyMutationInput {
+  name?: string | null
+}
+export type UserUpdateManyMutationInputInputObject =
+  | Extract<keyof UserUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  
+export interface EventCreateInput {
   date?: string | null
   title?: string | null
   description?: string | null
   href?: string | null
   source?: string | null
   read?: boolean | null
+  indications?: IndicationCreateManyWithoutEventInput | null
+  categories?: CategoryCreateManyWithoutEventsInput | null
 }
-export type EventUpdateManyDataInputInputObject =
-  | Extract<keyof EventUpdateManyDataInput, string>
+export type EventCreateInputInputObject =
+  | Extract<keyof EventCreateInput, string>
   | { name: 'date', alias?: string  } 
   | { name: 'title', alias?: string  } 
   | { name: 'description', alias?: string  } 
   | { name: 'href', alias?: string  } 
   | { name: 'source', alias?: string  } 
   | { name: 'read', alias?: string  } 
+  | { name: 'indications', alias?: string  } 
+  | { name: 'categories', alias?: string  } 
   
-export interface KeywordUpsertWithWhereUniqueNestedInput {
-  where?: KeywordWhereUniqueInput
-  update?: KeywordUpdateDataInput
-  create?: KeywordCreateInput
+export interface IndicationCreateManyWithoutEventInput {
+  create?: IndicationCreateWithoutEventInput[]
+  connect?: IndicationWhereUniqueInput[]
 }
-export type KeywordUpsertWithWhereUniqueNestedInputInputObject =
-  | Extract<keyof KeywordUpsertWithWhereUniqueNestedInput, string>
+export type IndicationCreateManyWithoutEventInputInputObject =
+  | Extract<keyof IndicationCreateManyWithoutEventInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface IndicationCreateWithoutEventInput {
+  indicator?: IndicatorCreateOneInput
+  strength?: StrengthCreateOneInput
+}
+export type IndicationCreateWithoutEventInputInputObject =
+  | Extract<keyof IndicationCreateWithoutEventInput, string>
+  | { name: 'indicator', alias?: string  } 
+  | { name: 'strength', alias?: string  } 
+  
+export interface IndicatorCreateOneInput {
+  create?: IndicatorCreateInput | null
+  connect?: IndicatorWhereUniqueInput | null
+}
+export type IndicatorCreateOneInputInputObject =
+  | Extract<keyof IndicatorCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface IndicatorCreateInput {
+  name?: string | null
+  description?: string | null
+  keywords?: KeywordCreateManyWithoutIndicatorsInput | null
+  scenarios?: ScenarioCreateManyWithoutIndicatorsInput | null
+}
+export type IndicatorCreateInputInputObject =
+  | Extract<keyof IndicatorCreateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'keywords', alias?: string  } 
+  | { name: 'scenarios', alias?: string  } 
+  
+export interface KeywordCreateManyWithoutIndicatorsInput {
+  create?: KeywordCreateWithoutIndicatorsInput[]
+  connect?: KeywordWhereUniqueInput[]
+}
+export type KeywordCreateManyWithoutIndicatorsInputInputObject =
+  | Extract<keyof KeywordCreateManyWithoutIndicatorsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface KeywordCreateWithoutIndicatorsInput {
+  name?: string | null
+  description?: string | null
+}
+export type KeywordCreateWithoutIndicatorsInputInputObject =
+  | Extract<keyof KeywordCreateWithoutIndicatorsInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface ScenarioCreateManyWithoutIndicatorsInput {
+  create?: ScenarioCreateWithoutIndicatorsInput[]
+  connect?: ScenarioWhereUniqueInput[]
+}
+export type ScenarioCreateManyWithoutIndicatorsInputInputObject =
+  | Extract<keyof ScenarioCreateManyWithoutIndicatorsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface ScenarioCreateWithoutIndicatorsInput {
+  name?: string | null
+  description?: string | null
+}
+export type ScenarioCreateWithoutIndicatorsInputInputObject =
+  | Extract<keyof ScenarioCreateWithoutIndicatorsInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface StrengthCreateOneInput {
+  create?: StrengthCreateInput | null
+  connect?: StrengthWhereUniqueInput | null
+}
+export type StrengthCreateOneInputInputObject =
+  | Extract<keyof StrengthCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface StrengthCreateInput {
+  strength?: number | null
+  meaning?: string | null
+}
+export type StrengthCreateInputInputObject =
+  | Extract<keyof StrengthCreateInput, string>
+  | { name: 'strength', alias?: string  } 
+  | { name: 'meaning', alias?: string  } 
+  
+export interface CategoryCreateManyWithoutEventsInput {
+  create?: CategoryCreateWithoutEventsInput[]
+  connect?: CategoryWhereUniqueInput[]
+}
+export type CategoryCreateManyWithoutEventsInputInputObject =
+  | Extract<keyof CategoryCreateManyWithoutEventsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface CategoryCreateWithoutEventsInput {
+  name?: string
+}
+export type CategoryCreateWithoutEventsInputInputObject =
+  | Extract<keyof CategoryCreateWithoutEventsInput, string>
+  | { name: 'name', alias?: string  } 
+  
+export interface EventUpdateInput {
+  date?: string | null
+  title?: string | null
+  description?: string | null
+  href?: string | null
+  source?: string | null
+  read?: boolean | null
+  indications?: IndicationUpdateManyWithoutEventInput | null
+  categories?: CategoryUpdateManyWithoutEventsInput | null
+}
+export type EventUpdateInputInputObject =
+  | Extract<keyof EventUpdateInput, string>
+  | { name: 'date', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'href', alias?: string  } 
+  | { name: 'source', alias?: string  } 
+  | { name: 'read', alias?: string  } 
+  | { name: 'indications', alias?: string  } 
+  | { name: 'categories', alias?: string  } 
+  
+export interface IndicationUpdateManyWithoutEventInput {
+  create?: IndicationCreateWithoutEventInput[]
+  delete?: IndicationWhereUniqueInput[]
+  connect?: IndicationWhereUniqueInput[]
+  set?: IndicationWhereUniqueInput[]
+  disconnect?: IndicationWhereUniqueInput[]
+  update?: IndicationUpdateWithWhereUniqueWithoutEventInput[]
+  upsert?: IndicationUpsertWithWhereUniqueWithoutEventInput[]
+  deleteMany?: IndicationScalarWhereInput[]
+}
+export type IndicationUpdateManyWithoutEventInputInputObject =
+  | Extract<keyof IndicationUpdateManyWithoutEventInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  
+export interface IndicationUpdateWithWhereUniqueWithoutEventInput {
+  where?: IndicationWhereUniqueInput
+  data?: IndicationUpdateWithoutEventDataInput
+}
+export type IndicationUpdateWithWhereUniqueWithoutEventInputInputObject =
+  | Extract<keyof IndicationUpdateWithWhereUniqueWithoutEventInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface IndicationUpdateWithoutEventDataInput {
+  indicator?: IndicatorUpdateOneRequiredInput | null
+  strength?: StrengthUpdateOneRequiredInput | null
+}
+export type IndicationUpdateWithoutEventDataInputInputObject =
+  | Extract<keyof IndicationUpdateWithoutEventDataInput, string>
+  | { name: 'indicator', alias?: string  } 
+  | { name: 'strength', alias?: string  } 
+  
+export interface IndicatorUpdateOneRequiredInput {
+  create?: IndicatorCreateInput | null
+  update?: IndicatorUpdateDataInput | null
+  upsert?: IndicatorUpsertNestedInput | null
+  connect?: IndicatorWhereUniqueInput | null
+}
+export type IndicatorUpdateOneRequiredInputInputObject =
+  | Extract<keyof IndicatorUpdateOneRequiredInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface IndicatorUpdateDataInput {
+  name?: string | null
+  description?: string | null
+  keywords?: KeywordUpdateManyWithoutIndicatorsInput | null
+  scenarios?: ScenarioUpdateManyWithoutIndicatorsInput | null
+}
+export type IndicatorUpdateDataInputInputObject =
+  | Extract<keyof IndicatorUpdateDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'keywords', alias?: string  } 
+  | { name: 'scenarios', alias?: string  } 
+  
+export interface KeywordUpdateManyWithoutIndicatorsInput {
+  create?: KeywordCreateWithoutIndicatorsInput[]
+  delete?: KeywordWhereUniqueInput[]
+  connect?: KeywordWhereUniqueInput[]
+  set?: KeywordWhereUniqueInput[]
+  disconnect?: KeywordWhereUniqueInput[]
+  update?: KeywordUpdateWithWhereUniqueWithoutIndicatorsInput[]
+  upsert?: KeywordUpsertWithWhereUniqueWithoutIndicatorsInput[]
+  deleteMany?: KeywordScalarWhereInput[]
+  updateMany?: KeywordUpdateManyWithWhereNestedInput[]
+}
+export type KeywordUpdateManyWithoutIndicatorsInputInputObject =
+  | Extract<keyof KeywordUpdateManyWithoutIndicatorsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface KeywordUpdateWithWhereUniqueWithoutIndicatorsInput {
+  where?: KeywordWhereUniqueInput
+  data?: KeywordUpdateWithoutIndicatorsDataInput
+}
+export type KeywordUpdateWithWhereUniqueWithoutIndicatorsInputInputObject =
+  | Extract<keyof KeywordUpdateWithWhereUniqueWithoutIndicatorsInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface KeywordUpdateWithoutIndicatorsDataInput {
+  name?: string | null
+  description?: string | null
+}
+export type KeywordUpdateWithoutIndicatorsDataInputInputObject =
+  | Extract<keyof KeywordUpdateWithoutIndicatorsDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface KeywordUpsertWithWhereUniqueWithoutIndicatorsInput {
+  where?: KeywordWhereUniqueInput
+  update?: KeywordUpdateWithoutIndicatorsDataInput
+  create?: KeywordCreateWithoutIndicatorsInput
+}
+export type KeywordUpsertWithWhereUniqueWithoutIndicatorsInputInputObject =
+  | Extract<keyof KeywordUpsertWithWhereUniqueWithoutIndicatorsInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
@@ -4924,6 +5798,37 @@ export type IndicatorUpsertNestedInputInputObject =
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
+export interface StrengthUpdateOneRequiredInput {
+  create?: StrengthCreateInput | null
+  update?: StrengthUpdateDataInput | null
+  upsert?: StrengthUpsertNestedInput | null
+  connect?: StrengthWhereUniqueInput | null
+}
+export type StrengthUpdateOneRequiredInputInputObject =
+  | Extract<keyof StrengthUpdateOneRequiredInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface StrengthUpdateDataInput {
+  strength?: number | null
+  meaning?: string | null
+}
+export type StrengthUpdateDataInputInputObject =
+  | Extract<keyof StrengthUpdateDataInput, string>
+  | { name: 'strength', alias?: string  } 
+  | { name: 'meaning', alias?: string  } 
+  
+export interface StrengthUpsertNestedInput {
+  update?: StrengthUpdateDataInput
+  create?: StrengthCreateInput
+}
+export type StrengthUpsertNestedInputInputObject =
+  | Extract<keyof StrengthUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
 export interface IndicationUpsertWithWhereUniqueWithoutEventInput {
   where?: IndicationWhereUniqueInput
   update?: IndicationUpdateWithoutEventDataInput
@@ -4950,28 +5855,6 @@ export interface IndicationScalarWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
-  strength?: number | null
-  strength_not?: number | null
-  strength_in?: number[]
-  strength_not_in?: number[]
-  strength_lt?: number | null
-  strength_lte?: number | null
-  strength_gt?: number | null
-  strength_gte?: number | null
-  meaning?: string | null
-  meaning_not?: string | null
-  meaning_in?: string[]
-  meaning_not_in?: string[]
-  meaning_lt?: string | null
-  meaning_lte?: string | null
-  meaning_gt?: string | null
-  meaning_gte?: string | null
-  meaning_contains?: string | null
-  meaning_not_contains?: string | null
-  meaning_starts_with?: string | null
-  meaning_not_starts_with?: string | null
-  meaning_ends_with?: string | null
-  meaning_not_ends_with?: string | null
   createdAt?: string | null
   createdAt_not?: string | null
   createdAt_in?: string[]
@@ -5008,28 +5891,6 @@ export type IndicationScalarWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'strength', alias?: string  } 
-  | { name: 'strength_not', alias?: string  } 
-  | { name: 'strength_in', alias?: string  } 
-  | { name: 'strength_not_in', alias?: string  } 
-  | { name: 'strength_lt', alias?: string  } 
-  | { name: 'strength_lte', alias?: string  } 
-  | { name: 'strength_gt', alias?: string  } 
-  | { name: 'strength_gte', alias?: string  } 
-  | { name: 'meaning', alias?: string  } 
-  | { name: 'meaning_not', alias?: string  } 
-  | { name: 'meaning_in', alias?: string  } 
-  | { name: 'meaning_not_in', alias?: string  } 
-  | { name: 'meaning_lt', alias?: string  } 
-  | { name: 'meaning_lte', alias?: string  } 
-  | { name: 'meaning_gt', alias?: string  } 
-  | { name: 'meaning_gte', alias?: string  } 
-  | { name: 'meaning_contains', alias?: string  } 
-  | { name: 'meaning_not_contains', alias?: string  } 
-  | { name: 'meaning_starts_with', alias?: string  } 
-  | { name: 'meaning_not_starts_with', alias?: string  } 
-  | { name: 'meaning_ends_with', alias?: string  } 
-  | { name: 'meaning_not_ends_with', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
   | { name: 'createdAt_in', alias?: string  } 
@@ -5050,23 +5911,138 @@ export type IndicationScalarWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface IndicationUpdateManyWithWhereNestedInput {
-  where?: IndicationScalarWhereInput
-  data?: IndicationUpdateManyDataInput
+export interface CategoryUpdateManyWithoutEventsInput {
+  create?: CategoryCreateWithoutEventsInput[]
+  delete?: CategoryWhereUniqueInput[]
+  connect?: CategoryWhereUniqueInput[]
+  set?: CategoryWhereUniqueInput[]
+  disconnect?: CategoryWhereUniqueInput[]
+  update?: CategoryUpdateWithWhereUniqueWithoutEventsInput[]
+  upsert?: CategoryUpsertWithWhereUniqueWithoutEventsInput[]
+  deleteMany?: CategoryScalarWhereInput[]
+  updateMany?: CategoryUpdateManyWithWhereNestedInput[]
 }
-export type IndicationUpdateManyWithWhereNestedInputInputObject =
-  | Extract<keyof IndicationUpdateManyWithWhereNestedInput, string>
+export type CategoryUpdateManyWithoutEventsInputInputObject =
+  | Extract<keyof CategoryUpdateManyWithoutEventsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface CategoryUpdateWithWhereUniqueWithoutEventsInput {
+  where?: CategoryWhereUniqueInput
+  data?: CategoryUpdateWithoutEventsDataInput
+}
+export type CategoryUpdateWithWhereUniqueWithoutEventsInputInputObject =
+  | Extract<keyof CategoryUpdateWithWhereUniqueWithoutEventsInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'data', alias?: string  } 
   
-export interface IndicationUpdateManyDataInput {
-  strength?: number | null
-  meaning?: string | null
+export interface CategoryUpdateWithoutEventsDataInput {
+  name?: string | null
 }
-export type IndicationUpdateManyDataInputInputObject =
-  | Extract<keyof IndicationUpdateManyDataInput, string>
-  | { name: 'strength', alias?: string  } 
-  | { name: 'meaning', alias?: string  } 
+export type CategoryUpdateWithoutEventsDataInputInputObject =
+  | Extract<keyof CategoryUpdateWithoutEventsDataInput, string>
+  | { name: 'name', alias?: string  } 
+  
+export interface CategoryUpsertWithWhereUniqueWithoutEventsInput {
+  where?: CategoryWhereUniqueInput
+  update?: CategoryUpdateWithoutEventsDataInput
+  create?: CategoryCreateWithoutEventsInput
+}
+export type CategoryUpsertWithWhereUniqueWithoutEventsInputInputObject =
+  | Extract<keyof CategoryUpsertWithWhereUniqueWithoutEventsInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface CategoryScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  AND?: CategoryScalarWhereInput[]
+  OR?: CategoryScalarWhereInput[]
+  NOT?: CategoryScalarWhereInput[]
+}
+export type CategoryScalarWhereInputInputObject =
+  | Extract<keyof CategoryScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface CategoryUpdateManyWithWhereNestedInput {
+  where?: CategoryScalarWhereInput
+  data?: CategoryUpdateManyDataInput
+}
+export type CategoryUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof CategoryUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface CategoryUpdateManyDataInput {
+  name?: string | null
+}
+export type CategoryUpdateManyDataInputInputObject =
+  | Extract<keyof CategoryUpdateManyDataInput, string>
+  | { name: 'name', alias?: string  } 
   
 export interface EventUpdateManyMutationInput {
   date?: string | null
@@ -5085,81 +6061,65 @@ export type EventUpdateManyMutationInputInputObject =
   | { name: 'source', alias?: string  } 
   | { name: 'read', alias?: string  } 
   
-export interface KeywordUpdateInput {
-  name?: string | null
-  description?: string | null
-  events?: EventUpdateManyInput | null
+export interface CategoryCreateInput {
+  name?: string
+  events?: EventCreateManyWithoutCategoriesInput | null
 }
-export type KeywordUpdateInputInputObject =
-  | Extract<keyof KeywordUpdateInput, string>
+export type CategoryCreateInputInputObject =
+  | Extract<keyof CategoryCreateInput, string>
   | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
   | { name: 'events', alias?: string  } 
   
-export interface KeywordUpdateManyMutationInput {
-  name?: string | null
-  description?: string | null
+export interface EventCreateManyWithoutCategoriesInput {
+  create?: EventCreateWithoutCategoriesInput[]
+  connect?: EventWhereUniqueInput[]
 }
-export type KeywordUpdateManyMutationInputInputObject =
-  | Extract<keyof KeywordUpdateManyMutationInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  
-export interface ScenarioCreateInput {
-  name?: string | null
-  description?: string | null
-  indicators?: IndicatorCreateManyWithoutScenariosInput | null
-}
-export type ScenarioCreateInputInputObject =
-  | Extract<keyof ScenarioCreateInput, string>
-  | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'indicators', alias?: string  } 
-  
-export interface IndicatorCreateManyWithoutScenariosInput {
-  create?: IndicatorCreateWithoutScenariosInput[]
-  connect?: IndicatorWhereUniqueInput[]
-}
-export type IndicatorCreateManyWithoutScenariosInputInputObject =
-  | Extract<keyof IndicatorCreateManyWithoutScenariosInput, string>
+export type EventCreateManyWithoutCategoriesInputInputObject =
+  | Extract<keyof EventCreateManyWithoutCategoriesInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'connect', alias?: string  } 
   
-export interface IndicatorCreateWithoutScenariosInput {
-  name?: string | null
+export interface EventCreateWithoutCategoriesInput {
+  date?: string | null
+  title?: string | null
   description?: string | null
-  keywords?: KeywordCreateManyInput | null
+  href?: string | null
+  source?: string | null
+  read?: boolean | null
+  indications?: IndicationCreateManyWithoutEventInput | null
 }
-export type IndicatorCreateWithoutScenariosInputInputObject =
-  | Extract<keyof IndicatorCreateWithoutScenariosInput, string>
-  | { name: 'name', alias?: string  } 
+export type EventCreateWithoutCategoriesInputInputObject =
+  | Extract<keyof EventCreateWithoutCategoriesInput, string>
+  | { name: 'date', alias?: string  } 
+  | { name: 'title', alias?: string  } 
   | { name: 'description', alias?: string  } 
-  | { name: 'keywords', alias?: string  } 
+  | { name: 'href', alias?: string  } 
+  | { name: 'source', alias?: string  } 
+  | { name: 'read', alias?: string  } 
+  | { name: 'indications', alias?: string  } 
   
-export interface ScenarioUpdateInput {
+export interface CategoryUpdateInput {
   name?: string | null
-  description?: string | null
-  indicators?: IndicatorUpdateManyWithoutScenariosInput | null
+  events?: EventUpdateManyWithoutCategoriesInput | null
 }
-export type ScenarioUpdateInputInputObject =
-  | Extract<keyof ScenarioUpdateInput, string>
+export type CategoryUpdateInputInputObject =
+  | Extract<keyof CategoryUpdateInput, string>
   | { name: 'name', alias?: string  } 
-  | { name: 'description', alias?: string  } 
-  | { name: 'indicators', alias?: string  } 
+  | { name: 'events', alias?: string  } 
   
-export interface IndicatorUpdateManyWithoutScenariosInput {
-  create?: IndicatorCreateWithoutScenariosInput[]
-  delete?: IndicatorWhereUniqueInput[]
-  connect?: IndicatorWhereUniqueInput[]
-  set?: IndicatorWhereUniqueInput[]
-  disconnect?: IndicatorWhereUniqueInput[]
-  update?: IndicatorUpdateWithWhereUniqueWithoutScenariosInput[]
-  upsert?: IndicatorUpsertWithWhereUniqueWithoutScenariosInput[]
-  deleteMany?: IndicatorScalarWhereInput[]
-  updateMany?: IndicatorUpdateManyWithWhereNestedInput[]
+export interface EventUpdateManyWithoutCategoriesInput {
+  create?: EventCreateWithoutCategoriesInput[]
+  delete?: EventWhereUniqueInput[]
+  connect?: EventWhereUniqueInput[]
+  set?: EventWhereUniqueInput[]
+  disconnect?: EventWhereUniqueInput[]
+  update?: EventUpdateWithWhereUniqueWithoutCategoriesInput[]
+  upsert?: EventUpsertWithWhereUniqueWithoutCategoriesInput[]
+  deleteMany?: EventScalarWhereInput[]
+  updateMany?: EventUpdateManyWithWhereNestedInput[]
 }
-export type IndicatorUpdateManyWithoutScenariosInputInputObject =
-  | Extract<keyof IndicatorUpdateManyWithoutScenariosInput, string>
+export type EventUpdateManyWithoutCategoriesInputInputObject =
+  | Extract<keyof EventUpdateManyWithoutCategoriesInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'delete', alias?: string  } 
   | { name: 'connect', alias?: string  } 
@@ -5170,33 +6130,341 @@ export type IndicatorUpdateManyWithoutScenariosInputInputObject =
   | { name: 'deleteMany', alias?: string  } 
   | { name: 'updateMany', alias?: string  } 
   
-export interface IndicatorUpdateWithWhereUniqueWithoutScenariosInput {
-  where?: IndicatorWhereUniqueInput
-  data?: IndicatorUpdateWithoutScenariosDataInput
+export interface EventUpdateWithWhereUniqueWithoutCategoriesInput {
+  where?: EventWhereUniqueInput
+  data?: EventUpdateWithoutCategoriesDataInput
 }
-export type IndicatorUpdateWithWhereUniqueWithoutScenariosInputInputObject =
-  | Extract<keyof IndicatorUpdateWithWhereUniqueWithoutScenariosInput, string>
+export type EventUpdateWithWhereUniqueWithoutCategoriesInputInputObject =
+  | Extract<keyof EventUpdateWithWhereUniqueWithoutCategoriesInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'data', alias?: string  } 
   
-export interface IndicatorUpdateWithoutScenariosDataInput {
+export interface EventUpdateWithoutCategoriesDataInput {
+  date?: string | null
+  title?: string | null
+  description?: string | null
+  href?: string | null
+  source?: string | null
+  read?: boolean | null
+  indications?: IndicationUpdateManyWithoutEventInput | null
+}
+export type EventUpdateWithoutCategoriesDataInputInputObject =
+  | Extract<keyof EventUpdateWithoutCategoriesDataInput, string>
+  | { name: 'date', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'href', alias?: string  } 
+  | { name: 'source', alias?: string  } 
+  | { name: 'read', alias?: string  } 
+  | { name: 'indications', alias?: string  } 
+  
+export interface EventUpsertWithWhereUniqueWithoutCategoriesInput {
+  where?: EventWhereUniqueInput
+  update?: EventUpdateWithoutCategoriesDataInput
+  create?: EventCreateWithoutCategoriesInput
+}
+export type EventUpsertWithWhereUniqueWithoutCategoriesInputInputObject =
+  | Extract<keyof EventUpsertWithWhereUniqueWithoutCategoriesInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface EventScalarWhereInput {
+  date?: string | null
+  date_not?: string | null
+  date_in?: string[]
+  date_not_in?: string[]
+  date_lt?: string | null
+  date_lte?: string | null
+  date_gt?: string | null
+  date_gte?: string | null
+  title?: string | null
+  title_not?: string | null
+  title_in?: string[]
+  title_not_in?: string[]
+  title_lt?: string | null
+  title_lte?: string | null
+  title_gt?: string | null
+  title_gte?: string | null
+  title_contains?: string | null
+  title_not_contains?: string | null
+  title_starts_with?: string | null
+  title_not_starts_with?: string | null
+  title_ends_with?: string | null
+  title_not_ends_with?: string | null
+  description?: string | null
+  description_not?: string | null
+  description_in?: string[]
+  description_not_in?: string[]
+  description_lt?: string | null
+  description_lte?: string | null
+  description_gt?: string | null
+  description_gte?: string | null
+  description_contains?: string | null
+  description_not_contains?: string | null
+  description_starts_with?: string | null
+  description_not_starts_with?: string | null
+  description_ends_with?: string | null
+  description_not_ends_with?: string | null
+  href?: string | null
+  href_not?: string | null
+  href_in?: string[]
+  href_not_in?: string[]
+  href_lt?: string | null
+  href_lte?: string | null
+  href_gt?: string | null
+  href_gte?: string | null
+  href_contains?: string | null
+  href_not_contains?: string | null
+  href_starts_with?: string | null
+  href_not_starts_with?: string | null
+  href_ends_with?: string | null
+  href_not_ends_with?: string | null
+  source?: string | null
+  source_not?: string | null
+  source_in?: string[]
+  source_not_in?: string[]
+  source_lt?: string | null
+  source_lte?: string | null
+  source_gt?: string | null
+  source_gte?: string | null
+  source_contains?: string | null
+  source_not_contains?: string | null
+  source_starts_with?: string | null
+  source_not_starts_with?: string | null
+  source_ends_with?: string | null
+  source_not_ends_with?: string | null
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  read?: boolean | null
+  read_not?: boolean | null
+  AND?: EventScalarWhereInput[]
+  OR?: EventScalarWhereInput[]
+  NOT?: EventScalarWhereInput[]
+}
+export type EventScalarWhereInputInputObject =
+  | Extract<keyof EventScalarWhereInput, string>
+  | { name: 'date', alias?: string  } 
+  | { name: 'date_not', alias?: string  } 
+  | { name: 'date_in', alias?: string  } 
+  | { name: 'date_not_in', alias?: string  } 
+  | { name: 'date_lt', alias?: string  } 
+  | { name: 'date_lte', alias?: string  } 
+  | { name: 'date_gt', alias?: string  } 
+  | { name: 'date_gte', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'title_not', alias?: string  } 
+  | { name: 'title_in', alias?: string  } 
+  | { name: 'title_not_in', alias?: string  } 
+  | { name: 'title_lt', alias?: string  } 
+  | { name: 'title_lte', alias?: string  } 
+  | { name: 'title_gt', alias?: string  } 
+  | { name: 'title_gte', alias?: string  } 
+  | { name: 'title_contains', alias?: string  } 
+  | { name: 'title_not_contains', alias?: string  } 
+  | { name: 'title_starts_with', alias?: string  } 
+  | { name: 'title_not_starts_with', alias?: string  } 
+  | { name: 'title_ends_with', alias?: string  } 
+  | { name: 'title_not_ends_with', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'description_not', alias?: string  } 
+  | { name: 'description_in', alias?: string  } 
+  | { name: 'description_not_in', alias?: string  } 
+  | { name: 'description_lt', alias?: string  } 
+  | { name: 'description_lte', alias?: string  } 
+  | { name: 'description_gt', alias?: string  } 
+  | { name: 'description_gte', alias?: string  } 
+  | { name: 'description_contains', alias?: string  } 
+  | { name: 'description_not_contains', alias?: string  } 
+  | { name: 'description_starts_with', alias?: string  } 
+  | { name: 'description_not_starts_with', alias?: string  } 
+  | { name: 'description_ends_with', alias?: string  } 
+  | { name: 'description_not_ends_with', alias?: string  } 
+  | { name: 'href', alias?: string  } 
+  | { name: 'href_not', alias?: string  } 
+  | { name: 'href_in', alias?: string  } 
+  | { name: 'href_not_in', alias?: string  } 
+  | { name: 'href_lt', alias?: string  } 
+  | { name: 'href_lte', alias?: string  } 
+  | { name: 'href_gt', alias?: string  } 
+  | { name: 'href_gte', alias?: string  } 
+  | { name: 'href_contains', alias?: string  } 
+  | { name: 'href_not_contains', alias?: string  } 
+  | { name: 'href_starts_with', alias?: string  } 
+  | { name: 'href_not_starts_with', alias?: string  } 
+  | { name: 'href_ends_with', alias?: string  } 
+  | { name: 'href_not_ends_with', alias?: string  } 
+  | { name: 'source', alias?: string  } 
+  | { name: 'source_not', alias?: string  } 
+  | { name: 'source_in', alias?: string  } 
+  | { name: 'source_not_in', alias?: string  } 
+  | { name: 'source_lt', alias?: string  } 
+  | { name: 'source_lte', alias?: string  } 
+  | { name: 'source_gt', alias?: string  } 
+  | { name: 'source_gte', alias?: string  } 
+  | { name: 'source_contains', alias?: string  } 
+  | { name: 'source_not_contains', alias?: string  } 
+  | { name: 'source_starts_with', alias?: string  } 
+  | { name: 'source_not_starts_with', alias?: string  } 
+  | { name: 'source_ends_with', alias?: string  } 
+  | { name: 'source_not_ends_with', alias?: string  } 
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'read', alias?: string  } 
+  | { name: 'read_not', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface EventUpdateManyWithWhereNestedInput {
+  where?: EventScalarWhereInput
+  data?: EventUpdateManyDataInput
+}
+export type EventUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof EventUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface EventUpdateManyDataInput {
+  date?: string | null
+  title?: string | null
+  description?: string | null
+  href?: string | null
+  source?: string | null
+  read?: boolean | null
+}
+export type EventUpdateManyDataInputInputObject =
+  | Extract<keyof EventUpdateManyDataInput, string>
+  | { name: 'date', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'href', alias?: string  } 
+  | { name: 'source', alias?: string  } 
+  | { name: 'read', alias?: string  } 
+  
+export interface CategoryUpdateManyMutationInput {
+  name?: string | null
+}
+export type CategoryUpdateManyMutationInputInputObject =
+  | Extract<keyof CategoryUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  
+export interface KeywordCreateInput {
   name?: string | null
   description?: string | null
-  keywords?: KeywordUpdateManyInput | null
+  indicators?: IndicatorCreateManyWithoutKeywordsInput | null
 }
-export type IndicatorUpdateWithoutScenariosDataInputInputObject =
-  | Extract<keyof IndicatorUpdateWithoutScenariosDataInput, string>
+export type KeywordCreateInputInputObject =
+  | Extract<keyof KeywordCreateInput, string>
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
-  | { name: 'keywords', alias?: string  } 
+  | { name: 'indicators', alias?: string  } 
   
-export interface IndicatorUpsertWithWhereUniqueWithoutScenariosInput {
-  where?: IndicatorWhereUniqueInput
-  update?: IndicatorUpdateWithoutScenariosDataInput
-  create?: IndicatorCreateWithoutScenariosInput
+export interface IndicatorCreateManyWithoutKeywordsInput {
+  create?: IndicatorCreateWithoutKeywordsInput[]
+  connect?: IndicatorWhereUniqueInput[]
 }
-export type IndicatorUpsertWithWhereUniqueWithoutScenariosInputInputObject =
-  | Extract<keyof IndicatorUpsertWithWhereUniqueWithoutScenariosInput, string>
+export type IndicatorCreateManyWithoutKeywordsInputInputObject =
+  | Extract<keyof IndicatorCreateManyWithoutKeywordsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface IndicatorCreateWithoutKeywordsInput {
+  name?: string | null
+  description?: string | null
+  scenarios?: ScenarioCreateManyWithoutIndicatorsInput | null
+}
+export type IndicatorCreateWithoutKeywordsInputInputObject =
+  | Extract<keyof IndicatorCreateWithoutKeywordsInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'scenarios', alias?: string  } 
+  
+export interface KeywordUpdateInput {
+  name?: string | null
+  description?: string | null
+  indicators?: IndicatorUpdateManyWithoutKeywordsInput | null
+}
+export type KeywordUpdateInputInputObject =
+  | Extract<keyof KeywordUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'indicators', alias?: string  } 
+  
+export interface IndicatorUpdateManyWithoutKeywordsInput {
+  create?: IndicatorCreateWithoutKeywordsInput[]
+  delete?: IndicatorWhereUniqueInput[]
+  connect?: IndicatorWhereUniqueInput[]
+  set?: IndicatorWhereUniqueInput[]
+  disconnect?: IndicatorWhereUniqueInput[]
+  update?: IndicatorUpdateWithWhereUniqueWithoutKeywordsInput[]
+  upsert?: IndicatorUpsertWithWhereUniqueWithoutKeywordsInput[]
+  deleteMany?: IndicatorScalarWhereInput[]
+  updateMany?: IndicatorUpdateManyWithWhereNestedInput[]
+}
+export type IndicatorUpdateManyWithoutKeywordsInputInputObject =
+  | Extract<keyof IndicatorUpdateManyWithoutKeywordsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface IndicatorUpdateWithWhereUniqueWithoutKeywordsInput {
+  where?: IndicatorWhereUniqueInput
+  data?: IndicatorUpdateWithoutKeywordsDataInput
+}
+export type IndicatorUpdateWithWhereUniqueWithoutKeywordsInputInputObject =
+  | Extract<keyof IndicatorUpdateWithWhereUniqueWithoutKeywordsInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface IndicatorUpdateWithoutKeywordsDataInput {
+  name?: string | null
+  description?: string | null
+  scenarios?: ScenarioUpdateManyWithoutIndicatorsInput | null
+}
+export type IndicatorUpdateWithoutKeywordsDataInputInputObject =
+  | Extract<keyof IndicatorUpdateWithoutKeywordsDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'scenarios', alias?: string  } 
+  
+export interface IndicatorUpsertWithWhereUniqueWithoutKeywordsInput {
+  where?: IndicatorWhereUniqueInput
+  update?: IndicatorUpdateWithoutKeywordsDataInput
+  create?: IndicatorCreateWithoutKeywordsInput
+}
+export type IndicatorUpsertWithWhereUniqueWithoutKeywordsInputInputObject =
+  | Extract<keyof IndicatorUpsertWithWhereUniqueWithoutKeywordsInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
@@ -5314,6 +6582,111 @@ export type IndicatorUpdateManyDataInputInputObject =
   | { name: 'name', alias?: string  } 
   | { name: 'description', alias?: string  } 
   
+export interface KeywordUpdateManyMutationInput {
+  name?: string | null
+  description?: string | null
+}
+export type KeywordUpdateManyMutationInputInputObject =
+  | Extract<keyof KeywordUpdateManyMutationInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  
+export interface ScenarioCreateInput {
+  name?: string | null
+  description?: string | null
+  indicators?: IndicatorCreateManyWithoutScenariosInput | null
+}
+export type ScenarioCreateInputInputObject =
+  | Extract<keyof ScenarioCreateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'indicators', alias?: string  } 
+  
+export interface IndicatorCreateManyWithoutScenariosInput {
+  create?: IndicatorCreateWithoutScenariosInput[]
+  connect?: IndicatorWhereUniqueInput[]
+}
+export type IndicatorCreateManyWithoutScenariosInputInputObject =
+  | Extract<keyof IndicatorCreateManyWithoutScenariosInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface IndicatorCreateWithoutScenariosInput {
+  name?: string | null
+  description?: string | null
+  keywords?: KeywordCreateManyWithoutIndicatorsInput | null
+}
+export type IndicatorCreateWithoutScenariosInputInputObject =
+  | Extract<keyof IndicatorCreateWithoutScenariosInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'keywords', alias?: string  } 
+  
+export interface ScenarioUpdateInput {
+  name?: string | null
+  description?: string | null
+  indicators?: IndicatorUpdateManyWithoutScenariosInput | null
+}
+export type ScenarioUpdateInputInputObject =
+  | Extract<keyof ScenarioUpdateInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'indicators', alias?: string  } 
+  
+export interface IndicatorUpdateManyWithoutScenariosInput {
+  create?: IndicatorCreateWithoutScenariosInput[]
+  delete?: IndicatorWhereUniqueInput[]
+  connect?: IndicatorWhereUniqueInput[]
+  set?: IndicatorWhereUniqueInput[]
+  disconnect?: IndicatorWhereUniqueInput[]
+  update?: IndicatorUpdateWithWhereUniqueWithoutScenariosInput[]
+  upsert?: IndicatorUpsertWithWhereUniqueWithoutScenariosInput[]
+  deleteMany?: IndicatorScalarWhereInput[]
+  updateMany?: IndicatorUpdateManyWithWhereNestedInput[]
+}
+export type IndicatorUpdateManyWithoutScenariosInputInputObject =
+  | Extract<keyof IndicatorUpdateManyWithoutScenariosInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface IndicatorUpdateWithWhereUniqueWithoutScenariosInput {
+  where?: IndicatorWhereUniqueInput
+  data?: IndicatorUpdateWithoutScenariosDataInput
+}
+export type IndicatorUpdateWithWhereUniqueWithoutScenariosInputInputObject =
+  | Extract<keyof IndicatorUpdateWithWhereUniqueWithoutScenariosInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface IndicatorUpdateWithoutScenariosDataInput {
+  name?: string | null
+  description?: string | null
+  keywords?: KeywordUpdateManyWithoutIndicatorsInput | null
+}
+export type IndicatorUpdateWithoutScenariosDataInputInputObject =
+  | Extract<keyof IndicatorUpdateWithoutScenariosDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'description', alias?: string  } 
+  | { name: 'keywords', alias?: string  } 
+  
+export interface IndicatorUpsertWithWhereUniqueWithoutScenariosInput {
+  where?: IndicatorWhereUniqueInput
+  update?: IndicatorUpdateWithoutScenariosDataInput
+  create?: IndicatorCreateWithoutScenariosInput
+}
+export type IndicatorUpsertWithWhereUniqueWithoutScenariosInputInputObject =
+  | Extract<keyof IndicatorUpsertWithWhereUniqueWithoutScenariosInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
 export interface ScenarioUpdateManyMutationInput {
   name?: string | null
   description?: string | null
@@ -5326,7 +6699,7 @@ export type ScenarioUpdateManyMutationInputInputObject =
 export interface IndicatorUpdateInput {
   name?: string | null
   description?: string | null
-  keywords?: KeywordUpdateManyInput | null
+  keywords?: KeywordUpdateManyWithoutIndicatorsInput | null
   scenarios?: ScenarioUpdateManyWithoutIndicatorsInput | null
 }
 export type IndicatorUpdateInputInputObject =
@@ -5348,15 +6721,13 @@ export type IndicatorUpdateManyMutationInputInputObject =
 export interface IndicationCreateInput {
   indicator?: IndicatorCreateOneInput
   event?: EventCreateOneWithoutIndicationsInput
-  strength?: number | null
-  meaning?: string | null
+  strength?: StrengthCreateOneInput
 }
 export type IndicationCreateInputInputObject =
   | Extract<keyof IndicationCreateInput, string>
   | { name: 'indicator', alias?: string  } 
   | { name: 'event', alias?: string  } 
   | { name: 'strength', alias?: string  } 
-  | { name: 'meaning', alias?: string  } 
   
 export interface EventCreateOneWithoutIndicationsInput {
   create?: EventCreateWithoutIndicationsInput | null
@@ -5374,6 +6745,7 @@ export interface EventCreateWithoutIndicationsInput {
   href?: string | null
   source?: string | null
   read?: boolean | null
+  categories?: CategoryCreateManyWithoutEventsInput | null
 }
 export type EventCreateWithoutIndicationsInputInputObject =
   | Extract<keyof EventCreateWithoutIndicationsInput, string>
@@ -5383,19 +6755,18 @@ export type EventCreateWithoutIndicationsInputInputObject =
   | { name: 'href', alias?: string  } 
   | { name: 'source', alias?: string  } 
   | { name: 'read', alias?: string  } 
+  | { name: 'categories', alias?: string  } 
   
 export interface IndicationUpdateInput {
   indicator?: IndicatorUpdateOneRequiredInput | null
   event?: EventUpdateOneRequiredWithoutIndicationsInput | null
-  strength?: number | null
-  meaning?: string | null
+  strength?: StrengthUpdateOneRequiredInput | null
 }
 export type IndicationUpdateInputInputObject =
   | Extract<keyof IndicationUpdateInput, string>
   | { name: 'indicator', alias?: string  } 
   | { name: 'event', alias?: string  } 
   | { name: 'strength', alias?: string  } 
-  | { name: 'meaning', alias?: string  } 
   
 export interface EventUpdateOneRequiredWithoutIndicationsInput {
   create?: EventCreateWithoutIndicationsInput | null
@@ -5417,6 +6788,7 @@ export interface EventUpdateWithoutIndicationsDataInput {
   href?: string | null
   source?: string | null
   read?: boolean | null
+  categories?: CategoryUpdateManyWithoutEventsInput | null
 }
 export type EventUpdateWithoutIndicationsDataInputInputObject =
   | Extract<keyof EventUpdateWithoutIndicationsDataInput, string>
@@ -5426,6 +6798,7 @@ export type EventUpdateWithoutIndicationsDataInputInputObject =
   | { name: 'href', alias?: string  } 
   | { name: 'source', alias?: string  } 
   | { name: 'read', alias?: string  } 
+  | { name: 'categories', alias?: string  } 
   
 export interface EventUpsertWithoutIndicationsInput {
   update?: EventUpdateWithoutIndicationsDataInput
@@ -5436,12 +6809,21 @@ export type EventUpsertWithoutIndicationsInputInputObject =
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface IndicationUpdateManyMutationInput {
+export interface StrengthUpdateInput {
   strength?: number | null
   meaning?: string | null
 }
-export type IndicationUpdateManyMutationInputInputObject =
-  | Extract<keyof IndicationUpdateManyMutationInput, string>
+export type StrengthUpdateInputInputObject =
+  | Extract<keyof StrengthUpdateInput, string>
+  | { name: 'strength', alias?: string  } 
+  | { name: 'meaning', alias?: string  } 
+  
+export interface StrengthUpdateManyMutationInput {
+  strength?: number | null
+  meaning?: string | null
+}
+export type StrengthUpdateManyMutationInputInputObject =
+  | Extract<keyof StrengthUpdateManyMutationInput, string>
   | { name: 'strength', alias?: string  } 
   | { name: 'meaning', alias?: string  } 
   
@@ -5478,6 +6860,27 @@ export interface EventSubscriptionWhereInput {
 }
 export type EventSubscriptionWhereInputInputObject =
   | Extract<keyof EventSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface CategorySubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: CategoryWhereInput | null
+  AND?: CategorySubscriptionWhereInput[]
+  OR?: CategorySubscriptionWhereInput[]
+  NOT?: CategorySubscriptionWhereInput[]
+}
+export type CategorySubscriptionWhereInputInputObject =
+  | Extract<keyof CategorySubscriptionWhereInput, string>
   | { name: 'mutation_in', alias?: string  } 
   | { name: 'updatedFields_contains', alias?: string  } 
   | { name: 'updatedFields_contains_every', alias?: string  } 
@@ -5571,6 +6974,27 @@ export type IndicationSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface StrengthSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: StrengthWhereInput | null
+  AND?: StrengthSubscriptionWhereInput[]
+  OR?: StrengthSubscriptionWhereInput[]
+  NOT?: StrengthSubscriptionWhereInput[]
+}
+export type StrengthSubscriptionWhereInputInputObject =
+  | Extract<keyof StrengthSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 
 export type UserOrderByInputValues =
   | 'id_ASC'
@@ -5585,10 +7009,6 @@ export type UserOrderByInputValues =
 export type IndicationOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'strength_ASC'
-  | 'strength_DESC'
-  | 'meaning_ASC'
-  | 'meaning_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
@@ -5601,6 +7021,40 @@ export type KeywordOrderByInputValues =
   | 'name_DESC'
   | 'description_ASC'
   | 'description_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type IndicatorOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type ScenarioOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type CategoryOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
@@ -5626,25 +7080,13 @@ export type EventOrderByInputValues =
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
   
-export type ScenarioOrderByInputValues =
+export type StrengthOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'name_ASC'
-  | 'name_DESC'
-  | 'description_ASC'
-  | 'description_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  
-export type IndicatorOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'name_ASC'
-  | 'name_DESC'
-  | 'description_ASC'
-  | 'description_DESC'
+  | 'strength_ASC'
+  | 'strength_DESC'
+  | 'meaning_ASC'
+  | 'meaning_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'

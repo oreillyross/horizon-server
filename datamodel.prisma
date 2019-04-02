@@ -12,13 +12,20 @@ type Event {
   id: ID! @unique
   read: Boolean @default(value: "false")
   indications: [Indication!]!
+  categories: [Category!]!
+}
+
+type Category {
+  id: ID! @unique
+  name: String!
+  events: [Event!]!
 }
 
 type Keyword {
   id: ID! @unique
   name: String
   description: String
-  events: [Event!]!
+  indicators: [Indicator!]!
 }
 
 type Scenario {
@@ -40,8 +47,13 @@ type Indication {
   id: ID! @unique
   indicator: Indicator!
   event: Event!
-  strength: Int
-  meaning: String
+  strength: Strength!
   createdAt: DateTime!
   updatedAt: DateTime!
+}
+
+type Strength {
+  id: ID! @unique
+  strength: Int
+  meaning: String
 }
