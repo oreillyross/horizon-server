@@ -1,59 +1,73 @@
 type User {
-  id: ID! @unique
+  id: ID! @id
   name: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Event {
   date: DateTime
-  title: String
+  title: String @unique
   description: String
   href: String
   source: String
-  id: ID! @unique
-  read: Boolean @default(value: "false")
-  indications: [Indication!]!
-  categories: [Category!]!
+  id: ID! @id
+  read: Boolean @default(value: false)
+  indications: [Indication!]! @relation(link: TABLE)
+  categories: [Category!]!  @relation(link: TABLE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Category {
-  id: ID! @unique
-  name: String!
-  events: [Event!]!
+  id: ID! @id
+  name: String! @unique
+  events: [Event!]! 
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Keyword {
-  id: ID! @unique
-  name: String
+  id: ID! @id
+  name: String @unique
   description: String
-  indicators: [Indicator!]!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  
 }
 
 type Scenario {
-  id: ID! @unique
-  name: String
+  id: ID! @id
+  name: String @unique
   description: String
-  indicators: [Indicator!]!
+  indicators: [Indicator!]!  @relation(link: TABLE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Indicator {
- id: ID! @unique
- name: String
+ id: ID! @id
+ name: String @unique
  description: String
- keywords: [Keyword!]!
- scenarios: [Scenario!]!
+ keywords: [Keyword!]!  @relation(link: TABLE)
+ scenarios: [Scenario!]!  
+ createdAt: DateTime! @createdAt
+ updatedAt: DateTime! @updatedAt
 }
 
 type Indication {
-  id: ID! @unique
-  indicator: Indicator!
-  event: Event!
-  strength: Strength!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  id: ID! @id
+  indicator: Indicator!  @relation(link: INLINE)
+  event: Event!  
+  strength: Strength! @relation(link: INLINE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Strength {
-  id: ID! @unique
+  id: ID! @id
   strength: Int
   meaning: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }

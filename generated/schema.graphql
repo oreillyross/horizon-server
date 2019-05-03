@@ -2,6 +2,10 @@
 ### Do not make changes to this file directly
 
 
+type AggregateCategory {
+  count: Int!
+}
+
 type AggregateEvent {
   count: Int!
 }
@@ -22,6 +26,10 @@ type AggregateScenario {
   count: Int!
 }
 
+type AggregateStrength {
+  count: Int!
+}
+
 type AggregateUser {
   count: Int!
 }
@@ -30,9 +38,172 @@ type BatchPayload {
   count: Long!
 }
 
+type Category {
+  events(after: String, before: String, first: Int, last: Int, orderBy: EventOrderByInput, skip: Int, where: EventWhereInput): [Event!]
+  id: ID!
+  name: String!
+}
+
+type CategoryConnection {
+  aggregate: AggregateCategory!
+  edges: [CategoryEdge!]!
+  pageInfo: PageInfo!
+}
+
+input CategoryCreateInput {
+  events: EventCreateManyWithoutCategoriesInput
+  name: String!
+}
+
+input CategoryCreateManyWithoutEventsInput {
+  connect: [CategoryWhereUniqueInput!]
+  create: [CategoryCreateWithoutEventsInput!]
+}
+
+input CategoryCreateWithoutEventsInput {
+  name: String!
+}
+
+type CategoryEdge {
+  cursor: String!
+  node: Category!
+}
+
+enum CategoryOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input CategoryScalarWhereInput {
+  AND: [CategoryScalarWhereInput!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [CategoryScalarWhereInput!]
+  OR: [CategoryScalarWhereInput!]
+}
+
+input CategoryUpdateInput {
+  events: EventUpdateManyWithoutCategoriesInput
+  name: String
+}
+
+input CategoryUpdateManyDataInput {
+  name: String
+}
+
+input CategoryUpdateManyMutationInput {
+  name: String
+}
+
+input CategoryUpdateManyWithoutEventsInput {
+  connect: [CategoryWhereUniqueInput!]
+  create: [CategoryCreateWithoutEventsInput!]
+  delete: [CategoryWhereUniqueInput!]
+  deleteMany: [CategoryScalarWhereInput!]
+  disconnect: [CategoryWhereUniqueInput!]
+  set: [CategoryWhereUniqueInput!]
+  update: [CategoryUpdateWithWhereUniqueWithoutEventsInput!]
+  updateMany: [CategoryUpdateManyWithWhereNestedInput!]
+  upsert: [CategoryUpsertWithWhereUniqueWithoutEventsInput!]
+}
+
+input CategoryUpdateManyWithWhereNestedInput {
+  data: CategoryUpdateManyDataInput!
+  where: CategoryScalarWhereInput!
+}
+
+input CategoryUpdateWithoutEventsDataInput {
+  name: String
+}
+
+input CategoryUpdateWithWhereUniqueWithoutEventsInput {
+  data: CategoryUpdateWithoutEventsDataInput!
+  where: CategoryWhereUniqueInput!
+}
+
+input CategoryUpsertWithWhereUniqueWithoutEventsInput {
+  create: CategoryCreateWithoutEventsInput!
+  update: CategoryUpdateWithoutEventsDataInput!
+  where: CategoryWhereUniqueInput!
+}
+
+input CategoryWhereInput {
+  AND: [CategoryWhereInput!]
+  events_every: EventWhereInput
+  events_none: EventWhereInput
+  events_some: EventWhereInput
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [CategoryWhereInput!]
+  OR: [CategoryWhereInput!]
+}
+
+input CategoryWhereUniqueInput {
+  id: ID
+}
+
 scalar DateTime
 
 type Event {
+  categories(after: String, before: String, first: Int, last: Int, orderBy: CategoryOrderByInput, skip: Int, where: CategoryWhereInput): [Category!]
   date: DateTime
   description: String
   href: String
@@ -50,6 +221,7 @@ type EventConnection {
 }
 
 input EventCreateInput {
+  categories: CategoryCreateManyWithoutEventsInput
   date: DateTime
   description: String
   href: String
@@ -59,9 +231,9 @@ input EventCreateInput {
   title: String
 }
 
-input EventCreateManyInput {
+input EventCreateManyWithoutCategoriesInput {
   connect: [EventWhereUniqueInput!]
-  create: [EventCreateInput!]
+  create: [EventCreateWithoutCategoriesInput!]
 }
 
 input EventCreateOneWithoutIndicationsInput {
@@ -69,7 +241,18 @@ input EventCreateOneWithoutIndicationsInput {
   create: EventCreateWithoutIndicationsInput
 }
 
+input EventCreateWithoutCategoriesInput {
+  date: DateTime
+  description: String
+  href: String
+  indications: IndicationCreateManyWithoutEventInput
+  read: Boolean
+  source: String
+  title: String
+}
+
 input EventCreateWithoutIndicationsInput {
+  categories: CategoryCreateManyWithoutEventsInput
   date: DateTime
   description: String
   href: String
@@ -190,17 +373,8 @@ input EventScalarWhereInput {
   title_starts_with: String
 }
 
-input EventUpdateDataInput {
-  date: DateTime
-  description: String
-  href: String
-  indications: IndicationUpdateManyWithoutEventInput
-  read: Boolean
-  source: String
-  title: String
-}
-
 input EventUpdateInput {
+  categories: CategoryUpdateManyWithoutEventsInput
   date: DateTime
   description: String
   href: String
@@ -219,18 +393,6 @@ input EventUpdateManyDataInput {
   title: String
 }
 
-input EventUpdateManyInput {
-  connect: [EventWhereUniqueInput!]
-  create: [EventCreateInput!]
-  delete: [EventWhereUniqueInput!]
-  deleteMany: [EventScalarWhereInput!]
-  disconnect: [EventWhereUniqueInput!]
-  set: [EventWhereUniqueInput!]
-  update: [EventUpdateWithWhereUniqueNestedInput!]
-  updateMany: [EventUpdateManyWithWhereNestedInput!]
-  upsert: [EventUpsertWithWhereUniqueNestedInput!]
-}
-
 input EventUpdateManyMutationInput {
   date: DateTime
   description: String
@@ -238,6 +400,18 @@ input EventUpdateManyMutationInput {
   read: Boolean
   source: String
   title: String
+}
+
+input EventUpdateManyWithoutCategoriesInput {
+  connect: [EventWhereUniqueInput!]
+  create: [EventCreateWithoutCategoriesInput!]
+  delete: [EventWhereUniqueInput!]
+  deleteMany: [EventScalarWhereInput!]
+  disconnect: [EventWhereUniqueInput!]
+  set: [EventWhereUniqueInput!]
+  update: [EventUpdateWithWhereUniqueWithoutCategoriesInput!]
+  updateMany: [EventUpdateManyWithWhereNestedInput!]
+  upsert: [EventUpsertWithWhereUniqueWithoutCategoriesInput!]
 }
 
 input EventUpdateManyWithWhereNestedInput {
@@ -252,7 +426,18 @@ input EventUpdateOneRequiredWithoutIndicationsInput {
   upsert: EventUpsertWithoutIndicationsInput
 }
 
+input EventUpdateWithoutCategoriesDataInput {
+  date: DateTime
+  description: String
+  href: String
+  indications: IndicationUpdateManyWithoutEventInput
+  read: Boolean
+  source: String
+  title: String
+}
+
 input EventUpdateWithoutIndicationsDataInput {
+  categories: CategoryUpdateManyWithoutEventsInput
   date: DateTime
   description: String
   href: String
@@ -261,8 +446,8 @@ input EventUpdateWithoutIndicationsDataInput {
   title: String
 }
 
-input EventUpdateWithWhereUniqueNestedInput {
-  data: EventUpdateDataInput!
+input EventUpdateWithWhereUniqueWithoutCategoriesInput {
+  data: EventUpdateWithoutCategoriesDataInput!
   where: EventWhereUniqueInput!
 }
 
@@ -271,14 +456,17 @@ input EventUpsertWithoutIndicationsInput {
   update: EventUpdateWithoutIndicationsDataInput!
 }
 
-input EventUpsertWithWhereUniqueNestedInput {
-  create: EventCreateInput!
-  update: EventUpdateDataInput!
+input EventUpsertWithWhereUniqueWithoutCategoriesInput {
+  create: EventCreateWithoutCategoriesInput!
+  update: EventUpdateWithoutCategoriesDataInput!
   where: EventWhereUniqueInput!
 }
 
 input EventWhereInput {
   AND: [EventWhereInput!]
+  categories_every: CategoryWhereInput
+  categories_none: CategoryWhereInput
+  categories_some: CategoryWhereInput
   date: DateTime
   date_gt: DateTime
   date_gte: DateTime
@@ -375,8 +563,7 @@ type Indication {
   event: Event!
   id: ID!
   indicator: Indicator!
-  meaning: String
-  strength: Int
+  strength: Strength!
   updatedAt: DateTime!
 }
 
@@ -389,8 +576,7 @@ type IndicationConnection {
 input IndicationCreateInput {
   event: EventCreateOneWithoutIndicationsInput!
   indicator: IndicatorCreateOneInput!
-  meaning: String
-  strength: Int
+  strength: StrengthCreateOneInput!
 }
 
 input IndicationCreateManyWithoutEventInput {
@@ -400,8 +586,7 @@ input IndicationCreateManyWithoutEventInput {
 
 input IndicationCreateWithoutEventInput {
   indicator: IndicatorCreateOneInput!
-  meaning: String
-  strength: Int
+  strength: StrengthCreateOneInput!
 }
 
 type IndicationEdge {
@@ -414,10 +599,6 @@ enum IndicationOrderByInput {
   createdAt_DESC
   id_ASC
   id_DESC
-  meaning_ASC
-  meaning_DESC
-  strength_ASC
-  strength_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
@@ -446,30 +627,8 @@ input IndicationScalarWhereInput {
   id_not_in: [ID!]
   id_not_starts_with: ID
   id_starts_with: ID
-  meaning: String
-  meaning_contains: String
-  meaning_ends_with: String
-  meaning_gt: String
-  meaning_gte: String
-  meaning_in: [String!]
-  meaning_lt: String
-  meaning_lte: String
-  meaning_not: String
-  meaning_not_contains: String
-  meaning_not_ends_with: String
-  meaning_not_in: [String!]
-  meaning_not_starts_with: String
-  meaning_starts_with: String
   NOT: [IndicationScalarWhereInput!]
   OR: [IndicationScalarWhereInput!]
-  strength: Int
-  strength_gt: Int
-  strength_gte: Int
-  strength_in: [Int!]
-  strength_lt: Int
-  strength_lte: Int
-  strength_not: Int
-  strength_not_in: [Int!]
   updatedAt: DateTime
   updatedAt_gt: DateTime
   updatedAt_gte: DateTime
@@ -483,18 +642,7 @@ input IndicationScalarWhereInput {
 input IndicationUpdateInput {
   event: EventUpdateOneRequiredWithoutIndicationsInput
   indicator: IndicatorUpdateOneRequiredInput
-  meaning: String
-  strength: Int
-}
-
-input IndicationUpdateManyDataInput {
-  meaning: String
-  strength: Int
-}
-
-input IndicationUpdateManyMutationInput {
-  meaning: String
-  strength: Int
+  strength: StrengthUpdateOneRequiredInput
 }
 
 input IndicationUpdateManyWithoutEventInput {
@@ -505,19 +653,12 @@ input IndicationUpdateManyWithoutEventInput {
   disconnect: [IndicationWhereUniqueInput!]
   set: [IndicationWhereUniqueInput!]
   update: [IndicationUpdateWithWhereUniqueWithoutEventInput!]
-  updateMany: [IndicationUpdateManyWithWhereNestedInput!]
   upsert: [IndicationUpsertWithWhereUniqueWithoutEventInput!]
-}
-
-input IndicationUpdateManyWithWhereNestedInput {
-  data: IndicationUpdateManyDataInput!
-  where: IndicationScalarWhereInput!
 }
 
 input IndicationUpdateWithoutEventDataInput {
   indicator: IndicatorUpdateOneRequiredInput
-  meaning: String
-  strength: Int
+  strength: StrengthUpdateOneRequiredInput
 }
 
 input IndicationUpdateWithWhereUniqueWithoutEventInput {
@@ -557,30 +698,9 @@ input IndicationWhereInput {
   id_not_starts_with: ID
   id_starts_with: ID
   indicator: IndicatorWhereInput
-  meaning: String
-  meaning_contains: String
-  meaning_ends_with: String
-  meaning_gt: String
-  meaning_gte: String
-  meaning_in: [String!]
-  meaning_lt: String
-  meaning_lte: String
-  meaning_not: String
-  meaning_not_contains: String
-  meaning_not_ends_with: String
-  meaning_not_in: [String!]
-  meaning_not_starts_with: String
-  meaning_starts_with: String
   NOT: [IndicationWhereInput!]
   OR: [IndicationWhereInput!]
-  strength: Int
-  strength_gt: Int
-  strength_gte: Int
-  strength_in: [Int!]
-  strength_lt: Int
-  strength_lte: Int
-  strength_not: Int
-  strength_not_in: [Int!]
+  strength: StrengthWhereInput
   updatedAt: DateTime
   updatedAt_gt: DateTime
   updatedAt_gte: DateTime
@@ -611,9 +731,14 @@ type IndicatorConnection {
 
 input IndicatorCreateInput {
   description: String
-  keywords: KeywordCreateManyInput
+  keywords: KeywordCreateManyWithoutIndicatorsInput
   name: String
   scenarios: ScenarioCreateManyWithoutIndicatorsInput
+}
+
+input IndicatorCreateManyWithoutKeywordsInput {
+  connect: [IndicatorWhereUniqueInput!]
+  create: [IndicatorCreateWithoutKeywordsInput!]
 }
 
 input IndicatorCreateManyWithoutScenariosInput {
@@ -626,9 +751,15 @@ input IndicatorCreateOneInput {
   create: IndicatorCreateInput
 }
 
+input IndicatorCreateWithoutKeywordsInput {
+  description: String
+  name: String
+  scenarios: ScenarioCreateManyWithoutIndicatorsInput
+}
+
 input IndicatorCreateWithoutScenariosInput {
   description: String
-  keywords: KeywordCreateManyInput
+  keywords: KeywordCreateManyWithoutIndicatorsInput
   name: String
 }
 
@@ -700,14 +831,14 @@ input IndicatorScalarWhereInput {
 
 input IndicatorUpdateDataInput {
   description: String
-  keywords: KeywordUpdateManyInput
+  keywords: KeywordUpdateManyWithoutIndicatorsInput
   name: String
   scenarios: ScenarioUpdateManyWithoutIndicatorsInput
 }
 
 input IndicatorUpdateInput {
   description: String
-  keywords: KeywordUpdateManyInput
+  keywords: KeywordUpdateManyWithoutIndicatorsInput
   name: String
   scenarios: ScenarioUpdateManyWithoutIndicatorsInput
 }
@@ -720,6 +851,18 @@ input IndicatorUpdateManyDataInput {
 input IndicatorUpdateManyMutationInput {
   description: String
   name: String
+}
+
+input IndicatorUpdateManyWithoutKeywordsInput {
+  connect: [IndicatorWhereUniqueInput!]
+  create: [IndicatorCreateWithoutKeywordsInput!]
+  delete: [IndicatorWhereUniqueInput!]
+  deleteMany: [IndicatorScalarWhereInput!]
+  disconnect: [IndicatorWhereUniqueInput!]
+  set: [IndicatorWhereUniqueInput!]
+  update: [IndicatorUpdateWithWhereUniqueWithoutKeywordsInput!]
+  updateMany: [IndicatorUpdateManyWithWhereNestedInput!]
+  upsert: [IndicatorUpsertWithWhereUniqueWithoutKeywordsInput!]
 }
 
 input IndicatorUpdateManyWithoutScenariosInput {
@@ -746,10 +889,21 @@ input IndicatorUpdateOneRequiredInput {
   upsert: IndicatorUpsertNestedInput
 }
 
+input IndicatorUpdateWithoutKeywordsDataInput {
+  description: String
+  name: String
+  scenarios: ScenarioUpdateManyWithoutIndicatorsInput
+}
+
 input IndicatorUpdateWithoutScenariosDataInput {
   description: String
-  keywords: KeywordUpdateManyInput
+  keywords: KeywordUpdateManyWithoutIndicatorsInput
   name: String
+}
+
+input IndicatorUpdateWithWhereUniqueWithoutKeywordsInput {
+  data: IndicatorUpdateWithoutKeywordsDataInput!
+  where: IndicatorWhereUniqueInput!
 }
 
 input IndicatorUpdateWithWhereUniqueWithoutScenariosInput {
@@ -760,6 +914,12 @@ input IndicatorUpdateWithWhereUniqueWithoutScenariosInput {
 input IndicatorUpsertNestedInput {
   create: IndicatorCreateInput!
   update: IndicatorUpdateDataInput!
+}
+
+input IndicatorUpsertWithWhereUniqueWithoutKeywordsInput {
+  create: IndicatorCreateWithoutKeywordsInput!
+  update: IndicatorUpdateWithoutKeywordsDataInput!
+  where: IndicatorWhereUniqueInput!
 }
 
 input IndicatorUpsertWithWhereUniqueWithoutScenariosInput {
@@ -828,8 +988,8 @@ input IndicatorWhereUniqueInput {
 
 type Keyword {
   description: String
-  events(after: String, before: String, first: Int, last: Int, orderBy: EventOrderByInput, skip: Int, where: EventWhereInput): [Event!]
   id: ID!
+  indicators(after: String, before: String, first: Int, last: Int, orderBy: IndicatorOrderByInput, skip: Int, where: IndicatorWhereInput): [Indicator!]
   name: String
 }
 
@@ -841,13 +1001,18 @@ type KeywordConnection {
 
 input KeywordCreateInput {
   description: String
-  events: EventCreateManyInput
+  indicators: IndicatorCreateManyWithoutKeywordsInput
   name: String
 }
 
-input KeywordCreateManyInput {
+input KeywordCreateManyWithoutIndicatorsInput {
   connect: [KeywordWhereUniqueInput!]
-  create: [KeywordCreateInput!]
+  create: [KeywordCreateWithoutIndicatorsInput!]
+}
+
+input KeywordCreateWithoutIndicatorsInput {
+  description: String
+  name: String
 }
 
 type KeywordEdge {
@@ -916,15 +1081,9 @@ input KeywordScalarWhereInput {
   OR: [KeywordScalarWhereInput!]
 }
 
-input KeywordUpdateDataInput {
-  description: String
-  events: EventUpdateManyInput
-  name: String
-}
-
 input KeywordUpdateInput {
   description: String
-  events: EventUpdateManyInput
+  indicators: IndicatorUpdateManyWithoutKeywordsInput
   name: String
 }
 
@@ -933,21 +1092,21 @@ input KeywordUpdateManyDataInput {
   name: String
 }
 
-input KeywordUpdateManyInput {
+input KeywordUpdateManyMutationInput {
+  description: String
+  name: String
+}
+
+input KeywordUpdateManyWithoutIndicatorsInput {
   connect: [KeywordWhereUniqueInput!]
-  create: [KeywordCreateInput!]
+  create: [KeywordCreateWithoutIndicatorsInput!]
   delete: [KeywordWhereUniqueInput!]
   deleteMany: [KeywordScalarWhereInput!]
   disconnect: [KeywordWhereUniqueInput!]
   set: [KeywordWhereUniqueInput!]
-  update: [KeywordUpdateWithWhereUniqueNestedInput!]
+  update: [KeywordUpdateWithWhereUniqueWithoutIndicatorsInput!]
   updateMany: [KeywordUpdateManyWithWhereNestedInput!]
-  upsert: [KeywordUpsertWithWhereUniqueNestedInput!]
-}
-
-input KeywordUpdateManyMutationInput {
-  description: String
-  name: String
+  upsert: [KeywordUpsertWithWhereUniqueWithoutIndicatorsInput!]
 }
 
 input KeywordUpdateManyWithWhereNestedInput {
@@ -955,14 +1114,19 @@ input KeywordUpdateManyWithWhereNestedInput {
   where: KeywordScalarWhereInput!
 }
 
-input KeywordUpdateWithWhereUniqueNestedInput {
-  data: KeywordUpdateDataInput!
+input KeywordUpdateWithoutIndicatorsDataInput {
+  description: String
+  name: String
+}
+
+input KeywordUpdateWithWhereUniqueWithoutIndicatorsInput {
+  data: KeywordUpdateWithoutIndicatorsDataInput!
   where: KeywordWhereUniqueInput!
 }
 
-input KeywordUpsertWithWhereUniqueNestedInput {
-  create: KeywordCreateInput!
-  update: KeywordUpdateDataInput!
+input KeywordUpsertWithWhereUniqueWithoutIndicatorsInput {
+  create: KeywordCreateWithoutIndicatorsInput!
+  update: KeywordUpdateWithoutIndicatorsDataInput!
   where: KeywordWhereUniqueInput!
 }
 
@@ -982,9 +1146,6 @@ input KeywordWhereInput {
   description_not_in: [String!]
   description_not_starts_with: String
   description_starts_with: String
-  events_every: EventWhereInput
-  events_none: EventWhereInput
-  events_some: EventWhereInput
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -999,6 +1160,9 @@ input KeywordWhereInput {
   id_not_in: [ID!]
   id_not_starts_with: ID
   id_starts_with: ID
+  indicators_every: IndicatorWhereInput
+  indicators_none: IndicatorWhereInput
+  indicators_some: IndicatorWhereInput
   name: String
   name_contains: String
   name_ends_with: String
@@ -1024,41 +1188,52 @@ input KeywordWhereUniqueInput {
 scalar Long
 
 type Mutation {
+  createCategory(data: CategoryCreateInput!): Category!
   createEvent(data: EventCreateInput!): Event!
   createIndication(data: IndicationCreateInput!): Indication!
   createIndicator(data: IndicatorCreateInput!): Indicator!
   createKeyword(data: KeywordCreateInput!): Keyword!
   createScenario(data: ScenarioCreateInput!): Scenario!
+  createStrength(data: StrengthCreateInput!): Strength!
   createUser(data: UserCreateInput!): User!
+  deleteCategory(where: CategoryWhereUniqueInput!): Category
   deleteEvent(where: EventWhereUniqueInput!): Event
   deleteIndication(where: IndicationWhereUniqueInput!): Indication
   deleteIndicator(where: IndicatorWhereUniqueInput!): Indicator
   deleteKeyword(where: KeywordWhereUniqueInput!): Keyword
+  deleteManyCategories(where: CategoryWhereInput): BatchPayload!
   deleteManyEvents(where: EventWhereInput): BatchPayload!
   deleteManyIndications(where: IndicationWhereInput): BatchPayload!
   deleteManyIndicators(where: IndicatorWhereInput): BatchPayload!
   deleteManyKeywords(where: KeywordWhereInput): BatchPayload!
   deleteManyScenarios(where: ScenarioWhereInput): BatchPayload!
+  deleteManyStrengths(where: StrengthWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
   deleteScenario(where: ScenarioWhereUniqueInput!): Scenario
+  deleteStrength(where: StrengthWhereUniqueInput!): Strength
   deleteUser(where: UserWhereUniqueInput!): User
+  updateCategory(data: CategoryUpdateInput!, where: CategoryWhereUniqueInput!): Category
   updateEvent(data: EventUpdateInput!, where: EventWhereUniqueInput!): Event
   updateIndication(data: IndicationUpdateInput!, where: IndicationWhereUniqueInput!): Indication
   updateIndicator(data: IndicatorUpdateInput!, where: IndicatorWhereUniqueInput!): Indicator
   updateKeyword(data: KeywordUpdateInput!, where: KeywordWhereUniqueInput!): Keyword
+  updateManyCategories(data: CategoryUpdateManyMutationInput!, where: CategoryWhereInput): BatchPayload!
   updateManyEvents(data: EventUpdateManyMutationInput!, where: EventWhereInput): BatchPayload!
-  updateManyIndications(data: IndicationUpdateManyMutationInput!, where: IndicationWhereInput): BatchPayload!
   updateManyIndicators(data: IndicatorUpdateManyMutationInput!, where: IndicatorWhereInput): BatchPayload!
   updateManyKeywords(data: KeywordUpdateManyMutationInput!, where: KeywordWhereInput): BatchPayload!
   updateManyScenarios(data: ScenarioUpdateManyMutationInput!, where: ScenarioWhereInput): BatchPayload!
+  updateManyStrengths(data: StrengthUpdateManyMutationInput!, where: StrengthWhereInput): BatchPayload!
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
   updateScenario(data: ScenarioUpdateInput!, where: ScenarioWhereUniqueInput!): Scenario
+  updateStrength(data: StrengthUpdateInput!, where: StrengthWhereUniqueInput!): Strength
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  upsertCategory(create: CategoryCreateInput!, update: CategoryUpdateInput!, where: CategoryWhereUniqueInput!): Category!
   upsertEvent(create: EventCreateInput!, update: EventUpdateInput!, where: EventWhereUniqueInput!): Event!
   upsertIndication(create: IndicationCreateInput!, update: IndicationUpdateInput!, where: IndicationWhereUniqueInput!): Indication!
   upsertIndicator(create: IndicatorCreateInput!, update: IndicatorUpdateInput!, where: IndicatorWhereUniqueInput!): Indicator!
   upsertKeyword(create: KeywordCreateInput!, update: KeywordUpdateInput!, where: KeywordWhereUniqueInput!): Keyword!
   upsertScenario(create: ScenarioCreateInput!, update: ScenarioUpdateInput!, where: ScenarioWhereUniqueInput!): Scenario!
+  upsertStrength(create: StrengthCreateInput!, update: StrengthUpdateInput!, where: StrengthWhereUniqueInput!): Strength!
   upsertUser(create: UserCreateInput!, update: UserUpdateInput!, where: UserWhereUniqueInput!): User!
 }
 
@@ -1070,6 +1245,9 @@ type PageInfo {
 }
 
 type Query {
+  categories(after: String, before: String, first: Int, last: Int, orderBy: CategoryOrderByInput, skip: Int, where: CategoryWhereInput): [Category!]!
+  categoriesConnection(after: String, before: String, first: Int, last: Int, orderBy: CategoryOrderByInput, skip: Int, where: CategoryWhereInput): CategoryConnection!
+  category(where: CategoryWhereUniqueInput!): Category
   event(where: EventWhereUniqueInput!): Event
   events(after: String, before: String, first: Int, last: Int, orderBy: EventOrderByInput, skip: Int, where: EventWhereInput): [Event!]!
   eventsConnection(after: String, before: String, first: Int, last: Int, orderBy: EventOrderByInput, skip: Int, where: EventWhereInput): EventConnection!
@@ -1085,6 +1263,9 @@ type Query {
   scenario(where: ScenarioWhereUniqueInput!): Scenario
   scenarios(after: String, before: String, first: Int, last: Int, orderBy: ScenarioOrderByInput, skip: Int, where: ScenarioWhereInput): [Scenario!]!
   scenariosConnection(after: String, before: String, first: Int, last: Int, orderBy: ScenarioOrderByInput, skip: Int, where: ScenarioWhereInput): ScenarioConnection!
+  strength(where: StrengthWhereUniqueInput!): Strength
+  strengths(after: String, before: String, first: Int, last: Int, orderBy: StrengthOrderByInput, skip: Int, where: StrengthWhereInput): [Strength!]!
+  strengthsConnection(after: String, before: String, first: Int, last: Int, orderBy: StrengthOrderByInput, skip: Int, where: StrengthWhereInput): StrengthConnection!
   user(where: UserWhereUniqueInput!): User
   users(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): [User!]!
   usersConnection(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): UserConnection!
@@ -1286,6 +1467,119 @@ input ScenarioWhereInput {
 }
 
 input ScenarioWhereUniqueInput {
+  id: ID
+}
+
+type Strength {
+  id: ID!
+  meaning: String
+  strength: Int
+}
+
+type StrengthConnection {
+  aggregate: AggregateStrength!
+  edges: [StrengthEdge!]!
+  pageInfo: PageInfo!
+}
+
+input StrengthCreateInput {
+  meaning: String
+  strength: Int
+}
+
+input StrengthCreateOneInput {
+  connect: StrengthWhereUniqueInput
+  create: StrengthCreateInput
+}
+
+type StrengthEdge {
+  cursor: String!
+  node: Strength!
+}
+
+enum StrengthOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  meaning_ASC
+  meaning_DESC
+  strength_ASC
+  strength_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input StrengthUpdateDataInput {
+  meaning: String
+  strength: Int
+}
+
+input StrengthUpdateInput {
+  meaning: String
+  strength: Int
+}
+
+input StrengthUpdateManyMutationInput {
+  meaning: String
+  strength: Int
+}
+
+input StrengthUpdateOneRequiredInput {
+  connect: StrengthWhereUniqueInput
+  create: StrengthCreateInput
+  update: StrengthUpdateDataInput
+  upsert: StrengthUpsertNestedInput
+}
+
+input StrengthUpsertNestedInput {
+  create: StrengthCreateInput!
+  update: StrengthUpdateDataInput!
+}
+
+input StrengthWhereInput {
+  AND: [StrengthWhereInput!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  meaning: String
+  meaning_contains: String
+  meaning_ends_with: String
+  meaning_gt: String
+  meaning_gte: String
+  meaning_in: [String!]
+  meaning_lt: String
+  meaning_lte: String
+  meaning_not: String
+  meaning_not_contains: String
+  meaning_not_ends_with: String
+  meaning_not_in: [String!]
+  meaning_not_starts_with: String
+  meaning_starts_with: String
+  NOT: [StrengthWhereInput!]
+  OR: [StrengthWhereInput!]
+  strength: Int
+  strength_gt: Int
+  strength_gte: Int
+  strength_in: [Int!]
+  strength_lt: Int
+  strength_lte: Int
+  strength_not: Int
+  strength_not_in: [Int!]
+}
+
+input StrengthWhereUniqueInput {
   id: ID
 }
 

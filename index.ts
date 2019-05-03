@@ -7,7 +7,7 @@ import { checkForArticles } from './sources/articles'
 
 const oneHour = 1000 * 60 * 60
 
-checkForArticles()
+//checkForArticles()
 
 setInterval(checkForArticles, oneHour)
 
@@ -44,7 +44,7 @@ const resolvers = {
 
 
 
-const server = new GraphQLServer({ typeDefs, resolvers })
+const server = new GraphQLServer({ typeDefs, resolvers, mocks })
 server.start(() => {
    
    console.log('Server started')
