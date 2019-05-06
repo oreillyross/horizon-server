@@ -2,11 +2,20 @@ import dailyStarSources  from './dailystar'
 import naharnetSources from './naharnet'
 import nnaSources from './nna'
 
+type Article = {
+     title: String,
+     description: String,
+     source: String,
+     href: String,
+     date: Date
+}
+
+
 async function getArticlesFromWeb() {
     
-    let dailyStarArticles = []
-    let nnaArticles = []
-    let naharnetArticles = []
+    let dailyStarArticles:Array<Article> 
+    let nnaArticles:Array<Article> 
+    let naharnetArticles: any 
     
     console.log('Checking for articles...')
     try {

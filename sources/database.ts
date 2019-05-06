@@ -16,4 +16,3 @@ export async function getArticlesForADay(date: Date) {
     return articles
 }
 
-export { getArticlesForADay }

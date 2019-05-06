@@ -1,52 +1,45 @@
+import * as path from 'path'
 import { GraphQLServer } from 'graphql-yoga'
-import DateTime from '@okgrow/graphql-scalars'
-import * as fs from 'fs'
-import * as uuidv4 from 'uuid/v4'
-import * as mymod from './sources/articles'
-import { checkForArticles } from './sources/articles'
+import { makePrismaSchema, prismaObjectType } from 'nexus-prisma'
+import { prisma } from './generated/prisma-client'
+import datamodelInfo from './generated/nexus-prisma'
+import { main } from './sources/import'
+
+
+const Query = prismaObjectType({
+  name: 'Query',
+  definition: (t) => t.prismaFields(['*'])
+})
+const Mutation = prismaObjectType({
+  name: 'Mutation',
+  definition: (t) => t.prismaFields(['*'])
+})
+
+const schema = makePrismaSchema({
+  types: [Query, Mutation],
+
+  prisma: {
+    datamodelInfo,
+    client: prisma
+  },
+
+  outputs: {
+    schema: path.join(__dirname, './generated/schema.graphql'),
+    typegen: path.join(__dirname, './generated/nexus.ts'),
+  },
+})
+
+const server = new GraphQLServer({
+  schema,
+  context: { prisma }
+})
 
 const oneHour = 1000 * 60 * 60
 
-//checkForArticles()
-
-setInterval(checkForArticles, oneHour)
-
-let articlesJson = JSON.parse(fs.readFileSync('./sources/articlesForHorizon.json'))
-
-articlesJson.forEach(o => o.id = uuidv4())
-
-const typeDefs = `
-   
-  scalar DateTime
-   
-  type Articles {
-      date: DateTime
-      title: String
-      description: String
-      href: String
-      id: String
-      
-  }
-   
-  type Query {
-     articles: [Articles!]!
-  }
- `
-
-
-
-const resolvers = {
-  DateTime,
-  Query: {
-    articles: (parent, args, context, info) => articlesJson
-  },
-}
-
-
-
-const server = new GraphQLServer({ typeDefs, resolvers, mocks })
 server.start(() => {
-   
-   console.log('Server started')
+  
+  console.log(`Server running`)
+  
+  main()
+  
 })
-

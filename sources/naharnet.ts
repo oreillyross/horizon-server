@@ -22,14 +22,14 @@ const getMainSources = async (url: string) => {
     try {
         const response = await fetch(url)
         const html = await response.text().catch((err) => console.error('got you',err))
-        const $ = cheerio.load(html)
-        $('.latest-story a.title').each(function(i, elem) {
+        const $ = cheerio.load(html as any as CheerioElement)
+        $('.latest-story a.title').each(function(i) {
             sources[i] = { 'title': ($(this).text()) }
         })
-        $('.latest-story').each(function(i, elem) {
+        $('.latest-story').each(function(i) {
             description[i] = { 'description': $(this).children('p').eq(1).text() }
         })
-        $('.latest-story a.title').each(function(i, elem) {
+        $('.latest-story a.title').each(function(i) {
             href[i] = ({ 'href': `http://naharnet.com` + $(this).attr('href') })
         })
     }

@@ -10,7 +10,7 @@ const getMainSources = async url => {
         const html = await response.text()
         let $ = cheerio.load(html)
         $('.bannerfeatured-content a')
-            .each(function(i, elem) {
+            .each(function() {
                 let href = $(this).attr('href')
                 sources.push(href)
             })
