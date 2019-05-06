@@ -39,9 +39,11 @@ type BatchPayload {
 }
 
 type Category {
+  createdAt: DateTime!
   events(after: String, before: String, first: Int, last: Int, orderBy: EventOrderByInput, skip: Int, where: EventWhereInput): [Event!]
   id: ID!
   name: String!
+  updatedAt: DateTime!
 }
 
 type CategoryConnection {
@@ -52,6 +54,7 @@ type CategoryConnection {
 
 input CategoryCreateInput {
   events: EventCreateManyWithoutCategoriesInput
+  id: ID
   name: String!
 }
 
@@ -61,6 +64,7 @@ input CategoryCreateManyWithoutEventsInput {
 }
 
 input CategoryCreateWithoutEventsInput {
+  id: ID
   name: String!
 }
 
@@ -82,6 +86,14 @@ enum CategoryOrderByInput {
 
 input CategoryScalarWhereInput {
   AND: [CategoryScalarWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -112,6 +124,14 @@ input CategoryScalarWhereInput {
   name_starts_with: String
   NOT: [CategoryScalarWhereInput!]
   OR: [CategoryScalarWhereInput!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 input CategoryUpdateInput {
@@ -161,6 +181,14 @@ input CategoryUpsertWithWhereUniqueWithoutEventsInput {
 
 input CategoryWhereInput {
   AND: [CategoryWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   events_every: EventWhereInput
   events_none: EventWhereInput
   events_some: EventWhereInput
@@ -194,16 +222,26 @@ input CategoryWhereInput {
   name_starts_with: String
   NOT: [CategoryWhereInput!]
   OR: [CategoryWhereInput!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 input CategoryWhereUniqueInput {
   id: ID
+  name: String
 }
 
 scalar DateTime
 
 type Event {
   categories(after: String, before: String, first: Int, last: Int, orderBy: CategoryOrderByInput, skip: Int, where: CategoryWhereInput): [Category!]
+  createdAt: DateTime!
   date: DateTime
   description: String
   href: String
@@ -212,6 +250,7 @@ type Event {
   read: Boolean
   source: String
   title: String
+  updatedAt: DateTime!
 }
 
 type EventConnection {
@@ -225,6 +264,7 @@ input EventCreateInput {
   date: DateTime
   description: String
   href: String
+  id: ID
   indications: IndicationCreateManyWithoutEventInput
   read: Boolean
   source: String
@@ -245,6 +285,7 @@ input EventCreateWithoutCategoriesInput {
   date: DateTime
   description: String
   href: String
+  id: ID
   indications: IndicationCreateManyWithoutEventInput
   read: Boolean
   source: String
@@ -256,6 +297,7 @@ input EventCreateWithoutIndicationsInput {
   date: DateTime
   description: String
   href: String
+  id: ID
   read: Boolean
   source: String
   title: String
@@ -289,6 +331,14 @@ enum EventOrderByInput {
 
 input EventScalarWhereInput {
   AND: [EventScalarWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   date: DateTime
   date_gt: DateTime
   date_gte: DateTime
@@ -371,6 +421,14 @@ input EventScalarWhereInput {
   title_not_in: [String!]
   title_not_starts_with: String
   title_starts_with: String
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 input EventUpdateInput {
@@ -467,6 +525,14 @@ input EventWhereInput {
   categories_every: CategoryWhereInput
   categories_none: CategoryWhereInput
   categories_some: CategoryWhereInput
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   date: DateTime
   date_gt: DateTime
   date_gte: DateTime
@@ -552,10 +618,19 @@ input EventWhereInput {
   title_not_in: [String!]
   title_not_starts_with: String
   title_starts_with: String
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 input EventWhereUniqueInput {
   id: ID
+  title: String
 }
 
 type Indication {
@@ -575,6 +650,7 @@ type IndicationConnection {
 
 input IndicationCreateInput {
   event: EventCreateOneWithoutIndicationsInput!
+  id: ID
   indicator: IndicatorCreateOneInput!
   strength: StrengthCreateOneInput!
 }
@@ -585,6 +661,7 @@ input IndicationCreateManyWithoutEventInput {
 }
 
 input IndicationCreateWithoutEventInput {
+  id: ID
   indicator: IndicatorCreateOneInput!
   strength: StrengthCreateOneInput!
 }
@@ -716,11 +793,13 @@ input IndicationWhereUniqueInput {
 }
 
 type Indicator {
+  createdAt: DateTime!
   description: String
   id: ID!
   keywords(after: String, before: String, first: Int, last: Int, orderBy: KeywordOrderByInput, skip: Int, where: KeywordWhereInput): [Keyword!]
   name: String
   scenarios(after: String, before: String, first: Int, last: Int, orderBy: ScenarioOrderByInput, skip: Int, where: ScenarioWhereInput): [Scenario!]
+  updatedAt: DateTime!
 }
 
 type IndicatorConnection {
@@ -731,14 +810,10 @@ type IndicatorConnection {
 
 input IndicatorCreateInput {
   description: String
-  keywords: KeywordCreateManyWithoutIndicatorsInput
+  id: ID
+  keywords: KeywordCreateManyInput
   name: String
   scenarios: ScenarioCreateManyWithoutIndicatorsInput
-}
-
-input IndicatorCreateManyWithoutKeywordsInput {
-  connect: [IndicatorWhereUniqueInput!]
-  create: [IndicatorCreateWithoutKeywordsInput!]
 }
 
 input IndicatorCreateManyWithoutScenariosInput {
@@ -751,15 +826,10 @@ input IndicatorCreateOneInput {
   create: IndicatorCreateInput
 }
 
-input IndicatorCreateWithoutKeywordsInput {
-  description: String
-  name: String
-  scenarios: ScenarioCreateManyWithoutIndicatorsInput
-}
-
 input IndicatorCreateWithoutScenariosInput {
   description: String
-  keywords: KeywordCreateManyWithoutIndicatorsInput
+  id: ID
+  keywords: KeywordCreateManyInput
   name: String
 }
 
@@ -783,6 +853,14 @@ enum IndicatorOrderByInput {
 
 input IndicatorScalarWhereInput {
   AND: [IndicatorScalarWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   description: String
   description_contains: String
   description_ends_with: String
@@ -827,18 +905,26 @@ input IndicatorScalarWhereInput {
   name_starts_with: String
   NOT: [IndicatorScalarWhereInput!]
   OR: [IndicatorScalarWhereInput!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 input IndicatorUpdateDataInput {
   description: String
-  keywords: KeywordUpdateManyWithoutIndicatorsInput
+  keywords: KeywordUpdateManyInput
   name: String
   scenarios: ScenarioUpdateManyWithoutIndicatorsInput
 }
 
 input IndicatorUpdateInput {
   description: String
-  keywords: KeywordUpdateManyWithoutIndicatorsInput
+  keywords: KeywordUpdateManyInput
   name: String
   scenarios: ScenarioUpdateManyWithoutIndicatorsInput
 }
@@ -851,18 +937,6 @@ input IndicatorUpdateManyDataInput {
 input IndicatorUpdateManyMutationInput {
   description: String
   name: String
-}
-
-input IndicatorUpdateManyWithoutKeywordsInput {
-  connect: [IndicatorWhereUniqueInput!]
-  create: [IndicatorCreateWithoutKeywordsInput!]
-  delete: [IndicatorWhereUniqueInput!]
-  deleteMany: [IndicatorScalarWhereInput!]
-  disconnect: [IndicatorWhereUniqueInput!]
-  set: [IndicatorWhereUniqueInput!]
-  update: [IndicatorUpdateWithWhereUniqueWithoutKeywordsInput!]
-  updateMany: [IndicatorUpdateManyWithWhereNestedInput!]
-  upsert: [IndicatorUpsertWithWhereUniqueWithoutKeywordsInput!]
 }
 
 input IndicatorUpdateManyWithoutScenariosInput {
@@ -889,21 +963,10 @@ input IndicatorUpdateOneRequiredInput {
   upsert: IndicatorUpsertNestedInput
 }
 
-input IndicatorUpdateWithoutKeywordsDataInput {
-  description: String
-  name: String
-  scenarios: ScenarioUpdateManyWithoutIndicatorsInput
-}
-
 input IndicatorUpdateWithoutScenariosDataInput {
   description: String
-  keywords: KeywordUpdateManyWithoutIndicatorsInput
+  keywords: KeywordUpdateManyInput
   name: String
-}
-
-input IndicatorUpdateWithWhereUniqueWithoutKeywordsInput {
-  data: IndicatorUpdateWithoutKeywordsDataInput!
-  where: IndicatorWhereUniqueInput!
 }
 
 input IndicatorUpdateWithWhereUniqueWithoutScenariosInput {
@@ -916,12 +979,6 @@ input IndicatorUpsertNestedInput {
   update: IndicatorUpdateDataInput!
 }
 
-input IndicatorUpsertWithWhereUniqueWithoutKeywordsInput {
-  create: IndicatorCreateWithoutKeywordsInput!
-  update: IndicatorUpdateWithoutKeywordsDataInput!
-  where: IndicatorWhereUniqueInput!
-}
-
 input IndicatorUpsertWithWhereUniqueWithoutScenariosInput {
   create: IndicatorCreateWithoutScenariosInput!
   update: IndicatorUpdateWithoutScenariosDataInput!
@@ -930,6 +987,14 @@ input IndicatorUpsertWithWhereUniqueWithoutScenariosInput {
 
 input IndicatorWhereInput {
   AND: [IndicatorWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   description: String
   description_contains: String
   description_ends_with: String
@@ -980,17 +1045,27 @@ input IndicatorWhereInput {
   scenarios_every: ScenarioWhereInput
   scenarios_none: ScenarioWhereInput
   scenarios_some: ScenarioWhereInput
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 input IndicatorWhereUniqueInput {
   id: ID
+  name: String
 }
 
 type Keyword {
+  createdAt: DateTime!
   description: String
   id: ID!
-  indicators(after: String, before: String, first: Int, last: Int, orderBy: IndicatorOrderByInput, skip: Int, where: IndicatorWhereInput): [Indicator!]
   name: String
+  updatedAt: DateTime!
 }
 
 type KeywordConnection {
@@ -1001,18 +1076,13 @@ type KeywordConnection {
 
 input KeywordCreateInput {
   description: String
-  indicators: IndicatorCreateManyWithoutKeywordsInput
+  id: ID
   name: String
 }
 
-input KeywordCreateManyWithoutIndicatorsInput {
+input KeywordCreateManyInput {
   connect: [KeywordWhereUniqueInput!]
-  create: [KeywordCreateWithoutIndicatorsInput!]
-}
-
-input KeywordCreateWithoutIndicatorsInput {
-  description: String
-  name: String
+  create: [KeywordCreateInput!]
 }
 
 type KeywordEdge {
@@ -1035,6 +1105,14 @@ enum KeywordOrderByInput {
 
 input KeywordScalarWhereInput {
   AND: [KeywordScalarWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   description: String
   description_contains: String
   description_ends_with: String
@@ -1079,11 +1157,23 @@ input KeywordScalarWhereInput {
   name_starts_with: String
   NOT: [KeywordScalarWhereInput!]
   OR: [KeywordScalarWhereInput!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+}
+
+input KeywordUpdateDataInput {
+  description: String
+  name: String
 }
 
 input KeywordUpdateInput {
   description: String
-  indicators: IndicatorUpdateManyWithoutKeywordsInput
   name: String
 }
 
@@ -1092,21 +1182,21 @@ input KeywordUpdateManyDataInput {
   name: String
 }
 
-input KeywordUpdateManyMutationInput {
-  description: String
-  name: String
-}
-
-input KeywordUpdateManyWithoutIndicatorsInput {
+input KeywordUpdateManyInput {
   connect: [KeywordWhereUniqueInput!]
-  create: [KeywordCreateWithoutIndicatorsInput!]
+  create: [KeywordCreateInput!]
   delete: [KeywordWhereUniqueInput!]
   deleteMany: [KeywordScalarWhereInput!]
   disconnect: [KeywordWhereUniqueInput!]
   set: [KeywordWhereUniqueInput!]
-  update: [KeywordUpdateWithWhereUniqueWithoutIndicatorsInput!]
+  update: [KeywordUpdateWithWhereUniqueNestedInput!]
   updateMany: [KeywordUpdateManyWithWhereNestedInput!]
-  upsert: [KeywordUpsertWithWhereUniqueWithoutIndicatorsInput!]
+  upsert: [KeywordUpsertWithWhereUniqueNestedInput!]
+}
+
+input KeywordUpdateManyMutationInput {
+  description: String
+  name: String
 }
 
 input KeywordUpdateManyWithWhereNestedInput {
@@ -1114,24 +1204,27 @@ input KeywordUpdateManyWithWhereNestedInput {
   where: KeywordScalarWhereInput!
 }
 
-input KeywordUpdateWithoutIndicatorsDataInput {
-  description: String
-  name: String
-}
-
-input KeywordUpdateWithWhereUniqueWithoutIndicatorsInput {
-  data: KeywordUpdateWithoutIndicatorsDataInput!
+input KeywordUpdateWithWhereUniqueNestedInput {
+  data: KeywordUpdateDataInput!
   where: KeywordWhereUniqueInput!
 }
 
-input KeywordUpsertWithWhereUniqueWithoutIndicatorsInput {
-  create: KeywordCreateWithoutIndicatorsInput!
-  update: KeywordUpdateWithoutIndicatorsDataInput!
+input KeywordUpsertWithWhereUniqueNestedInput {
+  create: KeywordCreateInput!
+  update: KeywordUpdateDataInput!
   where: KeywordWhereUniqueInput!
 }
 
 input KeywordWhereInput {
   AND: [KeywordWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   description: String
   description_contains: String
   description_ends_with: String
@@ -1160,9 +1253,6 @@ input KeywordWhereInput {
   id_not_in: [ID!]
   id_not_starts_with: ID
   id_starts_with: ID
-  indicators_every: IndicatorWhereInput
-  indicators_none: IndicatorWhereInput
-  indicators_some: IndicatorWhereInput
   name: String
   name_contains: String
   name_ends_with: String
@@ -1179,10 +1269,19 @@ input KeywordWhereInput {
   name_starts_with: String
   NOT: [KeywordWhereInput!]
   OR: [KeywordWhereInput!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 input KeywordWhereUniqueInput {
   id: ID
+  name: String
 }
 
 scalar Long
@@ -1272,10 +1371,12 @@ type Query {
 }
 
 type Scenario {
+  createdAt: DateTime!
   description: String
   id: ID!
   indicators(after: String, before: String, first: Int, last: Int, orderBy: IndicatorOrderByInput, skip: Int, where: IndicatorWhereInput): [Indicator!]
   name: String
+  updatedAt: DateTime!
 }
 
 type ScenarioConnection {
@@ -1286,6 +1387,7 @@ type ScenarioConnection {
 
 input ScenarioCreateInput {
   description: String
+  id: ID
   indicators: IndicatorCreateManyWithoutScenariosInput
   name: String
 }
@@ -1297,6 +1399,7 @@ input ScenarioCreateManyWithoutIndicatorsInput {
 
 input ScenarioCreateWithoutIndicatorsInput {
   description: String
+  id: ID
   name: String
 }
 
@@ -1320,6 +1423,14 @@ enum ScenarioOrderByInput {
 
 input ScenarioScalarWhereInput {
   AND: [ScenarioScalarWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   description: String
   description_contains: String
   description_ends_with: String
@@ -1364,6 +1475,14 @@ input ScenarioScalarWhereInput {
   name_starts_with: String
   NOT: [ScenarioScalarWhereInput!]
   OR: [ScenarioScalarWhereInput!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 input ScenarioUpdateInput {
@@ -1417,6 +1536,14 @@ input ScenarioUpsertWithWhereUniqueWithoutIndicatorsInput {
 
 input ScenarioWhereInput {
   AND: [ScenarioWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   description: String
   description_contains: String
   description_ends_with: String
@@ -1464,16 +1591,27 @@ input ScenarioWhereInput {
   name_starts_with: String
   NOT: [ScenarioWhereInput!]
   OR: [ScenarioWhereInput!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 input ScenarioWhereUniqueInput {
   id: ID
+  name: String
 }
 
 type Strength {
+  createdAt: DateTime!
   id: ID!
   meaning: String
   strength: Int
+  updatedAt: DateTime!
 }
 
 type StrengthConnection {
@@ -1483,6 +1621,7 @@ type StrengthConnection {
 }
 
 input StrengthCreateInput {
+  id: ID
   meaning: String
   strength: Int
 }
@@ -1539,6 +1678,14 @@ input StrengthUpsertNestedInput {
 
 input StrengthWhereInput {
   AND: [StrengthWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -1577,6 +1724,14 @@ input StrengthWhereInput {
   strength_lte: Int
   strength_not: Int
   strength_not_in: [Int!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 input StrengthWhereUniqueInput {
@@ -1584,8 +1739,10 @@ input StrengthWhereUniqueInput {
 }
 
 type User {
+  createdAt: DateTime!
   id: ID!
   name: String!
+  updatedAt: DateTime!
 }
 
 type UserConnection {
@@ -1595,6 +1752,7 @@ type UserConnection {
 }
 
 input UserCreateInput {
+  id: ID
   name: String!
 }
 
@@ -1624,6 +1782,14 @@ input UserUpdateManyMutationInput {
 
 input UserWhereInput {
   AND: [UserWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   id: ID
   id_contains: ID
   id_ends_with: ID
@@ -1654,6 +1820,14 @@ input UserWhereInput {
   name_starts_with: String
   NOT: [UserWhereInput!]
   OR: [UserWhereInput!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
 }
 
 input UserWhereUniqueInput {

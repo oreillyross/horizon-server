@@ -13,6 +13,7 @@ declare global {
 export interface NexusGenInputs {
   CategoryCreateInput: { // input type
     events?: NexusGenInputs['EventCreateManyWithoutCategoriesInput'] | null; // EventCreateManyWithoutCategoriesInput
+    id?: string | null; // ID
     name: string; // String!
   }
   CategoryCreateManyWithoutEventsInput: { // input type
@@ -20,10 +21,19 @@ export interface NexusGenInputs {
     create?: NexusGenInputs['CategoryCreateWithoutEventsInput'][] | null; // [CategoryCreateWithoutEventsInput!]
   }
   CategoryCreateWithoutEventsInput: { // input type
+    id?: string | null; // ID
     name: string; // String!
   }
   CategoryScalarWhereInput: { // input type
     AND?: NexusGenInputs['CategoryScalarWhereInput'][] | null; // [CategoryScalarWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -54,6 +64,14 @@ export interface NexusGenInputs {
     name_starts_with?: string | null; // String
     NOT?: NexusGenInputs['CategoryScalarWhereInput'][] | null; // [CategoryScalarWhereInput!]
     OR?: NexusGenInputs['CategoryScalarWhereInput'][] | null; // [CategoryScalarWhereInput!]
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   CategoryUpdateInput: { // input type
     events?: NexusGenInputs['EventUpdateManyWithoutCategoriesInput'] | null; // EventUpdateManyWithoutCategoriesInput
@@ -94,6 +112,14 @@ export interface NexusGenInputs {
   }
   CategoryWhereInput: { // input type
     AND?: NexusGenInputs['CategoryWhereInput'][] | null; // [CategoryWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     events_every?: NexusGenInputs['EventWhereInput'] | null; // EventWhereInput
     events_none?: NexusGenInputs['EventWhereInput'] | null; // EventWhereInput
     events_some?: NexusGenInputs['EventWhereInput'] | null; // EventWhereInput
@@ -127,15 +153,25 @@ export interface NexusGenInputs {
     name_starts_with?: string | null; // String
     NOT?: NexusGenInputs['CategoryWhereInput'][] | null; // [CategoryWhereInput!]
     OR?: NexusGenInputs['CategoryWhereInput'][] | null; // [CategoryWhereInput!]
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   CategoryWhereUniqueInput: { // input type
     id?: string | null; // ID
+    name?: string | null; // String
   }
   EventCreateInput: { // input type
     categories?: NexusGenInputs['CategoryCreateManyWithoutEventsInput'] | null; // CategoryCreateManyWithoutEventsInput
     date?: any | null; // DateTime
     description?: string | null; // String
     href?: string | null; // String
+    id?: string | null; // ID
     indications?: NexusGenInputs['IndicationCreateManyWithoutEventInput'] | null; // IndicationCreateManyWithoutEventInput
     read?: boolean | null; // Boolean
     source?: string | null; // String
@@ -153,6 +189,7 @@ export interface NexusGenInputs {
     date?: any | null; // DateTime
     description?: string | null; // String
     href?: string | null; // String
+    id?: string | null; // ID
     indications?: NexusGenInputs['IndicationCreateManyWithoutEventInput'] | null; // IndicationCreateManyWithoutEventInput
     read?: boolean | null; // Boolean
     source?: string | null; // String
@@ -163,12 +200,21 @@ export interface NexusGenInputs {
     date?: any | null; // DateTime
     description?: string | null; // String
     href?: string | null; // String
+    id?: string | null; // ID
     read?: boolean | null; // Boolean
     source?: string | null; // String
     title?: string | null; // String
   }
   EventScalarWhereInput: { // input type
     AND?: NexusGenInputs['EventScalarWhereInput'][] | null; // [EventScalarWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     date?: any | null; // DateTime
     date_gt?: any | null; // DateTime
     date_gte?: any | null; // DateTime
@@ -251,6 +297,14 @@ export interface NexusGenInputs {
     title_not_in?: string[] | null; // [String!]
     title_not_starts_with?: string | null; // String
     title_starts_with?: string | null; // String
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   EventUpdateInput: { // input type
     categories?: NexusGenInputs['CategoryUpdateManyWithoutEventsInput'] | null; // CategoryUpdateManyWithoutEventsInput
@@ -335,6 +389,14 @@ export interface NexusGenInputs {
     categories_every?: NexusGenInputs['CategoryWhereInput'] | null; // CategoryWhereInput
     categories_none?: NexusGenInputs['CategoryWhereInput'] | null; // CategoryWhereInput
     categories_some?: NexusGenInputs['CategoryWhereInput'] | null; // CategoryWhereInput
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     date?: any | null; // DateTime
     date_gt?: any | null; // DateTime
     date_gte?: any | null; // DateTime
@@ -420,12 +482,22 @@ export interface NexusGenInputs {
     title_not_in?: string[] | null; // [String!]
     title_not_starts_with?: string | null; // String
     title_starts_with?: string | null; // String
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   EventWhereUniqueInput: { // input type
     id?: string | null; // ID
+    title?: string | null; // String
   }
   IndicationCreateInput: { // input type
     event: NexusGenInputs['EventCreateOneWithoutIndicationsInput']; // EventCreateOneWithoutIndicationsInput!
+    id?: string | null; // ID
     indicator: NexusGenInputs['IndicatorCreateOneInput']; // IndicatorCreateOneInput!
     strength: NexusGenInputs['StrengthCreateOneInput']; // StrengthCreateOneInput!
   }
@@ -434,6 +506,7 @@ export interface NexusGenInputs {
     create?: NexusGenInputs['IndicationCreateWithoutEventInput'][] | null; // [IndicationCreateWithoutEventInput!]
   }
   IndicationCreateWithoutEventInput: { // input type
+    id?: string | null; // ID
     indicator: NexusGenInputs['IndicatorCreateOneInput']; // IndicatorCreateOneInput!
     strength: NexusGenInputs['StrengthCreateOneInput']; // StrengthCreateOneInput!
   }
@@ -543,13 +616,10 @@ export interface NexusGenInputs {
   }
   IndicatorCreateInput: { // input type
     description?: string | null; // String
-    keywords?: NexusGenInputs['KeywordCreateManyWithoutIndicatorsInput'] | null; // KeywordCreateManyWithoutIndicatorsInput
+    id?: string | null; // ID
+    keywords?: NexusGenInputs['KeywordCreateManyInput'] | null; // KeywordCreateManyInput
     name?: string | null; // String
     scenarios?: NexusGenInputs['ScenarioCreateManyWithoutIndicatorsInput'] | null; // ScenarioCreateManyWithoutIndicatorsInput
-  }
-  IndicatorCreateManyWithoutKeywordsInput: { // input type
-    connect?: NexusGenInputs['IndicatorWhereUniqueInput'][] | null; // [IndicatorWhereUniqueInput!]
-    create?: NexusGenInputs['IndicatorCreateWithoutKeywordsInput'][] | null; // [IndicatorCreateWithoutKeywordsInput!]
   }
   IndicatorCreateManyWithoutScenariosInput: { // input type
     connect?: NexusGenInputs['IndicatorWhereUniqueInput'][] | null; // [IndicatorWhereUniqueInput!]
@@ -559,18 +629,22 @@ export interface NexusGenInputs {
     connect?: NexusGenInputs['IndicatorWhereUniqueInput'] | null; // IndicatorWhereUniqueInput
     create?: NexusGenInputs['IndicatorCreateInput'] | null; // IndicatorCreateInput
   }
-  IndicatorCreateWithoutKeywordsInput: { // input type
-    description?: string | null; // String
-    name?: string | null; // String
-    scenarios?: NexusGenInputs['ScenarioCreateManyWithoutIndicatorsInput'] | null; // ScenarioCreateManyWithoutIndicatorsInput
-  }
   IndicatorCreateWithoutScenariosInput: { // input type
     description?: string | null; // String
-    keywords?: NexusGenInputs['KeywordCreateManyWithoutIndicatorsInput'] | null; // KeywordCreateManyWithoutIndicatorsInput
+    id?: string | null; // ID
+    keywords?: NexusGenInputs['KeywordCreateManyInput'] | null; // KeywordCreateManyInput
     name?: string | null; // String
   }
   IndicatorScalarWhereInput: { // input type
     AND?: NexusGenInputs['IndicatorScalarWhereInput'][] | null; // [IndicatorScalarWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     description?: string | null; // String
     description_contains?: string | null; // String
     description_ends_with?: string | null; // String
@@ -615,16 +689,24 @@ export interface NexusGenInputs {
     name_starts_with?: string | null; // String
     NOT?: NexusGenInputs['IndicatorScalarWhereInput'][] | null; // [IndicatorScalarWhereInput!]
     OR?: NexusGenInputs['IndicatorScalarWhereInput'][] | null; // [IndicatorScalarWhereInput!]
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   IndicatorUpdateDataInput: { // input type
     description?: string | null; // String
-    keywords?: NexusGenInputs['KeywordUpdateManyWithoutIndicatorsInput'] | null; // KeywordUpdateManyWithoutIndicatorsInput
+    keywords?: NexusGenInputs['KeywordUpdateManyInput'] | null; // KeywordUpdateManyInput
     name?: string | null; // String
     scenarios?: NexusGenInputs['ScenarioUpdateManyWithoutIndicatorsInput'] | null; // ScenarioUpdateManyWithoutIndicatorsInput
   }
   IndicatorUpdateInput: { // input type
     description?: string | null; // String
-    keywords?: NexusGenInputs['KeywordUpdateManyWithoutIndicatorsInput'] | null; // KeywordUpdateManyWithoutIndicatorsInput
+    keywords?: NexusGenInputs['KeywordUpdateManyInput'] | null; // KeywordUpdateManyInput
     name?: string | null; // String
     scenarios?: NexusGenInputs['ScenarioUpdateManyWithoutIndicatorsInput'] | null; // ScenarioUpdateManyWithoutIndicatorsInput
   }
@@ -639,17 +721,6 @@ export interface NexusGenInputs {
   IndicatorUpdateManyWithWhereNestedInput: { // input type
     data: NexusGenInputs['IndicatorUpdateManyDataInput']; // IndicatorUpdateManyDataInput!
     where: NexusGenInputs['IndicatorScalarWhereInput']; // IndicatorScalarWhereInput!
-  }
-  IndicatorUpdateManyWithoutKeywordsInput: { // input type
-    connect?: NexusGenInputs['IndicatorWhereUniqueInput'][] | null; // [IndicatorWhereUniqueInput!]
-    create?: NexusGenInputs['IndicatorCreateWithoutKeywordsInput'][] | null; // [IndicatorCreateWithoutKeywordsInput!]
-    delete?: NexusGenInputs['IndicatorWhereUniqueInput'][] | null; // [IndicatorWhereUniqueInput!]
-    deleteMany?: NexusGenInputs['IndicatorScalarWhereInput'][] | null; // [IndicatorScalarWhereInput!]
-    disconnect?: NexusGenInputs['IndicatorWhereUniqueInput'][] | null; // [IndicatorWhereUniqueInput!]
-    set?: NexusGenInputs['IndicatorWhereUniqueInput'][] | null; // [IndicatorWhereUniqueInput!]
-    update?: NexusGenInputs['IndicatorUpdateWithWhereUniqueWithoutKeywordsInput'][] | null; // [IndicatorUpdateWithWhereUniqueWithoutKeywordsInput!]
-    updateMany?: NexusGenInputs['IndicatorUpdateManyWithWhereNestedInput'][] | null; // [IndicatorUpdateManyWithWhereNestedInput!]
-    upsert?: NexusGenInputs['IndicatorUpsertWithWhereUniqueWithoutKeywordsInput'][] | null; // [IndicatorUpsertWithWhereUniqueWithoutKeywordsInput!]
   }
   IndicatorUpdateManyWithoutScenariosInput: { // input type
     connect?: NexusGenInputs['IndicatorWhereUniqueInput'][] | null; // [IndicatorWhereUniqueInput!]
@@ -668,32 +739,18 @@ export interface NexusGenInputs {
     update?: NexusGenInputs['IndicatorUpdateDataInput'] | null; // IndicatorUpdateDataInput
     upsert?: NexusGenInputs['IndicatorUpsertNestedInput'] | null; // IndicatorUpsertNestedInput
   }
-  IndicatorUpdateWithWhereUniqueWithoutKeywordsInput: { // input type
-    data: NexusGenInputs['IndicatorUpdateWithoutKeywordsDataInput']; // IndicatorUpdateWithoutKeywordsDataInput!
-    where: NexusGenInputs['IndicatorWhereUniqueInput']; // IndicatorWhereUniqueInput!
-  }
   IndicatorUpdateWithWhereUniqueWithoutScenariosInput: { // input type
     data: NexusGenInputs['IndicatorUpdateWithoutScenariosDataInput']; // IndicatorUpdateWithoutScenariosDataInput!
     where: NexusGenInputs['IndicatorWhereUniqueInput']; // IndicatorWhereUniqueInput!
   }
-  IndicatorUpdateWithoutKeywordsDataInput: { // input type
-    description?: string | null; // String
-    name?: string | null; // String
-    scenarios?: NexusGenInputs['ScenarioUpdateManyWithoutIndicatorsInput'] | null; // ScenarioUpdateManyWithoutIndicatorsInput
-  }
   IndicatorUpdateWithoutScenariosDataInput: { // input type
     description?: string | null; // String
-    keywords?: NexusGenInputs['KeywordUpdateManyWithoutIndicatorsInput'] | null; // KeywordUpdateManyWithoutIndicatorsInput
+    keywords?: NexusGenInputs['KeywordUpdateManyInput'] | null; // KeywordUpdateManyInput
     name?: string | null; // String
   }
   IndicatorUpsertNestedInput: { // input type
     create: NexusGenInputs['IndicatorCreateInput']; // IndicatorCreateInput!
     update: NexusGenInputs['IndicatorUpdateDataInput']; // IndicatorUpdateDataInput!
-  }
-  IndicatorUpsertWithWhereUniqueWithoutKeywordsInput: { // input type
-    create: NexusGenInputs['IndicatorCreateWithoutKeywordsInput']; // IndicatorCreateWithoutKeywordsInput!
-    update: NexusGenInputs['IndicatorUpdateWithoutKeywordsDataInput']; // IndicatorUpdateWithoutKeywordsDataInput!
-    where: NexusGenInputs['IndicatorWhereUniqueInput']; // IndicatorWhereUniqueInput!
   }
   IndicatorUpsertWithWhereUniqueWithoutScenariosInput: { // input type
     create: NexusGenInputs['IndicatorCreateWithoutScenariosInput']; // IndicatorCreateWithoutScenariosInput!
@@ -702,6 +759,14 @@ export interface NexusGenInputs {
   }
   IndicatorWhereInput: { // input type
     AND?: NexusGenInputs['IndicatorWhereInput'][] | null; // [IndicatorWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     description?: string | null; // String
     description_contains?: string | null; // String
     description_ends_with?: string | null; // String
@@ -752,25 +817,38 @@ export interface NexusGenInputs {
     scenarios_every?: NexusGenInputs['ScenarioWhereInput'] | null; // ScenarioWhereInput
     scenarios_none?: NexusGenInputs['ScenarioWhereInput'] | null; // ScenarioWhereInput
     scenarios_some?: NexusGenInputs['ScenarioWhereInput'] | null; // ScenarioWhereInput
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   IndicatorWhereUniqueInput: { // input type
     id?: string | null; // ID
+    name?: string | null; // String
   }
   KeywordCreateInput: { // input type
     description?: string | null; // String
-    indicators?: NexusGenInputs['IndicatorCreateManyWithoutKeywordsInput'] | null; // IndicatorCreateManyWithoutKeywordsInput
+    id?: string | null; // ID
     name?: string | null; // String
   }
-  KeywordCreateManyWithoutIndicatorsInput: { // input type
+  KeywordCreateManyInput: { // input type
     connect?: NexusGenInputs['KeywordWhereUniqueInput'][] | null; // [KeywordWhereUniqueInput!]
-    create?: NexusGenInputs['KeywordCreateWithoutIndicatorsInput'][] | null; // [KeywordCreateWithoutIndicatorsInput!]
-  }
-  KeywordCreateWithoutIndicatorsInput: { // input type
-    description?: string | null; // String
-    name?: string | null; // String
+    create?: NexusGenInputs['KeywordCreateInput'][] | null; // [KeywordCreateInput!]
   }
   KeywordScalarWhereInput: { // input type
     AND?: NexusGenInputs['KeywordScalarWhereInput'][] | null; // [KeywordScalarWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     description?: string | null; // String
     description_contains?: string | null; // String
     description_ends_with?: string | null; // String
@@ -815,15 +893,37 @@ export interface NexusGenInputs {
     name_starts_with?: string | null; // String
     NOT?: NexusGenInputs['KeywordScalarWhereInput'][] | null; // [KeywordScalarWhereInput!]
     OR?: NexusGenInputs['KeywordScalarWhereInput'][] | null; // [KeywordScalarWhereInput!]
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
+  }
+  KeywordUpdateDataInput: { // input type
+    description?: string | null; // String
+    name?: string | null; // String
   }
   KeywordUpdateInput: { // input type
     description?: string | null; // String
-    indicators?: NexusGenInputs['IndicatorUpdateManyWithoutKeywordsInput'] | null; // IndicatorUpdateManyWithoutKeywordsInput
     name?: string | null; // String
   }
   KeywordUpdateManyDataInput: { // input type
     description?: string | null; // String
     name?: string | null; // String
+  }
+  KeywordUpdateManyInput: { // input type
+    connect?: NexusGenInputs['KeywordWhereUniqueInput'][] | null; // [KeywordWhereUniqueInput!]
+    create?: NexusGenInputs['KeywordCreateInput'][] | null; // [KeywordCreateInput!]
+    delete?: NexusGenInputs['KeywordWhereUniqueInput'][] | null; // [KeywordWhereUniqueInput!]
+    deleteMany?: NexusGenInputs['KeywordScalarWhereInput'][] | null; // [KeywordScalarWhereInput!]
+    disconnect?: NexusGenInputs['KeywordWhereUniqueInput'][] | null; // [KeywordWhereUniqueInput!]
+    set?: NexusGenInputs['KeywordWhereUniqueInput'][] | null; // [KeywordWhereUniqueInput!]
+    update?: NexusGenInputs['KeywordUpdateWithWhereUniqueNestedInput'][] | null; // [KeywordUpdateWithWhereUniqueNestedInput!]
+    updateMany?: NexusGenInputs['KeywordUpdateManyWithWhereNestedInput'][] | null; // [KeywordUpdateManyWithWhereNestedInput!]
+    upsert?: NexusGenInputs['KeywordUpsertWithWhereUniqueNestedInput'][] | null; // [KeywordUpsertWithWhereUniqueNestedInput!]
   }
   KeywordUpdateManyMutationInput: { // input type
     description?: string | null; // String
@@ -833,32 +933,25 @@ export interface NexusGenInputs {
     data: NexusGenInputs['KeywordUpdateManyDataInput']; // KeywordUpdateManyDataInput!
     where: NexusGenInputs['KeywordScalarWhereInput']; // KeywordScalarWhereInput!
   }
-  KeywordUpdateManyWithoutIndicatorsInput: { // input type
-    connect?: NexusGenInputs['KeywordWhereUniqueInput'][] | null; // [KeywordWhereUniqueInput!]
-    create?: NexusGenInputs['KeywordCreateWithoutIndicatorsInput'][] | null; // [KeywordCreateWithoutIndicatorsInput!]
-    delete?: NexusGenInputs['KeywordWhereUniqueInput'][] | null; // [KeywordWhereUniqueInput!]
-    deleteMany?: NexusGenInputs['KeywordScalarWhereInput'][] | null; // [KeywordScalarWhereInput!]
-    disconnect?: NexusGenInputs['KeywordWhereUniqueInput'][] | null; // [KeywordWhereUniqueInput!]
-    set?: NexusGenInputs['KeywordWhereUniqueInput'][] | null; // [KeywordWhereUniqueInput!]
-    update?: NexusGenInputs['KeywordUpdateWithWhereUniqueWithoutIndicatorsInput'][] | null; // [KeywordUpdateWithWhereUniqueWithoutIndicatorsInput!]
-    updateMany?: NexusGenInputs['KeywordUpdateManyWithWhereNestedInput'][] | null; // [KeywordUpdateManyWithWhereNestedInput!]
-    upsert?: NexusGenInputs['KeywordUpsertWithWhereUniqueWithoutIndicatorsInput'][] | null; // [KeywordUpsertWithWhereUniqueWithoutIndicatorsInput!]
-  }
-  KeywordUpdateWithWhereUniqueWithoutIndicatorsInput: { // input type
-    data: NexusGenInputs['KeywordUpdateWithoutIndicatorsDataInput']; // KeywordUpdateWithoutIndicatorsDataInput!
+  KeywordUpdateWithWhereUniqueNestedInput: { // input type
+    data: NexusGenInputs['KeywordUpdateDataInput']; // KeywordUpdateDataInput!
     where: NexusGenInputs['KeywordWhereUniqueInput']; // KeywordWhereUniqueInput!
   }
-  KeywordUpdateWithoutIndicatorsDataInput: { // input type
-    description?: string | null; // String
-    name?: string | null; // String
-  }
-  KeywordUpsertWithWhereUniqueWithoutIndicatorsInput: { // input type
-    create: NexusGenInputs['KeywordCreateWithoutIndicatorsInput']; // KeywordCreateWithoutIndicatorsInput!
-    update: NexusGenInputs['KeywordUpdateWithoutIndicatorsDataInput']; // KeywordUpdateWithoutIndicatorsDataInput!
+  KeywordUpsertWithWhereUniqueNestedInput: { // input type
+    create: NexusGenInputs['KeywordCreateInput']; // KeywordCreateInput!
+    update: NexusGenInputs['KeywordUpdateDataInput']; // KeywordUpdateDataInput!
     where: NexusGenInputs['KeywordWhereUniqueInput']; // KeywordWhereUniqueInput!
   }
   KeywordWhereInput: { // input type
     AND?: NexusGenInputs['KeywordWhereInput'][] | null; // [KeywordWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     description?: string | null; // String
     description_contains?: string | null; // String
     description_ends_with?: string | null; // String
@@ -887,9 +980,6 @@ export interface NexusGenInputs {
     id_not_in?: string[] | null; // [ID!]
     id_not_starts_with?: string | null; // ID
     id_starts_with?: string | null; // ID
-    indicators_every?: NexusGenInputs['IndicatorWhereInput'] | null; // IndicatorWhereInput
-    indicators_none?: NexusGenInputs['IndicatorWhereInput'] | null; // IndicatorWhereInput
-    indicators_some?: NexusGenInputs['IndicatorWhereInput'] | null; // IndicatorWhereInput
     name?: string | null; // String
     name_contains?: string | null; // String
     name_ends_with?: string | null; // String
@@ -906,12 +996,22 @@ export interface NexusGenInputs {
     name_starts_with?: string | null; // String
     NOT?: NexusGenInputs['KeywordWhereInput'][] | null; // [KeywordWhereInput!]
     OR?: NexusGenInputs['KeywordWhereInput'][] | null; // [KeywordWhereInput!]
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   KeywordWhereUniqueInput: { // input type
     id?: string | null; // ID
+    name?: string | null; // String
   }
   ScenarioCreateInput: { // input type
     description?: string | null; // String
+    id?: string | null; // ID
     indicators?: NexusGenInputs['IndicatorCreateManyWithoutScenariosInput'] | null; // IndicatorCreateManyWithoutScenariosInput
     name?: string | null; // String
   }
@@ -921,10 +1021,19 @@ export interface NexusGenInputs {
   }
   ScenarioCreateWithoutIndicatorsInput: { // input type
     description?: string | null; // String
+    id?: string | null; // ID
     name?: string | null; // String
   }
   ScenarioScalarWhereInput: { // input type
     AND?: NexusGenInputs['ScenarioScalarWhereInput'][] | null; // [ScenarioScalarWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     description?: string | null; // String
     description_contains?: string | null; // String
     description_ends_with?: string | null; // String
@@ -969,6 +1078,14 @@ export interface NexusGenInputs {
     name_starts_with?: string | null; // String
     NOT?: NexusGenInputs['ScenarioScalarWhereInput'][] | null; // [ScenarioScalarWhereInput!]
     OR?: NexusGenInputs['ScenarioScalarWhereInput'][] | null; // [ScenarioScalarWhereInput!]
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   ScenarioUpdateInput: { // input type
     description?: string | null; // String
@@ -1013,6 +1130,14 @@ export interface NexusGenInputs {
   }
   ScenarioWhereInput: { // input type
     AND?: NexusGenInputs['ScenarioWhereInput'][] | null; // [ScenarioWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     description?: string | null; // String
     description_contains?: string | null; // String
     description_ends_with?: string | null; // String
@@ -1060,11 +1185,21 @@ export interface NexusGenInputs {
     name_starts_with?: string | null; // String
     NOT?: NexusGenInputs['ScenarioWhereInput'][] | null; // [ScenarioWhereInput!]
     OR?: NexusGenInputs['ScenarioWhereInput'][] | null; // [ScenarioWhereInput!]
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   ScenarioWhereUniqueInput: { // input type
     id?: string | null; // ID
+    name?: string | null; // String
   }
   StrengthCreateInput: { // input type
+    id?: string | null; // ID
     meaning?: string | null; // String
     strength?: number | null; // Int
   }
@@ -1096,6 +1231,14 @@ export interface NexusGenInputs {
   }
   StrengthWhereInput: { // input type
     AND?: NexusGenInputs['StrengthWhereInput'][] | null; // [StrengthWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -1134,11 +1277,20 @@ export interface NexusGenInputs {
     strength_lte?: number | null; // Int
     strength_not?: number | null; // Int
     strength_not_in?: number[] | null; // [Int!]
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   StrengthWhereUniqueInput: { // input type
     id?: string | null; // ID
   }
   UserCreateInput: { // input type
+    id?: string | null; // ID
     name: string; // String!
   }
   UserUpdateInput: { // input type
@@ -1149,6 +1301,14 @@ export interface NexusGenInputs {
   }
   UserWhereInput: { // input type
     AND?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     id?: string | null; // ID
     id_contains?: string | null; // ID
     id_ends_with?: string | null; // ID
@@ -1179,6 +1339,14 @@ export interface NexusGenInputs {
     name_starts_with?: string | null; // String
     NOT?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
     OR?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
   }
   UserWhereUniqueInput: { // input type
     id?: string | null; // ID
@@ -1225,8 +1393,10 @@ export interface NexusGenRootTypes {
     count: any; // Long!
   }
   Category: { // root type
+    createdAt: any; // DateTime!
     id: string; // ID!
     name: string; // String!
+    updatedAt: any; // DateTime!
   }
   CategoryConnection: { // root type
     edges: NexusGenRootTypes['CategoryEdge'][]; // [CategoryEdge!]!
@@ -1237,6 +1407,7 @@ export interface NexusGenRootTypes {
     node: NexusGenRootTypes['Category']; // Category!
   }
   Event: { // root type
+    createdAt: any; // DateTime!
     date?: any | null; // DateTime
     description?: string | null; // String
     href?: string | null; // String
@@ -1244,6 +1415,7 @@ export interface NexusGenRootTypes {
     read?: boolean | null; // Boolean
     source?: string | null; // String
     title?: string | null; // String
+    updatedAt: any; // DateTime!
   }
   EventConnection: { // root type
     edges: NexusGenRootTypes['EventEdge'][]; // [EventEdge!]!
@@ -1267,9 +1439,11 @@ export interface NexusGenRootTypes {
     node: NexusGenRootTypes['Indication']; // Indication!
   }
   Indicator: { // root type
+    createdAt: any; // DateTime!
     description?: string | null; // String
     id: string; // ID!
     name?: string | null; // String
+    updatedAt: any; // DateTime!
   }
   IndicatorConnection: { // root type
     edges: NexusGenRootTypes['IndicatorEdge'][]; // [IndicatorEdge!]!
@@ -1280,9 +1454,11 @@ export interface NexusGenRootTypes {
     node: NexusGenRootTypes['Indicator']; // Indicator!
   }
   Keyword: { // root type
+    createdAt: any; // DateTime!
     description?: string | null; // String
     id: string; // ID!
     name?: string | null; // String
+    updatedAt: any; // DateTime!
   }
   KeywordConnection: { // root type
     edges: NexusGenRootTypes['KeywordEdge'][]; // [KeywordEdge!]!
@@ -1301,9 +1477,11 @@ export interface NexusGenRootTypes {
   }
   Query: {};
   Scenario: { // root type
+    createdAt: any; // DateTime!
     description?: string | null; // String
     id: string; // ID!
     name?: string | null; // String
+    updatedAt: any; // DateTime!
   }
   ScenarioConnection: { // root type
     edges: NexusGenRootTypes['ScenarioEdge'][]; // [ScenarioEdge!]!
@@ -1314,9 +1492,11 @@ export interface NexusGenRootTypes {
     node: NexusGenRootTypes['Scenario']; // Scenario!
   }
   Strength: { // root type
+    createdAt: any; // DateTime!
     id: string; // ID!
     meaning?: string | null; // String
     strength?: number | null; // Int
+    updatedAt: any; // DateTime!
   }
   StrengthConnection: { // root type
     edges: NexusGenRootTypes['StrengthEdge'][]; // [StrengthEdge!]!
@@ -1327,8 +1507,10 @@ export interface NexusGenRootTypes {
     node: NexusGenRootTypes['Strength']; // Strength!
   }
   User: { // root type
+    createdAt: any; // DateTime!
     id: string; // ID!
     name: string; // String!
+    updatedAt: any; // DateTime!
   }
   UserConnection: { // root type
     edges: NexusGenRootTypes['UserEdge'][]; // [UserEdge!]!
@@ -1393,10 +1575,8 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   IndicationWhereInput: NexusGenInputs['IndicationWhereInput'];
   IndicationWhereUniqueInput: NexusGenInputs['IndicationWhereUniqueInput'];
   IndicatorCreateInput: NexusGenInputs['IndicatorCreateInput'];
-  IndicatorCreateManyWithoutKeywordsInput: NexusGenInputs['IndicatorCreateManyWithoutKeywordsInput'];
   IndicatorCreateManyWithoutScenariosInput: NexusGenInputs['IndicatorCreateManyWithoutScenariosInput'];
   IndicatorCreateOneInput: NexusGenInputs['IndicatorCreateOneInput'];
-  IndicatorCreateWithoutKeywordsInput: NexusGenInputs['IndicatorCreateWithoutKeywordsInput'];
   IndicatorCreateWithoutScenariosInput: NexusGenInputs['IndicatorCreateWithoutScenariosInput'];
   IndicatorScalarWhereInput: NexusGenInputs['IndicatorScalarWhereInput'];
   IndicatorUpdateDataInput: NexusGenInputs['IndicatorUpdateDataInput'];
@@ -1404,30 +1584,25 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   IndicatorUpdateManyDataInput: NexusGenInputs['IndicatorUpdateManyDataInput'];
   IndicatorUpdateManyMutationInput: NexusGenInputs['IndicatorUpdateManyMutationInput'];
   IndicatorUpdateManyWithWhereNestedInput: NexusGenInputs['IndicatorUpdateManyWithWhereNestedInput'];
-  IndicatorUpdateManyWithoutKeywordsInput: NexusGenInputs['IndicatorUpdateManyWithoutKeywordsInput'];
   IndicatorUpdateManyWithoutScenariosInput: NexusGenInputs['IndicatorUpdateManyWithoutScenariosInput'];
   IndicatorUpdateOneRequiredInput: NexusGenInputs['IndicatorUpdateOneRequiredInput'];
-  IndicatorUpdateWithWhereUniqueWithoutKeywordsInput: NexusGenInputs['IndicatorUpdateWithWhereUniqueWithoutKeywordsInput'];
   IndicatorUpdateWithWhereUniqueWithoutScenariosInput: NexusGenInputs['IndicatorUpdateWithWhereUniqueWithoutScenariosInput'];
-  IndicatorUpdateWithoutKeywordsDataInput: NexusGenInputs['IndicatorUpdateWithoutKeywordsDataInput'];
   IndicatorUpdateWithoutScenariosDataInput: NexusGenInputs['IndicatorUpdateWithoutScenariosDataInput'];
   IndicatorUpsertNestedInput: NexusGenInputs['IndicatorUpsertNestedInput'];
-  IndicatorUpsertWithWhereUniqueWithoutKeywordsInput: NexusGenInputs['IndicatorUpsertWithWhereUniqueWithoutKeywordsInput'];
   IndicatorUpsertWithWhereUniqueWithoutScenariosInput: NexusGenInputs['IndicatorUpsertWithWhereUniqueWithoutScenariosInput'];
   IndicatorWhereInput: NexusGenInputs['IndicatorWhereInput'];
   IndicatorWhereUniqueInput: NexusGenInputs['IndicatorWhereUniqueInput'];
   KeywordCreateInput: NexusGenInputs['KeywordCreateInput'];
-  KeywordCreateManyWithoutIndicatorsInput: NexusGenInputs['KeywordCreateManyWithoutIndicatorsInput'];
-  KeywordCreateWithoutIndicatorsInput: NexusGenInputs['KeywordCreateWithoutIndicatorsInput'];
+  KeywordCreateManyInput: NexusGenInputs['KeywordCreateManyInput'];
   KeywordScalarWhereInput: NexusGenInputs['KeywordScalarWhereInput'];
+  KeywordUpdateDataInput: NexusGenInputs['KeywordUpdateDataInput'];
   KeywordUpdateInput: NexusGenInputs['KeywordUpdateInput'];
   KeywordUpdateManyDataInput: NexusGenInputs['KeywordUpdateManyDataInput'];
+  KeywordUpdateManyInput: NexusGenInputs['KeywordUpdateManyInput'];
   KeywordUpdateManyMutationInput: NexusGenInputs['KeywordUpdateManyMutationInput'];
   KeywordUpdateManyWithWhereNestedInput: NexusGenInputs['KeywordUpdateManyWithWhereNestedInput'];
-  KeywordUpdateManyWithoutIndicatorsInput: NexusGenInputs['KeywordUpdateManyWithoutIndicatorsInput'];
-  KeywordUpdateWithWhereUniqueWithoutIndicatorsInput: NexusGenInputs['KeywordUpdateWithWhereUniqueWithoutIndicatorsInput'];
-  KeywordUpdateWithoutIndicatorsDataInput: NexusGenInputs['KeywordUpdateWithoutIndicatorsDataInput'];
-  KeywordUpsertWithWhereUniqueWithoutIndicatorsInput: NexusGenInputs['KeywordUpsertWithWhereUniqueWithoutIndicatorsInput'];
+  KeywordUpdateWithWhereUniqueNestedInput: NexusGenInputs['KeywordUpdateWithWhereUniqueNestedInput'];
+  KeywordUpsertWithWhereUniqueNestedInput: NexusGenInputs['KeywordUpsertWithWhereUniqueNestedInput'];
   KeywordWhereInput: NexusGenInputs['KeywordWhereInput'];
   KeywordWhereUniqueInput: NexusGenInputs['KeywordWhereUniqueInput'];
   ScenarioCreateInput: NexusGenInputs['ScenarioCreateInput'];
@@ -1497,9 +1672,11 @@ export interface NexusGenFieldTypes {
     count: any; // Long!
   }
   Category: { // field return type
+    createdAt: any; // DateTime!
     events: NexusGenRootTypes['Event'][] | null; // [Event!]
     id: string; // ID!
     name: string; // String!
+    updatedAt: any; // DateTime!
   }
   CategoryConnection: { // field return type
     aggregate: NexusGenRootTypes['AggregateCategory']; // AggregateCategory!
@@ -1512,6 +1689,7 @@ export interface NexusGenFieldTypes {
   }
   Event: { // field return type
     categories: NexusGenRootTypes['Category'][] | null; // [Category!]
+    createdAt: any; // DateTime!
     date: any | null; // DateTime
     description: string | null; // String
     href: string | null; // String
@@ -1520,6 +1698,7 @@ export interface NexusGenFieldTypes {
     read: boolean | null; // Boolean
     source: string | null; // String
     title: string | null; // String
+    updatedAt: any; // DateTime!
   }
   EventConnection: { // field return type
     aggregate: NexusGenRootTypes['AggregateEvent']; // AggregateEvent!
@@ -1548,11 +1727,13 @@ export interface NexusGenFieldTypes {
     node: NexusGenRootTypes['Indication']; // Indication!
   }
   Indicator: { // field return type
+    createdAt: any; // DateTime!
     description: string | null; // String
     id: string; // ID!
     keywords: NexusGenRootTypes['Keyword'][] | null; // [Keyword!]
     name: string | null; // String
     scenarios: NexusGenRootTypes['Scenario'][] | null; // [Scenario!]
+    updatedAt: any; // DateTime!
   }
   IndicatorConnection: { // field return type
     aggregate: NexusGenRootTypes['AggregateIndicator']; // AggregateIndicator!
@@ -1564,10 +1745,11 @@ export interface NexusGenFieldTypes {
     node: NexusGenRootTypes['Indicator']; // Indicator!
   }
   Keyword: { // field return type
+    createdAt: any; // DateTime!
     description: string | null; // String
     id: string; // ID!
-    indicators: NexusGenRootTypes['Indicator'][] | null; // [Indicator!]
     name: string | null; // String
+    updatedAt: any; // DateTime!
   }
   KeywordConnection: { // field return type
     aggregate: NexusGenRootTypes['AggregateKeyword']; // AggregateKeyword!
@@ -1660,10 +1842,12 @@ export interface NexusGenFieldTypes {
     usersConnection: NexusGenRootTypes['UserConnection']; // UserConnection!
   }
   Scenario: { // field return type
+    createdAt: any; // DateTime!
     description: string | null; // String
     id: string; // ID!
     indicators: NexusGenRootTypes['Indicator'][] | null; // [Indicator!]
     name: string | null; // String
+    updatedAt: any; // DateTime!
   }
   ScenarioConnection: { // field return type
     aggregate: NexusGenRootTypes['AggregateScenario']; // AggregateScenario!
@@ -1675,9 +1859,11 @@ export interface NexusGenFieldTypes {
     node: NexusGenRootTypes['Scenario']; // Scenario!
   }
   Strength: { // field return type
+    createdAt: any; // DateTime!
     id: string; // ID!
     meaning: string | null; // String
     strength: number | null; // Int
+    updatedAt: any; // DateTime!
   }
   StrengthConnection: { // field return type
     aggregate: NexusGenRootTypes['AggregateStrength']; // AggregateStrength!
@@ -1689,8 +1875,10 @@ export interface NexusGenFieldTypes {
     node: NexusGenRootTypes['Strength']; // Strength!
   }
   User: { // field return type
+    createdAt: any; // DateTime!
     id: string; // ID!
     name: string; // String!
+    updatedAt: any; // DateTime!
   }
   UserConnection: { // field return type
     aggregate: NexusGenRootTypes['AggregateUser']; // AggregateUser!
@@ -1753,17 +1941,6 @@ export interface NexusGenArgTypes {
       orderBy?: NexusGenEnums['ScenarioOrderByInput'] | null; // ScenarioOrderByInput
       skip?: number | null; // Int
       where?: NexusGenInputs['ScenarioWhereInput'] | null; // ScenarioWhereInput
-    }
-  }
-  Keyword: {
-    indicators: { // args
-      after?: string | null; // String
-      before?: string | null; // String
-      first?: number | null; // Int
-      last?: number | null; // Int
-      orderBy?: NexusGenEnums['IndicatorOrderByInput'] | null; // IndicatorOrderByInput
-      skip?: number | null; // Int
-      where?: NexusGenInputs['IndicatorWhereInput'] | null; // IndicatorWhereInput
     }
   }
   Mutation: {
@@ -2130,7 +2307,7 @@ export interface NexusGenInheritedFields {}
 
 export type NexusGenObjectNames = "AggregateCategory" | "AggregateEvent" | "AggregateIndication" | "AggregateIndicator" | "AggregateKeyword" | "AggregateScenario" | "AggregateStrength" | "AggregateUser" | "BatchPayload" | "Category" | "CategoryConnection" | "CategoryEdge" | "Event" | "EventConnection" | "EventEdge" | "Indication" | "IndicationConnection" | "IndicationEdge" | "Indicator" | "IndicatorConnection" | "IndicatorEdge" | "Keyword" | "KeywordConnection" | "KeywordEdge" | "Mutation" | "PageInfo" | "Query" | "Scenario" | "ScenarioConnection" | "ScenarioEdge" | "Strength" | "StrengthConnection" | "StrengthEdge" | "User" | "UserConnection" | "UserEdge";
 
-export type NexusGenInputNames = "CategoryCreateInput" | "CategoryCreateManyWithoutEventsInput" | "CategoryCreateWithoutEventsInput" | "CategoryScalarWhereInput" | "CategoryUpdateInput" | "CategoryUpdateManyDataInput" | "CategoryUpdateManyMutationInput" | "CategoryUpdateManyWithWhereNestedInput" | "CategoryUpdateManyWithoutEventsInput" | "CategoryUpdateWithWhereUniqueWithoutEventsInput" | "CategoryUpdateWithoutEventsDataInput" | "CategoryUpsertWithWhereUniqueWithoutEventsInput" | "CategoryWhereInput" | "CategoryWhereUniqueInput" | "EventCreateInput" | "EventCreateManyWithoutCategoriesInput" | "EventCreateOneWithoutIndicationsInput" | "EventCreateWithoutCategoriesInput" | "EventCreateWithoutIndicationsInput" | "EventScalarWhereInput" | "EventUpdateInput" | "EventUpdateManyDataInput" | "EventUpdateManyMutationInput" | "EventUpdateManyWithWhereNestedInput" | "EventUpdateManyWithoutCategoriesInput" | "EventUpdateOneRequiredWithoutIndicationsInput" | "EventUpdateWithWhereUniqueWithoutCategoriesInput" | "EventUpdateWithoutCategoriesDataInput" | "EventUpdateWithoutIndicationsDataInput" | "EventUpsertWithWhereUniqueWithoutCategoriesInput" | "EventUpsertWithoutIndicationsInput" | "EventWhereInput" | "EventWhereUniqueInput" | "IndicationCreateInput" | "IndicationCreateManyWithoutEventInput" | "IndicationCreateWithoutEventInput" | "IndicationScalarWhereInput" | "IndicationUpdateInput" | "IndicationUpdateManyWithoutEventInput" | "IndicationUpdateWithWhereUniqueWithoutEventInput" | "IndicationUpdateWithoutEventDataInput" | "IndicationUpsertWithWhereUniqueWithoutEventInput" | "IndicationWhereInput" | "IndicationWhereUniqueInput" | "IndicatorCreateInput" | "IndicatorCreateManyWithoutKeywordsInput" | "IndicatorCreateManyWithoutScenariosInput" | "IndicatorCreateOneInput" | "IndicatorCreateWithoutKeywordsInput" | "IndicatorCreateWithoutScenariosInput" | "IndicatorScalarWhereInput" | "IndicatorUpdateDataInput" | "IndicatorUpdateInput" | "IndicatorUpdateManyDataInput" | "IndicatorUpdateManyMutationInput" | "IndicatorUpdateManyWithWhereNestedInput" | "IndicatorUpdateManyWithoutKeywordsInput" | "IndicatorUpdateManyWithoutScenariosInput" | "IndicatorUpdateOneRequiredInput" | "IndicatorUpdateWithWhereUniqueWithoutKeywordsInput" | "IndicatorUpdateWithWhereUniqueWithoutScenariosInput" | "IndicatorUpdateWithoutKeywordsDataInput" | "IndicatorUpdateWithoutScenariosDataInput" | "IndicatorUpsertNestedInput" | "IndicatorUpsertWithWhereUniqueWithoutKeywordsInput" | "IndicatorUpsertWithWhereUniqueWithoutScenariosInput" | "IndicatorWhereInput" | "IndicatorWhereUniqueInput" | "KeywordCreateInput" | "KeywordCreateManyWithoutIndicatorsInput" | "KeywordCreateWithoutIndicatorsInput" | "KeywordScalarWhereInput" | "KeywordUpdateInput" | "KeywordUpdateManyDataInput" | "KeywordUpdateManyMutationInput" | "KeywordUpdateManyWithWhereNestedInput" | "KeywordUpdateManyWithoutIndicatorsInput" | "KeywordUpdateWithWhereUniqueWithoutIndicatorsInput" | "KeywordUpdateWithoutIndicatorsDataInput" | "KeywordUpsertWithWhereUniqueWithoutIndicatorsInput" | "KeywordWhereInput" | "KeywordWhereUniqueInput" | "ScenarioCreateInput" | "ScenarioCreateManyWithoutIndicatorsInput" | "ScenarioCreateWithoutIndicatorsInput" | "ScenarioScalarWhereInput" | "ScenarioUpdateInput" | "ScenarioUpdateManyDataInput" | "ScenarioUpdateManyMutationInput" | "ScenarioUpdateManyWithWhereNestedInput" | "ScenarioUpdateManyWithoutIndicatorsInput" | "ScenarioUpdateWithWhereUniqueWithoutIndicatorsInput" | "ScenarioUpdateWithoutIndicatorsDataInput" | "ScenarioUpsertWithWhereUniqueWithoutIndicatorsInput" | "ScenarioWhereInput" | "ScenarioWhereUniqueInput" | "StrengthCreateInput" | "StrengthCreateOneInput" | "StrengthUpdateDataInput" | "StrengthUpdateInput" | "StrengthUpdateManyMutationInput" | "StrengthUpdateOneRequiredInput" | "StrengthUpsertNestedInput" | "StrengthWhereInput" | "StrengthWhereUniqueInput" | "UserCreateInput" | "UserUpdateInput" | "UserUpdateManyMutationInput" | "UserWhereInput" | "UserWhereUniqueInput";
+export type NexusGenInputNames = "CategoryCreateInput" | "CategoryCreateManyWithoutEventsInput" | "CategoryCreateWithoutEventsInput" | "CategoryScalarWhereInput" | "CategoryUpdateInput" | "CategoryUpdateManyDataInput" | "CategoryUpdateManyMutationInput" | "CategoryUpdateManyWithWhereNestedInput" | "CategoryUpdateManyWithoutEventsInput" | "CategoryUpdateWithWhereUniqueWithoutEventsInput" | "CategoryUpdateWithoutEventsDataInput" | "CategoryUpsertWithWhereUniqueWithoutEventsInput" | "CategoryWhereInput" | "CategoryWhereUniqueInput" | "EventCreateInput" | "EventCreateManyWithoutCategoriesInput" | "EventCreateOneWithoutIndicationsInput" | "EventCreateWithoutCategoriesInput" | "EventCreateWithoutIndicationsInput" | "EventScalarWhereInput" | "EventUpdateInput" | "EventUpdateManyDataInput" | "EventUpdateManyMutationInput" | "EventUpdateManyWithWhereNestedInput" | "EventUpdateManyWithoutCategoriesInput" | "EventUpdateOneRequiredWithoutIndicationsInput" | "EventUpdateWithWhereUniqueWithoutCategoriesInput" | "EventUpdateWithoutCategoriesDataInput" | "EventUpdateWithoutIndicationsDataInput" | "EventUpsertWithWhereUniqueWithoutCategoriesInput" | "EventUpsertWithoutIndicationsInput" | "EventWhereInput" | "EventWhereUniqueInput" | "IndicationCreateInput" | "IndicationCreateManyWithoutEventInput" | "IndicationCreateWithoutEventInput" | "IndicationScalarWhereInput" | "IndicationUpdateInput" | "IndicationUpdateManyWithoutEventInput" | "IndicationUpdateWithWhereUniqueWithoutEventInput" | "IndicationUpdateWithoutEventDataInput" | "IndicationUpsertWithWhereUniqueWithoutEventInput" | "IndicationWhereInput" | "IndicationWhereUniqueInput" | "IndicatorCreateInput" | "IndicatorCreateManyWithoutScenariosInput" | "IndicatorCreateOneInput" | "IndicatorCreateWithoutScenariosInput" | "IndicatorScalarWhereInput" | "IndicatorUpdateDataInput" | "IndicatorUpdateInput" | "IndicatorUpdateManyDataInput" | "IndicatorUpdateManyMutationInput" | "IndicatorUpdateManyWithWhereNestedInput" | "IndicatorUpdateManyWithoutScenariosInput" | "IndicatorUpdateOneRequiredInput" | "IndicatorUpdateWithWhereUniqueWithoutScenariosInput" | "IndicatorUpdateWithoutScenariosDataInput" | "IndicatorUpsertNestedInput" | "IndicatorUpsertWithWhereUniqueWithoutScenariosInput" | "IndicatorWhereInput" | "IndicatorWhereUniqueInput" | "KeywordCreateInput" | "KeywordCreateManyInput" | "KeywordScalarWhereInput" | "KeywordUpdateDataInput" | "KeywordUpdateInput" | "KeywordUpdateManyDataInput" | "KeywordUpdateManyInput" | "KeywordUpdateManyMutationInput" | "KeywordUpdateManyWithWhereNestedInput" | "KeywordUpdateWithWhereUniqueNestedInput" | "KeywordUpsertWithWhereUniqueNestedInput" | "KeywordWhereInput" | "KeywordWhereUniqueInput" | "ScenarioCreateInput" | "ScenarioCreateManyWithoutIndicatorsInput" | "ScenarioCreateWithoutIndicatorsInput" | "ScenarioScalarWhereInput" | "ScenarioUpdateInput" | "ScenarioUpdateManyDataInput" | "ScenarioUpdateManyMutationInput" | "ScenarioUpdateManyWithWhereNestedInput" | "ScenarioUpdateManyWithoutIndicatorsInput" | "ScenarioUpdateWithWhereUniqueWithoutIndicatorsInput" | "ScenarioUpdateWithoutIndicatorsDataInput" | "ScenarioUpsertWithWhereUniqueWithoutIndicatorsInput" | "ScenarioWhereInput" | "ScenarioWhereUniqueInput" | "StrengthCreateInput" | "StrengthCreateOneInput" | "StrengthUpdateDataInput" | "StrengthUpdateInput" | "StrengthUpdateManyMutationInput" | "StrengthUpdateOneRequiredInput" | "StrengthUpsertNestedInput" | "StrengthWhereInput" | "StrengthWhereUniqueInput" | "UserCreateInput" | "UserUpdateInput" | "UserUpdateManyMutationInput" | "UserWhereInput" | "UserWhereUniqueInput";
 
 export type NexusGenEnumNames = "CategoryOrderByInput" | "EventOrderByInput" | "IndicationOrderByInput" | "IndicatorOrderByInput" | "KeywordOrderByInput" | "ScenarioOrderByInput" | "StrengthOrderByInput" | "UserOrderByInput";
 
